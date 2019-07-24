@@ -52,6 +52,24 @@ public class documentTest extends TestBase {
 		
 	}
 	
+	@Test(priority = 3)
+	public void documentsActivivties() throws InterruptedException {
+		
+		logger = extent.createTest("document activities");
+		
+		documentsobjects.addActivities("this is a test");
+		
+	}
+	
+	@Test(priority = 4)
+	public void documentsDetailsOnScreen() throws InterruptedException {
+		
+		logger = extent.createTest("document details on th screen");
+		
+		documentsobjects.ChangeDetailsOnTheScreen("importent");
+		
+	}
+	
 	
 	
 	

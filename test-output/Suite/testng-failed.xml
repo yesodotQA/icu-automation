@@ -8,6 +8,9 @@
           <include name="SetUp"/>
           <include name="documentsMulitipleChoice"/>
           <include name="after"/>
+          <include name="openDoc"/>
+          <include name="documentsActivivties"/>
+          <include name="documentsDetailsOnScreen"/>
         </methods>
       </class> <!-- document.documentTest -->
     </classes>

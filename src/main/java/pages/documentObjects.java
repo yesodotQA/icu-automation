@@ -1,26 +1,20 @@
 package pages;
 
-import java.awt.Dimension;
-import java.awt.List;
 
-import org.openqa.selenium.By;
+
+import java.util.ArrayList;
+import java.util.List;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.By.ByXPath;
-import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
-import org.testng.annotations.BeforeClass;
 
 import com.aventstack.extentreports.Status;
-
 import base.TestBase;
 
 public class documentObjects extends TestBase {
 	
-	private static final String String = null;
-
 	// elements of opening an entity
 	@FindBy (xpath = "/html/body/section/section/div[2]/div[1]/nav/ul/li[5]/div/div[2]/span")
 	WebElement pressButtonDocument;
@@ -50,14 +44,10 @@ public class documentObjects extends TestBase {
 	
 	@FindBy (className = "action-button")
 	WebElement deleteMultipleChoice;
-	/*
-	@FindAll({
-		
-		@FindBy(css ="[data-ng-repeat='item in visibleItems']")
-	})
 	
-	public List<WebElement>  listOfEntities;
-	*/
+	@FindBy(css= "[ng-click='onClickRow($event, item)']")
+	public List <WebElement> webElements = new ArrayList<>(); ;
+	
 	// elements of add tags multiple choice
 	@FindBy (className = "tag")
 	WebElement TagsMultipleChoice;
@@ -97,7 +87,7 @@ public class documentObjects extends TestBase {
 	@FindBy(xpath = "//*[@id=\"modalBulk\"]/section/tooltip/tip-cont/div/div/div[1]/span")
 	WebElement selectAssignee;
 		
-	@FindBy(css ="[alt='yaron']")
+	@FindBy(xpath = "//*[@id=\"ui-select-choices-row-31-1\"]/span/div/div")
 	WebElement pressOnAssignee;
 	
 	@FindBy(className = "action-button")
@@ -125,7 +115,7 @@ public class documentObjects extends TestBase {
 	@FindBy(xpath = "/html/body/section/section/div[2]/div[2]/div[2]/div/div[2]/icu-members-footer/div/div[1]/div[2]/div/div[1]/div/img")
 	WebElement WatchersOnTheScreen;
 	
-	//elements of add watchers
+	//elements of add status
 	@FindBy(className = "status")
 	WebElement pressStatusMultipleChoice;
 	
@@ -147,19 +137,54 @@ public class documentObjects extends TestBase {
 	@FindBy(className = "waiting-approval")
 	WebElement statusOnTheScreen;
 	
-
+	//elements of activities
+	@FindBy(css = "[ng-blur='minimizeUpdate()']")
+	WebElement updateActivities;
+	
+	@FindBy(css = ".save.ng-binding")
+	WebElement addActivities;
+	
+	//elements of assignee on screen
+	@FindBy(xpath ="//*[@id=\"ui-select-choices-row-49-1\"]/span/span")
+	WebElement chooseAssigneeOnTheScreen;
+	
+	// elements of date on screen
+	@FindBy(xpath = "//*[@id=\"ui-datepicker-div\"]/table/tbody/tr[5]/td[4]")
+	WebElement chooseDateOnTheScreen;
+	
+	//elements of status on screen
+	@FindBy(css = "[list='statuses']")
+	WebElement changeStatusOnTheScreen;
+	
+	@FindBy(xpath = "//*[@id=\"ui-select-choices-row-50-4\"]/span/i")
+	WebElement chooseStatusOnTheScreen;
+	
+	//elements of delete on screen
+	@FindBy(className = "dropdown-trigger")
+	WebElement chooseThreeDotsOnScreen;
+	
+	@FindBy(css = "[ng-click='item.action()']")
+	WebElement chooseDelete;
+	
+	@FindBy(className ="detail-favorite" )
+	WebElement chooseFavorite;
+	
+	@FindBy(css =".sortByStar .favorites")
+	WebElement chooseSortByFavorite;
+	
+	
 	// function for wait
 	private void waitForVisibility (WebElement element)  {
 		
 		wait.until(ExpectedConditions.visibilityOf(element));
 		
 	}
-		
+	/*	
 	public documentObjects() {
 		
 	 	PageFactory.initElements(driver, this);
 	}
-	
+	*/
 	
 	// a function that press on document tab
 	public void pressDocument() throws InterruptedException {
@@ -169,6 +194,8 @@ public class documentObjects extends TestBase {
 		pressButtonDocument.click();
 		
 		Thread.sleep(3000);
+		
+		
 	}
 	
 	// a function that opens a new entity and adds a title and description
@@ -200,6 +227,9 @@ public class documentObjects extends TestBase {
 	// a function that delete entity using multiple select
 	public void deleteEntityMultipleChoice() throws InterruptedException {
 		
+		int size = webElements.size();
+		
+		
 		waitForVisibility(pressMultipleChoice);
 		
 		pressMultipleChoice.click();
@@ -217,8 +247,21 @@ public class documentObjects extends TestBase {
 	
 		Thread.sleep(2000);
 		
+		int newSize = webElements.size();
 		
-		logger.log(Status.PASS , "delete document using mulitiple choice");
+	
+		if (size - 1 == newSize) {
+			
+		
+			logger.log(Status.PASS , "delete document using mulitiple choice");
+			
+		}
+		
+		else {
+			
+			logger.log(Status.FAIL , "delete document using mulitiple choice");
+		}
+		
 			
 		}
 	
@@ -354,6 +397,7 @@ public class documentObjects extends TestBase {
 		
 		selectAssignee.click();
 		
+		Thread.sleep(2000);
 		
 		waitForVisibility(pressOnAssignee);
 		
@@ -451,6 +495,7 @@ public class documentObjects extends TestBase {
 		pressStatusMultipleChoice.click();
 		
 		
+		Thread.sleep(2000);
 		waitForVisibility(selectStatus);
 		
 		selectStatus.click();
@@ -471,6 +516,7 @@ public class documentObjects extends TestBase {
 		waitForVisibility(sortByStatus);
 		
 		sortByStatus.click();
+		
 		
 		Thread.sleep(2000);
 		waitForVisibility(sortByStatus);
@@ -501,11 +547,112 @@ public class documentObjects extends TestBase {
 		
 	}
 	
-	 
+	// a function that checks whether the activity is updated
+	public void addActivities(String upd) throws InterruptedException {
+		
+		waitForVisibility(updateActivities);
+
+		updateActivities.sendKeys(upd);
+		
+		
+		waitForVisibility(addActivities);
+		
+		addActivities.click();
+		
+		logger.log(Status.PASS , "add update to activities");
+		
+	}
+	
+	public void ChangeDetailsOnTheScreen(String tag)throws InterruptedException {
+		
+		waitForVisibility(assigneeOnTheScreen);
+			
+		assigneeOnTheScreen.click();
+			
+			
+		waitForVisibility(chooseAssigneeOnTheScreen);
+			
+		chooseAssigneeOnTheScreen.click();
+			
+		logger.log(Status.PASS , "add assignee to entity");
+			
+			
+		waitForVisibility(dateOnTheScreen);
+				
+		dateOnTheScreen.click();
+				
+		
+		waitForVisibility(chooseDateOnTheScreen);
+				
+		chooseDateOnTheScreen.click();
+				
+		logger.log(Status.PASS , "add date to entity");
+		
+		
+		waitForVisibility(changeStatusOnTheScreen);
+		
+		changeStatusOnTheScreen.click();
+		
+		
+		Thread.sleep(2000);
+		waitForVisibility(chooseStatusOnTheScreen);
+	
+		chooseStatusOnTheScreen.click();
+		
+		logger.log(Status.PASS , "add status to entity");
+		
+		
+		waitForVisibility(chooseThreeDotsOnScreen);
+		
+		chooseThreeDotsOnScreen.click();
+		
+		
+		Thread.sleep(2000);
+		waitForVisibility(chooseDelete);
+		
+		chooseDelete.click();
+		
+		logger.log(Status.PASS , " delete the entity");
+		
+		
+		waitForVisibility(pressOnEntity);
+		
+		pressOnEntity.click();
+		
+		
+		waitForVisibility(chooseFavorite);
+		
+		chooseFavorite.click();
+		
+		
+		 Thread.sleep(2000);
+		 waitForVisibility(chooseSortByFavorite);
+		
+		 chooseSortByFavorite.click();
+		
+		 Thread.sleep(2000);
+		 
+		 logger.log(Status.PASS , " sort By Favorite");
+		 
+		 
+		/*
+		waitForVisibility(tagsOnTheScreen);
+		
+		tagsOnTheScreen.click();
+		
+		tagsOnTheScreen.sendKeys(tag);
+	*/
+	}
+
+	
+	
+		
+	}
+	
 	
 		
 	
-}
+
 	
 
 	
