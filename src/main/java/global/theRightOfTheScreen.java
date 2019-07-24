@@ -2,8 +2,13 @@ package global;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
-public class theRightOfTheScreen {
+import com.aventstack.extentreports.model.Test;
+
+import base.TestBase;
+
+public class theRightOfTheScreen extends TestBase {
 
 	@FindBy(className ="detail-favorite" )
 	WebElement chooseFavorite;
@@ -47,4 +52,9 @@ public class theRightOfTheScreen {
 	@FindBy(xpath = "//*[@id=\"ui-select-choices-row-87-3\"]/span/span")
 	WebElement chooseWatchersOnscreen;
 	
+	 public theRightOfTheScreen  () {
+			
+		    PageFactory.initElements(driver, this);
+		    	
+		   }
 }
