@@ -374,7 +374,7 @@ public class documentsMultipleSelect  extends TestBase{
 			
 			Thread.sleep(3000);
 			
-			String nameOgStatus = multipleselect.listOfStatus.get(1).getText();
+			String nameOfStatus = multipleselect.listOfStatus.get(1).getText();
 		
 			multipleselect.listOfStatus.get(1).click();
 			
@@ -400,7 +400,7 @@ public class documentsMultipleSelect  extends TestBase{
 			
 			String nameOgStatusOnScreen = therightonthescreen.statusOnTheScreen.getText();
 			
-			if (nameOgStatusOnScreen.equals(nameOgStatus)) {
+			if (nameOgStatusOnScreen.equals(nameOfStatus)) {
 				
 				logger.log(Status.PASS , "add status using multiple select");
 			}
@@ -412,15 +412,7 @@ public class documentsMultipleSelect  extends TestBase{
 			
 			
 		}
-
-	
-
-
-
-	
-	
 		
-	
-	
+
 	
 }
