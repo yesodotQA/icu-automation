@@ -24,6 +24,8 @@ import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 	    public static ExtentTest logger;
 	    
 	   public static WebDriverWait wait;
+	   
+	   
     
 	public static void initialization()  {
 		
