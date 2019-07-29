@@ -7,105 +7,106 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+
 import base.TestBase;
 
 public class multipleSelect extends TestBase {
 	
 	@FindBy (xpath = "/html/body/section/section/div[2]/div[2]/div[1]/div/div/div/div[3]/div[2]/table/tbody/tr[1]/td[2]")
-	WebElement pressMultipleChoice;
+	public  WebElement pressMultipleChoice;
 	
 	@FindBy(css = ".multipleSelected .tick .ng-valid")
-	WebElement pressSecondMultipleChoice;
+	public	WebElement pressSecondMultipleChoice;
 	
 	// elements of delete multiple choice
 	@FindBy (className =  "delete")
-	WebElement pressDeleteMultipleChoice;
-	
+	public 	WebElement pressDeleteMultipleChoice;
+
 	@FindBy (className = "action-button")
-	WebElement deleteMultipleChoice;
-		
-	@FindBy(css ="[data-ng-repeat='item in visibleItems']")
-	public List<WebElement>  listOfEntities = new ArrayList<>();
+	public 	WebElement deleteMultipleChoice;
 	
 	// elements of add tags multiple choice
 	@FindBy (className = "tag")
-	WebElement TagsMultipleChoice;
+	public	WebElement TagsMultipleChoice;
 	
 	@FindBy (css = "[style='width: 501px;']")
-	WebElement selectTags;
+	public	WebElement selectTags;
 	
 	@FindBy(className = "ui-select-choices-row-inner")
-	WebElement clickOnNewTAg;
+	public	WebElement clickOnNewTAg;
 	
 	@FindBy (className = "action-button")
-	WebElement updateTags;
-	
-	@FindBy (xpath = "//*[@id=\"addTag\"]/span/span/span[2]/span")
-	WebElement tagsOnTheScreen;
+	public	WebElement updateTags;
 	
 	//elements of add date multiple select
 	@FindBy(className = "due")
-	WebElement pressOnDateMultipleSelect;
+	public	WebElement pressOnDateMultipleSelect;
 	
 	@FindBy(className = "hasDatepicker")
-	WebElement pressToChooseDate;
+	public	WebElement pressToChooseDate;
 	
-	@FindBy(xpath = "//*[@id=\"ui-datepicker-div\"]/table/tbody/tr[4]/td[7]/a")
-	WebElement chooseADate;
+	@FindBy(className = "ui-icon-circle-triangle-e")
+	public WebElement nextMonth;
 	
-	@FindBy (className = "action-button")
-	WebElement updateDate;
+	@FindBy(xpath = "//*[@id=\"ui-datepicker-div\"]/table/tbody/tr[5]/td[2]/a")
+	public	WebElement chooseADate;
 	
 	@FindBy(css = "[ui-date='dueOptions']")
-	WebElement dateOnTheScreen;
+	public WebElement getTextOfDate;
+	
+	@FindBy (className = "action-button")
+	public	WebElement updateDate;
 	
 	//elements of add assignee
 	@FindBy(className = "assign")
-	WebElement pressAssigneeMultipleChoice;
+	public	WebElement pressAssigneeMultipleChoice;
 	
-	@FindBy(xpath = "//*[@id=\"modalBulk\"]/section/tooltip/tip-cont/div/div/div[1]/span")
-	WebElement selectAssignee;
-		
-	@FindBy(css ="[alt='yaron']")
-	WebElement pressOnAssignee;
+	@FindBy(xpath = "//*[@id=\"modalBulk\"]/section/tooltip/tip-cont/div/div/div[1]/span/span[1]")
+	public	WebElement selectAssignee;
+	
+	@FindBy(className = "ui-select-choices-row-inner")
+	public List<WebElement>  listOfAssignees = new ArrayList<>();
+	
+	@FindBy(css = "#ui-select-choices-row-31-1 > span > span")
+	public WebElement assigneeName;
 	
 	@FindBy(className = "action-button")
-	WebElement updateAssignee;
-	
-	@FindBy(className = "summary-content")
-	WebElement assigneeOnTheScreen;
+	public	WebElement updateAssignee;
 	
 	//elements of add watchers
 	@FindBy(className = "watchers")
-	WebElement pressWatchersMultipleChoice;
+	public	WebElement pressWatchersMultipleChoice;
 
 	@FindBy(className =  "add")
-	WebElement addWatchers;
+	public	WebElement addWatchers;
 	
 	@FindBy(css = "[autofocus='autofocus']")
-	WebElement selectMembers;
+	public	WebElement selectMembers;
 	
 	@FindBy(xpath = "//*[@id=\"ui-select-choices-row-38-0\"]/span")
-	WebElement chooceWatchers;
+	public	WebElement chooceWatchers;
+	
+	@FindBy(css = "[user='member']")
+	public List<WebElement> listOfWatchersMultipleSelect = new ArrayList<>();
 	
 	@FindBy(className = "action-button")
-	WebElement updateWatchers;
-	
-	@FindBy(xpath = "/html/body/section/section/div[2]/div[2]/div[2]/div/div[2]/icu-members-footer/div/div[1]/div[2]/div/div[1]/div/img")
-	WebElement WatchersOnTheScreen;
+	public	WebElement updateWatchers;
 	
 	//elements of add watchers
 	@FindBy(className = "status")
-	WebElement pressStatusMultipleChoice;
+	public	WebElement pressStatusMultipleChoice;
 	
 	@FindBy(className = "text-muted")
-	WebElement selectStatus;
-	
-	@FindBy(xpath = "//*[@id=\"ui-select-choices-row-44-4\"]")
-	WebElement chooceStatus;
+	public	WebElement selectStatus;
+
+	@FindBy(css ="[ng-if='$select.open']")
+	public List<WebElement> listOfStatus = new ArrayList<>();
 	
 	@FindBy(className = "action-button")
-	WebElement updateStatus;
+	public	WebElement updateStatus;
+	
+	
+
 	
 	public multipleSelect () {
 		

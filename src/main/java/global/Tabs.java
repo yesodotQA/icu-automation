@@ -9,22 +9,22 @@ import base.TestBase;
 public class Tabs extends TestBase {
 
 	@FindBy(xpath = "/html/body/section/section/div[2]/div[1]/nav/ul/li[1]/div")
-	WebElement searchTab;
+	public	WebElement searchTab;
 	
 	@FindBy(xpath = "/html/body/section/section/div[2]/div[1]/nav/ul/li[2]/div")
-	WebElement tasksTab;
+	public WebElement tasksTab;
 
 	@FindBy(xpath = "/html/body/section/section/div[2]/div[1]/nav/ul/li[3]/div")
-	WebElement projectsTab;
+	public WebElement projectsTab;
 	
 	@FindBy(xpath = "/html/body/section/section/div[2]/div[1]/nav/ul/li[4]/div")
-	WebElement meetingsTab;
+	public WebElement meetingsTab;
 	
     @FindBy(xpath = "/html/body/section/section/div[2]/div[1]/nav/ul/li[5]/div/div[2]/span")
-	WebElement documentTabs;
+    public WebElement documentTabs;
     
     @FindBy(xpath = "/html/body/section/section/div[2]/div[1]/nav/ul/li[6]/div")
-    WebElement settingsTab;
+    public  WebElement settingsTab;
 	
      
     public Tabs() {

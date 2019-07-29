@@ -1,5 +1,8 @@
 package global;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -9,40 +12,46 @@ import base.TestBase;
 public class middlePane extends TestBase {
 
 	@FindBy(css = "[ng-model='newItem']")
-	WebElement pressCreateNewItem;
+	public WebElement pressCreateNewItem;
 	
 	@FindBy(className = "item-title")
-	WebElement enterTitle;
+	public WebElement enterTitle;
 	
 	@FindBy(css = "[ng-model='item.description']")
-	WebElement description;
+	public WebElement description;
+	
+	@FindBy(xpath = "/html/body/section/section/div[2]/div[2]/div[1]/div/div/div/div[3]/div[2]/table/tbody/tr[1]/td[3]")
+	public	WebElement pressOnEntity;
+	
+	@FindBy(css ="[ng-include='unifiedRowTpl']")
+	public List<WebElement>  listOfEntities = new ArrayList<>();
 	
 	@FindBy(css = ".sortByStar .favorites")
-	WebElement pressOnSortByStar;
+	public	WebElement pressOnSortByStar;
 	
 	@FindBy(className = "active-status")
-	WebElement sortByStatus;
+	public WebElement sortByStatus;
 	
 	@FindBy(xpath ="//*[@id=\"ui-select-choices-row-45-2\"]")
-	WebElement chooceToSortByAll;
+	public	WebElement chooceToSortByAll;
 	
 	@FindBy(xpath =  "//*[@id=\"ui-select-choices-row-51-1\"]/span")
-	WebElement chooceToSortByArchived;
+	public	WebElement chooceToSortByArchived;
 	
 	@FindBy(className = "button-left-part")
-	WebElement prssarrow;
+	public	WebElement prssarrow;
 	
 	@FindBy(className =  "button-right-part")
-	WebElement pressOnSortButton;
+	public	WebElement pressOnSortButton;
 	
 	@FindBy(xpath = "//*[@id=\"ui-select-choices-row-52-0\"]/span/span")
-	WebElement pressSortByTitle;
+	public WebElement pressSortByTitle;
 	
 	@FindBy(xpath = "//*[@id=\"ui-select-choices-row-52-1\"]/span/span")
-	WebElement pressOnStatus;
+	public	WebElement pressOnStatus;
 	
 	@FindBy(xpath = "//*[@id=\"ui-select-choices-row-52-3\"]/span/span")
-	WebElement pressOnUnread;
+	public	WebElement pressOnUnread;
 	
 	
 	 public middlePane () {

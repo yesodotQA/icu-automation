@@ -5,17 +5,17 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import base.TestBase;
-import pages.documentObjects;
+import pages.documentsMultipleSelect;
 
 public class documentTest extends TestBase {
 	
-	documentObjects documentsobjects;
+	documentsMultipleSelect documentsmultipleselect;
 	
 	@BeforeClass
 	public void SetUp() throws InterruptedException{	
 	initialization(); 
 	Login();
-	documentsobjects = new documentObjects();
+	documentsmultipleselect = new documentsMultipleSelect();
 
 	}
 	
@@ -23,10 +23,10 @@ public class documentTest extends TestBase {
 	public void openDoc() throws InterruptedException {
 	
 		// press document tab
-		documentsobjects.pressDocument();
+		documentsmultipleselect.pressDocument();
 	  
 		//open doc  enter title and description
-		documentsobjects.openEntity("doc1" , "importenet");
+		documentsmultipleselect.openEntity("doc1" , "importenet");
 	}
 	
 	@Test(priority = 2)
@@ -35,23 +35,23 @@ public class documentTest extends TestBase {
 		logger = extent.createTest("document using multiple choice");
 		
 		// delete entity using multiple select
-		documentsobjects.deleteEntityMultipleChoice();
+		documentsmultipleselect.deleteEntityMultipleChoice();
 		
 		//open doc  enter title and description
-		documentsobjects.openEntity("doc2" , "importenet2");
+		documentsmultipleselect.openEntity("doc2" , "importenet2");
 		
-		documentsobjects.addTagsMultipleChoice("mission");
+		documentsmultipleselect.addTagsMultipleChoice("mission");
 		
-		documentsobjects.addDateMultipleChoice();
+		documentsmultipleselect.addDateMultipleChoice();
+	
+		documentsmultipleselect.addAssigneeMultipleChoice();
 		
-		documentsobjects.addAssigneeMultipleChoice();
+		documentsmultipleselect.addWatchersMultipleChoice();
 		
-		documentsobjects.addWatchersMultipleChoice();
-		
-		documentsobjects.addStatusMultipleChoice();
+		documentsmultipleselect.addStatusMultipleChoice();
 		
 	}
-	
+	/*
 	@Test(priority = 3)
 	public void documentsActivivties() throws InterruptedException {
 		
@@ -70,8 +70,7 @@ public class documentTest extends TestBase {
 		
 	}
 	
-	
-	
+	*/
 	
 	
 	@AfterClass

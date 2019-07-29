@@ -1,56 +1,66 @@
 package global;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-
-import com.aventstack.extentreports.model.Test;
 
 import base.TestBase;
 
 public class theRightOfTheScreen extends TestBase {
 
 	@FindBy(className ="detail-favorite" )
-	WebElement chooseFavorite;
+	public	WebElement chooseFavorite;
 	
-	@FindBy(className = "summary-content")
-	WebElement assigneeOnTheScreen;
+	@FindBy(css = "[tooltip-template='Assignee']")
+	public	WebElement assigneeOnTheScreen;
 	
 	@FindBy(xpath ="//*[@id=\"ui-select-choices-row-49-1\"]/span/span")
-	WebElement chooseAssigneeOnTheScreen;
+	public	WebElement chooseAssigneeOnTheScreen;
 	
 	@FindBy(css = "[ui-date='dueOptions']")
-	WebElement dateOnTheScreen;
+	public	WebElement dateOnTheScreen;
 	
 	@FindBy(xpath = "//*[@id=\"ui-datepicker-div\"]/table/tbody/tr[5]/td[4]")
-	WebElement chooseDateOnTheScreen;
+	public	WebElement chooseDateOnTheScreen;
+	
+	@FindBy(className =  "in-progress")
+	public	WebElement statusOnTheScreen;
 	
 	@FindBy(css = "[list='statuses']")
-	WebElement changeStatusOnTheScreen;
+	public	WebElement changeStatusOnTheScreen;
 	
 	@FindBy(xpath = "//*[@id=\"ui-select-choices-row-50-4\"]/span/i")
-	WebElement chooseStatusOnTheScreen;
+	public	WebElement chooseStatusOnTheScreen;
 	
 	@FindBy(className = "dropdown-trigger")
-	WebElement chooseThreeDotsOnScreen;
+	public	WebElement chooseThreeDotsOnScreen;
 	
 	@FindBy(css = "[ng-click='item.action()']")
-	WebElement chooseDelete;
+	public	WebElement chooseDelete;
 	
+	@FindBy (xpath = "//*[@id=\"addTag\"]/span/span/span[2]/span")
+	public	WebElement tagsOnTheScreen;
+
 	@FindBy(css = "[ng-blur='minimizeUpdate()']")
-	WebElement updateActivities;
+	public	WebElement updateActivities;
 	
 	@FindBy(css = ".save.ng-binding")
-	WebElement addActivities;
+	public	WebElement addActivities;
 	
 	@FindBy(css ="[tooltip-template='Add watcher']")
-	WebElement pressOnAddWatcherOnTHeScreen;
+	public	WebElement pressOnAddWatcherOnTHeScreen;
 	
 	@FindBy(css = "[autofocus='autofocus']")
-	WebElement selectMembers;
+	public	WebElement selectMembers;
 	
 	@FindBy(xpath = "//*[@id=\"ui-select-choices-row-87-3\"]/span/span")
-	WebElement chooseWatchersOnscreen;
+	public	WebElement chooseWatchersOnscreen;
+	
+	@FindBy(className = "delete-wrapper")
+	public List<WebElement>  listOfWatchersOnScreen = new ArrayList<>();
 	
 	 public theRightOfTheScreen  () {
 			
