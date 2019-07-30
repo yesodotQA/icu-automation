@@ -1,25 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
+<testng-results ignored="0" total="3" passed="3" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2019-07-29T11:32:37Z" name="Suite" finished-at="2019-07-29T11:34:18Z" duration-ms="101159">
+  <suite started-at="2019-07-30T13:59:49Z" name="Suite" finished-at="2019-07-30T14:02:43Z" duration-ms="173736">
     <groups>
     </groups>
-    <test started-at="2019-07-29T11:32:37Z" name="Test" finished-at="2019-07-29T11:34:18Z" duration-ms="101159">
+    <test started-at="2019-07-30T13:59:49Z" name="Test" finished-at="2019-07-30T14:02:43Z" duration-ms="173736">
       <class name="document.documentTest">
-        <test-method is-config="true" signature="SetUp()[pri:0, instance:document.documentTest@574b560f]" started-at="2019-07-29T11:32:37Z" name="SetUp" finished-at="2019-07-29T11:33:15Z" duration-ms="38149" status="PASS">
+        <test-method is-config="true" signature="SetUp()[pri:0, instance:document.documentTest@ba54932]" started-at="2019-07-30T13:59:49Z" name="SetUp" finished-at="2019-07-30T14:00:46Z" duration-ms="56630" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- SetUp -->
-        <test-method signature="openDoc()[pri:1, instance:document.documentTest@574b560f]" started-at="2019-07-29T11:33:15Z" name="openDoc" finished-at="2019-07-29T11:33:21Z" duration-ms="5987" status="PASS">
+        <test-method signature="openDoc()[pri:1, instance:document.documentTest@ba54932]" started-at="2019-07-30T14:00:46Z" name="openDoc" finished-at="2019-07-30T14:00:55Z" duration-ms="9773" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- openDoc -->
-        <test-method signature="documentsMulitipleChoice()[pri:2, instance:document.documentTest@574b560f]" started-at="2019-07-29T11:33:21Z" name="documentsMulitipleChoice" finished-at="2019-07-29T11:34:17Z" duration-ms="56159" status="PASS">
+        <test-method signature="documentsMulitipleChoice()[pri:2, instance:document.documentTest@ba54932]" started-at="2019-07-30T14:00:55Z" name="documentsMulitipleChoice" finished-at="2019-07-30T14:01:55Z" duration-ms="59645" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- documentsMulitipleChoice -->
-        <test-method is-config="true" signature="after()[pri:0, instance:document.documentTest@574b560f]" started-at="2019-07-29T11:34:17Z" name="after" finished-at="2019-07-29T11:34:18Z" duration-ms="785" status="PASS">
+        <test-method signature="documentsMiddlePane()[pri:3, instance:document.documentTest@ba54932]" started-at="2019-07-30T14:01:55Z" name="documentsMiddlePane" finished-at="2019-07-30T14:02:41Z" duration-ms="45636" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- documentsMiddlePane -->
+        <test-method is-config="true" signature="after()[pri:0, instance:document.documentTest@ba54932]" started-at="2019-07-30T14:02:41Z" name="after" finished-at="2019-07-30T14:02:43Z" duration-ms="1950" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- after -->

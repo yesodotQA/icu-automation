@@ -26,14 +26,11 @@ public class theRightOfTheScreen extends TestBase {
 	@FindBy(xpath = "//*[@id=\"ui-datepicker-div\"]/table/tbody/tr[5]/td[4]")
 	public	WebElement chooseDateOnTheScreen;
 	
-	@FindBy(className =  "in-progress")
-	public	WebElement statusOnTheScreen;
-	
 	@FindBy(css = "[list='statuses']")
-	public	WebElement changeStatusOnTheScreen;
+	public	WebElement pressToChangeStatusOnTheScreen;
 	
-	@FindBy(xpath = "//*[@id=\"ui-select-choices-row-50-4\"]/span/i")
-	public	WebElement chooseStatusOnTheScreen;
+	@FindBy(css = "[ng-if='$select.open']")
+	public List<WebElement>  listOfStatusOnScreen = new ArrayList<>();
 	
 	@FindBy(className = "dropdown-trigger")
 	public	WebElement chooseThreeDotsOnScreen;

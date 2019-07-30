@@ -91,7 +91,7 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">2 methods,   2 passed</span>
+                    <span class="method-stats">3 methods,   3 passed</span>
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -100,6 +100,11 @@
                       <a href="#" panel-name="suite-Suite" class="show-methods passed suite-Suite"> (show)</a> <!-- show-methods passed suite-Suite -->
                     </span>
                     <div class="method-list-content passed suite-Suite">
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="document.documentTest" class="method navigator-link" hash-for-method="documentsMiddlePane">documentsMiddlePane</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
                       <span>
                         <img src="passed.png" width="3%"/>
                         <a href="#" panel-name="suite-Suite" title="document.documentTest" class="method navigator-link" hash-for-method="documentsMulitipleChoice">documentsMulitipleChoice</a> <!-- method navigator-link -->
@@ -128,6 +133,13 @@
               <span class="class-name">document.documentTest</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="documentsMiddlePane">
+                  </a> <!-- documentsMiddlePane -->
+                  <span class="method-name">documentsMiddlePane</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
               <div class="method">
                 <div class="method-content">
                   <a name="documentsMulitipleChoice">
@@ -196,15 +208,19 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(2);
+data.addRows(3);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'documentsMulitipleChoice')
 data.setCell(0, 2, 'document.documentTest')
-data.setCell(0, 3, 56159);
+data.setCell(0, 3, 59645);
 data.setCell(1, 0, 1)
-data.setCell(1, 1, 'openDoc')
+data.setCell(1, 1, 'documentsMiddlePane')
 data.setCell(1, 2, 'document.documentTest')
-data.setCell(1, 3, 5987);
+data.setCell(1, 3, 45636);
+data.setCell(2, 0, 2)
+data.setCell(2, 1, 'openDoc')
+data.setCell(2, 2, 'document.documentTest')
+data.setCell(2, 3, 9773);
 window.suiteTableData['Suite']= { tableData: data, tableDiv: 'times-div-Suite'}
 return data;
 }
@@ -242,15 +258,19 @@ return data;
               </div> <!-- configuration-class before -->
               <div class="test-method">
                 <span class="method-name">openDoc</span>
-                <span class="method-start">38213 ms</span>
+                <span class="method-start">56644 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">documentsMulitipleChoice</span>
-                <span class="method-start">44204 ms</span>
+                <span class="method-start">66485 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">documentsMiddlePane</span>
+                <span class="method-start">126132 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-class after">
                 <span class="method-name">after</span>
-                <span class="method-start">100364 ms</span>
+                <span class="method-start">171772 ms</span>
               </div> <!-- configuration-class after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

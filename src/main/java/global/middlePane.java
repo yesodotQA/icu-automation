@@ -27,19 +27,16 @@ public class middlePane extends TestBase {
 	public List<WebElement>  listOfEntities = new ArrayList<>();
 	
 	@FindBy(css = ".sortByStar .favorites")
-	public	WebElement pressOnSortByStar;
+	public	WebElement pressOnSortByfavorite;
 	
 	@FindBy(className = "active-status")
 	public WebElement sortByStatus;
 	
-	@FindBy(xpath ="//*[@id=\"ui-select-choices-row-45-2\"]")
-	public	WebElement chooceToSortByAll;
-	
-	@FindBy(xpath =  "//*[@id=\"ui-select-choices-row-51-1\"]/span")
-	public	WebElement chooceToSortByArchived;
+	@FindBy(css = "[ng-if='$select.open']")
+	public List<WebElement>  listOfStatusOfEntities = new ArrayList<>();
 	
 	@FindBy(className = "button-left-part")
-	public	WebElement prssarrow;
+	public	WebElement pressArrow;
 	
 	@FindBy(className =  "button-right-part")
 	public	WebElement pressOnSortButton;

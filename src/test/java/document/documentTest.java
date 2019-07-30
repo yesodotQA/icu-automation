@@ -6,17 +6,20 @@ import org.testng.annotations.Test;
 
 import base.TestBase;
 import pages.documentsMultipleSelect;
+import pages.documentsMiddlePane;;
 
 public class documentTest extends TestBase {
 	
 	documentsMultipleSelect documentsmultipleselect;
+	
+	documentsMiddlePane documentsmiddlepane;
 	
 	@BeforeClass
 	public void SetUp() throws InterruptedException{	
 	initialization(); 
 	Login();
 	documentsmultipleselect = new documentsMultipleSelect();
-
+	documentsmiddlepane = new documentsMiddlePane();
 	}
 	
 	@Test(priority = 1)
@@ -26,7 +29,7 @@ public class documentTest extends TestBase {
 		documentsmultipleselect.pressDocument();
 	  
 		//open doc  enter title and description
-		documentsmultipleselect.openEntity("doc1" , "importenet");
+		documentsmiddlepane.openEntity("doc1" , "importenet");
 	}
 	
 	@Test(priority = 2)
@@ -36,9 +39,6 @@ public class documentTest extends TestBase {
 		
 		// delete entity using multiple select
 		documentsmultipleselect.deleteEntityMultipleChoice();
-		
-		//open doc  enter title and description
-		documentsmultipleselect.openEntity("doc2" , "importenet2");
 		
 		documentsmultipleselect.addTagsMultipleChoice("mission");
 		
@@ -51,26 +51,21 @@ public class documentTest extends TestBase {
 		documentsmultipleselect.addStatusMultipleChoice();
 		
 	}
-	/*
+	
+	
 	@Test(priority = 3)
-	public void documentsActivivties() throws InterruptedException {
+	public void documentsMiddlePane() throws InterruptedException {
 		
-		logger = extent.createTest("document activities");
+		logger = extent.createTest("document mmiddle pane");
 		
-		documentsobjects.addActivities("this is a test");
 		
+		documentsmiddlepane.changeStatusOfList();
+		
+		documentsmiddlepane.sortByFavorite();
+		
+		documentsmiddlepane.pressOnArrow();
 	}
 	
-	@Test(priority = 4)
-	public void documentsDetailsOnScreen() throws InterruptedException {
-		
-		logger = extent.createTest("document details on th screen");
-		
-		documentsobjects.ChangeDetailsOnTheScreen("importent");
-		
-	}
-	
-	*/
 	
 	
 	@AfterClass

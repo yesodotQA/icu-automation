@@ -1,6 +1,7 @@
 package pages;
 
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
@@ -18,7 +19,10 @@ public class documentsMultipleSelect  extends TestBase{
 	middlePane middlepane;
 	multipleSelect multipleselect;
 	theRightOfTheScreen therightonthescreen;
+	documentsMiddlePane documentsmiddlepane;
 	
+	@FindBy(className =  "in-progress")
+	WebElement statusOnTheScreen;
 	
 	public documentsMultipleSelect(){
 		
@@ -26,7 +30,7 @@ public class documentsMultipleSelect  extends TestBase{
 		this.middlepane = new middlePane();
 		this.tabs = new Tabs();
 		this.therightonthescreen = new theRightOfTheScreen();
-		
+		this.documentsmiddlepane = new documentsMiddlePane();
 		PageFactory.initElements(driver, this);
 	 }
 
@@ -45,29 +49,6 @@ public class documentsMultipleSelect  extends TestBase{
 		Thread.sleep(3000);
 	}
 	
-	public void openEntity(String tit , String des) throws InterruptedException {
-		
-		waitForVisibility(middlepane.pressCreateNewItem);
-		
-		middlepane.pressCreateNewItem.click();
-		
-		
-		Thread.sleep(2000);
-		waitForVisibility(middlepane.enterTitle);
-		
-		middlepane.enterTitle.sendKeys(tit);
-		
-		
-		waitForVisibility(middlepane.description);
-		
-		middlepane.description.sendKeys(des);
-		
-		
-		waitForVisibility(middlepane.pressOnEntity);
-		
-		middlepane.pressOnEntity.click();
-		
-	}
 	
 	public void deleteEntityMultipleChoice() throws InterruptedException {
 		
@@ -110,7 +91,7 @@ public class documentsMultipleSelect  extends TestBase{
 		 }
 	public void addTagsMultipleChoice(String tags) throws InterruptedException {
 		 
-		Thread.sleep(2000);
+		documentsmiddlepane.openEntity("doc2", "importent");
 		
 		waitForVisibility(multipleselect.pressMultipleChoice);
 		
@@ -301,6 +282,7 @@ public class documentsMultipleSelect  extends TestBase{
 		
 		multipleselect.pressWatchersMultipleChoice.click();
 		
+		Thread.sleep(2000);
 		
 		waitForVisibility(multipleselect.addWatchers);
 		
@@ -317,6 +299,7 @@ public class documentsMultipleSelect  extends TestBase{
 		waitForVisibility(multipleselect.chooceWatchers);
 		
 		multipleselect.chooceWatchers.click();
+		
 		
 		int numberOfWatcherOnMultipleSelect = multipleselect.listOfWatchersMultipleSelect.size();
 		
@@ -398,9 +381,9 @@ public class documentsMultipleSelect  extends TestBase{
 			
 			Thread.sleep(2000);
 			
-			String nameOgStatusOnScreen = therightonthescreen.statusOnTheScreen.getText();
+			String nameOfStatusOnScreen = statusOnTheScreen.getText();
 			
-			if (nameOgStatusOnScreen.equals(nameOfStatus)) {
+			if (nameOfStatusOnScreen.equals(nameOfStatus)) {
 				
 				logger.log(Status.PASS , "add status using multiple select");
 			}

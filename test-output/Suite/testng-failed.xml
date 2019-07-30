@@ -6,8 +6,8 @@
       <class name="document.documentTest">
         <methods>
           <include name="SetUp"/>
-          <include name="documentsMulitipleChoice"/>
           <include name="after"/>
+          <include name="documentsMiddlePane"/>
         </methods>
       </class> <!-- document.documentTest -->
     </classes>
