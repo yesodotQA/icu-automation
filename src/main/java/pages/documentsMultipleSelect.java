@@ -39,7 +39,7 @@ public class documentsMultipleSelect  extends TestBase{
 		wait.until(ExpectedConditions.visibilityOf(element));
 		
 	}
-		
+	//a function that press on document 
 	public void pressDocument() throws InterruptedException {
 		
 		waitForVisibility(tabs.documentTabs);
@@ -49,7 +49,7 @@ public class documentsMultipleSelect  extends TestBase{
 		Thread.sleep(3000);
 	}
 	
-	
+	//a function that delete entity using multiple select 
 	public void deleteEntityMultipleChoice() throws InterruptedException {
 		
 		int size =middlepane.listOfEntities.size() ;
@@ -75,7 +75,7 @@ public class documentsMultipleSelect  extends TestBase{
 			
 			int newSize =middlepane.listOfEntities.size();
 			
-		
+		//check if the entity deleted
 			if (size - 1 == newSize) {
 				
 			
@@ -89,9 +89,10 @@ public class documentsMultipleSelect  extends TestBase{
 			}
 		
 		 }
+	//a function that adds tags using multiple select 
 	public void addTagsMultipleChoice(String tags) throws InterruptedException {
 		 
-		documentsmiddlepane.openEntity("doc2", "importent");
+		middlepane.openEntity("doc2", "importent");
 		
 		waitForVisibility(multipleselect.pressMultipleChoice);
 		
@@ -257,7 +258,7 @@ public class documentsMultipleSelect  extends TestBase{
 			
 			String nameOfAssigneeOnScreen= therightonthescreen.assigneeOnTheScreen.getText();
 			
-			
+			// checks if the assignee have been updated on the side of the screen
 			if (nameOfAssigneeOnScreen.equals(nameOfAssignee)) {
 				
 				logger.log(Status.PASS , "add assignee using multiple select");
@@ -324,6 +325,7 @@ public class documentsMultipleSelect  extends TestBase{
 		
 		int numberOfWatchersOnScreen = therightonthescreen.listOfWatchersOnScreen.size() ;
 
+		// checks if the watchers have been updated on the side of the screen
 		if (numberOfWatchersOnScreen == numberOfWatcherOnMultipleSelect) {
 			
 			logger.log(Status.PASS , "add watchers using multiple select");
@@ -383,6 +385,7 @@ public class documentsMultipleSelect  extends TestBase{
 			
 			String nameOfStatusOnScreen = statusOnTheScreen.getText();
 			
+			// checks if the status have been updated on the side of the screen
 			if (nameOfStatusOnScreen.equals(nameOfStatus)) {
 				
 				logger.log(Status.PASS , "add status using multiple select");

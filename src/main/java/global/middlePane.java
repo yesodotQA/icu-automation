@@ -6,6 +6,7 @@ import java.util.List;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import base.TestBase;
 
@@ -41,14 +42,8 @@ public class middlePane extends TestBase {
 	@FindBy(className =  "button-right-part")
 	public	WebElement pressOnSortButton;
 	
-	@FindBy(xpath = "//*[@id=\"ui-select-choices-row-52-0\"]/span/span")
-	public WebElement pressSortByTitle;
-	
-	@FindBy(xpath = "//*[@id=\"ui-select-choices-row-52-1\"]/span/span")
-	public	WebElement pressOnStatus;
-	
-	@FindBy(xpath = "//*[@id=\"ui-select-choices-row-52-3\"]/span/span")
-	public	WebElement pressOnUnread;
+	@FindBy(className = "ui-select-choices-row")
+	public List<WebElement>  listOfSorts = new ArrayList<>();
 	
 	
 	 public middlePane () {
@@ -56,7 +51,38 @@ public class middlePane extends TestBase {
 		    PageFactory.initElements(driver, this);
 		    	
 		   }
-
+	 
+	 private void waitForVisibility (WebElement element)  {
+			
+			wait.until(ExpectedConditions.visibilityOf(element));
+			
+	}
+	//a function that open new entity and give title and description
+	 public void openEntity(String tit , String des) throws InterruptedException {
+			
+			waitForVisibility(pressCreateNewItem);
+			
+			pressCreateNewItem.click();
+			
+			
+			Thread.sleep(2000);
+			waitForVisibility(enterTitle);
+			
+			enterTitle.sendKeys(tit);
+			
+			
+			waitForVisibility(description);
+			
+			description.sendKeys(des);
+			
+			
+			waitForVisibility(pressOnEntity);
+			
+			pressOnEntity.click();
+			
+			Thread.sleep(3000);
+			
+		}
 	
 	
 	
