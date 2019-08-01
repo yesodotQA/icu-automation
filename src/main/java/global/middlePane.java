@@ -66,15 +66,20 @@ public class middlePane extends TestBase {
 			
 			
 			Thread.sleep(2000);
+			
 			waitForVisibility(enterTitle);
 			
 			enterTitle.sendKeys(tit);
 			
 			
+			Thread.sleep(3000);
+			
 			waitForVisibility(description);
 			
 			description.sendKeys(des);
 			
+		
+			Thread.sleep(3000);
 			
 			waitForVisibility(pressOnEntity);
 			

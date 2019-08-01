@@ -24,6 +24,12 @@ public class documentsMultipleSelect  extends TestBase{
 	@FindBy(className =  "in-progress")
 	WebElement statusOnTheScreen;
 	
+	@FindBy(css = "[ui-date='dueOptions']")
+	 WebElement getTextOfDate;
+	
+	@FindBy (xpath = "//*[@id=\"addTag\"]/span/span/span[2]/span")
+	WebElement tagsOnTheScreen;
+	
 	public documentsMultipleSelect(){
 		
 		this.multipleselect = new multipleSelect();
@@ -54,7 +60,6 @@ public class documentsMultipleSelect  extends TestBase{
 		
 		int size =middlepane.listOfEntities.size() ;
 		
-			 Thread.sleep(2000);
 			 
 			 waitForVisibility(multipleselect.pressMultipleChoice);
 			
@@ -132,7 +137,7 @@ public class documentsMultipleSelect  extends TestBase{
 		
 		Thread.sleep(2000);
 		
-		String check =therightonthescreen.tagsOnTheScreen.getText();
+		String check =tagsOnTheScreen.getText();
 		
 		// checks if the tags have been updated on the side of the screen
 		if (check.equals("mission (New)")) {
@@ -175,7 +180,7 @@ public class documentsMultipleSelect  extends TestBase{
 		
 		multipleselect.chooseADate.click();
 		
-		String nameOfDate = multipleselect.getTextOfDate.getAttribute("value");
+		String nameOfDate = getTextOfDate.getAttribute("value");
 		
 		
 		Thread.sleep(2000);
@@ -323,7 +328,7 @@ public class documentsMultipleSelect  extends TestBase{
 		
 		Thread.sleep(2000);
 		
-		int numberOfWatchersOnScreen = therightonthescreen.listOfWatchersOnScreen.size() ;
+		int numberOfWatchersOnScreen = therightonthescreen.listOfWatchersIcons.size() ;
 
 		// checks if the watchers have been updated on the side of the screen
 		if (numberOfWatchersOnScreen == numberOfWatcherOnMultipleSelect) {

@@ -51,9 +51,6 @@ public class multipleSelect extends TestBase {
 	@FindBy(xpath = "//*[@id=\"ui-datepicker-div\"]/table/tbody/tr[5]/td[2]/a")
 	public	WebElement chooseADate;
 	
-	@FindBy(css = "[ui-date='dueOptions']")
-	public WebElement getTextOfDate;
-	
 	@FindBy (className = "action-button")
 	public	WebElement updateDate;
 	

@@ -178,15 +178,102 @@ public class documentsMiddlePane  extends TestBase {
 		Thread.sleep(3000);
 		
 	}
-	
+	// a function that press on sort by title 
+	public void sordByTitle() throws InterruptedException {
+			
+		middlepane.openEntity("this is test", "dassad");
+			
+	  	middlepane.openEntity("hello world", "dasdassad");
+			
+	  	middlepane.openEntity("abcd", "dasdassad");
+	  	
+	  	int count = 0;
+		
+		List<String> getStringList=listOfnamesOfEntities.stream().map(WebElement::getText).collect(Collectors.toList());
+
+		Collections.sort(getStringList);
+			
+		System.out.println(getStringList);
+	 
+
+		waitForVisibility(middlepane.pressArrow);
+		
+		middlepane.pressArrow.click();
+		
+		
+		Thread.sleep(2000);
+		
+		
+		waitForVisibility(middlepane.pressOnSortButton);
+			
+		middlepane.pressOnSortButton.click();
+			
+		Thread.sleep(1000);
+			
+		middlepane.listOfSorts.get(0).click();
+		
+		Thread.sleep(2000);
+			
+		// check if the list sorted
+		for (int i = 0; i < listOfnamesOfEntities.size()-1; i++) {
+					
+			if (listOfnamesOfEntities.get(i).getText().equals(getStringList.get(i))) {
+					
+				count++;
+			} 
+				
+		}
+				
+		if (count == listOfnamesOfEntities.size()-1) {
+				
+			logger.log(Status.PASS , "sort by title");
+		} 
+		
+		else {
+			logger.log(Status.FAIL , "sort by title");
+		}	
+		
+	}
+	// a function that press on sort by unread and status
+	public void sordByStatusAndUnread() throws InterruptedException {
+			
+		waitForVisibility(middlepane.pressOnSortButton);
+			
+		middlepane.pressOnSortButton.click();
+			
+			
+		Thread.sleep(1000);
+		
+		middlepane.listOfSorts.get(1).click();
+			
+			
+		Thread.sleep(2000);
+
+		waitForVisibility(middlepane.pressOnSortButton);
+			
+		middlepane.pressOnSortButton.click();
+			
+			
+		Thread.sleep(1000);
+		
+		middlepane.listOfSorts.get(3).click();
+			
+		logger.log(Status.INFO , "press on sort by status and unread");
+
+			
+		waitForVisibility(middlepane.pressOnSortButton);
+			
+		middlepane.pressOnSortButton.click();
+			
+			
+		Thread.sleep(1000);
+			
+		middlepane.listOfSorts.get(2).click();
+	}
+		
+		
 	//a function that press on arrow to reverse the order of the list
 	public void pressOnArrow() throws InterruptedException {
-		
-		middlepane.openEntity("this is test", "dassad");
-		
-		middlepane.openEntity("hello world", "dasdassad");
-		
-		middlepane.openEntity("abcd", "dasdassad");
 		
 		String firstNameOfEntity = listOfnamesOfEntities.get(0).getAttribute("textContent");
 		
@@ -218,94 +305,16 @@ public class documentsMiddlePane  extends TestBase {
 			logger.log(Status.FAIL , "arrow button");
 		}
 	
+		
 		waitForVisibility(middlepane.pressArrow);
 		
 		middlepane.pressArrow.click();
 
 		Thread.sleep(4000);
-	}
-	
-	// a function that press on sort by title 
-	public void sordByTitle() throws InterruptedException {
-		
-		int count = 0;
-		
-		List<String> getStringList=listOfnamesOfEntities.stream().map(WebElement::getText).collect(Collectors.toList());
-
-		Collections.sort(getStringList);
-		
-		System.out.println(getStringList);
-		
-		
-		waitForVisibility(middlepane.pressOnSortButton);
-		
-		middlepane.pressOnSortButton.click();
-		
-		Thread.sleep(1000);
-		
-		middlepane.listOfSorts.get(0).click();
-		
-		Thread.sleep(2000);
-		
-		// check if the list sorted
-		for (int i = 0; i < listOfnamesOfEntities.size()-1; i++) {
-				
-			if (listOfnamesOfEntities.get(i).getText().equals(getStringList.get(i))) {
-				
-				count++;
-			} 
-			
-		}
-			
-		if (count == listOfnamesOfEntities.size()-1) {
-			
-			logger.log(Status.PASS , "sort by title");
-		} 
-	
-		else {
-			logger.log(Status.FAIL , "sort by title");
-		}	
 	
 	}
-	// a function that press on sort by unread and status
-	public void sordByStatusAndUnread() throws InterruptedException {
-		
-		waitForVisibility(middlepane.pressOnSortButton);
-		
-		middlepane.pressOnSortButton.click();
-		
-		
-		Thread.sleep(1000);
-		
-		middlepane.listOfSorts.get(1).click();
-		
-		
-		Thread.sleep(2000);
-
-		waitForVisibility(middlepane.pressOnSortButton);
-		
-		middlepane.pressOnSortButton.click();
-		
-		
-		Thread.sleep(1000);
-	
-		middlepane.listOfSorts.get(3).click();
-		
-		logger.log(Status.INFO , "press on sort by status and unread");
-
-		
-		waitForVisibility(middlepane.pressOnSortButton);
-		
-		middlepane.pressOnSortButton.click();
-		
-		
-		Thread.sleep(1000);
-		
-		middlepane.listOfSorts.get(2).click();
-	}
 	
 	
-		
 			
  }
 	

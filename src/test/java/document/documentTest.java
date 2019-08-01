@@ -7,6 +7,7 @@ import org.testng.annotations.Test;
 import base.TestBase;
 import global.middlePane;
 import pages.documentsMultipleSelect;
+import pages.documentsRightSideOnScreen;
 import pages.documentsMiddlePane;;
 
 public class documentTest extends TestBase {
@@ -14,7 +15,10 @@ public class documentTest extends TestBase {
 	documentsMultipleSelect documentsmultipleselect;
 	
 	documentsMiddlePane documentsmiddlepane;
+	
 	middlePane middlepane;
+	
+	documentsRightSideOnScreen documentsrhigtsideonscreen;
 	
 	@BeforeClass
 	public void SetUp() throws InterruptedException{	
@@ -23,6 +27,8 @@ public class documentTest extends TestBase {
 	documentsmultipleselect = new documentsMultipleSelect();
 	documentsmiddlepane = new documentsMiddlePane();
 	middlepane = new middlePane();
+	documentsrhigtsideonscreen = new documentsRightSideOnScreen();
+	
 	}
 	
 	@Test(priority = 1)
@@ -80,6 +86,27 @@ public class documentTest extends TestBase {
 		
 		// press on sort by status and unread
 		documentsmiddlepane.sordByStatusAndUnread();
+	}
+	
+	@Test(priority = 4)
+	public void documentsRightSideOfScreen() throws InterruptedException {
+		
+		logger = extent.createTest("document the right side on the screen");
+		
+		documentsrhigtsideonscreen.deleteEntityOnScreen();
+		
+		documentsrhigtsideonscreen.addAssigneeOnScreen();
+		
+		documentsrhigtsideonscreen.addDateOnScreen();
+		
+		documentsrhigtsideonscreen.addStatusOnScreen();
+		
+		documentsrhigtsideonscreen.addTagsOnScreen("www");
+		
+		documentsrhigtsideonscreen.addActivities("hyyyyyy" , "this is superman");
+		
+		documentsrhigtsideonscreen.addWatcherOnScreen();
+		
 	}
 	
 	

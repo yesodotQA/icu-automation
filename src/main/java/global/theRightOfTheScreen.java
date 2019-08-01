@@ -17,13 +17,13 @@ public class theRightOfTheScreen extends TestBase {
 	@FindBy(css = "[tooltip-template='Assignee']")
 	public	WebElement assigneeOnTheScreen;
 	
-	@FindBy(xpath ="//*[@id=\"ui-select-choices-row-49-1\"]/span/span")
-	public	WebElement chooseAssigneeOnTheScreen;
+	@FindBy(className ="ui-select-choices-row")
+	public	List<WebElement> listOfAssigneeOnScreen = new ArrayList<>();
 	
 	@FindBy(css = "[ui-date='dueOptions']")
 	public	WebElement dateOnTheScreen;
 	
-	@FindBy(xpath = "//*[@id=\"ui-datepicker-div\"]/table/tbody/tr[5]/td[4]")
+	@FindBy(xpath = "//*[@id=\"ui-datepicker-div\"]/table/tbody/tr[5]/td[1]/a")
 	public	WebElement chooseDateOnTheScreen;
 	
 	@FindBy(css = "[list='statuses']")
@@ -33,19 +33,22 @@ public class theRightOfTheScreen extends TestBase {
 	public List<WebElement>  listOfStatusOnScreen = new ArrayList<>();
 	
 	@FindBy(className = "dropdown-trigger")
-	public	WebElement chooseThreeDotsOnScreen;
+	public	WebElement pressOnThreeDotsOnScreen;
 	
 	@FindBy(css = "[ng-click='item.action()']")
 	public	WebElement chooseDelete;
 	
-	@FindBy (xpath = "//*[@id=\"addTag\"]/span/span/span[2]/span")
-	public	WebElement tagsOnTheScreen;
-
-	@FindBy(css = "[ng-blur='minimizeUpdate()']")
-	public	WebElement updateActivities;
+	@FindBy(css = "[role='combobox']")
+	public	WebElement enterTagsOnScreen;
 	
-	@FindBy(css = ".save.ng-binding")
+	@FindBy(css ="[ng-if='$select.open']")
+	public List<WebElement> listOfTagsOnScreen =  new ArrayList<>();
+	
+	@FindBy(css = "[ng-model='activity.description']")
 	public	WebElement addActivities;
+	
+	@FindBy(className = "save")
+	public	WebElement updateActivities;
 	
 	@FindBy(css ="[tooltip-template='Add watcher']")
 	public	WebElement pressOnAddWatcherOnTHeScreen;
@@ -53,11 +56,11 @@ public class theRightOfTheScreen extends TestBase {
 	@FindBy(css = "[autofocus='autofocus']")
 	public	WebElement selectMembers;
 	
-	@FindBy(xpath = "//*[@id=\"ui-select-choices-row-87-3\"]/span/span")
-	public	WebElement chooseWatchersOnscreen;
+	@FindBy(css = "[ng-if='$select.open']")
+	public List<WebElement>  listOfWatchersOnScreen= new ArrayList<>();
 	
 	@FindBy(className = "delete-wrapper")
-	public List<WebElement>  listOfWatchersOnScreen = new ArrayList<>();
+	public List<WebElement>  listOfWatchersIcons = new ArrayList<>();
 	
 	 public theRightOfTheScreen  () {
 			
