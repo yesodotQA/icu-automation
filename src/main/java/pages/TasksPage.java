@@ -1,21 +1,14 @@
 package pages;
 
-import java.awt.Dimension;
-import java.awt.List;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.By.ByXPath;
-import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Select;
-import org.testng.annotations.BeforeClass;
 
 import com.aventstack.extentreports.Status;
 
-import Base.testBase;
+import base.testBase;
 import global.multipleSelect;
 import global.middlePane;
 import global.Tabs;
@@ -30,7 +23,18 @@ public class TasksPage extends testBase{
 	Tabs taskstab;
 	
 	theRightOfTheScreen template;
-	//parent project and disussion
+	
+	
+	@FindBy(className =  "Assigned")
+	WebElement statusOnTheScreen;
+	
+	@FindBy (xpath = "//*[@id=\"addTag\"]/span/span/span[2]/span")
+	WebElement tagsOnTheScreen;
+	
+	@FindBy(css = "[ui-date='dueOptions']")
+	 WebElement getTextOfDate;
+	
+	//parent project and discussion
 	public @FindBy(css = "[value='item.project']")
 	WebElement selectParentProject;
 	
@@ -135,6 +139,8 @@ public class TasksPage extends testBase{
 	
 	// a function that delete entity using multiple select
 	public void deleteEntityMultipleChoice() throws InterruptedException {
+
+		int size =tasksmiddlepane.listOfEntities.size() ;
 		
 		waitForVisibility(tasksmultipleselect.pressMultipleChoice);
 		
@@ -154,13 +160,28 @@ public class TasksPage extends testBase{
 		Thread.sleep(2000);
 		
 		
-		logger.log(Status.PASS , "delete Task using mulitiple choice");
+		int newSize =tasksmiddlepane.listOfEntities.size();
+		
+		//check if the entity deleted
+			if (size - 1 == newSize) {
+				
+			
+				logger.log(Status.PASS , "delete document using mulitiple choice");
+				
+			}
+			
+			else {
+				
+				logger.log(Status.FAIL , "delete document using mulitiple choice");
+			}
+		
 			
 		}
 	
 	// a function that adds tags using multiple select 
 	public void addTagsMultipleChoice(String tags) throws InterruptedException {
-		 
+		
+		tasksmiddlepane.openEntity("doc2", "importent");
 		
 		waitForVisibility(tasksmultipleselect.pressMultipleChoice);
 		
@@ -200,7 +221,7 @@ public class TasksPage extends testBase{
 		
 		Thread.sleep(2000);
 		
-		String check =tasksmultipleselect.tagsOnTheScreen.getText();
+		String check =tagsOnTheScreen.getText();
 		
 		// checks if the tags have been updated on the side of the screen
 		if (check.equals("mission (New)")) {
@@ -216,36 +237,34 @@ public class TasksPage extends testBase{
 	}
 	
 	// a function that adds date using multiple select 
-	public void addDateMultipleChoice() throws InterruptedException {
+public void addDateMultipleChoice() throws InterruptedException {
 		
 		waitForVisibility(tasksmultipleselect.pressMultipleChoice);
 		
 		tasksmultipleselect.pressMultipleChoice.click();
 		
-	Thread.sleep(2000);
+	
 		waitForVisibility(tasksmultipleselect.pressOnDateMultipleSelect);
 		
 		tasksmultipleselect.pressOnDateMultipleSelect.click();
 		
+		
 		Thread.sleep(2000);
 		waitForVisibility(tasksmultipleselect.pressToChooseDate);
+		
 		tasksmultipleselect.pressToChooseDate.click();
 		
 		Thread.sleep(2000);
-		
 		waitForVisibility(tasksmultipleselect.nextMonth);
+		
 		tasksmultipleselect.nextMonth.click();
 		
-		Thread.sleep(2000);
 		
-		waitForVisibility(tasksmultipleselect.pressToChooseDate);
-		
-		tasksmultipleselect.pressToChooseDate.click();
-		
-		Thread.sleep(2000);
 		waitForVisibility(tasksmultipleselect.chooseADate);
 		
 		tasksmultipleselect.chooseADate.click();
+		
+		String nameOfDate = getTextOfDate.getAttribute("value");
 		
 		
 		Thread.sleep(2000);
@@ -259,7 +278,7 @@ public class TasksPage extends testBase{
 		
 		tasksmultipleselect.pressSecondMultipleChoice.click();
 		
-		Thread.sleep(2000);
+		
 		waitForVisibility(tasksmiddlepane.pressOnEntity);
 		
 		tasksmiddlepane.pressOnEntity.click();
@@ -267,10 +286,10 @@ public class TasksPage extends testBase{
 		
 		Thread.sleep(3000);
 		
-		String check =tasksmultipleselect.dateOnTheScreen.getAttribute("value");
+		String nameOfDateOnScreen =template.dateOnTheScreen.getAttribute("value");
 		
 		// checks if the date have been updated on the side of the screen
-		if (check.equals("27/07/2019")) {
+		if (nameOfDateOnScreen.equals(nameOfDate)) {
 		
 			logger.log(Status.PASS , "add Date using multiple select");
 		}
@@ -280,64 +299,66 @@ public class TasksPage extends testBase{
 			logger.log(Status.FAIL, "add Date using multiple select");
 		}
 		
-		}
+	}
 	
 	// a function that adds assignee using multiple select 
 	public void addAssigneeMultipleChoice() throws InterruptedException {
-		Thread.sleep(2000);
-		waitForVisibility(tasksmultipleselect.pressMultipleChoice);
+				
 		
-		tasksmultipleselect.pressMultipleChoice.click();
-		
-		Thread.sleep(2000);
-		waitForVisibility(tasksmultipleselect.pressAssigneeMultipleChoice);
-		
-		tasksmultipleselect.pressAssigneeMultipleChoice.click();
-		
-		Thread.sleep(2000);
-		waitForVisibility(tasksmultipleselect.selectAssignee);
-		
-		tasksmultipleselect.selectAssignee.click();
-		
-		Thread.sleep(2000);
-		String nameOfAssignee = tasksmultipleselect.listOfAssignees.get(1).getText();
-		
-		tasksmultipleselect.listOfAssignees.get(1).click();
-
-		
-		Thread.sleep(2000);
-		waitForVisibility(tasksmultipleselect.updateAssignee);
-		
-		tasksmultipleselect.updateAssignee.click();
-		
-
-		Thread.sleep(1000);
-		waitForVisibility(tasksmultipleselect.pressSecondMultipleChoice);
-		
-		tasksmultipleselect.pressSecondMultipleChoice.click();
-		
-		Thread.sleep(2000);
-		waitForVisibility(tasksmiddlepane.pressOnEntity);
-		
-		tasksmiddlepane.pressOnEntity.click();
-		
-		
-		Thread.sleep(2000);
-		
-		String check =tasksmultipleselect.assigneeOnTheScreen.getText();
-		
-		if (check.equals(nameOfAssignee)) {
+			waitForVisibility(tasksmultipleselect.pressMultipleChoice);
 			
-			logger.log(Status.PASS , "add assignee using multiple select");
-		}
-		
-		else {
+			tasksmultipleselect.pressMultipleChoice.click();
 			
-			logger.log(Status.FAIL, "add assignee using multiple select");
-		}
 		
-	}
-	
+			waitForVisibility(tasksmultipleselect.pressAssigneeMultipleChoice);
+			
+			tasksmultipleselect.pressAssigneeMultipleChoice.click();
+			
+			
+			waitForVisibility(tasksmultipleselect.selectAssignee);
+			
+			tasksmultipleselect.selectAssignee.click();
+			
+			Thread.sleep(3000);
+			
+			String nameOfAssignee = tasksmultipleselect.listOfAssignees.get(1).getText();
+			
+			tasksmultipleselect.listOfAssignees.get(1).click();
+			
+			
+			waitForVisibility(tasksmultipleselect.updateAssignee);
+			
+			tasksmultipleselect.updateAssignee.click();
+
+
+			Thread.sleep(2000);
+			
+			waitForVisibility(tasksmultipleselect.pressSecondMultipleChoice);
+			
+			tasksmultipleselect.pressSecondMultipleChoice.click();
+			
+			
+			waitForVisibility(tasksmiddlepane.pressOnEntity);
+			
+			tasksmiddlepane.pressOnEntity.click();
+			
+			
+			Thread.sleep(2000);
+			
+			String nameOfAssigneeOnScreen= template.assigneeOnTheScreen.getText();
+			
+			// checks if the assignee have been updated on the side of the screen
+			if (nameOfAssigneeOnScreen.equals(nameOfAssignee)) {
+				
+				logger.log(Status.PASS , "add assignee using multiple select");
+			}
+			
+			else {
+				
+				logger.log(Status.FAIL, "add assignee using multiple select");
+			}
+			
+		}
 	// a function that adds watchers using multiple select 
 	public void addWatchersMultipleChoice() throws InterruptedException {
 		
@@ -351,10 +372,23 @@ public class TasksPage extends testBase{
 		
 		tasksmultipleselect.pressWatchersMultipleChoice.click();
 		
-
+		
+		waitForVisibility(tasksmultipleselect.addWatchers);
+		
+		tasksmultipleselect.addWatchers.click();
+		
+		
+		Thread.sleep(2000);
+		
+		waitForVisibility(tasksmultipleselect.selectMembers);
+		
+		tasksmultipleselect.selectMembers.click();
+		
+		
 		waitForVisibility(tasksmultipleselect.chooceWatchers);
 		
 		tasksmultipleselect.chooceWatchers.click();
+		
 		
 		int numberOfWatcherOnMultipleSelect = tasksmultipleselect.listOfWatchersMultipleSelect.size();
 
@@ -373,6 +407,21 @@ public class TasksPage extends testBase{
 		waitForVisibility(tasksmiddlepane.pressOnEntity);
 		
 		tasksmiddlepane.pressOnEntity.click();
+	
+		Thread.sleep(2000);
+		
+		int numberOfWatchersOnScreen = template.listOfWatchersIcons.size() ;
+
+		// checks if the watchers have been updated on the side of the screen
+		if (numberOfWatchersOnScreen == numberOfWatcherOnMultipleSelect) {
+			
+			logger.log(Status.PASS , "add watchers using multiple select");
+		}
+		
+		else {
+			
+			logger.log(Status.FAIL, "add watchers using multiple select");
+		}
 		
 		
 	}
@@ -404,17 +453,6 @@ public class TasksPage extends testBase{
 		waitForVisibility(tasksmultipleselect.updateStatus);
 		
 		tasksmultipleselect.updateStatus.click(); 
-		
-		
-		Thread.sleep(2000);
-		waitForVisibility(tasksmiddlepane.sortByStatus);
-		
-		tasksmiddlepane.sortByStatus.click();
-		
-		Thread.sleep(2000);
-		waitForVisibility(tasksmiddlepane.chooceToSortByAll);
-		
-		tasksmiddlepane.chooceToSortByAll.click();
 	
 		
 		Thread.sleep(2000);
@@ -425,6 +463,18 @@ public class TasksPage extends testBase{
 		
 		Thread.sleep(2000);
 
+		String nameOfStatusOnScreen = statusOnTheScreen.getText();
+		
+		// checks if the status have been updated on the side of the screen
+		if (nameOfStatusOnScreen.equals(nameOfStatus)) {
+			
+			logger.log(Status.PASS , "add status using multiple select");
+		}
+		
+		else {
+			
+			logger.log(Status.FAIL, "add status using multiple select");
+		}
 
 	}
 	public void  SubTask() throws InterruptedException {
@@ -461,7 +511,7 @@ public class TasksPage extends testBase{
 		Thread.sleep(2000);
 		ArrowSubTask.click();
 	}	
-	
+	/*
 	public void TaskTemplate() throws InterruptedException {
 		for(int i = 0;i<6;i++) {
 		waitForVisibility(tasksmiddlepane.pressCreateNewItem);
@@ -554,7 +604,9 @@ public void sortMiddlePane() throws InterruptedException {
 	tasksmiddlepane.pressSortByTitle.click();
 	
 	
+
 }
+*/
 }
 
 	

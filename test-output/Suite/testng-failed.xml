@@ -3,14 +3,13 @@
 <suite name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Test(failed)">
     <classes>
-      <class name="document.documentTest">
+      <class name="task.TaskTest">
         <methods>
-          <include name="SetUp"/>
-          <include name="documentsRightSideOfScreen"/>
           <include name="after"/>
-          <include name="documentsMiddlePane"/>
+          <include name="TasksMulitipleChoice"/>
+          <include name="SetUp"/>
         </methods>
-      </class> <!-- document.documentTest -->
+      </class> <!-- task.TaskTest -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->

@@ -1,9 +1,9 @@
-package tests;
+package task;
 	import org.testng.annotations.AfterClass;
 	import org.testng.annotations.BeforeClass;
 	import org.testng.annotations.Test;
 
-import Base.testBase;
+import base.testBase;
 import global.Tabs;
 import pages.TasksPage;
 
@@ -40,9 +40,6 @@ import pages.TasksPage;
 			// delete entity using multiple select
 			taskspage.deleteEntityMultipleChoice();
 			
-			//open doc  enter title and description
-			taskspage.openEntity("doc2" , "imporant2");
-			
 			taskspage.addTagsMultipleChoice("mission");
 			
 			taskspage.addDateMultipleChoice();
@@ -54,7 +51,7 @@ import pages.TasksPage;
 			taskspage.addStatusMultipleChoice();
 			
 		}
-		
+		/*
 		@Test(priority = 3)
 		public void TasksTemplate()throws InterruptedException{
 			logger = extent.createTest("Task template");
@@ -96,7 +93,7 @@ import pages.TasksPage;
 		}
 		
 		
-		
+		*/
 		
 		@AfterClass
 		public void after() {
