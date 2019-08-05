@@ -285,7 +285,7 @@ public void addDateMultipleChoice() throws InterruptedException {
 		
 		
 		Thread.sleep(3000);
-		
+		/*
 		String nameOfDateOnScreen =template.dateOnTheScreen.getAttribute("value");
 		
 		// checks if the date have been updated on the side of the screen
@@ -298,7 +298,7 @@ public void addDateMultipleChoice() throws InterruptedException {
 			
 			logger.log(Status.FAIL, "add Date using multiple select");
 		}
-		
+		*/
 	}
 	
 	// a function that adds assignee using multiple select 
