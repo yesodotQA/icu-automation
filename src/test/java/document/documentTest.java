@@ -4,13 +4,14 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-import base.TestBase;
+
+import base.testBase;
 import global.middlePane;
 import pages.documentsMultipleSelect;
 import pages.documentsRightSideOnScreen;
 import pages.documentsMiddlePane;;
 
-public class documentTest extends TestBase {
+public class documentTest extends testBase {
 	
 	documentsMultipleSelect documentsmultipleselect;
 	
@@ -76,16 +77,16 @@ public class documentTest extends TestBase {
 		documentsmiddlepane.changeStatusOfList();
 		
 		// choose entity and press on favorite 
-		documentsmiddlepane.sortByFavorite();
-		
-		// press on arrow to reverse the order of the list
-		documentsmiddlepane.pressOnArrow();
+		//documentsmiddlepane.sortByFavorite();
 		
 		// sort the list by title
 		documentsmiddlepane.sordByTitle();
 		
 		// press on sort by status and unread
 		documentsmiddlepane.sordByStatusAndUnread();
+		
+		// press on arrow to reverse the order of the list
+		documentsmiddlepane.pressOnArrow();
 	}
 	
 	@Test(priority = 4)
@@ -100,6 +101,8 @@ public class documentTest extends TestBase {
 		documentsrhigtsideonscreen.addDateOnScreen();
 		
 		documentsrhigtsideonscreen.addStatusOnScreen();
+		
+		documentsrhigtsideonscreen.SelectFolderOnScreen();
 		
 		documentsrhigtsideonscreen.addTagsOnScreen("www");
 		

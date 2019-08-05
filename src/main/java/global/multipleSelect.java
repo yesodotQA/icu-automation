@@ -8,9 +8,10 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 
-import base.TestBase;
 
-public class multipleSelect extends TestBase {
+import base.testBase;
+
+public class multipleSelect extends testBase {
 	
 	@FindBy (xpath = "/html/body/section/section/div[2]/div[2]/div[1]/div/div/div/div[3]/div[2]/table/tbody/tr[1]/td[2]")
 	public  WebElement pressMultipleChoice;

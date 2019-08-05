@@ -8,10 +8,11 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
-import base.TestBase;
 
-public class middlePane extends TestBase {
+import base.testBase;
 
+public class middlePane extends testBase {
+	
 	@FindBy(css = "[ng-model='newItem']")
 	public WebElement pressCreateNewItem;
 	

@@ -7,10 +7,8 @@
         <methods>
           <include name="SetUp"/>
           <include name="documentsRightSideOfScreen"/>
-          <include name="documentsMulitipleChoice"/>
           <include name="after"/>
           <include name="documentsMiddlePane"/>
-          <include name="openDoc"/>
         </methods>
       </class> <!-- document.documentTest -->
     </classes>

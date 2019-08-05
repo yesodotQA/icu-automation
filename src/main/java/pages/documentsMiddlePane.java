@@ -13,14 +13,13 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import com.aventstack.extentreports.Status;
 
-
-import base.TestBase;
+import base.testBase;
 import global.Tabs;
 import global.middlePane;
 import global.multipleSelect;
 import global.theRightOfTheScreen;
 
-public class documentsMiddlePane  extends TestBase {
+public class documentsMiddlePane  extends testBase {
 	
 	Tabs tabs;
 	middlePane middlepane;
@@ -178,6 +177,7 @@ public class documentsMiddlePane  extends TestBase {
 		Thread.sleep(3000);
 		
 	}
+
 	// a function that press on sort by title 
 	public void sordByTitle() throws InterruptedException {
 			
@@ -196,25 +196,26 @@ public class documentsMiddlePane  extends TestBase {
 		System.out.println(getStringList);
 	 
 
-		waitForVisibility(middlepane.pressArrow);
-		
-		middlepane.pressArrow.click();
-		
-		
-		Thread.sleep(2000);
-		
-		
 		waitForVisibility(middlepane.pressOnSortButton);
 			
 		middlepane.pressOnSortButton.click();
 			
 		Thread.sleep(1000);
-			
+		
 		middlepane.listOfSorts.get(0).click();
 		
 		Thread.sleep(2000);
 			
+		
+		waitForVisibility(middlepane.pressArrow);
+		
+		middlepane.pressArrow.click();
+
+		Thread.sleep(4000);
+		
+	
 		// check if the list sorted
+		
 		for (int i = 0; i < listOfnamesOfEntities.size()-1; i++) {
 					
 			if (listOfnamesOfEntities.get(i).getText().equals(getStringList.get(i))) {
@@ -231,7 +232,9 @@ public class documentsMiddlePane  extends TestBase {
 		
 		else {
 			logger.log(Status.FAIL , "sort by title");
-		}	
+		}
+		
+		
 		
 	}
 	// a function that press on sort by unread and status
@@ -304,14 +307,15 @@ public class documentsMiddlePane  extends TestBase {
 		else {
 			logger.log(Status.FAIL , "arrow button");
 		}
-	
-		
+
 		waitForVisibility(middlepane.pressArrow);
 		
 		middlepane.pressArrow.click();
-
-		Thread.sleep(4000);
 	
+		
+		Thread.sleep(3000);
+		
+		
 	}
 	
 	

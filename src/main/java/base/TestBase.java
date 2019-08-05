@@ -11,7 +11,7 @@ import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 
 
-    public class TestBase {
+    public class testBase {
 	
 	    public static WebDriver driver;
 		

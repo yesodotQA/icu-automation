@@ -1,5 +1,8 @@
 package pages;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -7,14 +10,13 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import com.aventstack.extentreports.Status;
 
-import base.TestBase;
+import base.testBase;
 import global.Tabs;
 import global.middlePane;
 import global.multipleSelect;
 import global.theRightOfTheScreen;
 
-	public class documentsRightSideOnScreen extends TestBase {
-	
+	public class documentsRightSideOnScreen extends testBase {
 		Tabs tabs;
 		middlePane middlepane;
 		multipleSelect multipleselect;
@@ -24,6 +26,13 @@ import global.theRightOfTheScreen;
 		
 		@FindBy(className = "activities-list")
 		WebElement checkIfTheActivitiesUpdate;
+		
+		@FindBy(xpath = "/html/body/section/section/div[2]/div[2]/div"
+				+ "[2]/div/div[2]/detail-category/div/div[1]/span/span[1]")
+		WebElement SelectFolder;
+		
+		@FindBy (css = "[ng-if='$select.open']")
+		List<WebElement> listOfFolder=  new ArrayList<>();
 	
 		public  documentsRightSideOnScreen() {
 		
@@ -203,6 +212,34 @@ import global.theRightOfTheScreen;
 			}
 		}
 		
+		public void SelectFolderOnScreen() throws InterruptedException {
+			
+			waitForVisibility(SelectFolder);
+			
+			SelectFolder.click();
+			
+			Thread.sleep(3000);
+			
+			String nameOfFolder	= listOfFolder.get(0).getText();
+			
+			listOfFolder.get(0).click();
+			
+			Thread.sleep(2000);
+			
+			String nameOfFolderForChecking = SelectFolder.getAttribute("innerText");
+			
+			if (nameOfFolder.equals(nameOfFolderForChecking)) {
+				
+				logger.log(Status.PASS , "select folder on screen");
+				
+			}
+			else {
+				
+				logger.log(Status.FAIL , "select folder on screen");
+			}
+			
+		}
+		
 		public void addTagsOnScreen(String tags) throws InterruptedException {
 			
 			String sizeListOfActivitiesBeforeChoosing = checkIfTheActivitiesUpdate.getAttribute("childElementCount");
@@ -316,7 +353,7 @@ import global.theRightOfTheScreen;
 			
 			Thread.sleep(2000);
 			
-			therightonthescreen.listOfWatchersOnScreen.get(0).click();
+			therightonthescreen.listOfWatchersOnScreen.get(1).click();
 			
 			Thread.sleep(2000);
 			

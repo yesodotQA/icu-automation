@@ -7,10 +7,11 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-import base.TestBase;
 
-public class theRightOfTheScreen extends TestBase {
+import base.testBase;
 
+public class theRightOfTheScreen extends testBase {
+	
 	@FindBy(className ="detail-favorite" )
 	public	WebElement chooseFavorite;
 	

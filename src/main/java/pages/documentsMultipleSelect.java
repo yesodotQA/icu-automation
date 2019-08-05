@@ -7,14 +7,14 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import com.aventstack.extentreports.Status;
 
-import base.TestBase;
+
+import base.testBase;
 import global.Tabs;
 import global.middlePane;
 import global.multipleSelect;
 import global.theRightOfTheScreen;
 
-public class documentsMultipleSelect  extends TestBase{
-
+public class documentsMultipleSelect  extends testBase {
 	Tabs tabs;
 	middlePane middlepane;
 	multipleSelect multipleselect;
