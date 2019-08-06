@@ -5,20 +5,23 @@ package task;
 
 import base.testBase;
 import global.Tabs;
-import pages.TasksPage;
+import global.middlePane;
+import pages.tasksMultipleSelect;
 
 
-	public class TaskTest  extends testBase {
+	public class tasksTest  extends testBase {
 		
 		Tabs tabs;
-		TasksPage taskspage;
+		tasksMultipleSelect tasksmultipleselect ;
 			
+		middlePane middlepane;
+		
 		@BeforeClass
 		public void SetUp() throws InterruptedException{	
 		initialization(); 
 		Login();
-		taskspage = new TasksPage();
-		
+		tasksmultipleselect = new tasksMultipleSelect();
+		middlepane = new middlePane();
 
 		}
 		
@@ -26,10 +29,10 @@ import pages.TasksPage;
 		public void openDoc() throws InterruptedException {
 		
 			// press Task tab
-			taskspage.pressTask();
+			tasksmultipleselect.pressTask();
 		  
 			//open doc  enter title and description
-			taskspage.openEntity("doc1" , "important");
+			middlepane.openEntity("doc1" , "important");
 		}
 		
 		@Test(priority = 2)
@@ -38,17 +41,17 @@ import pages.TasksPage;
 			logger = extent.createTest("Task using multiple choice");
 			
 			// delete entity using multiple select
-			taskspage.deleteEntityMultipleChoice();
+			 tasksmultipleselect.deleteEntityMultipleChoice();
 			
-			taskspage.addTagsMultipleChoice("mission");
+			 tasksmultipleselect.addTagsMultipleChoice("mission");
 			
-			taskspage.addDateMultipleChoice();
+			 tasksmultipleselect.addDateMultipleChoice();
 			
-			taskspage.addAssigneeMultipleChoice();
+			 tasksmultipleselect.addAssigneeMultipleChoice();
 			
-			taskspage.addWatchersMultipleChoice();
+			 tasksmultipleselect.addWatchersMultipleChoice();
 			
-			taskspage.addStatusMultipleChoice();
+			 tasksmultipleselect.addStatusMultipleChoice();
 			
 		}
 		/*

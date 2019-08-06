@@ -79,6 +79,9 @@ public class multipleSelect extends testBase {
 	@FindBy(css = "[autofocus='autofocus']")
 	public	WebElement selectMembers;
 	
+	@FindBy(css = "[ng-if='$select.open']")
+	public List<WebElement> listToChooseWatchers = new ArrayList<>();
+	
 	@FindBy(xpath = "//*[@id=\"ui-select-choices-row-38-0\"]/span")
 	public	WebElement chooceWatchers;
 	

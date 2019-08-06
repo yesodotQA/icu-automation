@@ -7,11 +7,11 @@ import org.testng.annotations.Test;
 
 import base.testBase;
 import global.middlePane;
+import pages.documentsMiddlePane;
 import pages.documentsMultipleSelect;
-import pages.documentsRightSideOnScreen;
-import pages.documentsMiddlePane;;
+import pages.documentsRightSideOnScreen;;
 
-public class documentTest extends testBase {
+public class documentsTest extends testBase {
 	
 	documentsMultipleSelect documentsmultipleselect;
 	

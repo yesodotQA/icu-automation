@@ -301,11 +301,11 @@ public class documentsMultipleSelect  extends testBase {
 		
 		multipleselect.selectMembers.click();
 		
+		Thread.sleep(2000);
 		
-		waitForVisibility(multipleselect.chooceWatchers);
+		multipleselect.listToChooseWatchers.get(0).click();
 		
-		multipleselect.chooceWatchers.click();
-		
+		Thread.sleep(2000);
 		
 		int numberOfWatcherOnMultipleSelect = multipleselect.listOfWatchersMultipleSelect.size();
 		
