@@ -6,8 +6,6 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
-import com.aventstack.extentreports.Status;
-
 import base.testBase;
 import global.multipleSelect;
 import global.middlePane;

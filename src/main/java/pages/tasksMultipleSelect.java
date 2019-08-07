@@ -15,12 +15,9 @@ import global.theRightOfTheScreen;
 
 public class tasksMultipleSelect extends testBase {
 	
-	 multipleSelect tasksmultipleselect;
-			
-	middlePane tasksmiddlepane;
-		
-	Tabs taskstab;
-		
+	multipleSelect tasksmultipleselect;	
+	middlePane tasksmiddlepane;	
+	Tabs taskstab;	
 	theRightOfTheScreen template;
 	
 	@FindBy(className =  "assigned")

@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Suite]">
   <test thread-count="5" name="Test(failed)">
     <classes>
-      <class name="task.TaskTest">
+      <class name="task.tasksTest">
         <methods>
+          <include name="openDoc"/>
+          <include name="SetUp"/>
           <include name="after"/>
           <include name="TasksMulitipleChoice"/>
-          <include name="SetUp"/>
         </methods>
-      </class> <!-- task.TaskTest -->
+      </class> <!-- task.tasksTest -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->

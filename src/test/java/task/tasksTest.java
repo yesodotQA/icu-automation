@@ -1,20 +1,19 @@
 package task;
-	import org.testng.annotations.AfterClass;
-	import org.testng.annotations.BeforeClass;
-	import org.testng.annotations.Test;
-
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeClass;
 import base.testBase;
 import global.Tabs;
 import global.middlePane;
 import pages.tasksMultipleSelect;
-
+import pages.tasksMiddlePane;
 
 	public class tasksTest  extends testBase {
 		
 		Tabs tabs;
 		tasksMultipleSelect tasksmultipleselect ;
-			
 		middlePane middlepane;
+		tasksMiddlePane tasksmiddlepane;
 		
 		@BeforeClass
 		public void SetUp() throws InterruptedException{	
@@ -22,7 +21,7 @@ import pages.tasksMultipleSelect;
 		Login();
 		tasksmultipleselect = new tasksMultipleSelect();
 		middlepane = new middlePane();
-
+		tasksmiddlepane = new tasksMiddlePane();
 		}
 		
 		@Test(priority = 1)
@@ -54,6 +53,23 @@ import pages.tasksMultipleSelect;
 			 tasksmultipleselect.addStatusMultipleChoice();
 			
 		}
+		
+		@Test(priority = 3)
+		public void tasksMiddlePane()throws InterruptedException {
+			
+			tasksmiddlepane.changeStatusOfList();
+			
+			//tasksmiddlepane.sortByFavorite();
+			
+			tasksmiddlepane.sordByTitle();
+			
+			tasksmiddlepane.sordByStatusAndUnread();
+			
+			tasksmiddlepane.pressOnArrow();
+		}
+		
+		
+		
 		/*
 		@Test(priority = 3)
 		public void TasksTemplate()throws InterruptedException{
