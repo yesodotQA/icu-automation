@@ -56,6 +56,7 @@ import pages.tasksMiddlePane;
 		
 		@Test(priority = 3)
 		public void tasksMiddlePane()throws InterruptedException {
+			logger = extent.createTest("Task using middle pane");
 			
 			tasksmiddlepane.changeStatusOfList();
 			
