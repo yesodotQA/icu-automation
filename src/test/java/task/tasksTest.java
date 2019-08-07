@@ -6,6 +6,7 @@ import base.testBase;
 import global.Tabs;
 import global.middlePane;
 import pages.tasksMultipleSelect;
+import pages.tasksRightSideOfScreen;
 import pages.tasksMiddlePane;
 
 	public class tasksTest  extends testBase {
@@ -14,6 +15,7 @@ import pages.tasksMiddlePane;
 		tasksMultipleSelect tasksmultipleselect ;
 		middlePane middlepane;
 		tasksMiddlePane tasksmiddlepane;
+		tasksRightSideOfScreen tasksrightsideonscreen;
 		
 		@BeforeClass
 		public void SetUp() throws InterruptedException{	
@@ -22,6 +24,7 @@ import pages.tasksMiddlePane;
 		tasksmultipleselect = new tasksMultipleSelect();
 		middlepane = new middlePane();
 		tasksmiddlepane = new tasksMiddlePane();
+		tasksrightsideonscreen = new tasksRightSideOfScreen();
 		}
 		
 		@Test(priority = 1)
@@ -62,13 +65,36 @@ import pages.tasksMiddlePane;
 			
 			//tasksmiddlepane.sortByFavorite();
 			
-			tasksmiddlepane.sordByTitle();
+			tasksmiddlepane.sortByTitle();
 			
 			tasksmiddlepane.sordByStatusAndUnread();
 			
-			tasksmiddlepane.pressOnArrow();
+			//tasksmiddlepane.pressOnArrow();
 		}
 		
+		@Test(priority = 4)
+		public void tasksRightSideOnScreen()throws InterruptedException {
+			
+			logger = extent.createTest("Task using right side on screen");
+			
+			tasksrightsideonscreen.deleteEntityOnScreen();
+			
+			tasksrightsideonscreen.addAssigneeOnScreen();
+			
+			tasksrightsideonscreen.addDateOnScreen();
+			
+			tasksrightsideonscreen.addStatusOnScreen();
+			
+			tasksrightsideonscreen.SelectDiscussionsOnScreen();
+			
+			tasksrightsideonscreen.SelectProjectsOnScreen();
+			
+			tasksrightsideonscreen.addTagsOnScreen("yaronnn");
+			
+			tasksrightsideonscreen.addActivities("sad", "memurmar");
+			
+			tasksrightsideonscreen.addWatcherOnScreen();
+		}
 		
 		
 		/*

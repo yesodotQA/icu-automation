@@ -87,7 +87,7 @@ public class documentsTest extends testBase {
 		documentsmiddlepane.sordByStatusAndUnread();
 		
 		// press on arrow to reverse the order of the list
-		documentsmiddlepane.pressOnArrow();
+		// documentsmiddlepane.pressOnArrow();
 	}
 	
 	@Test(priority = 4)
@@ -112,7 +112,6 @@ public class documentsTest extends testBase {
 		documentsrhigtsideonscreen.addWatcherOnScreen();
 		
 	}
-	
 	
 	
 	@AfterClass

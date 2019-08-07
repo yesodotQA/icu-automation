@@ -5,10 +5,9 @@
     <classes>
       <class name="task.tasksTest">
         <methods>
-          <include name="openDoc"/>
           <include name="SetUp"/>
           <include name="after"/>
-          <include name="TasksMulitipleChoice"/>
+          <include name="tasksRightSideOnScreen"/>
         </methods>
       </class> <!-- task.tasksTest -->
     </classes>

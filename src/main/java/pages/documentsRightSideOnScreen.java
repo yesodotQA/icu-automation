@@ -374,12 +374,7 @@ import global.theRightOfTheScreen;
 			
 		}
 		
-		
-		
-		
-		
-		
-		
+	
 		
 		
 		
