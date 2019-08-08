@@ -48,7 +48,7 @@ public class theRightOfTheScreen extends testBase {
 	@FindBy(css = "[ng-model='activity.description']")
 	public	WebElement addActivities;
 	
-	@FindBy(className = "save")
+	@FindBy(css = ".save.ng-binding")
 	public	WebElement updateActivities;
 	
 	@FindBy(css ="[tooltip-template='Add watcher']")

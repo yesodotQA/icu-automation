@@ -94,6 +94,7 @@ import pages.tasksMiddlePane;
 			tasksrightsideonscreen.addActivities("sad", "memurmar");
 			
 			tasksrightsideonscreen.addWatcherOnScreen();
+		
 		}
 		
 		
