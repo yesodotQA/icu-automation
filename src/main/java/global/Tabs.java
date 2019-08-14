@@ -22,10 +22,12 @@ public class Tabs extends testBase {
 	public WebElement meetingsTab;
 	
     @FindBy(xpath = "/html/body/section/section/div[2]/div[1]/nav/ul/li[5]/div/div[2]/span")
-    public WebElement documentTabs;
+    public WebElement documentTab;
     
     @FindBy(xpath = "/html/body/section/section/div[2]/div[1]/nav/ul/li[6]/div")
     public  WebElement settingsTab;
+    
+    
 	
      
     public Tabs() {

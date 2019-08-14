@@ -39,6 +39,9 @@ public class theRightOfTheScreen extends testBase {
 	@FindBy(css = "[ng-click='item.action()']")
 	public	WebElement chooseDelete;
 	
+	@FindBy(xpath = "//*[@id=\"addTag\"]/span/span/span[2]/span")
+	public	WebElement tagsOnScreenForChecking;
+	
 	@FindBy(css = "[role='combobox']")
 	public	WebElement enterTagsOnScreen;
 	

@@ -23,9 +23,6 @@ public class tasksMultipleSelect extends testBase {
 	@FindBy(className =  "assigned")
 	WebElement statusOnTheScreen;
 	
-	@FindBy (xpath = "//*[@id=\"addTag\"]/span/span/span[2]/span")
-	WebElement tagsOnTheScreen;
-	
 	@FindBy(css = "[ui-date='dueOptions']")
 	 WebElement getTextOfDate;
 	
@@ -140,7 +137,7 @@ public class tasksMultipleSelect extends testBase {
 			
 		Thread.sleep(2000);
 			
-		String check =tagsOnTheScreen.getText();
+		String check =template.tagsOnScreenForChecking.getText();
 		
 			// checks if the tags have been updated on the side of the screen
 			if (check.equals("mission (New)")) {

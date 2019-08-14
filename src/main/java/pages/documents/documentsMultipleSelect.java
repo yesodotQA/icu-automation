@@ -19,7 +19,6 @@ public class documentsMultipleSelect  extends testBase {
 	middlePane middlepane;
 	multipleSelect multipleselect;
 	theRightOfTheScreen therightonthescreen;
-	documentsMiddlePane documentsmiddlepane;
 	
 	@FindBy(className =  "in-progress")
 	WebElement statusOnTheScreen;
@@ -27,16 +26,12 @@ public class documentsMultipleSelect  extends testBase {
 	@FindBy(css = "[ui-date='dueOptions']")
 	 WebElement getTextOfDate;
 	
-	@FindBy (xpath = "//*[@id=\"addTag\"]/span/span/span[2]/span")
-	WebElement tagsOnTheScreen;
-	
 	public documentsMultipleSelect(){
 		
 		this.multipleselect = new multipleSelect();
 		this.middlepane = new middlePane();
 		this.tabs = new Tabs();
 		this.therightonthescreen = new theRightOfTheScreen();
-		this.documentsmiddlepane = new documentsMiddlePane();
 		PageFactory.initElements(driver, this);
 	 }
 
@@ -48,9 +43,9 @@ public class documentsMultipleSelect  extends testBase {
 	//a function that press on document 
 	public void pressDocument() throws InterruptedException {
 		
-		waitForVisibility(tabs.documentTabs);
+		waitForVisibility(tabs.documentTab);
 		
-		tabs.documentTabs.click();
+		tabs.documentTab.click();
 		
 		Thread.sleep(3000);
 	}
@@ -93,7 +88,8 @@ public class documentsMultipleSelect  extends testBase {
 				logger.log(Status.FAIL , "delete document using mulitiple choice");
 			}
 		
-		 }
+	}
+	
 	//a function that adds tags using multiple select 
 	public void addTagsMultipleChoice(String tags) throws InterruptedException {
 		 
@@ -137,7 +133,7 @@ public class documentsMultipleSelect  extends testBase {
 		
 		Thread.sleep(2000);
 		
-		String check =tagsOnTheScreen.getText();
+		String check =therightonthescreen.tagsOnScreenForChecking.getText();
 		
 		// checks if the tags have been updated on the side of the screen
 		if (check.equals("mission (New)")) {
@@ -152,7 +148,7 @@ public class documentsMultipleSelect  extends testBase {
 		
 	}
 
-//a function that adds date using multiple select 
+	//a function that adds date using multiple select 
 	public void addDateMultipleChoice() throws InterruptedException {
 		
 		waitForVisibility(multipleselect.pressMultipleChoice);
