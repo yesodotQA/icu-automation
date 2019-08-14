@@ -8,9 +8,9 @@ import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
 import base.testBase;
 import global.middlePane;
-import pages.documentsMiddlePane;
-import pages.documentsMultipleSelect;
-import pages.documentsRightSideOnScreen;;
+import pages.documents.documentsMiddlePane;
+import pages.documents.documentsMultipleSelect;
+import pages.documents.documentsRightSideOnScreen;;
 
 public class documentsTest extends testBase {
 	

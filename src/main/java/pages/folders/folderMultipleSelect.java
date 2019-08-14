@@ -1,4 +1,4 @@
-package pages;
+package pages.folders;
 
 public class folderMultipleSelect {
 

@@ -5,9 +5,9 @@ import org.testng.annotations.BeforeClass;
 import base.testBase;
 import global.Tabs;
 import global.middlePane;
-import pages.tasksMultipleSelect;
-import pages.tasksRightSideOfScreen;
-import pages.tasksMiddlePane;
+import pages.tasks.tasksMiddlePane;
+import pages.tasks.tasksMultipleSelect;
+import pages.tasks.tasksRightSideOfScreen;
 
 	public class tasksTest  extends testBase {
 		
