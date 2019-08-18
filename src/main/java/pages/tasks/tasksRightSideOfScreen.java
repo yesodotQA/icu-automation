@@ -11,10 +11,10 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import com.aventstack.extentreports.Status;
 
 import base.testBase;
-import global.Tabs;
-import global.middlePane;
-import global.multipleSelect;
-import global.theRightOfTheScreen;
+import global.globalElements.Tabs;
+import global.globalElements.middlePane;
+import global.globalElements.multipleSelect;
+import global.globalElements.theRightOfTheScreen;
 
 public class tasksRightSideOfScreen extends testBase {
 	

@@ -1,4 +1,4 @@
-package global;
+package global.globalElements;
 
 import java.util.ArrayList;
 import java.util.List;

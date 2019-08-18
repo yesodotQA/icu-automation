@@ -5,7 +5,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import base.testBase;
-import global.middlePane;
+import global.globalElements.middlePane;
 import pages.documents.documentsMiddlePane;
 import pages.documents.documentsMultipleSelect;
 import pages.documents.documentsRightSideOnScreen;

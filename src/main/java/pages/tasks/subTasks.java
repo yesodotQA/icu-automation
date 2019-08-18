@@ -7,10 +7,10 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import base.testBase;
-import global.multipleSelect;
-import global.middlePane;
-import global.Tabs;
-import global.theRightOfTheScreen;
+import global.globalElements.Tabs;
+import global.globalElements.middlePane;
+import global.globalElements.multipleSelect;
+import global.globalElements.theRightOfTheScreen;
 
 public class subTasks extends testBase{
 	
