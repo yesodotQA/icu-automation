@@ -1,4 +1,4 @@
-package pages.tasks;
+package pages.projects;
 
 
 import org.openqa.selenium.WebElement;
@@ -12,13 +12,14 @@ import global.globalElements.middlePane;
 import global.globalElements.multipleSelect;
 import global.globalElements.theRightOfTheScreen;
 
-public class subTasks extends testBase{
+
+public class subprojects extends testBase{
 	
-	multipleSelect tasksmultipleselect;
+	multipleSelect projectsmultipleselect;
 	
-	middlePane tasksmiddlepane;
+	middlePane projectsmiddlepane;
 	
-	Tabs taskstab;
+	Tabs projectstab;
 	
 	theRightOfTheScreen template;
 	
@@ -30,48 +31,48 @@ public class subTasks extends testBase{
 	public @FindBy(css = "[value='item.discussion']")
 	WebElement selectParentMeeting;
 	
-	//elements for subtask 
+	//elements for subproject 
 	public @FindBy(className = ".add-sub-entity")
-	WebElement addSubTask;
+	WebElement addSubproject;
 	
 	public @FindBy(css = "body > section > section > div.icu-data.ng-scope > div.panes-wrapper.ng-scope > div.detailspane.animate-hide.ng-isolate-scope > div >"
-	+ " div.entity-details-content.task-details.ng-scope > div.sub-items-section > icu-sub-task-list > div.list-table.sub-entity.scroll "
+	+ " div.entity-details-content.project-details.ng-scope > div.sub-items-section > icu-sub-project-list > div.list-table.sub-entity.scroll "
 	+ "> table > tbody > tr > td.name.ng-pristine.ng-untouched.ng-valid")
-	WebElement CreateSubTask;
+	WebElement CreateSubproject;
 
 	public @FindBy(xpath ="/html/body/section/section/div[2]/div[2]/div[2]/div/div[2]/div[3]/icu-sub-project-list/div[3]/table/tbody/tr[1]/td[2]")
-	WebElement nameSubTask;
+	WebElement nameSubproject;
 
-	public @FindBy(xpath = "/html/body/section/section/div[2]/div[2]/div[2]/div/div[2]/div[4]/icu-sub-task-list/div[3]/table/tbody/tr[1]/td[3]/div[2]/div[1]/span")
-	WebElement AssigneeSubTask;
+	public @FindBy(xpath = "/html/body/section/section/div[2]/div[2]/div[2]/div/div[2]/div[4]/icu-sub-project-list/div[3]/table/tbody/tr[1]/td[3]/div[2]/div[1]/span")
+	WebElement AssigneeSubproject;
 
 	public @FindBy(xpath = "//*[@id=\"ui-select-choices-row-95-1\"]/span")
-	WebElement AssignUserSubTask;
+	WebElement AssignUserSubproject;
 
 	public @FindBy(id = "#dp1564059419917")
-	WebElement ClickDueDateSubTask;
+	WebElement ClickDueDateSubproject;
 
 	public @FindBy(className = ".ui-datepicker-next")
 	WebElement ClickNextMonth;
 
 	public @FindBy (xpath = "//*[@id=\"ui-datepicker-div\"]/table/tbody/tr[5]/td[6]")
-	WebElement ChooseDateSubTask;
+	WebElement ChooseDateSubproject;
 
 	public @FindBy (className = ".row-arrow")
-	WebElement ArrowSubTask;
+	WebElement ArrowSubproject;
 
-	public @FindBy (xpath ="/html/body/section/section/div[2]/div[2]/div[2]/div/div[2]/div[4]/icu-sub-task-list/div[3]/table/tbody/tr[1]/td[7]")
-	WebElement DeleteSubTask;
+	public @FindBy (xpath ="/html/body/section/section/div[2]/div[2]/div[2]/div/div[2]/div[4]/icu-sub-project-list/div[3]/table/tbody/tr[1]/td[7]")
+	WebElement DeleteSubproject;
 
 	public @FindBy(className = ".fa-chevron-down")
-	WebElement OpenTaskTemplates;
+	WebElement OpenprojectTemplates;
 	
 	public@FindBy(css = ".last")
-	WebElement ChooseTaskTemplate;
+	WebElement ChooseprojectTemplate;
 	
-	//duplicatetask
+	//duplicateproject
 	public@FindBy(xpath = "/html/body/section/section/div[2]/div[2]/div[2]/div/div[1]/detail-menu/div/ul/li[1]/a")
-	WebElement duplicateTask;
+	WebElement duplicateproject;
 	
 	public@FindBy(xpath = "/html/body/section/section/div[2]/div[2]/div[2]/div/div[2]/detail-tags/div/div[1]/input")
 	WebElement selectTags;
@@ -83,63 +84,63 @@ public class subTasks extends testBase{
 		
 	}
 		
-	public subTasks() {
+	public subprojects() {
 
 	 	PageFactory.initElements(driver, this);
-		tasksmultipleselect = new multipleSelect();
-		tasksmiddlepane = new middlePane();
-		taskstab = new Tabs();
+		projectsmultipleselect = new multipleSelect();
+		projectsmiddlepane = new middlePane();
+		projectstab = new Tabs();
 		template = new theRightOfTheScreen();
 	}
 	
 	
-	public void  SubTask() throws InterruptedException {
+	public void  Subproject() throws InterruptedException {
 		Thread.sleep(2000);
-		addSubTask.click();
+		addSubproject.click();
 		
 		Thread.sleep(2000);
-		waitForVisibility(CreateSubTask);
+		waitForVisibility(CreateSubproject);
 		
-		CreateSubTask.click();
+		CreateSubproject.click();
 		Thread.sleep(2000);
-		waitForVisibility(nameSubTask);
-		nameSubTask.sendKeys("autosubtask");
+		waitForVisibility(nameSubproject);
+		nameSubproject.sendKeys("autosubproject");
 		
 		Thread.sleep(1500);
 		
-		AssigneeSubTask.click();
+		AssigneeSubproject.click();
 		
 		Thread.sleep(2000);
 		
-		waitForVisibility(AssignUserSubTask);
-		AssignUserSubTask.click();
+		waitForVisibility(AssignUserSubproject);
+		AssignUserSubproject.click();
 		
-		OpenTaskTemplates.click();
+		OpenprojectTemplates.click();
 		
 		Thread.sleep(2000);
-		waitForVisibility(ChooseTaskTemplate);
-		ChooseTaskTemplate.click();
+		waitForVisibility(ChooseprojectTemplate);
+		ChooseprojectTemplate.click();
 		
 		Thread.sleep(1000);
-		waitForVisibility(DeleteSubTask);
-		DeleteSubTask.click();
+		waitForVisibility(DeleteSubproject);
+		DeleteSubproject.click();
 		
 		Thread.sleep(2000);
-		ArrowSubTask.click();
+		ArrowSubproject.click();
 	}	
-	
-	public void TaskTemplate() throws InterruptedException {
+
+	public void projectTemplate() throws InterruptedException {
 		for(int i = 0;i<6;i++) {
-		waitForVisibility(tasksmiddlepane.pressCreateNewItem);
-		tasksmiddlepane.pressCreateNewItem.click();
+		waitForVisibility(projectsmiddlepane.pressCreateNewItem);
+		projectsmiddlepane.pressCreateNewItem.click();
 		
 		Thread.sleep(3000);
-		waitForVisibility(tasksmiddlepane.enterTitle);
-		tasksmiddlepane.enterTitle.sendKeys("autotitle"+i);
+		waitForVisibility(projectsmiddlepane.enterTitle);
+		projectsmiddlepane.enterTitle.sendKeys("autotitle"+i);
 		
 		Thread.sleep(2000);
-		waitForVisibility(tasksmiddlepane.description);
-		tasksmiddlepane.description.sendKeys("auto description"+i);
+		waitForVisibility(projectsmiddlepane.description);
+		projectsmiddlepane.description.sendKeys("auto description"+i);
 	}
 		
 		Thread.sleep(2000);
@@ -153,8 +154,8 @@ public class subTasks extends testBase{
 		template.dateOnTheScreen.click();
 		
 		Thread.sleep(3000);
-		waitForVisibility(tasksmultipleselect.nextMonth);
-		tasksmultipleselect.nextMonth.click();
+		waitForVisibility(projectsmultipleselect.nextMonth);
+		projectsmultipleselect.nextMonth.click();
 		
 		Thread.sleep(2000);
 		waitForVisibility(template.chooseDateOnTheScreen);
@@ -172,16 +173,15 @@ public class subTasks extends testBase{
 		
 		Thread.sleep(2000);
 		template.selectMembers.click();
-		
 		Thread.sleep(2000);
-		template.listOfWatchersOnScreen.get(0).click();
+		template.pressOnThreeDotsOnScreen.click();
 		
 		waitForVisibility(template.pressOnThreeDotsOnScreen);
 		template.pressOnThreeDotsOnScreen.click();
 		
 		Thread.sleep(2000);
-		waitForVisibility(duplicateTask);
-		duplicateTask.click();
+		waitForVisibility(duplicateproject);
+		duplicateproject.click();
 		
 		Thread.sleep(2000);
 		template.pressOnThreeDotsOnScreen.click();
@@ -191,35 +191,34 @@ public class subTasks extends testBase{
 	}
 	
 public void sortMiddlePane() throws InterruptedException {
-	//Thread.sleep(2000);
-	//tasksmiddlepane.pressOnSortByStar.click();
+	Thread.sleep(2000);
+	projectsmiddlepane.pressOnSortByfavorite.click();
+	/*	Thread.sleep(2000);
+	projectsmiddlepane..click();
 	
 	Thread.sleep(2000);
-	tasksmiddlepane.listOfSorts.get(1).click();
-	
-	Thread.sleep(2000);
-	tasksmiddlepane.listOfSorts.get(2).click();
+	projectsmiddlepane.chooceToSortByAll.click();
 	
 	for(int j=0;j<2;j++) {
 	Thread.sleep(2000);
-	tasksmiddlepane.pressArrow.click();
+	projectsmiddlepane.pressArrow.click();
 	}
 	
 	Thread.sleep(3000);
-	tasksmiddlepane.pressOnSortButton.click();
+	projectsmiddlepane.pressOnSortButton.click();
 	
 	Thread.sleep(2000);
-	waitForVisibility(tasksmiddlepane.sortByStatus);
-	tasksmiddlepane.sortByStatus.click();
+	waitForVisibility(projectsmiddlepane.pressOnStatus);
+	projectsmiddlepane.pressOnStatus.click();
 	
 	Thread.sleep(2000);
-	waitForVisibility(tasksmiddlepane.listOfStatusOfEntities.get(3));
-	tasksmiddlepane.listOfStatusOfEntities.get(3).click();
+	waitForVisibility(projectsmiddlepane.pressOnUnread);
+	projectsmiddlepane.pressOnUnread.click();
 	
 	Thread.sleep(2000);
-	waitForVisibility(tasksmiddlepane.listOfStatusOfEntities.get(2));
-	tasksmiddlepane.listOfStatusOfEntities.get(2).click();
-	
+	waitForVisibility(projectsmiddlepane.pressSortByTitle);
+	projectsmiddlepane.pressSortByTitle.click();
+	*/
 	
 
 }
