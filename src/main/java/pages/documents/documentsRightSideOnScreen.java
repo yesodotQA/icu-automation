@@ -11,6 +11,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import com.aventstack.extentreports.Status;
 
 import base.testBase;
+import global.globalActions.actionsMiddlePane;
 import global.globalElements.Tabs;
 import global.globalElements.middlePane;
 import global.globalElements.multipleSelect;
@@ -22,7 +23,7 @@ import global.globalElements.theRightOfTheScreen;
 		multipleSelect multipleselect;
 		theRightOfTheScreen therightonthescreen;
 		documentsMiddlePane documentsmiddlepane;
-		
+		actionsMiddlePane actionmiddlepane;
 		
 		@FindBy(className = "activities-list")
 		WebElement checkIfTheActivitiesUpdate;
@@ -36,11 +37,13 @@ import global.globalElements.theRightOfTheScreen;
 	
 		public  documentsRightSideOnScreen() {
 		
-			this.multipleselect = new multipleSelect();
-			this.middlepane = new middlePane();
-			this.tabs = new Tabs();
+			this.multipleselect      = new multipleSelect();
+			this.middlepane          = new middlePane();
+			this.tabs                = new Tabs();
 			this.therightonthescreen = new theRightOfTheScreen();
 			this.documentsmiddlepane = new documentsMiddlePane();
+			this.actionmiddlepane    = new actionsMiddlePane();
+			
 			PageFactory.initElements(driver, this);
 	
 		}
@@ -53,7 +56,7 @@ import global.globalElements.theRightOfTheScreen;
 		
 		public void deleteEntityOnScreen() throws InterruptedException {
 	
-			middlepane.openEntity("delete entity", "1234");
+			actionmiddlepane.openEntity("delete entity", "1234");
 			
 			
 			int size =middlepane.listOfEntities.size() ;
@@ -94,7 +97,7 @@ import global.globalElements.theRightOfTheScreen;
 		public void addAssigneeOnScreen() throws InterruptedException {
 			
 		
-			middlepane.openEntity("right of screen", "classified");
+			actionmiddlepane.openEntity("right of screen", "classified");
 			
 			
 			int checkSizeOfWatchersBeforeAddAssignee = therightonthescreen.listOfWatchersIcons.size();

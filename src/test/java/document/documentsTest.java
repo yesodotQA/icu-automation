@@ -1,3 +1,4 @@
+
 package document;
 
 import org.testng.annotations.AfterClass;
@@ -45,7 +46,7 @@ public class documentsTest extends testBase {
 		//open doc  enter title and description
 		actionsmiddlepane.openEntity("doc1" , "importenet");
 	}
-	/*
+	
 	@Test(priority = 2)
 		public void delete() throws InterruptedException {
 		
@@ -91,7 +92,6 @@ public class documentsTest extends testBase {
 		
 	}
 	
-	*/
 	@Test(priority = 8)
 	public void documentsMiddlePane() throws InterruptedException {
 		
