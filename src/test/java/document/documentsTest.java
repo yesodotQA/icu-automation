@@ -8,6 +8,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 
 import base.testBase;
+import global.globalActions.actionsMiddlePane;
 import global.globalActions.actionsMultipleSelect;
 import global.globalElements.middlePane;
 import pages.documents.documentsMiddlePane;
@@ -21,6 +22,7 @@ public class documentsTest extends testBase {
 	documentsMiddlePane documentsmiddlepane;
 	middlePane middlepane;
 	documentsRightSideOnScreen documentsrhigtsideonscreen;
+	actionsMiddlePane actionsmiddlepane;
 	
 	@BeforeClass
 	public void SetUp() throws InterruptedException{	
@@ -31,7 +33,7 @@ public class documentsTest extends testBase {
 	this.documentsmiddlepane = new documentsMiddlePane();
 	this.middlepane = new middlePane();
 	this.documentsrhigtsideonscreen = new documentsRightSideOnScreen();
-	
+	this.actionsmiddlepane = new actionsMiddlePane();
 	}
 	
 	@Test(priority = 1)
@@ -41,9 +43,9 @@ public class documentsTest extends testBase {
 		documentsmultipleselect.pressDocument();
 	  
 		//open doc  enter title and description
-		middlepane.openEntity("doc1" , "importenet");
+		actionsmiddlepane.openEntity("doc1" , "importenet");
 	}
-	
+	/*
 	@Test(priority = 2)
 		public void delete() throws InterruptedException {
 		
@@ -89,29 +91,29 @@ public class documentsTest extends testBase {
 		
 	}
 	
-	
-	@Test(priority = 3)
+	*/
+	@Test(priority = 8)
 	public void documentsMiddlePane() throws InterruptedException {
 		
-		logger = extent.createTest("document mmiddle pane");
+		logger = extent.createTest("document middle pane");
 		
 		// change the status of list entities
-		documentsmiddlepane.changeStatusOfList();
+		actionsmiddlepane.changeStatusOfList();
 		
 		// choose entity and press on favorite 
-		//documentsmiddlepane.sortByFavorite();
+		//actionsmiddlepane.sortByFavorite();
 		
 		// sort the list by title
-		documentsmiddlepane.sordByTitle();
+		actionsmiddlepane.sordByTitle();
 		
 		// press on sort by status and unread
-		documentsmiddlepane.sordByStatusAndUnread();
+		actionsmiddlepane.sordByStatusAndUnread();
 		
 		// press on arrow to reverse the order of the list
-		// documentsmiddlepane.pressOnArrow();
+		//actionsmiddlepane.pressOnArrow();
 	}
 	
-	@Test(priority = 4)
+	@Test(priority = 9)
 	public void documentsRightSideOfScreen() throws InterruptedException {
 		
 		logger = extent.createTest("document the right side on the screen");

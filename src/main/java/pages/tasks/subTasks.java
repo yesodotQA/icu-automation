@@ -15,11 +15,8 @@ import global.globalElements.theRightOfTheScreen;
 public class subTasks extends testBase{
 	
 	multipleSelect tasksmultipleselect;
-	
 	middlePane tasksmiddlepane;
-	
 	Tabs taskstab;
-	
 	theRightOfTheScreen template;
 	
 	
