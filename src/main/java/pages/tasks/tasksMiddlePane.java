@@ -13,6 +13,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import com.aventstack.extentreports.Status;
 
 import base.testBase;
+import global.globalActions.actionsMiddlePane;
 import global.globalElements.Tabs;
 import global.globalElements.middlePane;
 import global.globalElements.multipleSelect;
@@ -24,6 +25,7 @@ public class tasksMiddlePane extends testBase {
 	middlePane tasksmiddlepane;	
 	Tabs taskstab;	
 	theRightOfTheScreen template;
+	actionsMiddlePane actionsmiddlepane;
 	
 	@FindBy(css = "[title='test']")
 	 WebElement checkIfArchvedWorks;
@@ -44,6 +46,7 @@ public class tasksMiddlePane extends testBase {
 		this.tasksmiddlepane = new middlePane();
 		this.taskstab = new Tabs();
 		this.template = new theRightOfTheScreen();
+		this.actionsmiddlepane = new actionsMiddlePane();
 		PageFactory.initElements(driver, this);
 	}
 
@@ -52,7 +55,7 @@ public class tasksMiddlePane extends testBase {
 		
 		int sizeOfList = tasksmiddlepane.listOfEntities.size();
 		
-		tasksmiddlepane.openEntity("test", "importenet2");
+		actionsmiddlepane.openEntity("test", "importenet2");
 		
 		waitForVisibility(template.pressToChangeStatusOnTheScreen);
 		
@@ -117,201 +120,4 @@ public class tasksMiddlePane extends testBase {
 		
 	}
 
-	// a function that selects a favorite entity
-	public void sortByFavorite() throws InterruptedException {
-		
-		int sizeOfList = tasksmiddlepane.listOfEntities.size();
-		
-		
-		waitForVisibility(tasksmiddlepane.pressOnEntity);
-				
-		tasksmiddlepane.pressOnEntity.click();
-		
-		Thread.sleep(2000);
-		
-		waitForVisibility(template.chooseFavorite);
-		
-		template.chooseFavorite.click();
-		
-		
-		Thread.sleep(2000);
-		
-		tasksmiddlepane.openEntity("favorite", "dassad");
-		
-		
-		waitForVisibility(tasksmiddlepane.pressOnEntity);
-		
-		tasksmiddlepane.pressOnEntity.click();
-		
-		
-		Thread.sleep(2000);
-		
-		waitForVisibility(tasksmiddlepane.pressOnSortByfavorite);
-		
-		tasksmiddlepane.pressOnSortByfavorite.click();
-		
-		Thread.sleep(3000);
-		
-		int sizeOfListAfterPressFavorite = tasksmiddlepane.listOfEntities.size();
-		
-		// check if the list the list is narrowed
-		if (sizeOfList > sizeOfListAfterPressFavorite) {
-			
-			logger.log(Status.PASS , "sort by favorite");
-		
-		}	
-		
-		else {
-			
-			logger.log(Status.FAIL , "sort by favorite");
-		}
-		
-		
-		waitForVisibility(tasksmiddlepane.pressOnSortByfavorite);
-		
-		tasksmiddlepane.pressOnSortByfavorite.click();
-		
-		
-		Thread.sleep(3000);
-		
-	}
-	
-
-	// a function that press on sort by title 
-	public void sortByTitle() throws InterruptedException {
-			
-		tasksmiddlepane.openEntity("this is test", "dassad");
-			
-		tasksmiddlepane.openEntity("hello world", "dasdassad");
-			
-		tasksmiddlepane.openEntity("abcd", "dasdassad");
-	  	
-	  	int count = 0;
-		
-		List<String> getStringList=listOfnamesOfEntities.stream().map(WebElement::getText).collect(Collectors.toList());
-
-		Collections.sort(getStringList);
-			
-		System.out.println(getStringList);
-	 
-
-		waitForVisibility(tasksmiddlepane.pressOnSortButton);
-			
-		tasksmiddlepane.pressOnSortButton.click();
-			
-		Thread.sleep(1000);
-		
-		tasksmiddlepane.listOfSorts.get(0).click();
-		
-		Thread.sleep(2000);
-		
-	
-		// check if the list sorted
-		
-		for (int i = 0; i < listOfnamesOfEntities.size()-1; i++) {
-					
-			if (listOfnamesOfEntities.get(i).getText().equals(getStringList.get(i))) {
-					
-				count++;
-			} 
-				
-		}
-				
-		if (count == listOfnamesOfEntities.size()-1) {
-				
-			logger.log(Status.INFO , "sort by title  unable to check the arrow needs to be fixed");
-			} 
-			
-		else {
-			
-			logger.log(Status.INFO , "sort by title unable to check the arrow needs to be fixed");
-			}		
-	}
-	
-	// a function that press on sort by unread and status
-		public void sordByStatusAndUnread() throws InterruptedException {
-				
-			waitForVisibility(tasksmiddlepane.pressOnSortButton);
-				
-			tasksmiddlepane.pressOnSortButton.click();
-				
-				
-			Thread.sleep(1000);
-			
-			tasksmiddlepane.listOfSorts.get(1).click();
-				
-				
-			Thread.sleep(2000);
-
-			waitForVisibility(tasksmiddlepane.pressOnSortButton);
-				
-			tasksmiddlepane.pressOnSortButton.click();
-				
-				
-			Thread.sleep(1000);
-			
-			tasksmiddlepane.listOfSorts.get(3).click();
-				
-			logger.log(Status.INFO , "press on sort by status and unread");
-
-				
-			waitForVisibility(tasksmiddlepane.pressOnSortButton);
-				
-			tasksmiddlepane.pressOnSortButton.click();
-				
-				
-			Thread.sleep(1000);
-				
-			tasksmiddlepane.listOfSorts.get(2).click();
-			
-			Thread.sleep(1000);
-
-			logger.log(Status.INFO , "arrow cannot be checked");
-			
-		}
-	
-		//a function that press on arrow to reverse the order of the list
-		public void pressOnArrow() throws InterruptedException {
-			
-			String firstNameOfEntity = listOfnamesOfEntities.get(0).getAttribute("textContent");
-			
-			String lastNameOfEntity =listOfnamesOfEntities.get(tasksmiddlepane.listOfEntities.size() -1).
-					getAttribute("textContent");
-					
-			
-			waitForVisibility(tasksmiddlepane.pressArrow);
-			
-			tasksmiddlepane.pressArrow.click();
-			
-			
-			String firstNameAfterPressArrow =listOfnamesOfEntities.get(0).getAttribute("textContent");
-			
-			String	lastNameAfterPressArrow = listOfnamesOfEntities.get(tasksmiddlepane.listOfEntities.size() -1).
-					getAttribute("textContent");
-					
-			
-			
-			Thread.sleep(3000);
-			
-			// checks whether the order of the list is reversed
-			if (firstNameOfEntity.equals(lastNameAfterPressArrow) && lastNameOfEntity.equals(firstNameAfterPressArrow)) {
-				
-				logger.log(Status.PASS , "arrow button");
-			} 
-			
-			else {
-				logger.log(Status.FAIL , "arrow button");
-			}
-
-			waitForVisibility(tasksmiddlepane.pressArrow);
-			
-			tasksmiddlepane.pressArrow.click();
-		
-			
-			Thread.sleep(3000);
-			
-			
-		}
-		
-	
 }

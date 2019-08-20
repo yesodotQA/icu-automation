@@ -4,6 +4,8 @@ import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
 import base.testBase;
 import global.globalActions.actionsMiddlePane;
+import global.globalActions.actionsMultipleSelect;
+import global.globalActions.actionsRightSide;
 import global.globalElements.Tabs;
 import global.globalElements.middlePane;
 import pages.tasks.tasksMiddlePane;
@@ -18,17 +20,23 @@ import pages.tasks.subTasks;
 		middlePane middlepane;
 		tasksMiddlePane tasksmiddlepane;
 		tasksRightSideOfScreen tasksrightsideonscreen;
+		actionsRightSide actionsrightside;
+		actionsMiddlePane actionsmiddlepane;
+		actionsMultipleSelect actionsmultipleselect;
 		
 		@BeforeClass
 		public void SetUp() throws InterruptedException{	
 		initialization(); 
 		Login();
 		
-		subTasks = new subTasks();
-		tasksmultipleselect = new tasksMultipleSelect();
-		middlepane = new middlePane();
-		tasksmiddlepane = new tasksMiddlePane();
-		tasksrightsideonscreen = new tasksRightSideOfScreen();
+		this.subTasks = new subTasks();
+		this.tasksmultipleselect = new tasksMultipleSelect();
+		this.middlepane = new middlePane();
+		this.tasksmiddlepane = new tasksMiddlePane();
+		this.tasksrightsideonscreen = new tasksRightSideOfScreen();
+		this.actionsmultipleselect = new actionsMultipleSelect();
+		this.actionsmiddlepane = new actionsMiddlePane();
+		this.actionsrightside = new actionsRightSide();
 		}
 		
 		@Test(priority = 1)
@@ -38,7 +46,7 @@ import pages.tasks.subTasks;
 			tasksmultipleselect.pressTask();
 		  
 			//open doc  enter title and description
-			middlepane.openEntity("doc1" , "important");
+			actionsmiddlepane.openEntity("doc1" , "important");
 		}
 		
 		@Test(priority = 2)
@@ -47,17 +55,17 @@ import pages.tasks.subTasks;
 			logger = extent.createTest("Task using multiple choice");
 			
 			// delete entity using multiple select
-			 tasksmultipleselect.deleteEntityMultipleChoice();
+			actionsmultipleselect.deleteEntityMultipleChoice();
 			
-			 tasksmultipleselect.addTagsMultipleChoice("mission");
+			actionsmultipleselect.addTagsMultipleChoice("mission");
 			
-			 tasksmultipleselect.addDateMultipleChoice();
+			actionsmultipleselect.addDateMultipleChoice();
 			
-			 tasksmultipleselect.addAssigneeMultipleChoice();
+			actionsmultipleselect.addAssigneeMultipleChoice();
 			
-			 tasksmultipleselect.addWatchersMultipleChoice();
+			actionsmultipleselect.addWatchersMultipleChoice();
 			
-			 tasksmultipleselect.addStatusMultipleChoice();
+			actionsmultipleselect.addStatusMultipleChoice();
 			
 		}
 		
@@ -69,11 +77,11 @@ import pages.tasks.subTasks;
 			
 			//tasksmiddlepane.sortByFavorite();
 			
-			tasksmiddlepane.sortByTitle();
+			actionsmiddlepane.sortByTitle();
 			
-			tasksmiddlepane.sordByStatusAndUnread();
+			actionsmiddlepane.sordByStatusAndUnread();
 			
-			//tasksmiddlepane.pressOnArrow();
+			//actionsmiddlepane.pressOnArrow();
 		}
 		
 		@Test(priority = 4)
@@ -81,11 +89,11 @@ import pages.tasks.subTasks;
 			
 			logger = extent.createTest("Task using right side on screen");
 			
-			tasksrightsideonscreen.deleteEntityOnScreen();
+			actionsrightside.deleteEntity();
 			
-			tasksrightsideonscreen.addAssigneeOnScreen();
+			actionsrightside.addAssignee();
 			
-			tasksrightsideonscreen.addDateOnScreen();
+			actionsrightside.setDate();
 			
 			tasksrightsideonscreen.addStatusOnScreen();
 			
@@ -93,17 +101,17 @@ import pages.tasks.subTasks;
 			
 			tasksrightsideonscreen.SelectProjectsOnScreen();
 			
-			tasksrightsideonscreen.addTagsOnScreen("yaronnn");
+			actionsrightside.addTags("yaronnn");
 			
-			tasksrightsideonscreen.addActivities("sad", "memurmar");
+			actionsrightside.addActivities("sad", "memurmar");
 			
-			tasksrightsideonscreen.addWatcherOnScreen();
+			actionsrightside.addWatcher();
 		
 		}
 		
 		
 		
-		@Test(priority = 3)
+		@Test(priority = 5)
 		public void TasksTemplate()throws InterruptedException{
 			logger = extent.createTest("Task template");
 			
@@ -112,7 +120,7 @@ import pages.tasks.subTasks;
 			
 			subTasks.TaskTemplate();
 		}
-		
+		/*
 		public void MyTasks() throws InterruptedException {
 			tabs.MyTasks.click();
 			
@@ -144,7 +152,7 @@ import pages.tasks.subTasks;
 			taskspage.SubTask();
 		}
 		
-		
+		*/
 		
 		
 		@AfterClass

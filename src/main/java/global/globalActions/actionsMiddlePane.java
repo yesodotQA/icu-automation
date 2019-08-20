@@ -132,7 +132,7 @@ public class actionsMiddlePane extends testBase {
 	}
 
 	// a function that press on sort by title 
-	public void sordByTitle() throws InterruptedException {
+	public void sortByTitle() throws InterruptedException {
 
 		openEntity("this is test", "dassad");
 
