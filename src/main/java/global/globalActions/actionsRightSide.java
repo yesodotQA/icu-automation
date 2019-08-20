@@ -185,8 +185,38 @@ public class actionsRightSide extends testBase {
 		}
 		
 	}
-	
-	
-	
+	public void addWatcher() throws InterruptedException {
+
+		int checkSizeOfWatchersBeforeAddWatchers = therightonthescreen.listOfWatchersIcons.size();
+
+		waitForVisibility(therightonthescreen.pressOnAddWatcherOnTHeScreen);
+		therightonthescreen.pressOnAddWatcherOnTHeScreen.click();
+
+		Thread.sleep(1000);
+
+		waitForVisibility(therightonthescreen.selectMembers);
+		therightonthescreen.selectMembers.click();
+		
+		Thread.sleep(2000);
+		therightonthescreen.listOfWatchersOnScreen.get(1).click();
+
+		Thread.sleep(2000);
+
+		int  checkSizeOfWatchersAfterAddWatchers = therightonthescreen.listOfWatchersIcons.size();
+
+		if(checkSizeOfWatchersBeforeAddWatchers +  1 ==  checkSizeOfWatchersAfterAddWatchers) {
+			logger.log(Status.PASS , "add watchers on screen");
+		}
+
+		else {
+			logger.log(Status.FAIL , "add watchers on screen");
+
+		}
+
+
+	}
+
+
+
 
 }	
