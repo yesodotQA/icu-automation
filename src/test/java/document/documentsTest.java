@@ -11,6 +11,7 @@ import org.testng.annotations.BeforeSuite;
 import base.testBase;
 import global.globalActions.actionsMiddlePane;
 import global.globalActions.actionsMultipleSelect;
+import global.globalActions.actionsRightSide;
 import global.globalElements.middlePane;
 import pages.documents.documentsMiddlePane;
 import pages.documents.documentsMultipleSelect;
@@ -24,7 +25,7 @@ public class documentsTest extends testBase {
 	middlePane middlepane;
 	documentsRightSideOnScreen documentsrhigtsideonscreen;
 	actionsMiddlePane actionsmiddlepane;
-	
+	actionsRightSide actionsrightside;
 	
 	@BeforeClass
 	public void SetUp() throws InterruptedException{	
@@ -36,7 +37,7 @@ public class documentsTest extends testBase {
 	this.middlepane = new middlePane();
 	this.documentsrhigtsideonscreen = new documentsRightSideOnScreen();
 	this.actionsmiddlepane = new actionsMiddlePane();
-	
+	this.actionsrightside = new actionsRightSide();
 	}
 	
 	@Test(priority = 1)
@@ -120,21 +121,21 @@ public class documentsTest extends testBase {
 		
 		logger = extent.createTest("document the right side on the screen");
 		
-		documentsrhigtsideonscreen.deleteEntityOnScreen();
+		actionsrightside.deleteEntity();
 		
-		documentsrhigtsideonscreen.addAssigneeOnScreen();
+		actionsrightside.addAssignee();
 		
-		documentsrhigtsideonscreen.addDateOnScreen();
+		actionsrightside.setDate();
 		
-		documentsrhigtsideonscreen.addStatusOnScreen();
+		documentsrhigtsideonscreen.addStatus();
 		
 		documentsrhigtsideonscreen.SelectFolderOnScreen();
 		
-		documentsrhigtsideonscreen.addTagsOnScreen("www");
+		actionsrightside.addTags("www");
 		
-		documentsrhigtsideonscreen.addActivities("hyyyyyy" , "this is superman");
+		actionsrightside.addActivities("hyyyyyy" , "this is superman");
 		
-		documentsrhigtsideonscreen.addWatcherOnScreen();
+		actionsrightside.addWatcher();
 		
 	}
 	
