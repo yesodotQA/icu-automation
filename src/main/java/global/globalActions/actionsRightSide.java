@@ -83,7 +83,7 @@ public class actionsRightSide extends testBase {
 			logger.log(Status.FAIL , "add asignee on screen");
 		}
 	}
-	
+
 	// TEST FUNCTION THAT SET A DATE
 	public void setDate() throws InterruptedException {
 
@@ -116,29 +116,28 @@ public class actionsRightSide extends testBase {
 		}
 
 	}
-	
+
 	// 	TEST FUNCTION THAT CHECK ADDED TAGS
 	public void addTags(String tags) throws InterruptedException {
-		
 		String sizeOfActivtiesList =
 				therightonthescreen.checkIfTheActivitiesUpdate.getAttribute("childElementCount");
 		int switcheStringToInt1 = Integer.parseInt(sizeOfActivtiesList);
-		
+
 		waitForVisibility(therightonthescreen.enterTagsOnScreen);
 		therightonthescreen.enterTagsOnScreen.click();
 		Thread.sleep(1000);
-		
+
 		therightonthescreen.enterTagsOnScreen.sendKeys(tags);
 		Thread.sleep(1000);
-		
+
 		therightonthescreen.listOfTagsOnScreen.get(0).click();
 		Thread.sleep(2000);
-		
+
 		String sizeOfActivtiesListAfterSet = 
 				therightonthescreen.checkIfTheActivitiesUpdate.getAttribute("childElementCount");
-			
+
 		int SwitcheStringToInt2 = Integer.parseInt(sizeOfActivtiesListAfterSet);
-			
+
 		if (switcheStringToInt1 + 1 == SwitcheStringToInt2) {
 			logger.log(Status.PASS , "add tags on screen");
 		}
@@ -146,6 +145,7 @@ public class actionsRightSide extends testBase {
 			logger.log(Status.FAIL , "add tags on screen");
 		}
 	}
+
 	public void addActivities(String act1 , String act2) throws InterruptedException {
 
 		String sizeListOfActivitiesBeforeChoosing = 
@@ -216,7 +216,7 @@ public class actionsRightSide extends testBase {
 
 	}
 
-}	
 
 
 
+}

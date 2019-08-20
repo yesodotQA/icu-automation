@@ -7,6 +7,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import com.aventstack.extentreports.Status;
 
 import base.testBase;
+import global.globalActions.actionsMiddlePane;
 import global.globalElements.Tabs;
 import global.globalElements.middlePane;
 import global.globalElements.multipleSelect;
@@ -18,7 +19,7 @@ public class foldersMultipleSelect  extends testBase{
 	middlePane middlepane;
 	multipleSelect multipleselect;
 	theRightOfTheScreen therightonthescreen;	
-
+	actionsMiddlePane actionsmiddlepane;
 	
 	public foldersMultipleSelect(){
 		
@@ -26,6 +27,7 @@ public class foldersMultipleSelect  extends testBase{
 		this.middlepane = new middlePane();
 		this.tabs = new Tabs();
 		this.therightonthescreen = new theRightOfTheScreen();
+		this.actionsmiddlepane = new actionsMiddlePane();
 		PageFactory.initElements(driver, this);
 	 }
 	
@@ -91,7 +93,7 @@ public class foldersMultipleSelect  extends testBase{
 		//a function that adds tags using multiple select 
 		public void addTagsMultipleChoice(String tags) throws InterruptedException {
 			 
-			middlepane.openEntity("doc2", "importent");
+			actionsmiddlepane.openEntity("doc2", "importent");
 			
 			waitForVisibility(multipleselect.pressMultipleChoice);
 			
