@@ -30,7 +30,7 @@ import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 		
 	String PATH = "http://10.100.11.95/";
 		
-	System.setProperty("webdriver.chrome.driver", "C:\\chromedriver//chromedriver.exe");
+	System.setProperty("webdriver.chrome.driver", "C:\\chromedriver.exe");
 	
 	driver = new ChromeDriver();
 	

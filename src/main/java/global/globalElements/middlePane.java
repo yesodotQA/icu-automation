@@ -34,8 +34,14 @@ public class middlePane extends testBase {
 	@FindBy(className = "active-status")
 	public WebElement sortByStatus;
 	
+	@FindBy(css = "[title='test']")
+	public WebElement checkIfArchvedWorks; 
+	
 	@FindBy(css = "[ng-if='$select.open']")
 	public List<WebElement>  listOfStatusOfEntities = new ArrayList<>();
+	
+	@FindBy(css = "[ng-focus='focusing(item)']")
+	public List<WebElement>  listOfnamesOfEntities = new ArrayList<>();
 	
 	@FindBy(className = "button-left-part")
 	public	WebElement pressArrow;
@@ -58,38 +64,6 @@ public class middlePane extends testBase {
 			wait.until(ExpectedConditions.visibilityOf(element));
 			
 	}
-	//a function that open new entity and give title and description
-	 public void openEntity(String tit , String des) throws InterruptedException {
-			
-			waitForVisibility(pressCreateNewItem);
-			
-			pressCreateNewItem.click();
-			
-			
-			Thread.sleep(2000);
-			
-			waitForVisibility(enterTitle);
-			
-			enterTitle.sendKeys(tit);
-			
-			
-			Thread.sleep(3000);
-			
-			waitForVisibility(description);
-			
-			description.sendKeys(des);
-			
-		
-			Thread.sleep(3000);
-			
-			waitForVisibility(pressOnEntity);
-			
-			pressOnEntity.click();
-			
-			Thread.sleep(3000);
-			
-		}
-	
 	
 	
 }

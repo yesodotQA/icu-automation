@@ -19,6 +19,7 @@ public class actionsMultipleSelect extends testBase {
 	middlePane middlepane;
 	multipleSelect multipleselect;
 	theRightOfTheScreen therightonthescreen;
+	actionsMiddlePane actionsMiddlePane;
 	
 	@FindBy(css = "[ui-date='dueOptions']")
 	 WebElement getTextOfDate;
@@ -27,6 +28,7 @@ public class actionsMultipleSelect extends testBase {
 		
 		this.multipleselect = new multipleSelect();
 		this.middlepane = new middlePane();
+		this.actionsMiddlePane = new actionsMiddlePane();
 		this.tabs = new Tabs();
 		this.therightonthescreen = new theRightOfTheScreen();
 		PageFactory.initElements(driver, this);
@@ -81,7 +83,7 @@ public class actionsMultipleSelect extends testBase {
 	//a function that adds tags using multiple select 
 	public void addTagsMultipleChoice(String tags) throws InterruptedException {
 			 
-		middlepane.openEntity("doc2", "importent");
+		actionsMiddlePane.openEntity("doc2", "importent");
 		
 		waitForVisibility(multipleselect.pressMultipleChoice);
 		
