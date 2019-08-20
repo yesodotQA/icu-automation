@@ -3,14 +3,16 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
 import base.testBase;
+import global.globalActions.actionsMiddlePane;
 import global.globalElements.Tabs;
 import global.globalElements.middlePane;
 import pages.tasks.tasksMiddlePane;
 import pages.tasks.tasksMultipleSelect;
 import pages.tasks.tasksRightSideOfScreen;
-
+import pages.tasks.subTasks;
 	public class tasksTest  extends testBase {
 		
+		subTasks subTasks;
 		Tabs tabs;
 		tasksMultipleSelect tasksmultipleselect ;
 		middlePane middlepane;
@@ -21,6 +23,8 @@ import pages.tasks.tasksRightSideOfScreen;
 		public void SetUp() throws InterruptedException{	
 		initialization(); 
 		Login();
+		
+		subTasks = new subTasks();
 		tasksmultipleselect = new tasksMultipleSelect();
 		middlepane = new middlePane();
 		tasksmiddlepane = new tasksMiddlePane();
@@ -98,21 +102,22 @@ import pages.tasks.tasksRightSideOfScreen;
 		}
 		
 		
-		/*
+		
 		@Test(priority = 3)
 		public void TasksTemplate()throws InterruptedException{
 			logger = extent.createTest("Task template");
 			
-			taskspage.TaskTemplate();
 			
-			taskspage.SubTask();
+			subTasks.SubTaskEdit();
+			
+			subTasks.TaskTemplate();
 		}
 		
 		public void MyTasks() throws InterruptedException {
 			tabs.MyTasks.click();
 			
 			Thread.sleep(2000);
-			taskspage.openEntity("doc1" , "important");
+			tasksmiddlepane.openEntity("doc1" , "important");
 			
 			logger = extent.createTest("My Task using multiple choice");
 			
@@ -140,7 +145,7 @@ import pages.tasks.tasksRightSideOfScreen;
 		}
 		
 		
-		*/
+		
 		
 		@AfterClass
 		public void after() {
