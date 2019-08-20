@@ -119,7 +119,6 @@ public class actionsRightSide extends testBase {
 	
 	// 	TEST FUNCTION THAT CHECK ADDED TAGS
 	public void addTags(String tags) throws InterruptedException {
-		
 		String sizeOfActivtiesList =
 				therightonthescreen.checkIfTheActivitiesUpdate.getAttribute("childElementCount");
 		int switcheStringToInt1 = Integer.parseInt(sizeOfActivtiesList);
@@ -146,6 +145,47 @@ public class actionsRightSide extends testBase {
 			logger.log(Status.FAIL , "add tags on screen");
 		}
 	}
+	
+	public void addActivities(String act1 , String act2) throws InterruptedException {
+		
+		String sizeListOfActivitiesBeforeChoosing = 
+				therightonthescreen.checkIfTheActivitiesUpdate.getAttribute("childElementCount");
+		
+		int switcheStringToInt1 = Integer.parseInt(sizeListOfActivitiesBeforeChoosing);
+		
+		waitForVisibility(therightonthescreen.addActivities);
+		therightonthescreen.addActivities.sendKeys(act1);
+		
+		waitForVisibility(therightonthescreen.updateActivities);
+		therightonthescreen.updateActivities.click();
+	
+		Thread.sleep(2000);
+			
+		waitForVisibility(therightonthescreen.addActivities);
+		therightonthescreen.addActivities.sendKeys(act2);
+		
+		Thread.sleep(2000);
+		
+		waitForVisibility(therightonthescreen.updateActivities);	
+		therightonthescreen.updateActivities.click();
+		
+		Thread.sleep(2000);
+		
+		String sizeListOfActivitiesAfterChoosing =
+				therightonthescreen.checkIfTheActivitiesUpdate.getAttribute("childElementCount");
+		
+		int SwitcheStringToInt2 = Integer.parseInt(sizeListOfActivitiesAfterChoosing);
+		
+		if (switcheStringToInt1 + 2 == SwitcheStringToInt2) {
+			logger.log(Status.PASS , "add activities");
+			}
+		
+		else {
+			logger.log(Status.FAIL , "add activities");
+		}
+		
+	}
+	
 	
 	
 
