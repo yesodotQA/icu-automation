@@ -5,8 +5,11 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Properties;
 
+<<<<<<< HEAD
 import javax.management.loading.PrivateClassLoader;
 
+=======
+>>>>>>> 1b453ed8aefc95933200f923af3e8b3009bded1a
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -46,9 +49,33 @@ public class testBase {
 		driver.manage().deleteAllCookies();
 		driver.navigate().to(prop.getProperty("url"));
 
+<<<<<<< HEAD
 	}
 
 	public static void Login() throws InterruptedException {
+=======
+    	public static WebDriverWait wait;
+    	
+    	public static Properties prop;
+    	
+    
+	
+    public static void initialization() throws IOException  {
+    
+    prop = new Properties();
+    	
+    FileInputStream ip= new FileInputStream("./configs/properties");
+    	
+    prop.load(ip);
+    			
+	System.setProperty("webdriver.chrome.driver", prop.getProperty("chromedriver"));
+	
+	driver = new ChromeDriver();
+	
+	wait = new WebDriverWait(driver, 30);
+	
+	extent = new ExtentReports();
+>>>>>>> 1b453ed8aefc95933200f923af3e8b3009bded1a
 
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/section/section/div/form/div[2]/input")));
 		driver.findElement(By.xpath("/html/body/section/section/div/form/div[2]/input")).sendKeys(prop.getProperty("email"));
@@ -56,9 +83,41 @@ public class testBase {
 		driver.findElement(By.className("btn")).click();
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/div[1]/div/div/div[3]/button")));
 
+<<<<<<< HEAD
 		Thread.sleep(2000);
 		driver.findElement(By.xpath("/html/body/div[1]/div/div/div[3]/button")).click();
 		Thread.sleep(2000);
+=======
+	extent.attachReporter(htmlReporter);
+		
+	driver.manage().window().maximize();
+	
+	driver.manage().deleteAllCookies();
+	
+	driver.navigate().to(prop.getProperty("url"));
+	
+    }
+	
+	public static void Login() throws InterruptedException {
+	 
+	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/section/section/div/form/div[2]/input")));
+	
+	driver.findElement(By.xpath("/html/body/section/section/div/form/div[2]/input")).sendKeys(prop.getProperty("email"));
+	
+	driver.findElement(By.xpath("/html/body/section/section/div/form/div[3]/input")).sendKeys(prop.getProperty("password"));
+
+	driver.findElement(By.className("btn")).click();
+	
+	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/div[1]/div/div/div[3]/button")));
+	
+	Thread.sleep(2000);
+	
+	driver.findElement(By.xpath("/html/body/div[1]/div/div/div[3]/button")).click();
+	
+	Thread.sleep(2000);
+	
+	 }
+>>>>>>> 1b453ed8aefc95933200f923af3e8b3009bded1a
 
 	}
 }
