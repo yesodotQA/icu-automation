@@ -1,12 +1,9 @@
 package task;
-<<<<<<< HEAD
-=======
+
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
->>>>>>> 1b453ed8aefc95933200f923af3e8b3009bded1a
 import java.io.IOException;
-
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.testng.annotations.AfterClass;
