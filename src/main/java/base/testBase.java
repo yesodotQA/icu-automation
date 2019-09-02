@@ -50,9 +50,15 @@ import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 	 
 	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/section/section/div/form/div[2]/input")));
 	
+<<<<<<< HEAD
 	driver.findElement(By.xpath("/html/body/section/section/div/form/div[2]/input")).sendKeys("ronimiroluz@gmail.com");
 	
 	driver.findElement(By.xpath("/html/body/section/section/div/form/div[3]/input")).sendKeys("121212sly");
+=======
+	driver.findElement(By.xpath("/html/body/section/section/div/form/div[2]/input")).sendKeys("juda123@gmail.com");
+	
+	driver.findElement(By.xpath("/html/body/section/section/div/form/div[3]/input")).sendKeys("Aa123456789!");
+>>>>>>> 3f7831ed806a9c604c03d7459667a7535d972357
 	
 	driver.findElement(By.className("btn")).click();
 	

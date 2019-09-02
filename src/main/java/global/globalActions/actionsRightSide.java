@@ -1,12 +1,13 @@
 package global.globalActions;
-
+import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import com.aventstack.extentreports.Status;
-import java.util.List;
+
 import base.testBase;
 import global.globalElements.Tabs;
 import global.globalElements.middlePane;
@@ -16,20 +17,21 @@ import pages.documents.documentsMiddlePane;
 
 public class actionsRightSide extends testBase {
 
-	Tabs tabs;
-	middlePane middlepane;
-	multipleSelect multipleselect;
-	theRightOfTheScreen therightonthescreen;
-	documentsMiddlePane documentsmiddlepane;
-	actionsMiddlePane actionmiddlepane;
+	Tabs                 tabs;
+	middlePane           middlepane;
+	multipleSelect       multipleselect;
+	theRightOfTheScreen  therightonthescreen;
+	documentsMiddlePane  documentsmiddlepane;
+	actionsMiddlePane    actionmiddlepane;
+	
 	public actionsRightSide() {
 
-		this.multipleselect = new multipleSelect();
-		this.middlepane = new middlePane();
-		this.tabs = new Tabs();
+		this.multipleselect      = new multipleSelect();
+		this.middlepane          = new middlePane();
+		this.tabs                = new Tabs();
 		this.therightonthescreen = new theRightOfTheScreen();
 		this.documentsmiddlepane = new documentsMiddlePane();
-		this.actionmiddlepane = new actionsMiddlePane();
+		this.actionmiddlepane    = new actionsMiddlePane();
 
 		PageFactory.initElements(driver, this);
 	}
@@ -243,6 +245,7 @@ public class actionsRightSide extends testBase {
 		String Commenter = "Set as commenter";
 		String Viewer    = "Set as viewer";
 
+
 		// Set as editor 
 		for(int i = 0; i <= permissionsList.size(); i++) {
 
@@ -253,8 +256,25 @@ public class actionsRightSide extends testBase {
 			}
 		}
 
+
 		Thread.sleep(2000);
 
+		List<WebElement> EditorMembers = driver.findElements(By.cssSelector(".avatar.editor"));
+
+		if (EditorMembers.size() == 2) {
+			System.out.println("sad");
+			//logger.log(Status.PASS , "change permission to Editor");
+		}
+		else {
+
+			logger.log(Status.FAIL, "change permission to Editor");
+		}
+
+		// set as commenter
+		memberList.get(2).click();
+
+
+		Thread.sleep(2000);
 		List<WebElement> EditorMembers = driver.findElements(By.cssSelector(".avatar.editor"));
 
 		if (EditorMembers.size() == 2) {
@@ -291,4 +311,11 @@ public class actionsRightSide extends testBase {
 
 
 
+
+
+
+
 }
+
+
+
