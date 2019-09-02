@@ -58,7 +58,7 @@ public class meetingsTest extends testBase {
 	}
 	
 	@Test (priority = 2)
-	public void 
+	
 	
 	
 	@AfterClass
