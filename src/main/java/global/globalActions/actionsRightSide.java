@@ -260,8 +260,7 @@ public class actionsRightSide extends testBase {
 		List<WebElement> EditorMembers = driver.findElements(By.cssSelector(".avatar.editor"));
 
 		if (EditorMembers.size() == 2) {
-			System.out.println("sad");
-			//logger.log(Status.PASS , "change permission to Editor");
+			logger.log(Status.PASS , "change permission to Editor");
 		}
 		else {
 
@@ -283,10 +282,21 @@ public class actionsRightSide extends testBase {
 		WebElement commenterMember = driver.findElement(By.className("commenter"));
 
 		if (commenterMember.isDisplayed()) {
-			logger.log(Status.PASS , "commenter is displayed");
+			logger.log(Status.PASS , "change permission to commenter");
 		}
 		else {
-			logger.log(Status.FAIL, "commenter is displayed");
+			logger.log(Status.FAIL, "change permission to commenter");
+		}
+		
+		// Check when watcher was added is a viewer in defaults
+		
+		WebElement viewerMember = driver.findElement(By.className("viewer"));
+		
+		if (viewerMember.isDisplayed()) {
+			logger.log(Status.PASS , "The defaults permmision is viewer");
+		}
+		else {
+			logger.log(Status.FAIL, "The defaults permmision is viewer");
 		}
 	}
 

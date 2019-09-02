@@ -47,9 +47,10 @@ public class meetingsTest extends testBase {
 	@Test
 	public void temp() throws InterruptedException {
 	
-		Thread.sleep(2000);
-		actionsmiddlepane.openEntity("Permissions","Check the Permissions changeable");
+		logger = extent.createTest("Change Permissions");
+		actionsmiddlepane.openEntity("Change Permissions","Check the Permissions changeable ");
 		actionsrightside.changePermission();
+		
 	}
 	
 	
