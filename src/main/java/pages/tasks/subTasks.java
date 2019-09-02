@@ -91,6 +91,8 @@ public class subTasks extends testBase{
 
 
 	public void  SubTaskEdit() throws InterruptedException {
+		
+		logger = extent.createTest("create sub tasks and edit it");
 		Thread.sleep(2000);
 		addSubTask.click();
 
@@ -126,7 +128,7 @@ public class subTasks extends testBase{
 		
 		Thread.sleep(1000);
 		nameSubTask.click();
-		
+		logger = extent.createTest("delete subtask");
 		Thread.sleep(500);
 		DeleteSubTask.click();
 

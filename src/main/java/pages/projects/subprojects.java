@@ -95,6 +95,7 @@ public class subprojects extends testBase{
 	
 	
 	public void  Subproject() throws InterruptedException {
+		logger = extent.createTest("create sub tasks and edit it");
 		Thread.sleep(2000);
 		addSubproject.click();
 		
@@ -121,12 +122,11 @@ public class subprojects extends testBase{
 		waitForVisibility(ChooseprojectTemplate);
 		ChooseprojectTemplate.click();
 		
+		logger = extent.createTest("delete subtask");
 		Thread.sleep(1000);
 		waitForVisibility(DeleteSubproject);
 		DeleteSubproject.click();
-		
-		Thread.sleep(2000);
-		ArrowSubproject.click();
+
 	}	
 
 	public void projectTemplate() throws InterruptedException {
