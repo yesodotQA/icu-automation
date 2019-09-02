@@ -30,7 +30,7 @@ import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 		
 	String PATH = "http://10.100.11.95/";
 		
-	System.setProperty("webdriver.chrome.driver", "/home/israel/Downloads/chromedriver_linux64/chromedriver");
+	System.setProperty("webdriver.chrome.driver", "C:\\chromedriver.exe");
 	
 	driver = new ChromeDriver();
 	
@@ -53,9 +53,9 @@ import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 	 
 	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/section/section/div/form/div[2]/input")));
 	
-	driver.findElement(By.xpath("/html/body/section/section/div/form/div[2]/input")).sendKeys("isr123@gmail.com");
+	driver.findElement(By.xpath("/html/body/section/section/div/form/div[2]/input")).sendKeys("juda123@gmail.com");
 	
-	driver.findElement(By.xpath("/html/body/section/section/div/form/div[3]/input")).sendKeys("israelfrank");
+	driver.findElement(By.xpath("/html/body/section/section/div/form/div[3]/input")).sendKeys("Aa123456789!");
 	
 	driver.findElement(By.className("btn")).click();
 	

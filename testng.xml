@@ -3,7 +3,13 @@
 <suite name="Suite">
   <test thread-count="5" name="Test">
     <classes>
+<<<<<<< HEAD
       <class name="document.documentsTest"/>
+=======
+    
+      <class name="meetings.meetingsTest"/>
+      
+>>>>>>> 1d257e9225bb98e29ecd1da9ec0496d82af4170c
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

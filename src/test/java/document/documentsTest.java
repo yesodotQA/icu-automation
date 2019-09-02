@@ -1,36 +1,40 @@
+
 package document;
 
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.Test;
-import org.testng.annotations.BeforeClass;
+
 import base.testBase;
-import global.middlePane;
-import pages.documentsMiddlePane;
-import pages.documentsMultipleSelect;
-import pages.documentsRightSideOnScreen;;
+import global.globalActions.actionsMiddlePane;
+import global.globalActions.actionsMultipleSelect;
+import global.globalActions.actionsRightSide;
+import global.globalElements.middlePane;
+import pages.documents.documentsMiddlePane;
+import pages.documents.documentsMultipleSelect;
+import pages.documents.documentsRightSideOnScreen;;
 
 public class documentsTest extends testBase {
 	
 	documentsMultipleSelect documentsmultipleselect;
-	
 	documentsMiddlePane documentsmiddlepane;
-	
 	middlePane middlepane;
-	
 	documentsRightSideOnScreen documentsrhigtsideonscreen;
+	actionsMiddlePane actionsmiddlepane;
+	actionsRightSide actionsrightside;
+	actionsMultipleSelect actionsmultipleselect;
 	
 	@BeforeClass
 	public void SetUp() throws InterruptedException{	
 	initialization(); 
 	Login();
-	documentsmultipleselect = new documentsMultipleSelect();
-	documentsmiddlepane = new documentsMiddlePane();
-	middlepane = new middlePane();
-	documentsrhigtsideonscreen = new documentsRightSideOnScreen();
-	
+	this.actionsmultipleselect = new actionsMultipleSelect();
+	this.documentsmultipleselect = new documentsMultipleSelect();
+	this.documentsmiddlepane = new documentsMiddlePane();
+	this.middlepane = new middlePane();
+	this.documentsrhigtsideonscreen = new documentsRightSideOnScreen();
+	this.actionsmiddlepane = new actionsMiddlePane();
+	this.actionsrightside = new actionsRightSide();
 	}
 	
 	@Test(priority = 1)
@@ -40,76 +44,95 @@ public class documentsTest extends testBase {
 		documentsmultipleselect.pressDocument();
 	  
 		//open doc  enter title and description
-		middlepane.openEntity("doc1" , "importenet");
+		actionsmiddlepane.openEntity("doc1" , "importenet");
 	}
 	
 	@Test(priority = 2)
-	public void documentsMulitipleChoice() throws InterruptedException {
-	
-		logger = extent.createTest("document using multiple choice");
+		public void delete() throws InterruptedException {
 		
+		logger = extent.createTest("delete using multiple choice");
 		// delete entity using multiple select
-		documentsmultipleselect.deleteEntityMultipleChoice();
+		actionsmultipleselect.deleteEntityMultipleChoice();
+		}
 		
+	@Test(priority = 3)
+		public void tags() throws InterruptedException {
+		
+		logger = extent.createTest("tags using multiple choice");
 		// add tags using multiple select
-		documentsmultipleselect.addTagsMultipleChoice("mission");
+		actionsmultipleselect.addTagsMultipleChoice("mission");
+		}
 		
-		//add date using multiple select
-		documentsmultipleselect.addDateMultipleChoice();
 	
+	@Test(priority = 4)
+		public void date() throws InterruptedException {
+		logger = extent.createTest("date using multiple choice");
+		//add date using multiple select
+		actionsmultipleselect.addDateMultipleChoice();
+	}
+		@Test(priority = 5)
+		public void assignee() throws InterruptedException {
+		logger = extent.createTest("assignee using multiple choice");
 		//add assignee using multiple select
-		documentsmultipleselect.addAssigneeMultipleChoice();
+		actionsmultipleselect.addAssigneeMultipleChoice();
+		}
+		@Test(priority = 6)
+		public void watchers() throws InterruptedException {
 		
+		logger = extent.createTest("watchers using multiple choice");
 		//add watchers using multiple select 
-		documentsmultipleselect.addWatchersMultipleChoice();
+		actionsmultipleselect.addWatchersMultipleChoice();
+		}
 		
+		@Test(priority = 7)
+		public void status() throws InterruptedException {
+		logger = extent.createTest("status using multiple choice");
 		//add status using multiple select
-		documentsmultipleselect.addStatusMultipleChoice();
+		actionsmultipleselect.addStatusMultipleChoice();
 		
 	}
 	
-	
-	@Test(priority = 3)
+	@Test(priority = 8)
 	public void documentsMiddlePane() throws InterruptedException {
 		
-		logger = extent.createTest("document mmiddle pane");
+		logger = extent.createTest("document middle pane");
 		
 		// change the status of list entities
 		documentsmiddlepane.changeStatusOfList();
 		
 		// choose entity and press on favorite 
-		//documentsmiddlepane.sortByFavorite();
+		//actionsmiddlepane.sortByFavorite();
 		
 		// sort the list by title
-		documentsmiddlepane.sordByTitle();
+		actionsmiddlepane.sortByTitle();
 		
 		// press on sort by status and unread
-		documentsmiddlepane.sordByStatusAndUnread();
+		actionsmiddlepane.sordByStatusAndUnread();
 		
 		// press on arrow to reverse the order of the list
-		// documentsmiddlepane.pressOnArrow();
+		//actionsmiddlepane.pressOnArrow();
 	}
 	
-	@Test(priority = 4)
+	@Test(priority = 9)
 	public void documentsRightSideOfScreen() throws InterruptedException {
 		
 		logger = extent.createTest("document the right side on the screen");
 		
-		documentsrhigtsideonscreen.deleteEntityOnScreen();
+		actionsrightside.deleteEntity();
 		
-		documentsrhigtsideonscreen.addAssigneeOnScreen();
+		actionsrightside.addAssignee();
 		
-		documentsrhigtsideonscreen.addDateOnScreen();
+		actionsrightside.setDate();
 		
-		documentsrhigtsideonscreen.addStatusOnScreen();
+		documentsrhigtsideonscreen.addStatus();
 		
 		documentsrhigtsideonscreen.SelectFolderOnScreen();
 		
-		documentsrhigtsideonscreen.addTagsOnScreen("www");
+		actionsrightside.addTags("www");
 		
-		documentsrhigtsideonscreen.addActivities("hyyyyyy" , "this is superman");
+		actionsrightside.addActivities("hyyyyyy" , "this is superman");
 		
-		documentsrhigtsideonscreen.addWatcherOnScreen();
+		actionsrightside.addWatcher();
 		
 	}
 	

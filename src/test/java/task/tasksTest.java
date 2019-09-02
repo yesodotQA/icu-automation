@@ -3,28 +3,40 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
 import base.testBase;
-import global.Tabs;
-import global.middlePane;
-import pages.tasksMultipleSelect;
-import pages.tasksRightSideOfScreen;
-import pages.tasksMiddlePane;
-
+import global.globalActions.actionsMiddlePane;
+import global.globalActions.actionsMultipleSelect;
+import global.globalActions.actionsRightSide;
+import global.globalElements.Tabs;
+import global.globalElements.middlePane;
+import pages.tasks.tasksMiddlePane;
+import pages.tasks.tasksMultipleSelect;
+import pages.tasks.tasksRightSideOfScreen;
+import pages.tasks.subTasks;
 	public class tasksTest  extends testBase {
 		
+		subTasks subTasks;
 		Tabs tabs;
 		tasksMultipleSelect tasksmultipleselect ;
 		middlePane middlepane;
 		tasksMiddlePane tasksmiddlepane;
 		tasksRightSideOfScreen tasksrightsideonscreen;
+		actionsRightSide actionsrightside;
+		actionsMiddlePane actionsmiddlepane;
+		actionsMultipleSelect actionsmultipleselect;
 		
 		@BeforeClass
 		public void SetUp() throws InterruptedException{	
 		initialization(); 
 		Login();
-		tasksmultipleselect = new tasksMultipleSelect();
-		middlepane = new middlePane();
-		tasksmiddlepane = new tasksMiddlePane();
-		tasksrightsideonscreen = new tasksRightSideOfScreen();
+		
+		this.subTasks = new subTasks();
+		this.tasksmultipleselect = new tasksMultipleSelect();
+		this.middlepane = new middlePane();
+		this.tasksmiddlepane = new tasksMiddlePane();
+		this.tasksrightsideonscreen = new tasksRightSideOfScreen();
+		this.actionsmultipleselect = new actionsMultipleSelect();
+		this.actionsmiddlepane = new actionsMiddlePane();
+		this.actionsrightside = new actionsRightSide();
 		}
 		
 		@Test(priority = 1)
@@ -34,7 +46,7 @@ import pages.tasksMiddlePane;
 			tasksmultipleselect.pressTask();
 		  
 			//open doc  enter title and description
-			middlepane.openEntity("doc1" , "important");
+			actionsmiddlepane.openEntity("doc1" , "important");
 		}
 		
 		@Test(priority = 2)
@@ -43,17 +55,17 @@ import pages.tasksMiddlePane;
 			logger = extent.createTest("Task using multiple choice");
 			
 			// delete entity using multiple select
-			 tasksmultipleselect.deleteEntityMultipleChoice();
+			actionsmultipleselect.deleteEntityMultipleChoice();
 			
-			 tasksmultipleselect.addTagsMultipleChoice("mission");
+			actionsmultipleselect.addTagsMultipleChoice("mission");
 			
-			 tasksmultipleselect.addDateMultipleChoice();
+			actionsmultipleselect.addDateMultipleChoice();
 			
-			 tasksmultipleselect.addAssigneeMultipleChoice();
+			actionsmultipleselect.addAssigneeMultipleChoice();
 			
-			 tasksmultipleselect.addWatchersMultipleChoice();
+			actionsmultipleselect.addWatchersMultipleChoice();
 			
-			 tasksmultipleselect.addStatusMultipleChoice();
+			actionsmultipleselect.addStatusMultipleChoice();
 			
 		}
 		
@@ -65,11 +77,11 @@ import pages.tasksMiddlePane;
 			
 			//tasksmiddlepane.sortByFavorite();
 			
-			tasksmiddlepane.sortByTitle();
+			actionsmiddlepane.sortByTitle();
 			
-			tasksmiddlepane.sordByStatusAndUnread();
+			actionsmiddlepane.sordByStatusAndUnread();
 			
-			//tasksmiddlepane.pressOnArrow();
+			//actionsmiddlepane.pressOnArrow();
 		}
 		
 		@Test(priority = 4)
@@ -77,11 +89,11 @@ import pages.tasksMiddlePane;
 			
 			logger = extent.createTest("Task using right side on screen");
 			
-			tasksrightsideonscreen.deleteEntityOnScreen();
+			actionsrightside.deleteEntity();
 			
-			tasksrightsideonscreen.addAssigneeOnScreen();
+			actionsrightside.addAssignee();
 			
-			tasksrightsideonscreen.addDateOnScreen();
+			actionsrightside.setDate();
 			
 			tasksrightsideonscreen.addStatusOnScreen();
 			
@@ -89,30 +101,31 @@ import pages.tasksMiddlePane;
 			
 			tasksrightsideonscreen.SelectProjectsOnScreen();
 			
-			tasksrightsideonscreen.addTagsOnScreen("yaronnn");
+			actionsrightside.addTags("yaronnn");
 			
-			tasksrightsideonscreen.addActivities("sad", "memurmar");
+			actionsrightside.addActivities("sad", "memurmar");
 			
-			tasksrightsideonscreen.addWatcherOnScreen();
+			actionsrightside.addWatcher();
 		
 		}
 		
 		
-		/*
-		@Test(priority = 3)
+		
+		@Test(priority = 5)
 		public void TasksTemplate()throws InterruptedException{
 			logger = extent.createTest("Task template");
 			
-			taskspage.TaskTemplate();
 			
-			taskspage.SubTask();
+			subTasks.SubTaskEdit();
+			
+			subTasks.TaskTemplate();
 		}
-		
+		/*
 		public void MyTasks() throws InterruptedException {
 			tabs.MyTasks.click();
 			
 			Thread.sleep(2000);
-			taskspage.openEntity("doc1" , "important");
+			tasksmiddlepane.openEntity("doc1" , "important");
 			
 			logger = extent.createTest("My Task using multiple choice");
 			
@@ -139,8 +152,8 @@ import pages.tasksMiddlePane;
 			taskspage.SubTask();
 		}
 		
-		
 		*/
+		
 		
 		@AfterClass
 		public void after() {
