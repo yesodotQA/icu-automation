@@ -1,5 +1,7 @@
 package meetings;
 
+import java.io.IOException;
+
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
@@ -63,8 +65,25 @@ public class meetingsTest extends testBase {
 	}
 	
 	@Test (priority = 2)
+	public void MiddlePaneFunction () throws InterruptedException {
+		
+		logger = extent.createTest("Test the Middle Pane Functionality");
+		
+		actionsmiddlepane.openEntity("Title Test", "Open Entity Perfectly!!!");
+		//actionsmiddlepane.sortByFavorite();
+		actionsmiddlepane.sortByTitle();
+		actionsmiddlepane.sordByStatusAndUnread();
+		//actionsmiddlepane.pressOnArrow();
+		
+	}
 	
-	
+	@Test (priority = 3)
+	public void RightSideFunction () throws InterruptedException {
+		logger = extent.createTest("Test the Right Side functionality");
+				
+		
+		
+	}
 	
 	@AfterClass
 	public void after() {

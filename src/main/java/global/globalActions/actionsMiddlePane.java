@@ -44,67 +44,41 @@ public class actionsMiddlePane extends testBase {
 	public void openEntity(String tit , String des) throws InterruptedException {
 
 		waitForVisibility(middlepane.pressCreateNewItem);
-
 		middlepane.pressCreateNewItem.click();
-
-
 		Thread.sleep(2000);
 
 		waitForVisibility(middlepane.enterTitle);
-
 		middlepane.enterTitle.sendKeys(tit);
-
-
 		Thread.sleep(3000);
 
 		waitForVisibility(middlepane.description);
-
 		middlepane.description.sendKeys(des);
-
-
 		Thread.sleep(3000);
 
 		waitForVisibility(middlepane.pressOnEntity);
-
 		middlepane.pressOnEntity.click();
-
 		Thread.sleep(3000);
-
 	}
 
 	// a function that selects a favorite entity
 	public void sortByFavorite() throws InterruptedException {
 
 		int sizeOfList = middlepane.listOfEntities.size();
-
-
 		waitForVisibility(middlepane.pressOnEntity);
-
 		middlepane.pressOnEntity.click();
-
 		Thread.sleep(2000);
 
 		waitForVisibility(therightonthescreen.chooseFavorite);
-
 		therightonthescreen.chooseFavorite.click();
-
-
 		Thread.sleep(2000);
-
 		openEntity("favorite", "dassad");
 
-
 		waitForVisibility(middlepane.pressOnEntity);
-
 		middlepane.pressOnEntity.click();
-
-
 		Thread.sleep(2000);
 
 		waitForVisibility(middlepane.pressOnSortByfavorite);
-
 		middlepane.pressOnSortByfavorite.click();
-
 		Thread.sleep(3000);
 
 		int sizeOfListAfterPressFavorite = middlepane.listOfEntities.size();
@@ -135,14 +109,13 @@ public class actionsMiddlePane extends testBase {
 	public void sortByTitle() throws InterruptedException {
 
 		openEntity("this is test", "dassad");
-
 		openEntity("hello world", "dasdassad");
-
 		openEntity("abcd", "dasdassad");
 
 		int count = 0;
 
-		List<String> getStringList=middlepane.listOfnamesOfEntities.stream().map(WebElement::getText).collect(Collectors.toList());
+		List<String> getStringList = 
+			middlepane.listOfnamesOfEntities.stream().map(WebElement::getText).collect(Collectors.toList());
 
 		Collections.sort(getStringList);
 
