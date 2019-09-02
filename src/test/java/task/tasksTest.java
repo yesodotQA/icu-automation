@@ -1,4 +1,6 @@
 package task;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
@@ -14,6 +16,8 @@ import pages.tasks.tasksRightSideOfScreen;
 import pages.tasks.subTasks;
 	public class tasksTest  extends testBase {
 		
+	    @FindBy(xpath = "/html/body/section/section/div[1]/header/div[1]/div/span")
+	    public WebElement MyTasks;
 		subTasks subTasks;
 		Tabs tabs;
 		tasksMultipleSelect tasksmultipleselect ;
@@ -28,7 +32,7 @@ import pages.tasks.subTasks;
 		public void SetUp() throws InterruptedException{	
 		initialization(); 
 		Login();
-		
+	    
 		this.subTasks = new subTasks();
 		this.tasksmultipleselect = new tasksMultipleSelect();
 		this.middlepane = new middlePane();
@@ -38,18 +42,84 @@ import pages.tasks.subTasks;
 		this.actionsmiddlepane = new actionsMiddlePane();
 		this.actionsrightside = new actionsRightSide();
 		}
-		
 		@Test(priority = 1)
+		public void MyTasks() throws InterruptedException {
+			Thread.sleep(2000);
+			actionsmiddlepane.openEntity("doc1","important");
+			
+			logger = extent.createTest("My Task using multiple choice");
+			
+			Thread.sleep(2000);
+			// delete entity using multiple select
+			actionsmultipleselect.deleteEntityMultipleChoice();
+			
+			Thread.sleep(2000);
+			//open doc  enter title and description
+			actionsmiddlepane.openEntity("doc2" , "imporant2");
+			
+			Thread.sleep(2000);
+			actionsmultipleselect.addTagsMultipleChoice("mission");
+			
+			
+			Thread.sleep(2000);
+			actionsmultipleselect.addDateMultipleChoice();
+			
+			Thread.sleep(2000);
+			actionsmultipleselect.addAssigneeMultipleChoice();
+			
+			Thread.sleep(2000);
+			actionsmultipleselect.addWatchersMultipleChoice();
+			
+			Thread.sleep(2000);
+			actionsmultipleselect.addStatusMultipleChoice();
+			
+			Thread.sleep(2000);
+			logger = extent.createTest("My Task template");
+			
+			Thread.sleep(2000);
+			actionsrightside.deleteEntity();
+			
+			Thread.sleep(2000);
+			actionsrightside.addAssignee();
+			
+			Thread.sleep(2000);
+			actionsrightside.setDate();
+			
+			Thread.sleep(2000);
+			tasksrightsideonscreen.addStatusOnScreen();
+			
+			Thread.sleep(2000);		
+			tasksrightsideonscreen.SelectDiscussionsOnScreen();
+			
+			Thread.sleep(2000);
+			tasksrightsideonscreen.SelecttasksOnScreen();
+			
+			Thread.sleep(2000);
+			actionsrightside.addTags("yaronnn");
+			
+			Thread.sleep(2000);
+			actionsrightside.addActivities("sad", "memurmar");
+			
+			Thread.sleep(2000);
+			actionsrightside.addWatcher();
+
+			Thread.sleep(2000);
+			subTasks.SubTaskEdit();
+			
+			Thread.sleep(2000);
+			subTasks.TaskTemplate();
+		}
+		@Test(priority = 2)
 		public void openDoc() throws InterruptedException {
 		
 			// press Task tab
 			tasksmultipleselect.pressTask();
-		  
+			
 			//open doc  enter title and description
 			actionsmiddlepane.openEntity("doc1" , "important");
-		}
-		
-		@Test(priority = 2)
+		}	
+
+		@Test(priority = 3)
 		public void TasksMulitipleChoice() throws InterruptedException {
 		
 			logger = extent.createTest("Task using multiple choice");
@@ -68,8 +138,8 @@ import pages.tasks.subTasks;
 			actionsmultipleselect.addStatusMultipleChoice();
 			
 		}
-		
-		@Test(priority = 3)
+	
+		@Test(priority = 4)
 		public void tasksMiddlePane()throws InterruptedException {
 			logger = extent.createTest("Task using middle pane");
 			
@@ -84,7 +154,7 @@ import pages.tasks.subTasks;
 			//actionsmiddlepane.pressOnArrow();
 		}
 		
-		@Test(priority = 4)
+		@Test(priority = 5)
 		public void tasksRightSideOnScreen()throws InterruptedException {
 			
 			logger = extent.createTest("Task using right side on screen");
@@ -99,7 +169,7 @@ import pages.tasks.subTasks;
 			
 			tasksrightsideonscreen.SelectDiscussionsOnScreen();
 			
-			tasksrightsideonscreen.SelectProjectsOnScreen();
+			tasksrightsideonscreen.SelecttasksOnScreen();
 			
 			actionsrightside.addTags("yaronnn");
 			
@@ -111,48 +181,15 @@ import pages.tasks.subTasks;
 		
 		
 		
-		@Test(priority = 5)
-		public void TasksTemplate()throws InterruptedException{
+		@Test(priority = 6)
+		public void SubTask()throws InterruptedException{
 			logger = extent.createTest("Task template");
 			
+		//	subTasks.SubTaskEdit();
 			
-			subTasks.SubTaskEdit();
-			
-			subTasks.TaskTemplate();
-		}
-		/*
-		public void MyTasks() throws InterruptedException {
-			tabs.MyTasks.click();
-			
-			Thread.sleep(2000);
-			tasksmiddlepane.openEntity("doc1" , "important");
-			
-			logger = extent.createTest("My Task using multiple choice");
-			
-			// delete entity using multiple select
-			taskspage.deleteEntityMultipleChoice();
-			
-			//open doc  enter title and description
-			taskspage.openEntity("doc2" , "imporant2");
-			
-			taskspage.addTagsMultipleChoice("mission");
-			
-			taskspage.addDateMultipleChoice();
-			
-			taskspage.addAssigneeMultipleChoice();
-			
-			taskspage.addWatchersMultipleChoice();
-			
-			taskspage.addStatusMultipleChoice();
-			
-			logger = extent.createTest("My Task template");
-			
-			taskspage.TaskTemplate();
-			
-			taskspage.SubTask();
+		//	subTasks.TaskTemplate();
 		}
 		
-		*/
 		
 		
 		@AfterClass

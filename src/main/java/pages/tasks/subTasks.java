@@ -1,6 +1,9 @@
 package pages.tasks;
 
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -30,7 +33,7 @@ public class subTasks extends testBase{
 	WebElement selectParentMeeting;
 
 	//elements for subtask 
-	public @FindBy(className = ".add-sub-entity")
+	public @FindBy(css = "body > section > section > div.icu-data.ng-scope > div.panes-wrapper.ng-scope > div.detailspane.animate-hide.ng-isolate-scope > div > div.entity-details-content.task-details.ng-scope > div.sub-items-section > icu-sub-task-list > div.add-sub-entity.sub-entity-title.ng-binding")
 	WebElement addSubTask;
 
 	public @FindBy(css = "body > section > section > div.icu-data.ng-scope > div.panes-wrapper.ng-scope > div.detailspane.animate-hide.ng-isolate-scope > div >"
@@ -38,32 +41,27 @@ public class subTasks extends testBase{
 			+ "> table > tbody > tr > td.name.ng-pristine.ng-untouched.ng-valid")
 	WebElement CreateSubTask;
 
-	public @FindBy(xpath ="/html/body/section/section/div[2]/div[2]/div[2]/div/div[2]/div[3]/icu-sub-project-list/div[3]/table/tbody/tr[1]/td[2]")
+	public @FindBy(xpath ="/html/body/section/section/div[2]/div[2]/div[2]/div/div[2]/div[4]/icu-sub-task-list/div[3]/table/tbody/tr[1]/td[2]")
 	WebElement nameSubTask;
 
 	public @FindBy(xpath = "/html/body/section/section/div[2]/div[2]/div[2]/div/div[2]/div[4]/icu-sub-task-list/div[3]/table/tbody/tr[1]/td[3]/div[2]/div[1]/span")
 	WebElement AssigneeSubTask;
 
-	public @FindBy(xpath = "//*[@id=\"ui-select-choices-row-95-1\"]/span")
-	WebElement AssignUserSubTask;
+	@FindBy(css ="[ng-if='$select.open']")
+	public List<WebElement> AssignUserSubTask =  new ArrayList<>();
 
-	public @FindBy(id = "#dp1564059419917")
+	public @FindBy(css = "[ng-model='data.task.due']")
 	WebElement ClickDueDateSubTask;
 
-	public @FindBy(className = ".ui-datepicker-next")
+	public @FindBy(className = "ui-icon-circle-triangle-e")
 	WebElement ClickNextMonth;
 
-	public @FindBy (xpath = "//*[@id=\"ui-datepicker-div\"]/table/tbody/tr[5]/td[6]")
+	public @FindBy (xpath = "//*[@id=\"ui-datepicker-div\"]/table/tbody/tr[5]/td[2]/a")
 	WebElement ChooseDateSubTask;
 
-	public @FindBy (className = ".row-arrow")
-	WebElement ArrowSubTask;
 
 	public @FindBy (xpath ="/html/body/section/section/div[2]/div[2]/div[2]/div/div[2]/div[4]/icu-sub-task-list/div[3]/table/tbody/tr[1]/td[7]")
 	WebElement DeleteSubTask;
-
-	public @FindBy(className = ".fa-chevron-down")
-	WebElement OpenTaskTemplates;
 
 	public@FindBy(css = ".last")
 	WebElement ChooseTaskTemplate;
@@ -110,21 +108,28 @@ public class subTasks extends testBase{
 
 		Thread.sleep(2000);
 
-		waitForVisibility(AssignUserSubTask);
-		AssignUserSubTask.click();
-
-		OpenTaskTemplates.click();
-
+		AssignUserSubTask.get(1).click();
+	
 		Thread.sleep(2000);
-		waitForVisibility(ChooseTaskTemplate);
-		ChooseTaskTemplate.click();
-
+		ClickDueDateSubTask.click();
+		
+		Thread.sleep(2000);
+		
+		ClickNextMonth.click();
+		
+		Thread.sleep(2000);
+		
+		ChooseDateSubTask.click();
+		
+		Thread.sleep(2000);
+		CreateSubTask.click();
+		
 		Thread.sleep(1000);
-		waitForVisibility(DeleteSubTask);
+		nameSubTask.click();
+		
+		Thread.sleep(500);
 		DeleteSubTask.click();
 
-		Thread.sleep(2000);
-		ArrowSubTask.click();
 	}	
 
 	public void TaskTemplate() throws InterruptedException {

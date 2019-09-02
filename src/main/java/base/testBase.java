@@ -12,25 +12,22 @@ import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 
 
     public class testBase {
-	
-	    public static WebDriver driver;
-		
-	    public static ExtentReports extent;
-	
-	    public static  ExtentHtmlReporter htmlReporter;
-	
-	    public static ExtentTest logger;
-	    
-	   public static WebDriverWait wait;
-	   
-	   
-    
+
+    	public static WebDriver driver;
+
+    	public static ExtentReports extent;
+
+    	public static  ExtentHtmlReporter htmlReporter;
+
+    	public static ExtentTest logger;
+
+    	public static WebDriverWait wait;
+
 	public static void initialization()  {
-		
-		
+			
 	String PATH = "http://10.100.11.95/";
 		
-	System.setProperty("webdriver.chrome.driver", "C:\\chromedriver.exe");
+	System.setProperty("webdriver.chrome.driver", "C:\\Users\\Yaron\\Desktop\\New folder\\chromedriver.exe");
 	
 	driver = new ChromeDriver();
 	
@@ -53,9 +50,9 @@ import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 	 
 	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/section/section/div/form/div[2]/input")));
 	
-	driver.findElement(By.xpath("/html/body/section/section/div/form/div[2]/input")).sendKeys("isr123@gmail.com");
+	driver.findElement(By.xpath("/html/body/section/section/div/form/div[2]/input")).sendKeys("ronimiroluz@gmail.com");
 	
-	driver.findElement(By.xpath("/html/body/section/section/div/form/div[3]/input")).sendKeys("israelfrank");
+	driver.findElement(By.xpath("/html/body/section/section/div/form/div[3]/input")).sendKeys("121212sly");
 	
 	driver.findElement(By.className("btn")).click();
 	

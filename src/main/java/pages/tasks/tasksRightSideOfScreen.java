@@ -31,10 +31,10 @@ public class tasksRightSideOfScreen extends testBase {
 	
 	@FindBy(xpath =  "/html/body/section/section/div[2]/div[2]/div[2]/div/div[2]"
 			+ "/detail-category[1]/div/div[1]/span/span[1]")
-	WebElement SelectProjects;
+	WebElement Selecttasks;
 	
 	@FindBy (css = "[ng-if='$select.open']")
-	List<WebElement> listOfProjects =  new ArrayList<>();
+	List<WebElement> listOftasks =  new ArrayList<>();
 	
 	@FindBy(xpath = "/html/body/section/section/div[2]/div[2]/div[2]/div/"
 			+ "div[2]/detail-category[2]/div/div[1]/span/span[1]")
@@ -98,27 +98,27 @@ public class tasksRightSideOfScreen extends testBase {
 		}
 	}
 	
-	public void SelectProjectsOnScreen() throws InterruptedException {
+	public void SelecttasksOnScreen() throws InterruptedException {
 		
-		waitForVisibility(SelectProjects);
+		waitForVisibility(Selecttasks);
 		
-		SelectProjects.click();
+		Selecttasks.click();
 		
 		
 		Thread.sleep(3000);
 		
 		
-		String nameOfProject = listOfProjects.get(0).getText();
+		String nameOfProject = listOftasks.get(0).getText();
 		
 		
-		listOfProjects.get(0).click();
+		listOftasks.get(0).click();
 		
 		Thread.sleep(2000);
 		
 		
 		
 		
-		String nameOfProjectForChecking = SelectProjects.getAttribute("innerText");
+		String nameOfProjectForChecking = Selecttasks.getAttribute("innerText");
 		
 		if (nameOfProject.equals(nameOfProjectForChecking)) {
 			

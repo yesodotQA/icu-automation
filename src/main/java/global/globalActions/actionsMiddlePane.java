@@ -157,7 +157,7 @@ public class actionsMiddlePane extends testBase {
 
 		middlepane.listOfSorts.get(0).click();
 
-		Thread.sleep(2000);
+		Thread.sleep(3000);
 
 		// check if the list sorted
 		for (int i = 0; i < middlepane.listOfnamesOfEntities.size()-1; i++) {
