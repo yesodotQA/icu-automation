@@ -3,18 +3,7 @@
 <suite name="Suite">
   <test thread-count="5" name="Test">
     <classes>
-<<<<<<< HEAD
-      <class name="task.tasksTest"/>
-     
-=======
-<<<<<<< HEAD
       <class name="document.documentsTest"/>
-=======
-    
-      <class name="meetings.meetingsTest"/>
-      
->>>>>>> 1d257e9225bb98e29ecd1da9ec0496d82af4170c
->>>>>>> 3f7831ed806a9c604c03d7459667a7535d972357
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

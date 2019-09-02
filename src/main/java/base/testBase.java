@@ -1,5 +1,10 @@
 package base;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.Properties;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -22,12 +27,20 @@ import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
     	public static ExtentTest logger;
 
     	public static WebDriverWait wait;
-
-	public static void initialization()  {
-			
-	String PATH = "http://10.100.11.95/";
-		
-	System.setProperty("webdriver.chrome.driver", "C:\\Users\\Yaron\\Desktop\\New folder\\chromedriver.exe");
+    	
+    	public static Properties prop;
+    	
+    
+	
+    public static void initialization() throws IOException  {
+    
+    prop = new Properties();
+    	
+    FileInputStream ip= new FileInputStream("./configs/properties");
+    	
+    prop.load(ip);
+    			
+	System.setProperty("webdriver.chrome.driver", prop.getProperty("chromedriver"));
 	
 	driver = new ChromeDriver();
 	
@@ -43,23 +56,18 @@ import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 	
 	driver.manage().deleteAllCookies();
 	
-	 driver.navigate().to(PATH);
-	}
+	driver.navigate().to(prop.getProperty("url"));
+	
+    }
 	
 	public static void Login() throws InterruptedException {
 	 
 	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/section/section/div/form/div[2]/input")));
 	
-<<<<<<< HEAD
-	driver.findElement(By.xpath("/html/body/section/section/div/form/div[2]/input")).sendKeys("ronimiroluz@gmail.com");
+	driver.findElement(By.xpath("/html/body/section/section/div/form/div[2]/input")).sendKeys(prop.getProperty("email"));
 	
-	driver.findElement(By.xpath("/html/body/section/section/div/form/div[3]/input")).sendKeys("121212sly");
-=======
-	driver.findElement(By.xpath("/html/body/section/section/div/form/div[2]/input")).sendKeys("juda123@gmail.com");
-	
-	driver.findElement(By.xpath("/html/body/section/section/div/form/div[3]/input")).sendKeys("Aa123456789!");
->>>>>>> 3f7831ed806a9c604c03d7459667a7535d972357
-	
+	driver.findElement(By.xpath("/html/body/section/section/div/form/div[3]/input")).sendKeys(prop.getProperty("password"));
+
 	driver.findElement(By.className("btn")).click();
 	
 	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/div[1]/div/div/div[3]/button")));

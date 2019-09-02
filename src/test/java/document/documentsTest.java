@@ -4,6 +4,11 @@ package document;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
+import java.io.IOException;
+
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeClass;
 
 import base.testBase;
 import global.globalActions.actionsMiddlePane;
@@ -25,7 +30,7 @@ public class documentsTest extends testBase {
 	actionsMultipleSelect actionsmultipleselect;
 	
 	@BeforeClass
-	public void SetUp() throws InterruptedException{	
+	public void SetUp() throws InterruptedException, IOException{	
 	initialization(); 
 	Login();
 	this.actionsmultipleselect = new actionsMultipleSelect();
@@ -64,12 +69,12 @@ public class documentsTest extends testBase {
 		}
 		
 	
-	@Test(priority = 4)
+		@Test(priority = 4)
 		public void date() throws InterruptedException {
 		logger = extent.createTest("date using multiple choice");
 		//add date using multiple select
 		actionsmultipleselect.addDateMultipleChoice();
-	}
+		}
 		@Test(priority = 5)
 		public void assignee() throws InterruptedException {
 		logger = extent.createTest("assignee using multiple choice");
@@ -134,6 +139,7 @@ public class documentsTest extends testBase {
 		
 		actionsrightside.addWatcher();
 		
+		actionsrightside.changePermission();
 	}
 	
 	
