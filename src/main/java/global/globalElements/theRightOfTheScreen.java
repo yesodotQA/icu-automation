@@ -69,6 +69,12 @@ public class theRightOfTheScreen extends testBase {
 	@FindBy(className = "delete-wrapper")
 	public List<WebElement>  listOfWatchersIcons = new ArrayList<>();
 	
+	@FindBy(className = "fa-chevron-down")
+	public WebElement openColors;
+	
+	@FindBy(className = "big-color-box")
+	public List<WebElement>  listOfColors = new ArrayList<>();
+	
 	 public theRightOfTheScreen  () {
 			
 		    PageFactory.initElements(driver, this);

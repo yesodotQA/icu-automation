@@ -25,7 +25,6 @@ public class documentsTest extends testBase {
 	
 	documentsMultipleSelect documentsmultipleselect;
 	documentsMiddlePane documentsmiddlepane;
-	middlePane middlepane;
 	documentsRightSideOnScreen documentsrhigtsideonscreen;
 	actionsMiddlePane actionsmiddlepane;
 	actionsRightSide actionsrightside;
@@ -38,7 +37,6 @@ public class documentsTest extends testBase {
 	this.actionsmultipleselect = new actionsMultipleSelect();
 	this.documentsmultipleselect = new documentsMultipleSelect();
 	this.documentsmiddlepane = new documentsMiddlePane();
-	this.middlepane = new middlePane();
 	this.documentsrhigtsideonscreen = new documentsRightSideOnScreen();
 	this.actionsmiddlepane = new actionsMiddlePane();
 	this.actionsrightside = new actionsRightSide();
@@ -55,51 +53,25 @@ public class documentsTest extends testBase {
 	}
 	
 	@Test(priority = 2)
-		public void delete() throws InterruptedException {
+		public void documentsMultipleSelect() throws InterruptedException {
 		
-		logger = extent.createTest("delete using multiple choice");
-		// delete entity using multiple select
+		logger = extent.createTest("multiple select");
+		
 		actionsmultipleselect.deleteEntityMultipleChoice();
-		}
-		
-	@Test(priority = 3)
-		public void tags() throws InterruptedException {
-		
-		logger = extent.createTest("tags using multiple choice");
-		// add tags using multiple select
-		actionsmultipleselect.addTagsMultipleChoice("mission");
-		}
-		
 	
-		@Test(priority = 4)
-		public void date() throws InterruptedException {
-		logger = extent.createTest("date using multiple choice");
-		//add date using multiple select
+		actionsmultipleselect.addTagsMultipleChoice("mission");
+
 		actionsmultipleselect.addDateMultipleChoice();
-		}
-		@Test(priority = 5)
-		public void assignee() throws InterruptedException {
-		logger = extent.createTest("assignee using multiple choice");
-		//add assignee using multiple select
+	
 		actionsmultipleselect.addAssigneeMultipleChoice();
-		}
-		@Test(priority = 6)
-		public void watchers() throws InterruptedException {
 		
-		logger = extent.createTest("watchers using multiple choice");
-		//add watchers using multiple select 
 		actionsmultipleselect.addWatchersMultipleChoice();
-		}
 		
-		@Test(priority = 7)
-		public void status() throws InterruptedException {
-		logger = extent.createTest("status using multiple choice");
-		//add status using multiple select
 		actionsmultipleselect.addStatusMultipleChoice();
 		
 	}
 	
-	@Test(priority = 8)
+	@Test(priority = 3)
 	public void documentsMiddlePane() throws InterruptedException {
 		
 		logger = extent.createTest("document middle pane");
@@ -120,7 +92,7 @@ public class documentsTest extends testBase {
 		//actionsmiddlepane.pressOnArrow();
 	}
 	
-	@Test(priority = 9)
+	@Test(priority = 4)
 	public void documentsRightSideOfScreen() throws InterruptedException {
 		
 		logger = extent.createTest("document the right side on the screen");
