@@ -256,24 +256,6 @@ public class actionsRightSide extends testBase {
 			}
 		}
 
-
-		Thread.sleep(2000);
-
-		List<WebElement> EditorMembers = driver.findElements(By.cssSelector(".avatar.editor"));
-
-		if (EditorMembers.size() == 2) {
-			System.out.println("sad");
-			//logger.log(Status.PASS , "change permission to Editor");
-		}
-		else {
-
-			logger.log(Status.FAIL, "change permission to Editor");
-		}
-
-		// set as commenter
-		memberList.get(2).click();
-
-
 		Thread.sleep(2000);
 		List<WebElement> EditorMembers = driver.findElements(By.cssSelector(".avatar.editor"));
 
@@ -307,12 +289,6 @@ public class actionsRightSide extends testBase {
 			logger.log(Status.FAIL, "commenter is displayed");
 		}
 	}
-
-
-
-
-
-
 
 
 }
