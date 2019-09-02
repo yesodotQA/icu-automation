@@ -1,5 +1,7 @@
 package folders;
 
+import java.io.IOException;
+
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -21,7 +23,7 @@ public class foldrsTest extends testBase {
 		actionsMiddlePane actionsmiddlepane;
 		
 	@BeforeClass
-	public void SetUp() throws InterruptedException {	
+	public void SetUp() throws InterruptedException, IOException {	
 		initialization(); 
 		Login();
 		this.foldersmultipleselect = new foldersMultipleSelect();

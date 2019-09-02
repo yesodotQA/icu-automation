@@ -1,4 +1,6 @@
 package task;
+import java.io.IOException;
+
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.testng.annotations.AfterClass;
@@ -29,7 +31,7 @@ import pages.tasks.subTasks;
 		actionsMultipleSelect actionsmultipleselect;
 		
 		@BeforeClass
-		public void SetUp() throws InterruptedException{	
+		public void SetUp() throws InterruptedException, IOException{	
 		initialization(); 
 		Login();
 	    

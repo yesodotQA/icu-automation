@@ -1,6 +1,8 @@
 
 package document;
 
+import java.io.IOException;
+
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
@@ -25,7 +27,7 @@ public class documentsTest extends testBase {
 	actionsMultipleSelect actionsmultipleselect;
 	
 	@BeforeClass
-	public void SetUp() throws InterruptedException{	
+	public void SetUp() throws InterruptedException, IOException{	
 	initialization(); 
 	Login();
 	this.actionsmultipleselect = new actionsMultipleSelect();
