@@ -44,15 +44,21 @@ public class meetingsTest extends testBase {
 	
 	}
 	
-	@Test
-	public void temp() throws InterruptedException {
+	@Test (priority = 1)
+	public void MultipleChoiceFunction () throws InterruptedException {
 	
-		logger = extent.createTest("Change Permissions");
-		actionsmiddlepane.openEntity("Change Permissions","Check the Permissions changeable ");
-		actionsrightside.changePermission();
+		logger = extent.createTest("Test Multiple Choice in Meetings");
 		
+		actionsmultipleselect.addAssigneeMultipleChoice();
+		actionsmultipleselect.addDateMultipleChoice();
+		actionsmultipleselect.addStatusMultipleChoice();
+		actionsmultipleselect.addTagsMultipleChoice("Meetings ASAP");
+		actionsmultipleselect.addWatchersMultipleChoice();
+		actionsmultipleselect.deleteEntityMultipleChoice();
 	}
 	
+	@Test (priority = 2)
+	public void 
 	
 	
 	@AfterClass
