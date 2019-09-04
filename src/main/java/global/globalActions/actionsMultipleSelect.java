@@ -45,6 +45,7 @@ public class actionsMultipleSelect extends testBase {
 		
 		int size =middlepane.listOfEntities.size() ;
 		
+		System.out.println(middlepane.listOfEntities.size());
 		 
 		 waitForVisibility(multipleselect.pressMultipleChoice);
 		
@@ -64,6 +65,8 @@ public class actionsMultipleSelect extends testBase {
 		Thread.sleep(3000);
 		
 		int newSize =middlepane.listOfEntities.size();
+		
+		System.out.println(middlepane.listOfEntities.size());
 		
 		//check if the entity deleted
 		if (size - 1 == newSize) {

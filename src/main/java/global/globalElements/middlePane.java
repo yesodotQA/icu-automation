@@ -25,7 +25,7 @@ public class middlePane extends testBase {
 	@FindBy(xpath = "/html/body/section/section/div[2]/div[2]/div[1]/div/div/div/div[3]/div[2]/table/tbody/tr[1]/td[3]")
 	public	WebElement pressOnEntity;
 	
-	@FindBy(css ="[ng-include='unifiedRowTpl']")
+	@FindBy(css ="[ng-mouseleave='hideTick(item)']")
 	public List<WebElement>  listOfEntities = new ArrayList<>();
 	
 	@FindBy(css = ".sortByStar .favorites")
