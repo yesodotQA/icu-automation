@@ -1,6 +1,9 @@
 
 package document;
 
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeClass;
 import java.io.IOException;
 
 import org.testng.annotations.AfterClass;
@@ -80,6 +83,7 @@ public class documentsTest extends testBase {
 		logger = extent.createTest("document middle pane");
 		
 		randomaction.enterNameToEntity("hyyyyyyyyy");
+		
 		// change the status of list entities
 		documentsmiddlepane.changeStatusOfList();
 		
@@ -107,15 +111,13 @@ public class documentsTest extends testBase {
 		
 		actionsrightside.setDate();
 		
-		documentsrhigtsideonscreen.addStatus();
+		actionsrightside.addStatus();
 		
 		documentsrhigtsideonscreen.SelectFolderOnScreen();
 		
 		actionsrightside.addTags("www");
 		
 		actionsrightside.addActivities("hyyyyyy" , "this is superman");
-		
-		actionsrightside.addWatcher();
 		
 		actionsrightside.changePermission();
 	}

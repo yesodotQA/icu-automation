@@ -26,9 +26,6 @@ import global.globalElements.theRightOfTheScreen;
 		documentsMiddlePane documentsmiddlepane;
 		actionsMiddlePane actionmiddlepane;
 		
-		@FindBy(className = "activities-list")
-		WebElement checkIfTheActivitiesUpdate;
-		
 		@FindBy(xpath = "/html/body/section/section/div[2]/div[2]/div"
 				+ "[2]/div/div[2]/detail-category/div/div[1]/span/span[1]")
 		WebElement SelectFolder;
@@ -55,44 +52,7 @@ import global.globalElements.theRightOfTheScreen;
 			
 		}
 		
-		
-		public void addStatus() throws InterruptedException {
-			
-			String sizeListOfActivitiesBeforeChoosing = checkIfTheActivitiesUpdate.getAttribute("childElementCount");
-			
-			int switcheStringToInt1 = Integer.parseInt(sizeListOfActivitiesBeforeChoosing);
-			
-			
-			waitForVisibility(therightonthescreen.pressToChangeStatusOnTheScreen);
-			
-			therightonthescreen.pressToChangeStatusOnTheScreen.click();
-			
-			
-			Thread.sleep(2000);
-			
-			
-			therightonthescreen.listOfStatusOnScreen.get(0).click();
-			
-			
-			Thread.sleep(2000);
-			
-			String sizeListOfActivitiesAfterChoosing = checkIfTheActivitiesUpdate.getAttribute("childElementCount");
-			
-			int SwitcheStringToInt2 = Integer.parseInt(sizeListOfActivitiesAfterChoosing);
-			
-			
-			if (switcheStringToInt1 + 1 == SwitcheStringToInt2) {
-				
-				logger.log(Status.PASS , "add status on screen");
-			
-			}
-			
-			else {
-				
-				logger.log(Status.FAIL , "add status on screen");
-			}
-		}
-		
+	
 		public void SelectFolderOnScreen() throws InterruptedException {
 			
 			waitForVisibility(SelectFolder);

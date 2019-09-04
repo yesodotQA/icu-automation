@@ -24,6 +24,9 @@ public class actionsRightSide extends testBase {
 	documentsMiddlePane  documentsmiddlepane;
 	actionsMiddlePane    actionmiddlepane;
 	
+	@FindBy(className = "activities-list")
+	WebElement checkIfTheActivitiesUpdate;
+	
 	public actionsRightSide() {
 
 		this.multipleselect      = new multipleSelect();
@@ -119,6 +122,43 @@ public class actionsRightSide extends testBase {
 		}
 
 	}
+	public void addStatus() throws InterruptedException {
+
+		String sizeListOfActivitiesBeforeChoosing = checkIfTheActivitiesUpdate.getAttribute("childElementCount");
+
+		int switcheStringToInt1 = Integer.parseInt(sizeListOfActivitiesBeforeChoosing);
+
+
+		waitForVisibility(therightonthescreen.pressToChangeStatusOnTheScreen);
+
+		therightonthescreen.pressToChangeStatusOnTheScreen.click();
+
+
+		Thread.sleep(2000);
+
+
+		therightonthescreen.listOfStatusOnScreen.get(0).click();
+
+
+		Thread.sleep(2000);
+
+		String sizeListOfActivitiesAfterChoosing = checkIfTheActivitiesUpdate.getAttribute("childElementCount");
+
+		int SwitcheStringToInt2 = Integer.parseInt(sizeListOfActivitiesAfterChoosing);
+
+
+		if (switcheStringToInt1 + 1 == SwitcheStringToInt2) {
+
+			logger.log(Status.PASS , "add status on screen");
+
+		}
+
+		else {
+
+			logger.log(Status.FAIL , "add status on screen");
+		}
+	}
+	
 
 	// 	TEST FUNCTION THAT CHECK ADDED TAGS
 	public void addTags(String tags) throws InterruptedException {

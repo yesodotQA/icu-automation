@@ -3,6 +3,9 @@ package task;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeClass;
 import java.io.IOException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -91,7 +94,7 @@ import pages.tasks.subTasks;
 			actionsrightside.setDate();
 			
 			Thread.sleep(2000);
-			tasksrightsideonscreen.addStatusOnScreen();
+			actionsrightside.addStatus();
 			
 			Thread.sleep(2000);		
 			tasksrightsideonscreen.SelectDiscussionsOnScreen();
@@ -170,7 +173,7 @@ import pages.tasks.subTasks;
 			
 			actionsrightside.setDate();
 			
-			tasksrightsideonscreen.addStatusOnScreen();
+			actionsrightside.addStatus();
 			
 			tasksrightsideonscreen.SelectDiscussionsOnScreen();
 			
