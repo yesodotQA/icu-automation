@@ -1,4 +1,4 @@
-package pages.folders;
+package pages.templateDocument;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,9 +13,8 @@ import com.aventstack.extentreports.Status;
 import base.testBase;
 import global.globalActions.actionsRightSide;
 
-public class foldersRightSide extends testBase {
+public class templateDocRightSide extends testBase {
 	
-
 	@FindBy (xpath = "/html/body/section/section/div[2]/div[2]/div[2]"
 			+ "/div/div[2]/detail-category/div/div[1]/span/span[1]")
 	WebElement SelectOffice;
@@ -23,17 +22,19 @@ public class foldersRightSide extends testBase {
 	@FindBy (css = "[ng-if='$select.open']")
 	List<WebElement> listOfOffices=  new ArrayList<>();
 	
-	public foldersRightSide() {
+	
+	public templateDocRightSide() {
 		
 		PageFactory.initElements(driver, this);
 	}
+	
 	
 	private void waitForVisibility (WebElement element)  {
 		
 		wait.until(ExpectedConditions.visibilityOf(element));
 		
 	}
-
+	
 	public void SelectOfficeOnScreen() throws InterruptedException {
 		
 		waitForVisibility(SelectOffice);
@@ -62,6 +63,5 @@ public class foldersRightSide extends testBase {
 		
 	}
 	
-	
-	
+
 }
