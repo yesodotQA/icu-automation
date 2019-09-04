@@ -37,7 +37,7 @@ public class foldersRightSide extends testBase {
 		
 	}
 
-	public void SelectFolderOnScreen() throws InterruptedException {
+	public void SelectOfficeOnScreen() throws InterruptedException {
 		
 		waitForVisibility(SelectOffice);
 		

@@ -5,6 +5,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
+import com.aventstack.extentreports.Status;
+
 import base.testBase;
 import global.globalElements.Tabs;
 import global.globalElements.middlePane;
@@ -88,8 +90,16 @@ public class randomActions extends testBase{
 			
 			middlepane.pressOnEntity.sendKeys(nam);
 			
+			Thread.sleep(2000);
 			
-			
+			if (middlepane.listOfnamesOfEntities.get(0).getText().equals(middlepane.enterTitle.getText())) {
+				
+				logger.log(Status.PASS, "enter name to entity from entity row");
+			}
+			else {
+				logger.log(Status.FAIL, "enter name to entity from entity row");
+			}
+	
 		}
 
 

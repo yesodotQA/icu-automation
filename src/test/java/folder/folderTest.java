@@ -1,6 +1,7 @@
 package folder;
 
 import org.testng.annotations.Test;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import java.io.IOException;
 import java.util.Random;
@@ -15,6 +16,7 @@ import global.globalActions.actionsRightSide;
 import global.globalActions.randomActions;
 import pages.documents.documentsMiddlePane;
 import pages.folders.foldersMultipleSelect;
+import pages.folders.foldersRightSide;
 
 public class folderTest extends testBase{
 
@@ -22,8 +24,9 @@ public class folderTest extends testBase{
 	actionsRightSide actionsrightside;
 	actionsMultipleSelect actionsmultipleselect;
 	foldersMultipleSelect foldermultipleselect;
+	foldersRightSide folderrightside;
 	documentsMiddlePane documnetsmiddlepane;
-	randomActions random;
+	randomActions randomactions;
 	@BeforeClass
 	public void SetUp() throws InterruptedException, IOException{	
 		initialization(); 
@@ -33,7 +36,8 @@ public class folderTest extends testBase{
 		this.actionsrightside = new actionsRightSide();
 		this.foldermultipleselect = new foldersMultipleSelect();
 		this.documnetsmiddlepane = new documentsMiddlePane();
-		this.random = new randomActions();
+		this.randomactions = new randomActions();
+		this.folderrightside = new foldersRightSide();
 	}
 	
 	@Test(priority = 1)
@@ -81,7 +85,30 @@ public class folderTest extends testBase{
 	@Test(priority = 4)
 	public void foldersRightSide() throws InterruptedException {
 		
+		actionsrightside.deleteEntity();
+		
+		actionsrightside.addStatus();
+		
+		randomactions.chooseColor();
+		
+		folderrightside.SelectOfficeOnScreen();
+		
+		actionsrightside.addTags("www");
+
+		actionsrightside.addActivities("hyyyyyy" , "this is superman");
+
+		actionsrightside.changePermission();
+		
+		
 	}
+	
+	@AfterClass
+	public void after() {
+		
+		extent.flush();
+		
+	}
+		
 	
 	
 }
