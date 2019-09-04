@@ -16,6 +16,7 @@ import base.testBase;
 import global.globalActions.actionsMiddlePane;
 import global.globalActions.actionsMultipleSelect;
 import global.globalActions.actionsRightSide;
+import global.globalActions.randomActions;
 import global.globalElements.middlePane;
 import pages.documents.documentsMiddlePane;
 import pages.documents.documentsMultipleSelect;
@@ -29,6 +30,7 @@ public class documentsTest extends testBase {
 	actionsMiddlePane actionsmiddlepane;
 	actionsRightSide actionsrightside;
 	actionsMultipleSelect actionsmultipleselect;
+	randomActions randomaction;
 	
 	@BeforeClass
 	public void SetUp() throws InterruptedException, IOException{	
@@ -40,6 +42,7 @@ public class documentsTest extends testBase {
 	this.documentsrhigtsideonscreen = new documentsRightSideOnScreen();
 	this.actionsmiddlepane = new actionsMiddlePane();
 	this.actionsrightside = new actionsRightSide();
+	this.randomaction = new randomActions();
 	}
 	
 	@Test(priority = 1)
@@ -76,6 +79,7 @@ public class documentsTest extends testBase {
 		
 		logger = extent.createTest("document middle pane");
 		
+		randomaction.enterNameToEntity("hyyyyyyyyy");
 		// change the status of list entities
 		documentsmiddlepane.changeStatusOfList();
 		

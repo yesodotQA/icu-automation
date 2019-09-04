@@ -75,7 +75,11 @@ public class folderTest extends testBase{
 		// press on arrow to reverse the order of the list
 		//actionsmiddlepane.pressOnArrow();
 	}
-
+	
+	@Test(priority = 4)
+	public void foldersRightSide() throws InterruptedException {
+		
+	}
 	
 	
 }
