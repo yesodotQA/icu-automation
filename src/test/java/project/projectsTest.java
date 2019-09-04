@@ -1,8 +1,5 @@
-package task;
+package project;
 
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.Test;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
@@ -18,20 +15,20 @@ import global.globalActions.actionsMultipleSelect;
 import global.globalActions.actionsRightSide;
 import global.globalElements.Tabs;
 import global.globalElements.middlePane;
-import pages.tasks.tasksMiddlePane;
-import pages.tasks.tasksMultipleSelect;
-import pages.tasks.tasksRightSideOfScreen;
-import pages.tasks.subTasks;
-	public class tasksTest  extends testBase {
+import pages.projects.projectsMiddlePane;
+import pages.projects.projectsMultipleSelect;
+import pages.projects.projectsRightSideOfScreen;
+import pages.projects.subprojects;
+	public class projectsTest  extends testBase {
 		
 	    @FindBy(xpath = "/html/body/section/section/div[1]/header/div[1]/div/span")
-	    public WebElement MyTasks;
-		subTasks subTasks;
+	    public WebElement Myprojects;
+		subprojects subprojects;
 		Tabs tabs;
-		tasksMultipleSelect tasksmultipleselect ;
+		projectsMultipleSelect projectsmultipleselect ;
 		middlePane middlepane;
-		tasksMiddlePane tasksmiddlepane;
-		tasksRightSideOfScreen tasksrightsideonscreen;
+		projectsMiddlePane projectsmiddlepane;
+		projectsRightSideOfScreen projectsrightsideonscreen;
 		actionsRightSide actionsrightside;
 		actionsMiddlePane actionsmiddlepane;
 		actionsMultipleSelect actionsmultipleselect;
@@ -41,21 +38,21 @@ import pages.tasks.subTasks;
 		initialization(); 
 		Login();
 	    
-		this.subTasks = new subTasks();
-		this.tasksmultipleselect = new tasksMultipleSelect();
+		this.subprojects = new subprojects();
+		this.projectsmultipleselect = new projectsMultipleSelect();
 		this.middlepane = new middlePane();
-		this.tasksmiddlepane = new tasksMiddlePane();
-		this.tasksrightsideonscreen = new tasksRightSideOfScreen();
+		this.projectsmiddlepane = new projectsMiddlePane();
+		this.projectsrightsideonscreen = new projectsRightSideOfScreen();
 		this.actionsmultipleselect = new actionsMultipleSelect();
 		this.actionsmiddlepane = new actionsMiddlePane();
 		this.actionsrightside = new actionsRightSide();
 		}
 		@Test(priority = 1)
-		public void MyTasks() throws InterruptedException {
+		public void Myprojects() throws InterruptedException {
 			Thread.sleep(2000);
 			actionsmiddlepane.openEntity("doc1","important");
 			
-			logger = extent.createTest("My Task using multiple choice");
+			logger = extent.createTest("My project using multiple choice");
 			
 			Thread.sleep(2000);
 			// delete entity using multiple select
@@ -82,7 +79,7 @@ import pages.tasks.subTasks;
 			actionsmultipleselect.addStatusMultipleChoice();
 			
 			Thread.sleep(2000);
-			logger = extent.createTest("My Task template");
+			logger = extent.createTest("My project template");
 			
 			Thread.sleep(2000);
 			actionsrightside.deleteEntity();
@@ -96,11 +93,6 @@ import pages.tasks.subTasks;
 			Thread.sleep(2000);
 			actionsrightside.addStatus();
 			
-			Thread.sleep(2000);		
-			tasksrightsideonscreen.SelectDiscussionsOnScreen();
-			
-			Thread.sleep(2000);
-			tasksrightsideonscreen.SelecttasksOnScreen();
 			
 			Thread.sleep(2000);
 			actionsrightside.addTags("yaronnn");
@@ -112,25 +104,25 @@ import pages.tasks.subTasks;
 			actionsrightside.addWatcher();
 
 			Thread.sleep(2000);
-			subTasks.SubTaskEdit();
+			subprojects.SubprojectEdit();
 			
 			Thread.sleep(2000);
-			subTasks.TaskTemplate();
+			subprojects.projectTemplate();
 		}
 		@Test(priority = 2)
 		public void openDoc() throws InterruptedException {
 		
-			// press Task tab
-			tasksmultipleselect.pressTask();
+			// press project tab
+			projectsmultipleselect.pressproject();
 			
 			//open doc  enter title and description
 			actionsmiddlepane.openEntity("doc1" , "important");
 		}	
 
 		@Test(priority = 3)
-		public void TasksMulitipleChoice() throws InterruptedException {
+		public void projectsMulitipleChoice() throws InterruptedException {
 		
-			logger = extent.createTest("Task using multiple choice");
+			logger = extent.createTest("project using multiple choice");
 			
 			// delete entity using multiple select
 			actionsmultipleselect.deleteEntityMultipleChoice();
@@ -148,12 +140,12 @@ import pages.tasks.subTasks;
 		}
 	
 		@Test(priority = 4)
-		public void tasksMiddlePane()throws InterruptedException {
-			logger = extent.createTest("Task using middle pane");
+		public void projectsMiddlePane()throws InterruptedException {
+			logger = extent.createTest("project using middle pane");
 			
-			tasksmiddlepane.changeStatusOfList();
+			projectsmiddlepane.changeStatusOfList();
 			
-			//tasksmiddlepane.sortByFavorite();
+			//projectsmiddlepane.sortByFavorite();
 			
 			actionsmiddlepane.sortByTitle();
 			
@@ -163,9 +155,9 @@ import pages.tasks.subTasks;
 		}
 		
 		@Test(priority = 5)
-		public void tasksRightSideOnScreen()throws InterruptedException {
+		public void projectsRightSideOnScreen()throws InterruptedException {
 			
-			logger = extent.createTest("Task using right side on screen");
+			logger = extent.createTest("project using right side on screen");
 			
 			actionsrightside.deleteEntity();
 			
@@ -175,9 +167,7 @@ import pages.tasks.subTasks;
 			
 			actionsrightside.addStatus();
 			
-			tasksrightsideonscreen.SelectDiscussionsOnScreen();
-			
-			tasksrightsideonscreen.SelecttasksOnScreen();
+
 			
 			actionsrightside.addTags("yaronnn");
 			
@@ -190,12 +180,12 @@ import pages.tasks.subTasks;
 		
 		
 		@Test(priority = 6)
-		public void SubTask()throws InterruptedException{
-			logger = extent.createTest("Task template");
+		public void Subproject()throws InterruptedException{
+			logger = extent.createTest("project template");
 			
-			subTasks.SubTaskEdit();
+		//	subprojects.SubprojectEdit();
 			
-		   
+		//	subprojects.projectTemplate();
 		}
 		
 		
