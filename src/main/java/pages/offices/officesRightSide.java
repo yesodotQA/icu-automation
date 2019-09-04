@@ -5,6 +5,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
+import com.aventstack.extentreports.Status;
+
 import base.testBase;
 
 public class officesRightSide extends testBase {
@@ -29,6 +31,9 @@ public class officesRightSide extends testBase {
 	@FindBy (className = "addSignature")
 	WebElement pressOnAddSignature;
 	
+	@FindBy(className = "signature-table")
+	WebElement signatureTable;
+	
 	public officesRightSide() {
 		PageFactory.initElements(driver, this);
 	}
@@ -45,6 +50,7 @@ public class officesRightSide extends testBase {
 		
 		pressSignaturesTab.click();
 		
+		Thread.sleep(2000);
 		
 		waitForVisibility(fullNameField);
 		
@@ -57,6 +63,25 @@ public class officesRightSide extends testBase {
 		unitField.sendKeys(unit);
 		
 		pressOnAddSignature.click();
+		
+		
+		Thread.sleep(2000);
+		
+		String atributteOfSignatureAfter = signatureTable.getAttribute("childElementCount");
+		
+		int afterSetSignature = Integer.parseInt(atributteOfSignatureAfter);
+		
+		if (afterSetSignature == 1) {
+			logger.log(Status.PASS, "adding signatures");
+			System.out.println("sad");
+		}
+		
+		else {
+			logger.log(Status.FAIL, "adding signatures");
+		}
+		
+		
+		
 		
 	}
 }
