@@ -94,7 +94,7 @@ public class subprojects extends testBase{
 	}
 	
 	
-	public void  Subproject() throws InterruptedException {
+	public void  SubprojectEdit() throws InterruptedException {
 		logger = extent.createTest("create sub tasks and edit it");
 		Thread.sleep(2000);
 		addSubproject.click();

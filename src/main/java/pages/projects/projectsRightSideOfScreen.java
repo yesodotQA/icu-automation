@@ -60,45 +60,6 @@ public class projectsRightSideOfScreen extends testBase {
 	}
 	
 	
-
-	public void addStatusOnScreen() throws InterruptedException {
-		
-		String sizeListOfActivitiesBeforeChoosing = checkIfTheActivitiesUpdate.getAttribute("childElementCount");
-		
-		int switcheStringToInt1 = Integer.parseInt(sizeListOfActivitiesBeforeChoosing);
-		
-		
-		waitForVisibility(template.pressToChangeStatusOnTheScreen);
-		
-		template.pressToChangeStatusOnTheScreen.click();
-		
-		
-		Thread.sleep(2000);
-		
-		
-		template.listOfStatusOnScreen.get(0).click();
-		
-		
-		Thread.sleep(2000);
-		
-		String sizeListOfActivitiesAfterChoosing = checkIfTheActivitiesUpdate.getAttribute("childElementCount");
-		
-		int SwitcheStringToInt2 = Integer.parseInt(sizeListOfActivitiesAfterChoosing);
-		
-		
-		if (switcheStringToInt1 + 1 == SwitcheStringToInt2) {
-			
-			logger.log(Status.PASS , "add status on screen");
-		
-		}
-		
-		else {
-			
-			logger.log(Status.FAIL , "add status on screen");
-		}
-	}
-	
-	
 }	
 	
 	
