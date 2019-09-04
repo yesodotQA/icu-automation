@@ -27,6 +27,10 @@ public class Tabs extends testBase {
     @FindBy(xpath = "/html/body/section/section/div[2]/div[1]/nav/ul/li[6]/div")
     public  WebElement settingsTab;
     
+    @FindBy (css = "[ui-sref='main.offices.all']")
+    public	WebElement officesTab;
+    
+    
 	
      
     public Tabs() {

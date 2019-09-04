@@ -16,18 +16,9 @@ import global.globalElements.theRightOfTheScreen;
 public class foldersMultipleSelect  extends testBase{
 	
 	Tabs tabs;
-	middlePane middlepane;
-	multipleSelect multipleselect;
-	theRightOfTheScreen therightonthescreen;	
-	actionsMiddlePane actionsmiddlepane;
 	
 	public foldersMultipleSelect(){
-		
-		this.multipleselect = new multipleSelect();
-		this.middlepane = new middlePane();
 		this.tabs = new Tabs();
-		this.therightonthescreen = new theRightOfTheScreen();
-		this.actionsmiddlepane = new actionsMiddlePane();
 		PageFactory.initElements(driver, this);
 	 }
 	

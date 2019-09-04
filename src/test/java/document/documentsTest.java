@@ -37,15 +37,15 @@ public class documentsTest extends testBase {
 	
 	@BeforeClass
 	public void SetUp() throws InterruptedException, IOException{	
-	initialization(); 
-	Login();
-	this.actionsmultipleselect = new actionsMultipleSelect();
-	this.documentsmultipleselect = new documentsMultipleSelect();
-	this.documentsmiddlepane = new documentsMiddlePane();
-	this.documentsrhigtsideonscreen = new documentsRightSideOnScreen();
-	this.actionsmiddlepane = new actionsMiddlePane();
-	this.actionsrightside = new actionsRightSide();
-	this.randomaction = new randomActions();
+		initialization(); 
+		Login();
+		this.actionsmultipleselect = new actionsMultipleSelect();
+		this.documentsmultipleselect = new documentsMultipleSelect();
+		this.documentsmiddlepane = new documentsMiddlePane();
+		this.documentsrhigtsideonscreen = new documentsRightSideOnScreen();
+		this.actionsmiddlepane = new actionsMiddlePane();
+		this.actionsrightside = new actionsRightSide();
+		this.randomaction = new randomActions();
 	}
 	
 	@Test(priority = 1)
@@ -61,7 +61,7 @@ public class documentsTest extends testBase {
 	@Test(priority = 2)
 		public void documentsMultipleSelect() throws InterruptedException {
 		
-		logger = extent.createTest("multiple select");
+		logger = extent.createTest("document multiple select");
 		
 		actionsmultipleselect.deleteEntityMultipleChoice();
 	
@@ -101,7 +101,7 @@ public class documentsTest extends testBase {
 	}
 	
 	@Test(priority = 4)
-	public void documentsRightSideOfScreen() throws InterruptedException {
+	public void documentsRightSide() throws InterruptedException {
 		
 		logger = extent.createTest("document the right side on the screen");
 		

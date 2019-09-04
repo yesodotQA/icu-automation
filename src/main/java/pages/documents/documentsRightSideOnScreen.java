@@ -19,12 +19,7 @@ import global.globalElements.multipleSelect;
 import global.globalElements.theRightOfTheScreen;
 
 	public class documentsRightSideOnScreen extends testBase {
-		Tabs tabs;
-		middlePane middlepane;
-		multipleSelect multipleselect;
-		theRightOfTheScreen therightonthescreen;
-		documentsMiddlePane documentsmiddlepane;
-		actionsMiddlePane actionmiddlepane;
+		
 		
 		@FindBy(xpath = "/html/body/section/section/div[2]/div[2]/div"
 				+ "[2]/div/div[2]/detail-category/div/div[1]/span/span[1]")
@@ -34,16 +29,7 @@ import global.globalElements.theRightOfTheScreen;
 		List<WebElement> listOfFolder=  new ArrayList<>();
 	
 		public  documentsRightSideOnScreen() {
-		
-			this.multipleselect      = new multipleSelect();
-			this.middlepane          = new middlePane();
-			this.tabs                = new Tabs();
-			this.therightonthescreen = new theRightOfTheScreen();
-			this.documentsmiddlepane = new documentsMiddlePane();
-			this.actionmiddlepane    = new actionsMiddlePane();
-			
 			PageFactory.initElements(driver, this);
-	
 		}
 		
 		private void waitForVisibility (WebElement element)  {

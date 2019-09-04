@@ -14,6 +14,7 @@ import global.globalActions.actionsMiddlePane;
 import global.globalActions.actionsMultipleSelect;
 import global.globalActions.actionsRightSide;
 import global.globalActions.randomActions;
+import global.globalElements.middlePane;
 import pages.documents.documentsMiddlePane;
 import pages.folders.foldersMultipleSelect;
 import pages.folders.foldersRightSide;
@@ -27,6 +28,8 @@ public class folderTest extends testBase{
 	foldersRightSide folderrightside;
 	documentsMiddlePane documnetsmiddlepane;
 	randomActions randomactions;
+
+	
 	@BeforeClass
 	public void SetUp() throws InterruptedException, IOException{	
 		initialization(); 
@@ -38,6 +41,7 @@ public class folderTest extends testBase{
 		this.documnetsmiddlepane = new documentsMiddlePane();
 		this.randomactions = new randomActions();
 		this.folderrightside = new foldersRightSide();
+	
 	}
 	
 	@Test(priority = 1)
@@ -47,10 +51,11 @@ public class folderTest extends testBase{
 		
 		actionsmiddlepane.openEntity("folder1" , "importenet");
 	}
-	
 	@Test(priority = 2)
+	
 	public void folderssMultipleSelect() throws InterruptedException {
-		logger = extent.createTest("folders select");
+		
+		logger = extent.createTest("folders multiple select");
 
 		actionsmultipleselect.deleteEntityMultipleChoice();
 
@@ -66,6 +71,8 @@ public class folderTest extends testBase{
 	public void foldersMiddlePane() throws InterruptedException {
 		logger = extent.createTest("folders middle pane");
 
+		randomactions.enterNameToEntity("hyyyyyyyyy");
+	
 		// change the status of list entities
 		documnetsmiddlepane.changeStatusOfList();
 
@@ -85,7 +92,11 @@ public class folderTest extends testBase{
 	@Test(priority = 4)
 	public void foldersRightSide() throws InterruptedException {
 		
+		logger = extent.createTest("folder right side");
+		
 		actionsrightside.deleteEntity();
+		
+		actionsmiddlepane.openEntity("folderTest", "isr");
 		
 		actionsrightside.addStatus();
 		
