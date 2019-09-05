@@ -36,9 +36,13 @@ public class MeetingsFunctions extends testBase {
 	WebElement NextArrow;
 	@FindBy (xpath = "//*[@id=\"ui-datepicker-div\"]/table/tbody/tr[3]/td[3]/a")
 	WebElement StartDate;
-	@FindBy  (xpath = "//*[@id=\"ui-datepicker-div\"]/table/tbody/tr[3]/td[4]/a" )
+	@FindBy (xpath = "//*[@id=\"ui-datepicker-div\"]/table/tbody/tr[3]/td[4]/a" )
 	WebElement EndDate;
-		
+	@FindBy (id = "firstStr")
+	WebElement FirstDate;
+	@FindBy (id = "secondStr")
+	WebElement SecondDate;
+	
 	private void waitForVisibility (WebElement element)  {
 		wait.until(ExpectedConditions.visibilityOf(element));
 
@@ -60,11 +64,14 @@ public class MeetingsFunctions extends testBase {
 		StartDate.click();
 		Thread.sleep(2000);
 		DateButton.click();
-		Thread.sleep(2000);
-		NextArrow.click();		
 		EndDateButton.click();
+		NextArrow.click();
 		EndDate.click();
-			
+		String first = FirstDate.getText();
+		String[] nums = first.split("/");
+		int day = Integer.parseInt(nums[0]);
+		System.out.println(day);
+				
 	}
 
 }
