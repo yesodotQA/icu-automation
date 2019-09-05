@@ -5,7 +5,9 @@
     <classes>
      
 
-       <class name="document.documentsTest"/>
+      <class name="task.tasksTest"/>
+       
+
 
   
 

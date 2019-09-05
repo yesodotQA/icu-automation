@@ -6,6 +6,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
+import com.aventstack.extentreports.Status;
+
 import base.testBase;
 import global.globalActions.actionsMiddlePane;
 import global.globalElements.Tabs;
@@ -43,6 +45,10 @@ public class MeetingsFunctions extends testBase {
 	@FindBy (id = "secondStr")
 	WebElement SecondDate;
 	
+	// Variables related to location
+	@FindBy (css = "[ng-model='item.location']")
+	WebElement LocationButton;
+	
 	private void waitForVisibility (WebElement element)  {
 		wait.until(ExpectedConditions.visibilityOf(element));
 
@@ -67,12 +73,42 @@ public class MeetingsFunctions extends testBase {
 		EndDateButton.click();
 		NextArrow.click();
 		EndDate.click();
-		String first = FirstDate.getText();
-		String[] nums = first.split("/");
-		int day = Integer.parseInt(nums[0]);
-		System.out.println(day);
-				
+		String FirstDay = FirstDate.getText();
+		String SecondDay = SecondDate.getText();
+		
+		
+		// it take the first numbers from the dates and check if difference is equal to 1
+		String[] ArrayOne = FirstDay.split("/");
+		int DayOne = Integer.parseInt(ArrayOne[0]);
+		
+		String[] ArrayTwo = SecondDay.split("/");
+		int DayTwo = Integer.parseInt(ArrayTwo[0]);
+		
+		if (DayTwo - DayOne == 1) {
+			
+			logger.log(Status.PASS , "Set Two Dates work perfect!");
+		}
+		else {
+			
+			logger.log(Status.FAIL , "Set Two Dates Not working.");
+		}
+		
 	}
 
+	public void AddLocation() throws InterruptedException {
+		
+		String LocationInput = "this input contain the location"; 
+		
+		tabs.meetingsTab.click();
+		actionsmiddlepane.openEntity("Add location", "test adding location in meeting");
+		LocationButton.click();
+		Thread.sleep(1000);
+		LocationButton.sendKeys(LocationInput);
+		
+		
+		
+		
+		
+	}
 }
 
