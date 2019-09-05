@@ -30,7 +30,7 @@ public class MeetingsFunctions extends testBase {
 	WebElement DateButton;
 	@FindBy (id = "startDate")
 	WebElement StartDateButton;
-	@FindBy (id = "endDate")
+	@FindBy (css = "[ng-model='item.endDate']")
 	WebElement EndDateButton;
 	@FindBy (css = "[title='Next']")
 	WebElement NextArrow;
@@ -52,10 +52,16 @@ public class MeetingsFunctions extends testBase {
 		Thread.sleep(2000);
 		waitForVisibility(DateButton);
 		DateButton.click();
+		Thread.sleep(2000);
 		waitForVisibility(StartDateButton);
 		StartDateButton.click();
+		Thread.sleep(2000);
 		NextArrow.click();
 		StartDate.click();
+		Thread.sleep(2000);
+		DateButton.click();
+		Thread.sleep(2000);
+		NextArrow.click();		
 		EndDateButton.click();
 		EndDate.click();
 			

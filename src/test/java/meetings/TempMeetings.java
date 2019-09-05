@@ -25,7 +25,7 @@ import pages.documents.documentsMultipleSelect;
 import pages.documents.documentsRightSideOnScreen;
 import pages.meetings.MeetingsFunctions;
 
-public class meetingsTest extends testBase {
+public class TempMeetings extends testBase {
 
 	documentsMultipleSelect    documentsmultipleselect;
 	documentsMiddlePane        documentsmiddlepane;
@@ -60,37 +60,9 @@ public class meetingsTest extends testBase {
 	@Test (priority = 1)
 	public void MultipleChoiceFunction () throws InterruptedException {
 	
-		logger = extent.createTest("Test Multiple Choice in Meetings");
-		
-		actionsmultipleselect.addAssigneeMultipleChoice();
-		actionsmultipleselect.addDateMultipleChoice();
-		actionsmultipleselect.addStatusMultipleChoice();
-		actionsmultipleselect.addTagsMultipleChoice("Meetings ASAP");
-		actionsmultipleselect.addWatchersMultipleChoice();
-		actionsmultipleselect.deleteEntityMultipleChoice();
+		logger = extent.createTest("set a date in meetings");
+		meetingsfunctions.setDateInMeetings();
 	}
-	
-	@Test (priority = 2)
-	public void MiddlePaneFunction () throws InterruptedException {
-		
-		logger = extent.createTest("Test the Middle Pane Functionality");
-		
-		actionsmiddlepane.openEntity("Title Test", "Open Entity Perfectly!!!");
-		//actionsmiddlepane.sortByFavorite();
-		actionsmiddlepane.sortByTitle();
-		actionsmiddlepane.sordByStatusAndUnread();
-		//actionsmiddlepane.pressOnArrow();
-		
-	}
-	
-	@Test (priority = 3)
-	public void RightSideFunction () throws InterruptedException {
-		logger = extent.createTest("Test the Right Side functionality");
-				
-		
-		
-	}
-	
 	@AfterClass
 	public void after() {
 		
