@@ -121,13 +121,14 @@ import pages.tasks.subTasks;
 			actionsrightside.addActivities("sad", "memurmar");
 			
 			Thread.sleep(2000);
-			actionsrightside.addWatcher();
+			//actionsrightside.changePermission();
 
 			Thread.sleep(2000);
 			subTasks.SubTaskEdit();
 			
 			Thread.sleep(2000);
 			subTasks.TaskTemplate();
+			
 		}
 		@Test(priority = 2)
 		public void openDoc() throws InterruptedException {

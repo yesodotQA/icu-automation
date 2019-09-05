@@ -4,6 +4,7 @@
   <test thread-count="5" name="Test">
     <classes>
      
+<<<<<<< HEAD
 
       <class name="task.tasksTest"/>
        
@@ -11,6 +12,10 @@
 
   
 
+=======
+       <class name="task.tasksTest"/>
+       
+>>>>>>> c95f910fb10196f83590e7e5a113d7dbc6f712fd
       
     </classes>
   </test> <!-- Test -->

@@ -10,6 +10,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import base.testBase;
+import global.globalActions.actionsMultipleSelect;
 import global.globalElements.Tabs;
 import global.globalElements.middlePane;
 import global.globalElements.multipleSelect;
@@ -36,9 +37,7 @@ public class subTasks extends testBase{
 	public @FindBy(css = "body > section > section > div.icu-data.ng-scope > div.panes-wrapper.ng-scope > div.detailspane.animate-hide.ng-isolate-scope > div > div.entity-details-content.task-details.ng-scope > div.sub-items-section > icu-sub-task-list > div.add-sub-entity.sub-entity-title.ng-binding")
 	WebElement addSubTask;
 
-	public @FindBy(css = "body > section > section > div.icu-data.ng-scope > div.panes-wrapper.ng-scope > div.detailspane.animate-hide.ng-isolate-scope > div >"
-			+ " div.entity-details-content.task-details.ng-scope > div.sub-items-section > icu-sub-task-list > div.list-table.sub-entity.scroll "
-			+ "> table > tbody > tr > td.name.ng-pristine.ng-untouched.ng-valid")
+	public @FindBy(css = "[placeholder='Create new task']")
 	WebElement CreateSubTask;
 
 	public @FindBy(xpath ="/html/body/section/section/div[2]/div[2]/div[2]/div/div[2]/div[4]/icu-sub-task-list/div[3]/table/tbody/tr[1]/td[2]")
@@ -65,6 +64,10 @@ public class subTasks extends testBase{
 
 	public@FindBy(css = ".last")
 	WebElement ChooseTaskTemplate;
+	
+	public@FindBy(xpath =  "/html/body/section/section/div[2]"
+			+ "/div[2]/div[2]/div/div[2]/div[4]/icu-sub-task-list/div[3]/table/tbody/tr[1]/td[6]")
+	WebElement arrowSubTask;
 
 	//duplicatetask
 	public@FindBy(xpath = "/html/body/section/section/div[2]/div[2]/div[2]/div/div[1]/detail-menu/div/ul/li[1]/a")
@@ -72,7 +75,7 @@ public class subTasks extends testBase{
 
 	public@FindBy(xpath = "/html/body/section/section/div[2]/div[2]/div[2]/div/div[2]/detail-tags/div/div[1]/input")
 	WebElement selectTags;
-
+	actionsMultipleSelect actionsmultipleselect;
 	// function for wait
 	private void waitForVisibility (WebElement element)  {
 
@@ -87,6 +90,7 @@ public class subTasks extends testBase{
 		tasksmiddlepane = new middlePane();
 		taskstab = new Tabs();
 		template = new theRightOfTheScreen();
+		this.actionsmultipleselect = new actionsMultipleSelect();
 	}
 
 
@@ -123,14 +127,19 @@ public class subTasks extends testBase{
 		
 		ChooseDateSubTask.click();
 		
-		Thread.sleep(2000);
-		CreateSubTask.click();
-		
-		Thread.sleep(1000);
-		nameSubTask.click();
 		logger = extent.createTest("delete subtask");
 		Thread.sleep(500);
 		DeleteSubTask.click();
+		
+		Thread.sleep(3000);
+		waitForVisibility(CreateSubTask);
+		CreateSubTask.click();
+		
+		Thread.sleep(2000);
+		nameSubTask.sendKeys("autosubtask2");
+		
+		Thread.sleep(3000);
+		arrowSubTask.click();
 
 	}	
 
@@ -147,6 +156,27 @@ public class subTasks extends testBase{
 			waitForVisibility(tasksmiddlepane.description);
 			tasksmiddlepane.description.sendKeys("auto description"+i);
 		}
+		
+		Thread.sleep(2000);
+		// delete entity using multiple select
+		actionsmultipleselect.deleteEntityMultipleChoice();
+		
+		Thread.sleep(2000);
+		actionsmultipleselect.addTagsMultipleChoice("mission");
+		
+		
+		Thread.sleep(2000);
+		actionsmultipleselect.addDateMultipleChoice();
+		
+		Thread.sleep(2000);
+		actionsmultipleselect.addAssigneeMultipleChoice();
+		
+		Thread.sleep(2000);
+		actionsmultipleselect.addWatchersMultipleChoice();
+		
+		Thread.sleep(2000);
+		actionsmultipleselect.addStatusMultipleChoice();
+		
 
 		Thread.sleep(2000);
 		template.chooseFavorite.click();
