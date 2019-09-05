@@ -77,7 +77,7 @@ import pages.offices.officesRightSide;
 		//actionsmiddlepane.pressOnArrow();
 	}
 	
-	@Test(priority = 4)
+	@Test(priority = 2)
 	public void officesRightSide() throws InterruptedException {
 		
 		logger = extent.createTest("offices the right side on the screen");
@@ -93,6 +93,8 @@ import pages.offices.officesRightSide;
 		officesrightside.signatures("Aviram", "Lieutenant", "Team Leader of QA", "Sapir");
 		
 		actionsrightside.changePermission();
+		
+		officesrightside.inheritance();
 		
 	}
 	

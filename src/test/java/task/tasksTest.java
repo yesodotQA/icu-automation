@@ -21,6 +21,7 @@ import global.globalElements.middlePane;
 import pages.tasks.tasksMiddlePane;
 import pages.tasks.tasksMultipleSelect;
 import pages.tasks.tasksRightSideOfScreen;
+import pages.documents.documentsMiddlePane;
 import pages.tasks.subTasks;
 	public class tasksTest  extends testBase {
 		
@@ -35,12 +36,14 @@ import pages.tasks.subTasks;
 		actionsRightSide actionsrightside;
 		actionsMiddlePane actionsmiddlepane;
 		actionsMultipleSelect actionsmultipleselect;
+		documentsMiddlePane documentsmiddlepane;
 		
 		@BeforeClass
 		public void SetUp() throws InterruptedException, IOException{	
 		initialization(); 
 		Login();
 	    
+		this.documentsmiddlepane = new documentsMiddlePane();
 		this.subTasks = new subTasks();
 		this.tasksmultipleselect = new tasksMultipleSelect();
 		this.middlepane = new middlePane();
@@ -80,6 +83,15 @@ import pages.tasks.subTasks;
 			
 			Thread.sleep(2000);
 			actionsmultipleselect.addStatusMultipleChoice();
+			
+			Thread.sleep(2000);
+			actionsmiddlepane.sordByStatusAndUnread();
+			
+			Thread.sleep(2000);
+			actionsmiddlepane.sortByTitle();
+			
+			Thread.sleep(2000);
+			documentsmiddlepane.changeStatusOfList();
 			
 			Thread.sleep(2000);
 			logger = extent.createTest("My Task template");

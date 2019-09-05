@@ -33,7 +33,8 @@ public class Tabs extends testBase {
     @FindBy (css = "[ui-sref='main.templateDocs.all']")
     public	WebElement templateDocTab;
     
-	
+    @FindBy (css = "[ui-sref='main.folders.all']")
+    public	WebElement foldersTab;
      
     public Tabs() {
 

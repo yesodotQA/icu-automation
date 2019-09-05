@@ -42,15 +42,15 @@ public class foldersRightSide extends testBase {
 		
 		Thread.sleep(3000);
 		
-		String nameOfFolder	= listOfOffices.get(0).getText();
+		String nameOfoffice	= listOfOffices.get(0).getText();
 		
 		listOfOffices.get(0).click();
 		
 		Thread.sleep(2000);
 		
-		String nameOfFolderForChecking = SelectOffice.getAttribute("innerText");
+		String nameOfOfficeForChecking = SelectOffice.getAttribute("innerText");
 		
-		if (nameOfFolder.equals(nameOfFolderForChecking)) {
+		if (nameOfoffice.equals(nameOfOfficeForChecking)) {
 			
 			logger.log(Status.PASS , "select office on screen");
 			
