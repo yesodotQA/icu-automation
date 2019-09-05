@@ -105,9 +105,10 @@ import pages.projects.subprojects;
 
 			Thread.sleep(2000);
 			subprojects.SubprojectEdit();
-			
+			/*
 			Thread.sleep(2000);
 			subprojects.projectTemplate();
+			*/
 		}
 		@Test(priority = 2)
 		public void openDoc() throws InterruptedException {
