@@ -129,6 +129,10 @@ import pages.tasks.subTasks;
 			Thread.sleep(2000);
 			subTasks.TaskTemplate();
 			
+			logger = extent.createTest("sort middle pane sub tasks");
+			Thread.sleep(2000);
+			subTasks.sortMiddlePane();
+			
 		}
 		@Test(priority = 2)
 		public void openDoc() throws InterruptedException {
@@ -197,19 +201,18 @@ import pages.tasks.subTasks;
 			actionsrightside.addActivities("sad", "memurmar");
 			
 			actionsrightside.addWatcher();
-		
-		}
-		
-		
-		
-		@Test(priority = 6)
-		public void SubTask()throws InterruptedException{
-			logger = extent.createTest("Task template");
 			
+			Thread.sleep(2000);
 			subTasks.SubTaskEdit();
 			
-		   
+			Thread.sleep(2000);
+			subTasks.TaskTemplate();
+			
+			Thread.sleep(2000);
+			subTasks.sortMiddlePane();
+		
 		}
+		
 		
 		
 		
