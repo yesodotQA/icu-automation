@@ -10,19 +10,26 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import base.testBase;
+import global.globalActions.actionsMiddlePane;
 import global.globalActions.actionsMultipleSelect;
+import global.globalActions.actionsRightSide;
 import global.globalElements.Tabs;
 import global.globalElements.middlePane;
 import global.globalElements.multipleSelect;
 import global.globalElements.theRightOfTheScreen;
+import pages.documents.documentsMiddlePane;
 
 
 public class subTasks extends testBase{
 
 	multipleSelect tasksmultipleselect;
-	middlePane tasksmiddlepane;
+	tasksMiddlePane tasksmiddlepane;
 	Tabs taskstab;
 	theRightOfTheScreen template;
+	actionsMultipleSelect actionsmultipleselect;
+	documentsMiddlePane documentsmiddlepane;
+	actionsRightSide actionsrightside;
+	
 
 
 
@@ -75,22 +82,25 @@ public class subTasks extends testBase{
 
 	public@FindBy(xpath = "/html/body/section/section/div[2]/div[2]/div[2]/div/div[2]/detail-tags/div/div[1]/input")
 	WebElement selectTags;
-	actionsMultipleSelect actionsmultipleselect;
 	// function for wait
+	actionsMiddlePane actionsmiddlepane;
 	private void waitForVisibility (WebElement element)  {
 
 		wait.until(ExpectedConditions.visibilityOf(element));
-
+		
 	}
 
 	public subTasks() {
 
 		PageFactory.initElements(driver, this);
 		tasksmultipleselect = new multipleSelect();
-		tasksmiddlepane = new middlePane();
+		tasksmiddlepane = new tasksMiddlePane();
 		taskstab = new Tabs();
 		template = new theRightOfTheScreen();
 		this.actionsmultipleselect = new actionsMultipleSelect();
+		this.actionsmiddlepane = new actionsMiddlePane();
+		this.documentsmiddlepane = new documentsMiddlePane();
+		this.actionsrightside = new actionsRightSide();
 	}
 
 
@@ -144,7 +154,7 @@ public class subTasks extends testBase{
 	}	
 
 	public void TaskTemplate() throws InterruptedException {
-		for(int i = 0;i<6;i++) {
+/*		for(int i = 0;i<6;i++) {
 			waitForVisibility(tasksmiddlepane.pressCreateNewItem);
 			tasksmiddlepane.pressCreateNewItem.click();
 
@@ -156,6 +166,7 @@ public class subTasks extends testBase{
 			waitForVisibility(tasksmiddlepane.description);
 			tasksmiddlepane.description.sendKeys("auto description"+i);
 		}
+		*/ actionsmiddlepane.openEntity("doc1" , "important");
 		
 		Thread.sleep(2000);
 		// delete entity using multiple select
@@ -177,86 +188,58 @@ public class subTasks extends testBase{
 		Thread.sleep(2000);
 		actionsmultipleselect.addStatusMultipleChoice();
 		
+		Thread.sleep(2000);
+		actionsmiddlepane.openEntity("sub3" , "sub task right side");
 
 		Thread.sleep(2000);
-		template.chooseFavorite.click();
+		actionsrightside.addAssignee();
+		
+		Thread.sleep(2000);
+		actionsrightside.setDate();
+		
+		Thread.sleep(2000);
+		actionsrightside.addStatus();
 
-		Thread.sleep(2500);
-		waitForVisibility(template.assigneeOnTheScreen);
-
+		
+		Thread.sleep(2000);
+		actionsrightside.addTags("yaronnn");
+		
+		Thread.sleep(2000);
+		actionsrightside.addActivities("sad", "memurmar");
+		
+		Thread.sleep(2000);
+		actionsrightside.changePermission();
 
 		Thread.sleep(2000);
-		template.dateOnTheScreen.click();
-
-		Thread.sleep(3000);
-		waitForVisibility(tasksmultipleselect.nextMonth);
-		tasksmultipleselect.nextMonth.click();
-
-		Thread.sleep(2000);
-		waitForVisibility(template.chooseDateOnTheScreen);
-
-		Thread.sleep(2000);
-		selectTags.click();
-
-		Thread.sleep(2000);
-		selectTags.sendKeys("new tag test");
-
-		Thread.sleep(1500);
-		selectTags.submit();
-
-		template.pressOnAddWatcherOnTHeScreen.click();
-
-		Thread.sleep(2000);
-		template.selectMembers.click();
-
-		Thread.sleep(2000);
-		template.listOfWatchersOnScreen.get(0).click();
-
-		waitForVisibility(template.pressOnThreeDotsOnScreen);
 		template.pressOnThreeDotsOnScreen.click();
-
+		
 		Thread.sleep(2000);
 		waitForVisibility(duplicateTask);
 		duplicateTask.click();
 
 		Thread.sleep(2000);
 		template.pressOnThreeDotsOnScreen.click();
-
+		
+		Thread.sleep(2000);
+		actionsmiddlepane.openEntity("sub4" , "sub task deletion");
+		
 		Thread.sleep(2000);
 		template.chooseDelete.click();
 	}
 
 	public void sortMiddlePane() throws InterruptedException {
-		//Thread.sleep(2000);
-		//tasksmiddlepane.pressOnSortByStar.click();
-
+		
 		Thread.sleep(2000);
-		tasksmiddlepane.listOfSorts.get(1).click();
-
+		tasksmiddlepane.changeStatusOfList();
+		
 		Thread.sleep(2000);
-		tasksmiddlepane.listOfSorts.get(2).click();
-
-		for(int j=0;j<2;j++) {
-			Thread.sleep(2000);
-			tasksmiddlepane.pressArrow.click();
-		}
-
-		Thread.sleep(3000);
-		tasksmiddlepane.pressOnSortButton.click();
-
+		actionsmiddlepane.sordByStatusAndUnread();
+		
 		Thread.sleep(2000);
-		waitForVisibility(tasksmiddlepane.sortByStatus);
-		tasksmiddlepane.sortByStatus.click();
-
+		actionsmiddlepane.sortByTitle();
+		
 		Thread.sleep(2000);
-		waitForVisibility(tasksmiddlepane.listOfStatusOfEntities.get(3));
-		tasksmiddlepane.listOfStatusOfEntities.get(3).click();
-
-		Thread.sleep(2000);
-		waitForVisibility(tasksmiddlepane.listOfStatusOfEntities.get(2));
-		tasksmiddlepane.listOfStatusOfEntities.get(2).click();
-
-
+		documentsmiddlepane.changeStatusOfList();
 
 	}
 	

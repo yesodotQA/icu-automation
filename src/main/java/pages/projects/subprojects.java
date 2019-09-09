@@ -1,234 +1,261 @@
 package pages.projects;
 
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import base.testBase;
+import global.globalActions.actionsMiddlePane;
+import global.globalActions.actionsMultipleSelect;
+import global.globalActions.actionsRightSide;
 import global.globalElements.Tabs;
 import global.globalElements.middlePane;
 import global.globalElements.multipleSelect;
 import global.globalElements.theRightOfTheScreen;
+import pages.documents.documentsMiddlePane;
 
 
 public class subprojects extends testBase{
-	
+
 	multipleSelect projectsmultipleselect;
-	
-	middlePane projectsmiddlepane;
-	
+	projectsMiddlePane projectsmiddlepane;
 	Tabs projectstab;
-	
 	theRightOfTheScreen template;
+	actionsMultipleSelect actionsmultipleselect;
+	documentsMiddlePane documentsmiddlepane;
+	actionsRightSide actionsrightside;
 	
-	
+
+
+
 	//parent project and discussion
 	public @FindBy(css = "[value='item.project']")
 	WebElement selectParentProject;
-	
+
 	public @FindBy(css = "[value='item.discussion']")
 	WebElement selectParentMeeting;
-	
-	//elements for subproject 
-	public @FindBy(className = ".add-sub-entity")
-	WebElement addSubproject;
-	
-	public @FindBy(css = "body > section > section > div.icu-data.ng-scope > div.panes-wrapper.ng-scope > div.detailspane.animate-hide.ng-isolate-scope > div >"
-	+ " div.entity-details-content.project-details.ng-scope > div.sub-items-section > icu-sub-project-list > div.list-table.sub-entity.scroll "
-	+ "> table > tbody > tr > td.name.ng-pristine.ng-untouched.ng-valid")
-	WebElement CreateSubproject;
+
+	//elements for subtask 
+	public @FindBy(css = "body > section > section "
+			+ "> div.icu-data.ng-scope > div.panes-wrapper.ng-scope "
+			+ "> div.detailspane.animate-hide.ng-isolate-scope > div "
+			+ "> div.entity-details-content.project-details.ng-scope "
+			+ "> div.sub-items-section > icu-sub-project-list"
+			+ " > div.add-sub-entity.sub-entity-title.ng-binding")
+	WebElement addSubTask;
+
+	public @FindBy(css = "[placeholder='Create new project']")
+	WebElement CreateSubTask;
 
 	public @FindBy(xpath ="/html/body/section/section/div[2]/div[2]/div[2]/div/div[2]/div[3]/icu-sub-project-list/div[3]/table/tbody/tr[1]/td[2]")
-	WebElement nameSubproject;
+	WebElement nameSubTask;
 
-	public @FindBy(xpath = "/html/body/section/section/div[2]/div[2]/div[2]/div/div[2]/div[4]/icu-sub-project-list/div[3]/table/tbody/tr[1]/td[3]/div[2]/div[1]/span")
-	WebElement AssigneeSubproject;
+	public @FindBy(xpath = "/html/body/section/section/div[2]/div[2]/div[2]/div/div[2]/div[3]/icu-sub-project-list/div[3]/table/tbody/tr[1]/td[3]/div[2]/div[1]/span")
+	WebElement AssigneeSubTask;
 
-	public @FindBy(xpath = "//*[@id=\"ui-select-choices-row-95-1\"]/span")
-	WebElement AssignUserSubproject;
+	@FindBy(css ="[ng-if='$select.open']")
+	public List<WebElement> AssignUserSubTask =  new ArrayList<>();
 
-	public @FindBy(id = "#dp1564059419917")
-	WebElement ClickDueDateSubproject;
+	public @FindBy(css = "[ng-model='data.project.due']")
+	WebElement ClickDueDateSubTask;
 
-	public @FindBy(className = ".ui-datepicker-next")
+	public @FindBy(className = "ui-icon-circle-triangle-e")
 	WebElement ClickNextMonth;
 
-	public @FindBy (xpath = "//*[@id=\"ui-datepicker-div\"]/table/tbody/tr[5]/td[6]")
-	WebElement ChooseDateSubproject;
+	public @FindBy (xpath = "//*[@id=\"ui-datepicker-div\"]/table/tbody/tr[5]/td[2]/a")
+	WebElement ChooseDateSubTask;
 
-	public @FindBy (className = ".row-arrow")
-	WebElement ArrowSubproject;
 
-	public @FindBy (xpath ="/html/body/section/section/div[2]/div[2]/div[2]/div/div[2]/div[4]/icu-sub-project-list/div[3]/table/tbody/tr[1]/td[7]")
-	WebElement DeleteSubproject;
+	public @FindBy (xpath ="/html/body/section/section/div[2]/div[2]/div[2]/div/div[2]/div[3]/icu-sub-project-list/div[3]/table/tbody/tr[1]/td[7]/img")
+	WebElement DeleteSubTask;
 
-	public @FindBy(className = ".fa-chevron-down")
-	WebElement OpenprojectTemplates;
-	
 	public@FindBy(css = ".last")
-	WebElement ChooseprojectTemplate;
+	WebElement ChooseTaskTemplate;
 	
-	//duplicateproject
+	public@FindBy(xpath =  "/html/body/section/section/div[2]/div[2]/div[2]/div/div[2]/div[3]/icu-sub-project-list/div[3]/table/tbody/tr[1]/td[6]")
+	WebElement arrowSubTask;
+
+	//duplicatetask
 	public@FindBy(xpath = "/html/body/section/section/div[2]/div[2]/div[2]/div/div[1]/detail-menu/div/ul/li[1]/a")
-	WebElement duplicateproject;
-	
+	WebElement duplicateTask;
+
 	public@FindBy(xpath = "/html/body/section/section/div[2]/div[2]/div[2]/div/div[2]/detail-tags/div/div[1]/input")
 	WebElement selectTags;
-	
 	// function for wait
+	actionsMiddlePane actionsmiddlepane;
 	private void waitForVisibility (WebElement element)  {
-		
+
 		wait.until(ExpectedConditions.visibilityOf(element));
 		
 	}
-		
+
 	public subprojects() {
 
-	 	PageFactory.initElements(driver, this);
+		PageFactory.initElements(driver, this);
 		projectsmultipleselect = new multipleSelect();
-		projectsmiddlepane = new middlePane();
+		projectsmiddlepane = new projectsMiddlePane();
 		projectstab = new Tabs();
 		template = new theRightOfTheScreen();
+		this.actionsmultipleselect = new actionsMultipleSelect();
+		this.actionsmiddlepane = new actionsMiddlePane();
+		this.documentsmiddlepane = new documentsMiddlePane();
+		this.actionsrightside = new actionsRightSide();
 	}
-	
-	
-	public void  SubprojectEdit() throws InterruptedException {
-		logger = extent.createTest("create sub tasks and edit it");
-		Thread.sleep(2000);
-		addSubproject.click();
+
+
+	public void  SubProjectEdit() throws InterruptedException {
 		
+		logger = extent.createTest("create sub projects and edit it");
 		Thread.sleep(2000);
-		waitForVisibility(CreateSubproject);
-		
-		CreateSubproject.click();
+		addSubTask.click();
+
 		Thread.sleep(2000);
-		waitForVisibility(nameSubproject);
-		nameSubproject.sendKeys("autosubproject");
-		
+		waitForVisibility(CreateSubTask);
+
+		CreateSubTask.click();
+		Thread.sleep(2000);
+		waitForVisibility(nameSubTask);
+		nameSubTask.sendKeys("autosubtask");
+
 		Thread.sleep(1500);
-		
-		AssigneeSubproject.click();
+
+		AssigneeSubTask.click();
+
+		Thread.sleep(2000);
+
+		AssignUserSubTask.get(1).click();
+	
+		Thread.sleep(2000);
+		ClickDueDateSubTask.click();
 		
 		Thread.sleep(2000);
 		
-		waitForVisibility(AssignUserSubproject);
-		AssignUserSubproject.click();
-		
-		OpenprojectTemplates.click();
+		ClickNextMonth.click();
 		
 		Thread.sleep(2000);
-		waitForVisibility(ChooseprojectTemplate);
-		ChooseprojectTemplate.click();
+		
+		ChooseDateSubTask.click();
+		
+		Thread.sleep(1000);
+		nameSubTask.click();
 		
 		logger = extent.createTest("delete subtask");
-		Thread.sleep(1000);
-		waitForVisibility(DeleteSubproject);
-		DeleteSubproject.click();
+		Thread.sleep(500);
+		DeleteSubTask.click();
+		
+		Thread.sleep(3000);
+		waitForVisibility(CreateSubTask);
+		CreateSubTask.click();
+		
+		Thread.sleep(2000);
+		nameSubTask.sendKeys("autosubtask2");
+		
+		Thread.sleep(3000);
+		arrowSubTask.click();
 
 	}	
 
-	public void projectTemplate() throws InterruptedException {
-		for(int i = 0;i<6;i++) {
-		waitForVisibility(projectsmiddlepane.pressCreateNewItem);
-		projectsmiddlepane.pressCreateNewItem.click();
-		
-		Thread.sleep(3000);
-		waitForVisibility(projectsmiddlepane.enterTitle);
-		projectsmiddlepane.enterTitle.sendKeys("autotitle"+i);
-		
-		Thread.sleep(2000);
-		waitForVisibility(projectsmiddlepane.description);
-		projectsmiddlepane.description.sendKeys("auto description"+i);
-	}
-		
-		Thread.sleep(2000);
-		template.chooseFavorite.click();
-		
-		Thread.sleep(2500);
-		waitForVisibility(template.assigneeOnTheScreen);
-		
+	public void ProjectTemplate() throws InterruptedException {
+/*		for(int i = 0;i<6;i++) {
+			waitForVisibility(projectsmiddlepane.pressCreateNewItem);
+			projectsmiddlepane.pressCreateNewItem.click();
+
+			Thread.sleep(3000);
+			waitForVisibility(projectsmiddlepane.enterTitle);
+			projectsmiddlepane.enterTitle.sendKeys("autotitle"+i);
+
+			Thread.sleep(2000);
+			waitForVisibility(projectsmiddlepane.description);
+			projectsmiddlepane.description.sendKeys("auto description"+i);
+		}
+		*/ actionsmiddlepane.openEntity("proj1" , "important");
 		
 		Thread.sleep(2000);
-		template.dateOnTheScreen.click();
-		
-		Thread.sleep(3000);
-		waitForVisibility(projectsmultipleselect.nextMonth);
-		projectsmultipleselect.nextMonth.click();
+		// delete entity using multiple select
+		actionsmultipleselect.deleteEntityMultipleChoice();
 		
 		Thread.sleep(2000);
-		waitForVisibility(template.chooseDateOnTheScreen);
+		actionsmultipleselect.addTagsMultipleChoice("mission");
+		
 		
 		Thread.sleep(2000);
-		selectTags.click();
+		actionsmultipleselect.addDateMultipleChoice();
 		
 		Thread.sleep(2000);
-		selectTags.sendKeys("new tag test");
-		
-		Thread.sleep(1500);
-		selectTags.submit();
-		
-		template.pressOnAddWatcherOnTHeScreen.click();
+		actionsmultipleselect.addAssigneeMultipleChoice();
 		
 		Thread.sleep(2000);
-		template.selectMembers.click();
+		actionsmultipleselect.addWatchersMultipleChoice();
+		
+		Thread.sleep(2000);
+		actionsmultipleselect.addStatusMultipleChoice();
+		
+		Thread.sleep(2000);
+		actionsmiddlepane.openEntity("sub3" , "sub task right side");
+
+		Thread.sleep(2000);
+		actionsrightside.addAssignee();
+		
+		Thread.sleep(2000);
+		actionsrightside.setDate();
+		
+		Thread.sleep(2000);
+		actionsrightside.addStatus();
+
+		
+		Thread.sleep(2000);
+		actionsrightside.addTags("yaronnn");
+		
+		Thread.sleep(2000);
+		actionsrightside.addActivities("sad", "memurmar");
+		
+		Thread.sleep(2000);
+		actionsrightside.changePermission();
+
 		Thread.sleep(2000);
 		template.pressOnThreeDotsOnScreen.click();
 		
-		waitForVisibility(template.pressOnThreeDotsOnScreen);
+		Thread.sleep(2000);
+		waitForVisibility(duplicateTask);
+		duplicateTask.click();
+
+		Thread.sleep(2000);
 		template.pressOnThreeDotsOnScreen.click();
 		
 		Thread.sleep(2000);
-		waitForVisibility(duplicateproject);
-		duplicateproject.click();
-		
-		Thread.sleep(2000);
-		template.pressOnThreeDotsOnScreen.click();
+		actionsmiddlepane.openEntity("sub4" , "sub task deletion");
 		
 		Thread.sleep(2000);
 		template.chooseDelete.click();
 	}
-	
-public void sortMiddlePane() throws InterruptedException {
-	Thread.sleep(2000);
-	projectsmiddlepane.pressOnSortByfavorite.click();
-	/*	Thread.sleep(2000);
-	projectsmiddlepane..click();
-	
-	Thread.sleep(2000);
-	projectsmiddlepane.chooceToSortByAll.click();
-	
-	for(int j=0;j<2;j++) {
-	Thread.sleep(2000);
-	projectsmiddlepane.pressArrow.click();
+
+	public void sortMiddlePane() throws InterruptedException {
+		
+		Thread.sleep(2000);
+		projectsmiddlepane.changeStatusOfList();
+		
+		Thread.sleep(2000);
+		actionsmiddlepane.sordByStatusAndUnread();
+		
+		Thread.sleep(2000);
+		actionsmiddlepane.sortByTitle();
+		
+		Thread.sleep(2000);
+		documentsmiddlepane.changeStatusOfList();
+
 	}
 	
-	Thread.sleep(3000);
-	projectsmiddlepane.pressOnSortButton.click();
-	
-	Thread.sleep(2000);
-	waitForVisibility(projectsmiddlepane.pressOnStatus);
-	projectsmiddlepane.pressOnStatus.click();
-	
-	Thread.sleep(2000);
-	waitForVisibility(projectsmiddlepane.pressOnUnread);
-	projectsmiddlepane.pressOnUnread.click();
-	
-	Thread.sleep(2000);
-	waitForVisibility(projectsmiddlepane.pressSortByTitle);
-	projectsmiddlepane.pressSortByTitle.click();
-	*/
-	
-
 }
 
-}
 
-	
-		
-	
 
-	
 
-	
+
+
+
+

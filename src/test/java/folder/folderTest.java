@@ -57,7 +57,7 @@ public class folderTest extends testBase{
 		
 		actionsmiddlepane.openEntity("folder1" , "importenet");
 	}
-	/*
+	
 	@Test(priority = 2)
 	
 	public void foldersMultipleSelect() throws InterruptedException {
@@ -96,7 +96,7 @@ public class folderTest extends testBase{
 		//actionsmiddlepane.pressOnArrow();
 	}
 	
-	@Test(priority = 2)
+	@Test(priority = 4)
 	public void foldersRightSide() throws InterruptedException {
 		
 		logger = extent.createTest("folder right side");
@@ -119,8 +119,8 @@ public class folderTest extends testBase{
 		
 		
 	}
-	*/
-	@Test(priority = 3)
+	
+	@Test(priority = 5)
 	public void documentsFromFolder() throws InterruptedException {
 		
 		logger = extent.createTest("documents from folder");
