@@ -104,8 +104,15 @@ public class MeetingsFunctions extends testBase {
 		LocationButton.click();
 		Thread.sleep(1000);
 		LocationButton.sendKeys(LocationInput);
+		String locationContent = LocationButton.getAttribute("value");
 		
 		
+		if (locationContent.equals(LocationInput)) {
+			logger.log(Status.PASS , "add location work perfectly!");
+		}
+		else {
+			logger.log(Status.FAIL , "add location Not working.");
+		}
 		
 		
 		

@@ -3,9 +3,16 @@
 <suite name="Suite">
   <test thread-count="5" name="Test">
     <classes>
+<<<<<<< HEAD
 		
       <class name="meetings.TempMeetings"/>
        
+=======
+     
+
+       <class name="meetings.TempMeetings"/>
+
+>>>>>>> f7bb29bb8bbb4fdc9cc0a4eaf59a9ca944964246
       
     </classes>
   </test> <!-- Test -->
