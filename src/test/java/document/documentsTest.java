@@ -1,26 +1,18 @@
 
 package document;
 
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.Test;
-import org.testng.annotations.BeforeClass;
 import java.io.IOException;
 
 import org.testng.annotations.AfterClass;
-import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
-import java.io.IOException;
-
-import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
-import org.testng.annotations.BeforeClass;
 
 import base.testBase;
 import global.globalActions.actionsMiddlePane;
 import global.globalActions.actionsMultipleSelect;
 import global.globalActions.actionsRightSide;
 import global.globalActions.randomActions;
-import global.globalElements.middlePane;
 import pages.documents.documentsMiddlePane;
 import pages.documents.documentsMultipleSelect;
 import pages.documents.documentsRightSideOnScreen;;
@@ -35,10 +27,13 @@ public class documentsTest extends testBase {
 	actionsMultipleSelect actionsmultipleselect;
 	randomActions randomaction;
 	
-	@BeforeClass
-	public void SetUp() throws InterruptedException, IOException{	
-		initialization(); 
-		Login();
+	public documentsTest() throws InterruptedException, IOException
+	{
+		this.dummy();
+	}
+	
+	public void dummy() throws InterruptedException, IOException
+	{
 		this.actionsmultipleselect = new actionsMultipleSelect();
 		this.documentsmultipleselect = new documentsMultipleSelect();
 		this.documentsmiddlepane = new documentsMiddlePane();
@@ -46,6 +41,26 @@ public class documentsTest extends testBase {
 		this.actionsmiddlepane = new actionsMiddlePane();
 		this.actionsrightside = new actionsRightSide();
 		this.randomaction = new randomActions();
+	}
+	
+	
+	@BeforeClass
+	public void SetUp() throws InterruptedException, IOException{	
+		initialization(); 
+		Login();
+		
+		this.dummy();
+		
+		/*
+		this.actionsmultipleselect = new actionsMultipleSelect();
+		this.documentsmultipleselect = new documentsMultipleSelect();
+		this.documentsmiddlepane = new documentsMiddlePane();
+		this.documentsrhigtsideonscreen = new documentsRightSideOnScreen();
+		this.actionsmiddlepane = new actionsMiddlePane();
+		this.actionsrightside = new actionsRightSide();
+		this.randomaction = new randomActions();
+		*/
+
 	}
 	
 	@Test(priority = 1)
@@ -57,7 +72,7 @@ public class documentsTest extends testBase {
 		//open doc  enter title and description
 		actionsmiddlepane.openEntity("doc1" , "importenet");
 	}
-	
+	 
 	@Test(priority = 2)
 		public void documentsMultipleSelect() throws InterruptedException {
 		
@@ -76,7 +91,6 @@ public class documentsTest extends testBase {
 		actionsmultipleselect.addStatusMultipleChoice();
 		
 	}
-	
 	@Test(priority = 3)
 	public void documentsMiddlePane() throws InterruptedException {
 		
