@@ -8,11 +8,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-<<<<<<< HEAD
-=======
+
 import org.testng.annotations.BeforeSuite;
 
->>>>>>> 77b9bed2fd016a915423527552dbbbaf2993323a
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
@@ -69,18 +67,19 @@ public class testBase {
 		Thread.sleep(2000);
 
 	}
+}
 
-	class beforeWeStart extends testBase {
-		@BeforeSuite
-		public void SetUp() throws InterruptedException, IOException {
-			initialization();
-			Login();
 
-		}
-
+class beforeWeStart extends testBase {
+	@BeforeSuite
+	public void SetUp() throws InterruptedException, IOException {
+		initialization();
+		Login();
 
 	}
 
+
 }
+
 
 
