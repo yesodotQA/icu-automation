@@ -3,15 +3,6 @@ package meetings;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.Test;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.Test;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.Test;
-import org.testng.annotations.BeforeClass;
 import java.io.IOException;
 
 import org.testng.annotations.AfterClass;
@@ -45,12 +36,10 @@ public class TempMeetings extends testBase {
 	actionsMultipleSelect      actionsmultipleselect;
 	Tabs 					   tabs;
 	MeetingsFunctions		   meetingsfunctions;
-
+	
 	@BeforeClass
 	
 	public void SetUp() throws InterruptedException, IOException{	
-	initialization(); 
-	Login();
 	
 	this.tabs                       = new Tabs();
 	this.actionsmultipleselect      = new actionsMultipleSelect();
@@ -62,6 +51,8 @@ public class TempMeetings extends testBase {
 	this.actionsrightside           = new actionsRightSide();
 	this.meetingsfunctions			= new MeetingsFunctions();
 	
+	
+	
 	tabs.meetingsTab.click();
 	
 	}
@@ -70,7 +61,7 @@ public class TempMeetings extends testBase {
 	public void MultipleChoiceFunction () throws InterruptedException {
 	
 		logger = extent.createTest("set a date in meetings");
-		meetingsfunctions.setDateInMeetings();
+		meetingsfunctions.setDateViaMultipleSelect();
 	}
 	@AfterClass
 	public void after() {

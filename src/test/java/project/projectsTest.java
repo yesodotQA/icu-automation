@@ -36,7 +36,6 @@ import pages.projects.subprojects;
 		@FindBy(css = "[ng-click='manageTasks()']")
 		WebElement managetasks;
 		
-		
 		subprojects subprojects;
 		Tabs projectstab;
 		projectsMultipleSelect projectsmultipleselect ;
@@ -50,8 +49,7 @@ import pages.projects.subprojects;
 		
 		@BeforeClass
 		public void SetUp() throws InterruptedException, IOException{	
-		initialization(); 
-		Login();
+		
 		
 		this.projectsrightsideonscreen = new projectsRightSideOfScreen();
 		this.projectstab = new Tabs();
@@ -73,7 +71,7 @@ import pages.projects.subprojects;
 			Thread.sleep(2000);
 			actionsmiddlepane.openEntity("doc1","important");
 			
-		/*	logger = extent.createTest("My project using multiple choice");
+			logger = extent.createTest("My project using multiple choice");
 			
 			Thread.sleep(2000);
 			// delete entity using multiple select
@@ -131,7 +129,7 @@ import pages.projects.subprojects;
 			subprojects.ProjectTemplate();
 			
 			subprojects.sortMiddlePane();
-	*/}
+	}
 		
 		public void taskFromProject () throws InterruptedException {
 			

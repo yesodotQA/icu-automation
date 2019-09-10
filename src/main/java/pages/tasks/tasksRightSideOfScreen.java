@@ -18,6 +18,7 @@ import global.globalElements.theRightOfTheScreen;
 
 public class tasksRightSideOfScreen extends testBase {
 	
+	theRightOfTheScreen rightside;
 	multipleSelect tasksmultipleselect;	
 	middlePane tasksmiddlepane;	
 	Tabs taskstab;	
@@ -42,6 +43,9 @@ public class tasksRightSideOfScreen extends testBase {
 	
 	@FindBy (css = "[ng-if='$select.open']")
 	List<WebElement> listOfDiscussions =  new ArrayList<>();
+ 
+	@FindBy(css = "body > section > section > div.icu-data.ng-scope > div.panes-wrapper.ng-scope > div.detailspane.animate-hide.ng-isolate-scope > div > div.entity-details-header-bar.ng-scope > detail-menu > div > ul > li:nth-child(2) > a")
+    public WebElement deletetask;
 	
 	private void waitForVisibility (WebElement element)  {
 		
@@ -51,7 +55,7 @@ public class tasksRightSideOfScreen extends testBase {
 	}
 			
 	public  tasksRightSideOfScreen() {
-		
+		this.rightside = new theRightOfTheScreen();
 		this.tasksmultipleselect = new multipleSelect();
 		this.tasksmiddlepane = new middlePane();
 		this.taskstab = new Tabs();
@@ -122,6 +126,16 @@ public class tasksRightSideOfScreen extends testBase {
 			logger.log(Status.FAIL , "select doscussions on screen");
 		}
 		
+				
+		}
+		
+	public void DeleteTask () throws InterruptedException {
+		
+		waitForVisibility(rightside.pressOnThreeDotsOnScreen);
+		rightside.pressOnThreeDotsOnScreen.click();
+		
+		waitForVisibility(deletetask);
+		deletetask.click();
 	}
 	
 	

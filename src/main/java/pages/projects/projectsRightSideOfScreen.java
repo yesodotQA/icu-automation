@@ -23,6 +23,9 @@ public class projectsRightSideOfScreen extends testBase {
 	Tabs projectstab;	
 	theRightOfTheScreen template;
 	
+	@FindBy(css = "body > section > section > div.icu-data.ng-scope > div.panes-wrapper.ng-scope > div.detailspane.animate-hide.ng-isolate-scope > div > div.entity-details-header-bar.ng-scope > detail-menu > div > ul > li:nth-child(4) > a")
+	WebElement deleteproject;
+	
 	@FindBy (className = "fa-times-circle")
 	WebElement deleteOnrightSide;
 			
@@ -59,8 +62,7 @@ public class projectsRightSideOfScreen extends testBase {
 		PageFactory.initElements(driver, this);
 	}
 	
-	
-}	
+}
 	
 	
 	
