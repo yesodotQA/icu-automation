@@ -36,11 +36,7 @@ public class theRightOfTheScreen extends testBase {
 	@FindBy(className = "dropdown-trigger")
 	public	WebElement pressOnThreeDotsOnScreen;
 	
-<<<<<<< HEAD
-	@FindBy(css = "body > section > section > div.icu-data.ng-scope > div.panes-wrapper.ng-scope > div.detailspane.animate-hide.ng-isolate-scope > div > div.entity-details-header-bar.ng-scope > detail-menu > div > ul > li:nth-child(1) > a")
-=======
 	@FindBy(css =".fa-times-circle")
->>>>>>> b93ff2c0bb947e7e0ae6d476d235e52dda68105f
 	public	WebElement chooseDelete;
 	
 	@FindBy(className = "activities-list")

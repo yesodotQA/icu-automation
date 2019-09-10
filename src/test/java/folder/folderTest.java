@@ -3,21 +3,10 @@ package folder;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.Test;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.Test;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Test;
+
 import org.openqa.selenium.support.PageFactory;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
 import java.io.IOException;
 import java.util.Random;
-
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Test;
 
 import base.testBase;
 import document.documentsTest;

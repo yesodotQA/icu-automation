@@ -52,29 +52,7 @@ public class testBase {
 
 
 	public static void Login() throws InterruptedException {
-<<<<<<< HEAD
-=======
-	 
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/section/section/div/form/div[2]/input")));
 
-		driver.findElement(By.xpath("/html/body/section/section/div/form/div[2]/input")).sendKeys(prop.getProperty("email"));
-		
-		driver.findElement(By.xpath("/html/body/section/section/div/form/div[3]/input")).sendKeys(prop.getProperty("password"));
-	
-		driver.findElement(By.className("btn")).click();
-		
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/div[1]/div/div/div[3]/button")));
-		
-		Thread.sleep(2000);
-		
-		driver.findElement(By.xpath("/html/body/div[1]/div/div/div[3]/button")).click();
-		
-		Thread.sleep(2000);
-	
-	 }
-}
-
->>>>>>> b93ff2c0bb947e7e0ae6d476d235e52dda68105f
 
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/section/section/div/form/div[2]/input")));
 
@@ -92,30 +70,16 @@ public class testBase {
 
 		Thread.sleep(2000);
 
-<<<<<<< HEAD
-	}
-}
-
-=======
->>>>>>> b93ff2c0bb947e7e0ae6d476d235e52dda68105f
-
-class beforeWeStart extends testBase {
-	@BeforeSuite
-	public void SetUp() throws InterruptedException, IOException {
-		initialization();
-		Login();
-
 	}
 
-<<<<<<< HEAD
-class beforeWeStart extends testBase {
-	@BeforeSuite
-	public void SetUp() throws InterruptedException, IOException {
-		initialization();
-		Login();
-=======
-}
->>>>>>> b93ff2c0bb947e7e0ae6d476d235e52dda68105f
+	class beforeWeStart extends testBase {
+		@BeforeSuite
+		public void SetUp() throws InterruptedException, IOException {
+			initialization();
+			Login();
+
+		}
+
 
 	}
 
