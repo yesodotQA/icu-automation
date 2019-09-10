@@ -1,12 +1,7 @@
-
 package document;
 
-import java.io.IOException;
-
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
+import org.testng.annotations.Test;
 import org.testng.annotations.Test;
 
 import base.testBase;
@@ -16,21 +11,20 @@ import global.globalActions.actionsRightSide;
 import global.globalActions.randomActions;
 import pages.documents.documentsMiddlePane;
 import pages.documents.documentsMultipleSelect;
-import pages.documents.documentsRightSideOnScreen;;
+import pages.documents.documentsRightSideOnScreen;
 
-public class documentsTest extends testBase {
+public class testss extends testBase {
 	
-	documentsMultipleSelect documentsmultipleselect ;
-	documentsMiddlePane documentsmiddlepane ;
-	documentsRightSideOnScreen documentsrhigtsideonscreen ;
+	documentsMultipleSelect documentsmultipleselect;
+	documentsMiddlePane documentsmiddlepane;
+	documentsRightSideOnScreen documentsrhigtsideonscreen;
 	actionsMiddlePane actionsmiddlepane;
-	actionsRightSide actionsrightside ;
+	actionsRightSide actionsrightside;
 	actionsMultipleSelect actionsmultipleselect;
 	randomActions randomaction;
 
-
-	@BeforeClass
-	public void SetUp() throws InterruptedException, IOException {		
+	public testss() throws InterruptedException
+	{
 		this.actionsmultipleselect = new actionsMultipleSelect();
 		this.documentsmultipleselect = new documentsMultipleSelect();
 		this.documentsmiddlepane = new documentsMiddlePane();
@@ -39,19 +33,9 @@ public class documentsTest extends testBase {
 		this.actionsrightside = new actionsRightSide();
 		this.randomaction = new randomActions();
 	}
-		
-		
-	@Test( priority = 1)
-	public void openDoc() throws InterruptedException {
 	
-		// press document tab
-		documentsmultipleselect.pressDocument();
-	  
-		//open doc  enter title and description
-		actionsmiddlepane.openEntity("doc1" , "importenet");
-	}
-	
-	@Test (priority = 2 )
+	 
+	@Test (groups = {"doc"}, priority = 1)
 		public void documentsMultipleSelect() throws InterruptedException {
 		
 		logger = extent.createTest("document multiple select");
@@ -69,7 +53,7 @@ public class documentsTest extends testBase {
 		actionsmultipleselect.addStatusMultipleChoice();
 		
 	}
-	@Test(priority = 3)
+	@Test(groups = {"doc"}, priority = 2)
 	public void documentsMiddlePane() throws InterruptedException {
 		
 		logger = extent.createTest("document middle pane");
@@ -92,7 +76,7 @@ public class documentsTest extends testBase {
 		//actionsmiddlepane.pressOnArrow();
 	}
 	
-	@Test(priority =4)
+	@Test(groups = {"doc"}, priority = 3)
 	public void documentsRightSide() throws InterruptedException {
 		
 		logger = extent.createTest("document the right side on the screen");
@@ -114,17 +98,4 @@ public class documentsTest extends testBase {
 		actionsrightside.changePermission();
 	}
 	
-	
-	@AfterClass
-	public void after() {
-		
-		extent.flush();
-		
-	}
-		
 }
-	
-		
-	
-
-

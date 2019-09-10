@@ -1,5 +1,11 @@
 package folder;
 
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.AfterClass;
@@ -36,8 +42,7 @@ public class folderTest extends testBase{
 	
 	@BeforeClass
 	public void SetUp() throws InterruptedException, IOException{	
-		initialization(); 
-		Login();
+		
 		this.actionsmultipleselect = new actionsMultipleSelect();
 		this.actionsmiddlepane = new actionsMiddlePane();
 		this.actionsrightside = new actionsRightSide();
@@ -121,13 +126,15 @@ public class folderTest extends testBase{
 	}
 	
 	@Test(priority = 5)
-	public void documentsFromFolder() throws InterruptedException {
+	public void documentsFromFolder() throws InterruptedException, IOException {
 		
 		logger = extent.createTest("documents from folder");
 		
 		docfromfolder.getIntoDocumentsFromFolder();
 		
 		actionsmiddlepane.openEntity("doc1" , "importenet");
+		
+		documentstest.SetUp();
 		
 		documentstest.documentsMultipleSelect();
 		
