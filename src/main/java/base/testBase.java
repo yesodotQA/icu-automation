@@ -73,27 +73,18 @@ public class testBase {
 }
 
 
-class beforeWeStart extends testBase {
-	@BeforeSuite
-	public void SetUp() throws InterruptedException, IOException {
-		initialization();
-		Login();
-	}
-<<<<<<< HEAD
+
 
 class beforeWeStart extends testBase {
 	@BeforeSuite
 	public void SetUp() throws InterruptedException, IOException {
 		initialization();
 		Login();
+
 	}
+
 }
 
 
 
 
-
-
-=======
-}
->>>>>>> 0ecb64602f3e1489caa488c29287bcf0665e32f7
