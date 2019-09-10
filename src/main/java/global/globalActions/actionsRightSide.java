@@ -16,7 +16,8 @@ import global.globalElements.theRightOfTheScreen;
 import pages.documents.documentsMiddlePane;
 
 public class actionsRightSide extends testBase {
-
+@FindBy(css = "body > section > section > div.icu-data.ng-scope > div.panes-wrapper.ng-scope > div.detailspane.animate-hide.ng-isolate-scope > div > div.entity-details-header-bar.ng-scope > detail-menu > div > ul > li:nth-child(4) > a")
+WebElement deleteproject;
 	Tabs                 tabs;
 	middlePane           middlepane;
 	multipleSelect       multipleselect;
@@ -52,8 +53,8 @@ public class actionsRightSide extends testBase {
 		therightonthescreen.pressOnThreeDotsOnScreen.click();
 		Thread.sleep(2000);
 
-		waitForVisibility(therightonthescreen.chooseDelete);
-		therightonthescreen.chooseDelete.click();
+		waitForVisibility(deleteproject);
+		deleteproject.click();
 		Thread.sleep(2000);
 		int newSize =middlepane.listOfEntities.size();
 

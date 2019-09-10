@@ -218,16 +218,6 @@ public class subprojects extends testBase{
 		actionsrightside.changePermission();
 
 		Thread.sleep(2000);
-		template.pressOnThreeDotsOnScreen.click();
-		
-		Thread.sleep(2000);
-		waitForVisibility(duplicateTask);
-		duplicateTask.click();
-
-		Thread.sleep(2000);
-		template.pressOnThreeDotsOnScreen.click();
-		
-		Thread.sleep(2000);
 		actionsmiddlepane.openEntity("sub4" , "sub task deletion");
 		
 		Thread.sleep(2000);

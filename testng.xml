@@ -3,17 +3,15 @@
 <suite name="Suite">
   <test thread-count="5" name="Test">
     <classes>
-<<<<<<< HEAD
-		
-      <class name="meetings.TempMeetings"/>
-       
-=======
-     
-
+     <class name="base.beforeWeStart"/>
+      <class name="offices.officesTest"/>
+      <class name="folder.folderTest"/>
+       <class name="document.documentsTest"/>
        <class name="meetings.TempMeetings"/>
-
->>>>>>> f7bb29bb8bbb4fdc9cc0a4eaf59a9ca944964246
-      
+      <class name="meetings.meetingsTest"/>
+      <class name="project.projectsTest"/>
+      <class name="templateDoc.templateDocTest"/>
+      <class name="task.tasksTest"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

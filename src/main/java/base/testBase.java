@@ -12,10 +12,13 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.BeforeSuite;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
+
+import org.testng.annotations.BeforeSuite;
 
 
 public class testBase {
@@ -26,13 +29,13 @@ public class testBase {
 	public static ExtentTest logger;
 	public static WebDriverWait wait;
 	public static Properties prop;
-	
+
 	public static void initialization() throws IOException  {
 
 		prop = new Properties();
 		FileInputStream ip = new FileInputStream("./configs/properties");
 		prop.load(ip);
-		
+
 		System.setProperty("webdriver.chrome.driver", prop.getProperty("chromedriver"));
 
 		driver 		 = new ChromeDriver();
@@ -47,33 +50,39 @@ public class testBase {
 
 	}
 
-	
+
 	public static void Login() throws InterruptedException {
-	 
-	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/section/section/div/form/div[2]/input")));
-	
-	driver.findElement(By.xpath("/html/body/section/section/div/form/div[2]/input")).sendKeys(prop.getProperty("email"));
-	
-	driver.findElement(By.xpath("/html/body/section/section/div/form/div[3]/input")).sendKeys(prop.getProperty("password"));
 
-	driver.findElement(By.className("btn")).click();
-	
-	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/div[1]/div/div/div[3]/button")));
-	
-	Thread.sleep(2000);
-	
-	driver.findElement(By.xpath("/html/body/div[1]/div/div/div[3]/button")).click();
-	
-	Thread.sleep(2000);
-	
-	 }
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/section/section/div/form/div[2]/input")));
 
+		driver.findElement(By.xpath("/html/body/section/section/div/form/div[2]/input")).sendKeys(prop.getProperty("email"));
+
+		driver.findElement(By.xpath("/html/body/section/section/div/form/div[3]/input")).sendKeys(prop.getProperty("password"));
+
+		driver.findElement(By.className("btn")).click();
+
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/div[1]/div/div/div[3]/button")));
+
+		Thread.sleep(2000);
+
+		driver.findElement(By.xpath("/html/body/div[1]/div/div/div[3]/button")).click();
+
+		Thread.sleep(2000);
+
+	}
+}
+
+
+
+
+class beforeWeStart extends testBase {
+	@BeforeSuite
+	public void SetUp() throws InterruptedException, IOException {
+		initialization();
+		Login();
 
 	}
 
-
-
-
-
+}
 
 

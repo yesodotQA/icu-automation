@@ -40,9 +40,7 @@ import pages.tasks.subTasks;
 		
 		@BeforeClass
 		public void SetUp() throws InterruptedException, IOException{	
-		initialization(); 
-		Login();
-	    
+	
 		this.documentsmiddlepane = new documentsMiddlePane();
 		this.subTasks = new subTasks();
 		this.tasksmultipleselect = new tasksMultipleSelect();
