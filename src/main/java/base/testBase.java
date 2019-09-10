@@ -18,6 +18,8 @@ import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 
+import org.testng.annotations.BeforeSuite;
+
 
 public class testBase {
 
@@ -51,26 +53,33 @@ public class testBase {
 	
 	public static void Login() throws InterruptedException {
 	 
-	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/section/section/div/form/div[2]/input")));
-	
-	driver.findElement(By.xpath("/html/body/section/section/div/form/div[2]/input")).sendKeys(prop.getProperty("email"));
-	
-	driver.findElement(By.xpath("/html/body/section/section/div/form/div[3]/input")).sendKeys(prop.getProperty("password"));
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/section/section/div/form/div[2]/input")));
 
-	driver.findElement(By.className("btn")).click();
+		driver.findElement(By.xpath("/html/body/section/section/div/form/div[2]/input")).sendKeys(prop.getProperty("email"));
+		
+		driver.findElement(By.xpath("/html/body/section/section/div/form/div[3]/input")).sendKeys(prop.getProperty("password"));
 	
-	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/div[1]/div/div/div[3]/button")));
-	
-	Thread.sleep(2000);
-	
-	driver.findElement(By.xpath("/html/body/div[1]/div/div/div[3]/button")).click();
-	
-	Thread.sleep(2000);
+		driver.findElement(By.className("btn")).click();
+		
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/div[1]/div/div/div[3]/button")));
+		
+		Thread.sleep(2000);
+		
+		driver.findElement(By.xpath("/html/body/div[1]/div/div/div[3]/button")).click();
+		
+		Thread.sleep(2000);
 	
 	 }
+}
 
 
+class beforeWeStart extends testBase {
+	@BeforeSuite
+	public void SetUp() throws InterruptedException, IOException {
+		initialization();
+		Login();
 	}
+<<<<<<< HEAD
 
 class beforeWeStart extends testBase {
 	@BeforeSuite
@@ -85,3 +94,6 @@ class beforeWeStart extends testBase {
 
 
 
+=======
+}
+>>>>>>> 0ecb64602f3e1489caa488c29287bcf0665e32f7

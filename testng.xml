@@ -7,10 +7,17 @@
       <class name="offices.officesTest"/>
       <class name="folder.folderTest"/>
       <class name="document.documentsTest"/>
+<<<<<<< HEAD
       <class name="meetings.TempMeetings"/>
       <class name="meetings.meetingsTest"/>
       <class name="project.projectsTest"/>
       <class name="proejct.projectsTest"/>
+=======
+      <class name="meetings.meetingsTest"/>
+      <class name="meetings.TempMeetings"/>
+      <class name="project.projectsTest"/>
+      <class name="document.testss"/>
+>>>>>>> 0ecb64602f3e1489caa488c29287bcf0665e32f7
       <class name="templateDoc.templateDocTest"/>
       <class name="task.tasksTest"/>
     </classes>
