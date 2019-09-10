@@ -40,8 +40,7 @@ public class TempMeetings extends testBase {
 	@BeforeClass
 	
 	public void SetUp() throws InterruptedException, IOException{	
-	initialization(); 
-	Login();
+	
 	
 	this.tabs                       = new Tabs();
 	this.actionsmultipleselect      = new actionsMultipleSelect();
@@ -61,7 +60,7 @@ public class TempMeetings extends testBase {
 	public void MultipleChoiceFunction () throws InterruptedException {
 	
 		logger = extent.createTest("set a date in meetings");
-		meetingsfunctions.setDateInMeetings();
+		meetingsfunctions.setDateViaMultipleSelect();
 	}
 	@AfterClass
 	public void after() {

@@ -40,8 +40,7 @@ public class meetingsTest extends testBase {
 	@BeforeClass
 	
 	public void SetUp() throws InterruptedException, IOException{	
-	initialization(); 
-	Login();
+	
 	
 	this.tabs                       = new Tabs();
 	this.actionsmultipleselect      = new actionsMultipleSelect();
