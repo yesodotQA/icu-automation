@@ -3,6 +3,7 @@ package document;
 import org.testng.annotations.Test;
 import org.testng.annotations.Test;
 import org.testng.annotations.Test;
+import org.testng.annotations.Test;
 
 import base.testBase;
 import global.globalActions.actionsMiddlePane;
