@@ -1,8 +1,8 @@
 package pages.meetings;
 
-import java.awt.List;
-import java.util.ArrayList;
 
+import java.util.ArrayList;
+import java.util.List;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
@@ -73,7 +73,7 @@ public class MeetingsFunctions extends testBase {
 	@FindBy (xpath = "//*[@id=\"endTime\"]/table/tbody/tr[2]/td[1]/input")
 	WebElement EndHH;
 	@FindBy (css = "[ng-change=\"onChange(item)\"]")
-	ArrayList<WebElement> ListOfEntities = new ArrayList<WebElement>();
+	List<WebElement> ListOfEntities = new ArrayList<>();
 	
 	private void waitForVisibility (WebElement element)  {
 		wait.until(ExpectedConditions.visibilityOf(element));
@@ -169,8 +169,10 @@ public class MeetingsFunctions extends testBase {
 		Thread.sleep(5000);
 		waitForVisibility(multipleSelect.updateDate);
 		multipleSelect.updateDate.click();
+		Thread.sleep(2000);
 		SelectAll.click();
 		
+		Thread.sleep(3000);
 		int i;
 		int Counter = 0;
 		

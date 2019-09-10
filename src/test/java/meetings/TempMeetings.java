@@ -36,11 +36,10 @@ public class TempMeetings extends testBase {
 	actionsMultipleSelect      actionsmultipleselect;
 	Tabs 					   tabs;
 	MeetingsFunctions		   meetingsfunctions;
-
+	
 	@BeforeClass
 	
 	public void SetUp() throws InterruptedException, IOException{	
-	
 	
 	this.tabs                       = new Tabs();
 	this.actionsmultipleselect      = new actionsMultipleSelect();
@@ -51,6 +50,8 @@ public class TempMeetings extends testBase {
 	this.actionsmiddlepane          = new actionsMiddlePane();
 	this.actionsrightside           = new actionsRightSide();
 	this.meetingsfunctions			= new MeetingsFunctions();
+	
+	
 	
 	tabs.meetingsTab.click();
 	
