@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Suite">
-  <test thread-count="5" name="Test">
+  <test thread-count="5" name="offices">
     <classes>
+<<<<<<< HEAD
      
       <class name="base.beforeWeStart"/>
       <class name="offices.officesTest"/>
@@ -14,6 +15,17 @@
         <class name="project.projectsTest"/>
     <class name="templateDoc.templateDocTest"/>
       
+=======
+       <class name="base.beforeWeStart"/>
+       <class name="offices.officesTest"/> 
+     <class name="folder.folderTest"/>
+      <class name="document.documentsTest"/>
+      <class name="meetings.meetingsTest"/>
+      <class name="meetings.TempMeetings"/>
+      <class name="project.projectsTest"/>
+      <class name="templateDoc.templateDocTest"/>
+      <class name="task.tasksTest"/> 
+>>>>>>> 0f0b0af4918a6d14a9854704845a7f63ee9cec4b
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

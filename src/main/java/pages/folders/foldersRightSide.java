@@ -35,33 +35,39 @@ public class foldersRightSide extends testBase {
 	}
 
 	public void SelectOfficeOnScreen() throws InterruptedException {
-		
-		waitForVisibility(SelectOffice);
-		
-		SelectOffice.click();
-		
-		Thread.sleep(3000);
-		
-		String nameOfoffice	= listOfOffices.get(0).getText();
-		
-		listOfOffices.get(0).click();
-		
-		Thread.sleep(2000);
-		
-		String nameOfOfficeForChecking = SelectOffice.getAttribute("innerText");
-		
-		if (nameOfoffice.equals(nameOfOfficeForChecking)) {
-			
-			logger.log(Status.PASS , "select office on screen");
-			
+
+		if (SelectOffice.getText().equals("Select office")) {
+
+			waitForVisibility(SelectOffice);
+
+			SelectOffice.click();
+
+			Thread.sleep(3000);
+
+			String nameOfoffice	= listOfOffices.get(0).getText();
+
+			listOfOffices.get(0).click();
+
+			Thread.sleep(2000);
+
+			String nameOfOfficeForChecking = SelectOffice.getAttribute("innerText");
+
+			if (nameOfoffice.equals(nameOfOfficeForChecking)) {
+
+				logger.log(Status.PASS , "select office on screen");
+
+			}
+			else {
+
+				logger.log(Status.FAIL , "select office on screen");
+			}
+
 		}
-		else {
-			
-			logger.log(Status.FAIL , "select office on screen");
-		}
-		
+
+
+
 	}
-	
-	
-	
+
+
+
 }

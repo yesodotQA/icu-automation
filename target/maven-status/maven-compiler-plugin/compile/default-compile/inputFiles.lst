@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 C:\workspace\ICUAUTO\src\main\java\global\globalElements\middlePane.java
 C:\workspace\ICUAUTO\src\main\java\pages\folders\documentsFromFolder.java
 C:\workspace\ICUAUTO\src\main\java\pages\projects\subprojects.java
@@ -27,3 +28,35 @@ C:\workspace\ICUAUTO\src\main\java\global\globalActions\actionsMultipleSelect.ja
 C:\workspace\ICUAUTO\src\main\java\pages\projects\projectsRightSideOfScreen.java
 C:\workspace\ICUAUTO\src\main\java\pages\projects\projectsMultipleSelect.java
 C:\workspace\ICUAUTO\src\main\java\global\globalActions\actionsMiddlePane.java
+=======
+/home/israel/workspace/selenium-root/src/main/java/global/globalActions/actionsMiddlePane.java
+/home/israel/workspace/selenium-root/src/main/java/pages/folders/foldersRightSide.java
+/home/israel/workspace/selenium-root/src/main/java/pages/templateDocument/templateDocMultipleSelect.java
+/home/israel/workspace/selenium-root/src/main/java/pages/offices/officesRightSide.java
+/home/israel/workspace/selenium-root/src/main/java/pages/documents/documentsMultipleSelect.java
+/home/israel/workspace/selenium-root/src/main/java/pages/documents/documentsMiddlePane.java
+/home/israel/workspace/selenium-root/src/main/java/pages/meetings/meetingsMultipleSelect.java
+/home/israel/workspace/selenium-root/src/main/java/base/testBase.java
+/home/israel/workspace/selenium-root/src/main/java/global/globalElements/multipleSelect.java
+/home/israel/workspace/selenium-root/src/main/java/pages/meetings/MeetingsFunctions.java
+/home/israel/workspace/selenium-root/src/main/java/pages/folders/foldersMultipleSelect.java
+/home/israel/workspace/selenium-root/src/main/java/pages/offices/officesMultipleSelect.java
+/home/israel/workspace/selenium-root/src/main/java/global/globalElements/Tabs.java
+/home/israel/workspace/selenium-root/src/main/java/global/globalActions/actionsMultipleSelect.java
+/home/israel/workspace/selenium-root/src/main/java/global/globalElements/middlePane.java
+/home/israel/workspace/selenium-root/src/main/java/pages/folders/documentsFromFolder.java
+/home/israel/workspace/selenium-root/src/main/java/pages/tasks/subTasks.java
+/home/israel/workspace/selenium-root/src/main/java/pages/documents/documentsRightSideOnScreen.java
+/home/israel/workspace/selenium-root/src/main/java/pages/projects/projectsMultipleSelect.java
+/home/israel/workspace/selenium-root/src/main/java/pages/projects/subprojects.java
+/home/israel/workspace/selenium-root/src/main/java/pages/tasks/tasksMiddlePane.java
+/home/israel/workspace/selenium-root/src/main/java/pages/tasks/tasksRightSideOfScreen.java
+/home/israel/workspace/selenium-root/src/main/java/global/globalElements/theRightOfTheScreen.java
+/home/israel/workspace/selenium-root/src/main/java/pages/projects/projectsMiddlePane.java
+/home/israel/workspace/selenium-root/src/main/java/global/globalActions/randomActions.java
+/home/israel/workspace/selenium-root/src/main/java/pages/offices/foldersFromOffices.java
+/home/israel/workspace/selenium-root/src/main/java/global/globalActions/actionsRightSide.java
+/home/israel/workspace/selenium-root/src/main/java/pages/tasks/tasksMultipleSelect.java
+/home/israel/workspace/selenium-root/src/main/java/pages/projects/projectsRightSideOfScreen.java
+/home/israel/workspace/selenium-root/src/main/java/pages/templateDocument/templateDocRightSide.java
+>>>>>>> 0f0b0af4918a6d14a9854704845a7f63ee9cec4b
