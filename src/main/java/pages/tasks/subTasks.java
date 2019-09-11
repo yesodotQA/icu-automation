@@ -72,8 +72,7 @@ public class subTasks extends testBase{
 	public@FindBy(css = ".last")
 	WebElement ChooseTaskTemplate;
 	
-	public@FindBy(xpath =  "/html/body/section/section/div[2]"
-			+ "/div[2]/div[2]/div/div[2]/div[4]/icu-sub-task-list/div[3]/table/tbody/tr[1]/td[6]")
+	public@FindBy(css =  "body > section > section > div.icu-data.ng-scope > div.panes-wrapper.ng-scope > div.detailspane.animate-hide.ng-isolate-scope > div > div.entity-details-content.task-details.ng-scope > div.sub-items-section > icu-sub-task-list > div.list-table.sub-entity.scroll > table > tbody > tr:nth-child(1) > td.arrow.ng-scope > div")
 	WebElement arrowSubTask;
 
 	//duplicatetask
@@ -137,6 +136,9 @@ public class subTasks extends testBase{
 		
 		ChooseDateSubTask.click();
 		
+		waitForVisibility(nameSubTask);
+		nameSubTask.click();
+		
 		logger = extent.createTest("delete subtask");
 		Thread.sleep(500);
 		DeleteSubTask.click();
@@ -150,6 +152,8 @@ public class subTasks extends testBase{
 		
 		Thread.sleep(3000);
 		arrowSubTask.click();
+		
+		Thread.sleep(2000);
 
 	}	
 
@@ -168,49 +172,49 @@ public class subTasks extends testBase{
 		}
 		*/ actionsmiddlepane.openEntity("doc1" , "important");
 		
-		Thread.sleep(2000);
+		
 		// delete entity using multiple select
 		actionsmultipleselect.deleteEntityMultipleChoice();
 		
-		Thread.sleep(2000);
+		
 		actionsmultipleselect.addTagsMultipleChoice("mission");
 		
 		
-		Thread.sleep(2000);
+		
 		actionsmultipleselect.addDateMultipleChoice();
 		
-		Thread.sleep(2000);
+		
 		actionsmultipleselect.addAssigneeMultipleChoice();
 		
-		Thread.sleep(2000);
+		
 		actionsmultipleselect.addWatchersMultipleChoice();
 		
-		Thread.sleep(2000);
+		
 		actionsmultipleselect.addStatusMultipleChoice();
 		
-		Thread.sleep(2000);
+		
 		actionsmiddlepane.openEntity("sub3" , "sub task right side");
 
-		Thread.sleep(2000);
+		
 		actionsrightside.addAssignee();
 		
-		Thread.sleep(2000);
 		actionsrightside.setDate();
 		
-		Thread.sleep(2000);
+		
 		actionsrightside.addStatus();
 
 		
-		Thread.sleep(2000);
+		
 		actionsrightside.addTags("yaronnn");
 		
-		Thread.sleep(2000);
+		
 		actionsrightside.addActivities("sad", "memurmar");
 		
-		Thread.sleep(2000);
+		
 		actionsrightside.changePermission();
 
 		Thread.sleep(2000);
+		
 		template.pressOnThreeDotsOnScreen.click();
 		
 		Thread.sleep(2000);
