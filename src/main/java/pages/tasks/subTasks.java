@@ -217,14 +217,7 @@ public class subTasks extends testBase{
 		waitForVisibility(duplicateTask);
 		duplicateTask.click();
 		
-		Thread.sleep(2000);
-		actionsmiddlepane.openEntity("sub4" , "sub task deletion");
-		
-		waitForVisibility(template.pressOnThreeDotsOnScreen);
-		template.pressOnThreeDotsOnScreen.click();
-		
-		Thread.sleep(2000);
-		template.chooseDelete.click();
+		actionsrightside.deleteEntity();
 	}
 
 	public void sortMiddlePane() throws InterruptedException {
