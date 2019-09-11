@@ -76,7 +76,7 @@ import pages.tasks.subTasks;
 			
 			actionsmultipleselect.addTagsMultipleChoice("mission");
 			
-			/*
+			
 			
 			actionsmultipleselect.addDateMultipleChoice();
 			
@@ -125,7 +125,7 @@ import pages.tasks.subTasks;
 			
 			
 			//actionsrightside.changePermission();
-*/
+
 			
 			subTasks.SubTaskEdit();
 			
