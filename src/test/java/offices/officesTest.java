@@ -51,7 +51,7 @@ import pages.offices.foldersFromOffices;
 		actionsmiddlepane.openEntity("office1" , "importenet");
 		
 	}
-	
+	/*
 	@Test(priority = 2)
 	public void officesMultipleSelect() throws InterruptedException {
 		
@@ -104,7 +104,7 @@ import pages.offices.foldersFromOffices;
 		officesrightside.inheritance();
 		
 	}
-	
+	*/
 	@Test(priority = 5)
 	
 	public void foldersFromOffices() throws InterruptedException, IOException {
@@ -122,9 +122,9 @@ import pages.offices.foldersFromOffices;
 		foldertest.SetUp();
 		
 	
-		foldertest.foldersMultipleSelect();
-		
-		foldertest.foldersMiddlePane();
+//		foldertest.foldersMultipleSelect();
+//		
+//		foldertest.foldersMiddlePane();
 		
 		foldertest.foldersRightSide();
 		
