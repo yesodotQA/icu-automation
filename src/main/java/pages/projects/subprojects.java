@@ -220,6 +220,8 @@ public class subprojects extends testBase{
 	}
 
 	public void sortMiddlePane() throws InterruptedException {
+	/*	
+		BUGGED DO NOT TOUCH
 		
 		Thread.sleep(2000);
 		projectsmiddlepane.changeStatusOfList();
@@ -232,7 +234,7 @@ public class subprojects extends testBase{
 		
 		Thread.sleep(2000);
 		documentsmiddlepane.changeStatusOfList();
-
+*/
 	}
 	
 }

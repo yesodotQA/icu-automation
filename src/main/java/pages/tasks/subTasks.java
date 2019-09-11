@@ -76,7 +76,7 @@ public class subTasks extends testBase{
 	WebElement arrowSubTask;
 
 	//duplicatetask
-	public@FindBy(xpath = "/html/body/section/section/div[2]/div[2]/div[2]/div/div[1]/detail-menu/div/ul/li[1]/a")
+	public@FindBy(css = "div > div.entity-details-header-bar.ng-scope > detail-menu > div > ul > li:nth-child(1) > a > span")
 	WebElement duplicateTask;
 
 	public@FindBy(xpath = "/html/body/section/section/div[2]/div[2]/div[2]/div/div[2]/detail-tags/div/div[1]/input")
@@ -191,9 +191,6 @@ public class subTasks extends testBase{
 		
 		
 		actionsmultipleselect.addStatusMultipleChoice();
-		
-		
-		actionsmiddlepane.openEntity("sub3" , "sub task right side");
 
 		
 		actionsrightside.addAssignee();
@@ -211,7 +208,7 @@ public class subTasks extends testBase{
 		actionsrightside.addActivities("sad", "memurmar");
 		
 		
-		actionsrightside.changePermission();
+		//actionsrightside.changePermission();
 
 		Thread.sleep(2000);
 		

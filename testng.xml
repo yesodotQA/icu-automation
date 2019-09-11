@@ -10,7 +10,7 @@
       <class name="folder.folderTest"/>
       <class name="meetings.TempMeetings"/> 
       <class name="meetings.meetingsTest"/> -->
-      <class name="task.tasksTest"/> 
+      <class name="task.tasksTest"/>
       <!--   <class name="project.projectsTest"/>
     <class name="templateDoc.templateDocTest"/> -->
       
