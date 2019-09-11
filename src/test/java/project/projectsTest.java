@@ -27,12 +27,15 @@ import global.globalActions.actionsMultipleSelect;
 import global.globalActions.actionsRightSide;
 import global.globalElements.Tabs;
 import global.globalElements.middlePane;
+import pages.documents.documentsMiddlePane;
 import pages.projects.projectsMiddlePane;
 import pages.projects.projectsMultipleSelect;
 import pages.projects.projectsRightSideOfScreen;
 import pages.projects.subprojects;
 	public class projectsTest  extends testBase {
-
+		@FindBy(css = "body > section > section > div.icu-data.ng-scope > div.panes-wrapper.ng-scope > div.detailspane.animate-hide.ng-isolate-scope > div > div.entity-details-header-bar.ng-scope > detail-menu > div > ul > li:nth-child(4) > a")
+		WebElement deleteproject;
+		
 		@FindBy(css = "body > section > section > div.icu-data.ng-scope > div.panes-wrapper.ng-scope > div.detailspane.animate-hide.ng-isolate-scope > div > div.entity-details-content.project-details.ng-scope > detail-tabs > div.detail-tabs > div > button:nth-child(3)")
 		WebElement tasksfromprojects;
 		
@@ -49,11 +52,12 @@ import pages.projects.subprojects;
 		actionsMiddlePane actionsmiddlepane;
 		actionsMultipleSelect actionsmultipleselect;
 		projectsRightSideOfScreen projectrightside;
+		documentsMiddlePane documentsmiddlepane;
 		
 		@BeforeClass
 		public void SetUp() throws InterruptedException, IOException{	
 		
-		
+		this.documentsmiddlepane = new documentsMiddlePane();
 		this.projectsrightsideonscreen = new projectsRightSideOfScreen();
 		this.projectstab = new Tabs();
 		this.subprojects = new subprojects();
@@ -115,6 +119,8 @@ import pages.projects.subprojects;
 			Thread.sleep(2000);
 			actionsrightside.addStatus();
 			
+			Thread.sleep(2000);
+			documentsmiddlepane.changeStatusOfList();
 			
 			Thread.sleep(2000);
 			actionsrightside.addTags("yaronnn");
@@ -171,6 +177,7 @@ import pages.projects.subprojects;
 			Thread.sleep(2000);
 			actionsmultipleselect.addStatusMultipleChoice();
 			
+			
 			Thread.sleep(2000);
 			logger = extent.createTest("My project template");
 			
@@ -202,7 +209,8 @@ import pages.projects.subprojects;
 			Thread.sleep(2000);
 			subprojects.ProjectTemplate();
 			
-			subprojects.sortMiddlePane();
+			
+			//subprojects.sortMiddlePane();
 		
 		}
 	
