@@ -53,13 +53,9 @@ public class actionsRightSide extends testBase {
 		Thread.sleep(2000);
 
 		waitForVisibility(therightonthescreen.chooseDelete);
-<<<<<<< HEAD
+
 		therightonthescreen.chooseDelete.click();
-=======
-		
-		therightonthescreen.chooseDelete.click();
-		
->>>>>>> 0f0b0af4918a6d14a9854704845a7f63ee9cec4b
+
 		Thread.sleep(2000);
 		int newSize =middlepane.listOfEntities.size();
 
