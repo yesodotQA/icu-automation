@@ -4,13 +4,13 @@
   <test thread-count="5" name="offices">
     <classes>
        <class name="base.beforeWeStart"/>
-       <class name="offices.officesTest"/> 
+  <!--      <class name="offices.officesTest"/> 
      <class name="folder.folderTest"/>
       <class name="document.documentsTest"/>
       <class name="meetings.meetingsTest"/>
       <class name="meetings.TempMeetings"/>
       <class name="project.projectsTest"/>
-      <class name="templateDoc.templateDocTest"/>
+      <class name="templateDoc.templateDocTest"/> -->
       <class name="task.tasksTest"/> 
     </classes>
   </test> <!-- Test -->
