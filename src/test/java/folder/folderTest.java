@@ -3,21 +3,13 @@ package folder;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.Test;
-import org.testng.annotations.BeforeClass;
-
-import org.openqa.selenium.support.PageFactory;
 import java.io.IOException;
-import java.util.Random;
-
 import base.testBase;
 import document.documentsTest;
 import global.globalActions.actionsMiddlePane;
 import global.globalActions.actionsMultipleSelect;
 import global.globalActions.actionsRightSide;
 import global.globalActions.randomActions;
-import global.globalElements.middlePane;
 import pages.documents.documentsMiddlePane;
 import pages.folders.documentsFromFolder;
 import pages.folders.foldersMultipleSelect;

@@ -8,6 +8,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
+import com.aventstack.extentreports.Status;
+
 import base.testBase;
 
 public class documentsFromFolder extends testBase {
@@ -31,6 +33,8 @@ public class documentsFromFolder extends testBase {
 	}
 	
 	public void getIntoDocumentsFromFolder () throws InterruptedException {
+		
+		logger.log(Status.INFO, "get into document from folder");
 		
 		tabsListOnRightSide.get(2).click();
 		
