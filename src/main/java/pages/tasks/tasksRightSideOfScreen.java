@@ -32,7 +32,7 @@ public class tasksRightSideOfScreen extends testBase {
 	
 	@FindBy(xpath =  "/html/body/section/section/div[2]/div[2]/div[2]/div/div[2]"
 			+ "/detail-category[1]/div/div[1]/span/span[1]")
-	WebElement Selecttasks;
+	WebElement SelectProjects;
 	
 	@FindBy (css = "[ng-if='$select.open']")
 	List<WebElement> listOftasks =  new ArrayList<>();
@@ -43,9 +43,9 @@ public class tasksRightSideOfScreen extends testBase {
 	
 	@FindBy (css = "[ng-if='$select.open']")
 	List<WebElement> listOfDiscussions =  new ArrayList<>();
- 
-	@FindBy(css = "body > section > section > div.icu-data.ng-scope > div.panes-wrapper.ng-scope > div.detailspane.animate-hide.ng-isolate-scope > div > div.entity-details-header-bar.ng-scope > detail-menu > div > ul > li:nth-child(2) > a")
-    public WebElement deletetask;
+	
+	@FindBy(css = "div > div.entity-details-header-bar.ng-scope > detail-menu > div > ul > li:nth-child(1) > a > span")
+	WebElement duplicateTask;
 	
 	private void waitForVisibility (WebElement element)  {
 		
@@ -63,11 +63,11 @@ public class tasksRightSideOfScreen extends testBase {
 		PageFactory.initElements(driver, this);
 	}
 	
-	public void SelecttasksOnScreen() throws InterruptedException {
+	public void SelectProjectsOnScreen() throws InterruptedException {
 		
-		waitForVisibility(Selecttasks);
+		waitForVisibility(SelectProjects);
 		
-		Selecttasks.click();
+		SelectProjects.click();
 		
 		
 		Thread.sleep(3000);
@@ -83,7 +83,7 @@ public class tasksRightSideOfScreen extends testBase {
 		
 		
 		
-		String nameOfProjectForChecking = Selecttasks.getAttribute("innerText");
+		String nameOfProjectForChecking = SelectProjects.getAttribute("innerText");
 		
 		if (nameOfProject.equals(nameOfProjectForChecking)) {
 			
@@ -129,13 +129,17 @@ public class tasksRightSideOfScreen extends testBase {
 				
 		}
 		
-	public void DeleteTask () throws InterruptedException {
+	public void duplicateTasks () throws InterruptedException {
 		
-		waitForVisibility(rightside.pressOnThreeDotsOnScreen);
-		rightside.pressOnThreeDotsOnScreen.click();
+		waitForVisibility(template.pressOnThreeDotsOnScreen);
+		template.pressOnThreeDotsOnScreen.click();
 		
-		waitForVisibility(deletetask);
-		deletetask.click();
+		Thread.sleep(2000);
+	
+		waitForVisibility(duplicateTask);
+		duplicateTask.click();
+		
+		Thread.sleep(2000);
 	}
 	
 	

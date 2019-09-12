@@ -9,6 +9,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
+import com.aventstack.extentreports.Status;
+
 import base.testBase;
 import global.globalActions.actionsMiddlePane;
 import global.globalActions.actionsMultipleSelect;
@@ -81,6 +83,10 @@ public class subTasks extends testBase{
 
 	public@FindBy(xpath = "/html/body/section/section/div[2]/div[2]/div[2]/div/div[2]/detail-tags/div/div[1]/input")
 	WebElement selectTags;
+	
+	@FindBy(css = "[ng-mouseleave='deleteShowDlt(task)']")
+	public List<WebElement>listOfSubTasks=  new ArrayList<>();
+	
 	// function for wait
 	actionsMiddlePane actionsmiddlepane;
 	private void waitForVisibility (WebElement element)  {
@@ -103,47 +109,61 @@ public class subTasks extends testBase{
 	}
 
 
-	public void  SubTaskEdit() throws InterruptedException {
-		
-		logger = extent.createTest("create sub tasks and edit it");
-		Thread.sleep(2000);
+	public void  deleteSubTasks() throws InterruptedException {
+			
+		waitForVisibility(addSubTask);
 		addSubTask.click();
 
-		Thread.sleep(2000);
+		
 		waitForVisibility(CreateSubTask);
-
 		CreateSubTask.click();
+		
 		Thread.sleep(2000);
+		
+		int numberOfSubTasksBefore = listOfSubTasks.size();
+		
+		System.out.println(numberOfSubTasksBefore);
+		
 		waitForVisibility(nameSubTask);
 		nameSubTask.sendKeys("autosubtask");
 
 		Thread.sleep(1500);
-
 		AssigneeSubTask.click();
 
 		Thread.sleep(2000);
-
 		AssignUserSubTask.get(1).click();
 	
 		Thread.sleep(2000);
 		ClickDueDateSubTask.click();
 		
-		Thread.sleep(2000);
-		
+		waitForVisibility(ClickNextMonth);
 		ClickNextMonth.click();
 		
 		Thread.sleep(2000);
-		
 		ChooseDateSubTask.click();
 		
-		waitForVisibility(nameSubTask);
-		nameSubTask.click();
 		
-		logger = extent.createTest("delete subtask");
 		Thread.sleep(500);
 		DeleteSubTask.click();
 		
-		Thread.sleep(3000);
+		Thread.sleep(2000);
+		
+
+		int numberOfSubTasksAfter =listOfSubTasks.size();		
+		
+		if (numberOfSubTasksBefore -1 == numberOfSubTasksAfter) {
+			
+			logger.log(Status.PASS, "delete sub tasks");
+		}
+		else {
+			
+			logger.log(Status.FAIL, "delete sub tasks");
+		}
+		
+		
+	}
+	
+	public void  createSubTasks() throws InterruptedException {
 		waitForVisibility(CreateSubTask);
 		CreateSubTask.click();
 		
@@ -157,86 +177,7 @@ public class subTasks extends testBase{
 
 	}	
 
-	public void TaskTemplate() throws InterruptedException {
-/*		for(int i = 0;i<6;i++) {
-			waitForVisibility(tasksmiddlepane.pressCreateNewItem);
-			tasksmiddlepane.pressCreateNewItem.click();
 
-			Thread.sleep(3000);
-			waitForVisibility(tasksmiddlepane.enterTitle);
-			tasksmiddlepane.enterTitle.sendKeys("autotitle"+i);
-
-			Thread.sleep(2000);
-			waitForVisibility(tasksmiddlepane.description);
-			tasksmiddlepane.description.sendKeys("auto description"+i);
-		}
-		*/ actionsmiddlepane.openEntity("doc1" , "important");
-		
-		
-		// delete entity using multiple select
-		actionsmultipleselect.deleteEntityMultipleChoice();
-		
-		
-		actionsmultipleselect.addTagsMultipleChoice("mission");
-		
-		
-		
-		actionsmultipleselect.addDateMultipleChoice();
-		
-		
-		actionsmultipleselect.addAssigneeMultipleChoice();
-		
-		
-		actionsmultipleselect.addWatchersMultipleChoice();
-		
-		
-		actionsmultipleselect.addStatusMultipleChoice();
-
-		
-		actionsrightside.addAssignee();
-		
-		actionsrightside.setDate();
-		
-		
-		actionsrightside.addStatus();
-
-		
-		
-		actionsrightside.addTags("yaronnn");
-		
-		
-		actionsrightside.addActivities("sad", "memurmar");
-		
-		
-		//actionsrightside.changePermission();
-
-		Thread.sleep(2000);
-		
-		template.pressOnThreeDotsOnScreen.click();
-		
-		Thread.sleep(2000);
-		waitForVisibility(duplicateTask);
-		duplicateTask.click();
-		
-		actionsrightside.deleteEntity();
-	}
-
-	public void sortMiddlePane() throws InterruptedException {
-		
-		Thread.sleep(2000);
-		tasksmiddlepane.changeStatusOfList();
-		
-		Thread.sleep(2000);
-		actionsmiddlepane.sordByStatusAndUnread();
-		
-		Thread.sleep(2000);
-		actionsmiddlepane.sortByTitle();
-		
-		Thread.sleep(2000);
-		documentsmiddlepane.changeStatusOfList();
-
-	}
-	
 }
 
 

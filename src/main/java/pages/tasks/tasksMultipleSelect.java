@@ -52,6 +52,16 @@ public class tasksMultipleSelect extends testBase {
 		Thread.sleep(3000);
 	}
 	
+	public void pressMyTask() throws InterruptedException {
+		
+		waitForVisibility(taskstab.MyTasksTab);
+		
+		taskstab.MyTasksTab.click();
+		
+		Thread.sleep(3000);
+	}
+		
+	
 	
 	
 }
