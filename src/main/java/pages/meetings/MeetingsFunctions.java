@@ -3,6 +3,11 @@ package pages.meetings;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.swing.text.View;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
@@ -15,7 +20,9 @@ import com.aventstack.extentreports.Status;
 
 import base.testBase;
 import global.globalActions.actionsMiddlePane;
+import global.globalActions.actionsRightSide;
 import global.globalElements.Tabs;
+import global.globalElements.middlePane;
 import global.globalElements.multipleSelect;
 import global.globalElements.theRightOfTheScreen;
 
@@ -25,14 +32,16 @@ public class MeetingsFunctions extends testBase {
 	actionsMiddlePane 	actionsmiddlepane;
 	theRightOfTheScreen therightonthescreen;
 	multipleSelect   	multipleSelect;
-	
+	actionsRightSide    actionsrightside;
+
 	public MeetingsFunctions() {
 
 		this.tabs 				 = new Tabs();
 		this.actionsmiddlepane   = new actionsMiddlePane();
 		this.therightonthescreen = new theRightOfTheScreen();
 		this.multipleSelect		 = new multipleSelect();
-		
+		this.actionsrightside    = new actionsRightSide();
+
 		PageFactory.initElements(driver, this);
 	}
 	// Variables that related to SetDate
@@ -72,13 +81,34 @@ public class MeetingsFunctions extends testBase {
 	WebElement startHH;
 	@FindBy (xpath = "//*[@id=\"endTime\"]/table/tbody/tr[2]/td[1]/input")
 	WebElement EndHH;
-	@FindBy (css = "[ng-change=\"onChange(item)\"]")
+	@FindBy (css = "[title=\"multiple Select > set a date\"]")
 	List<WebElement> ListOfEntities = new ArrayList<>();
-	
+
+	// Variables that related to meetings from projects
+	@FindBy (css = "'[data-ng-repeat=\"project in projectsList | filterRecycled | limitTo: displayLimit.projects\"]'")
+	List <WebElement> ProjectsList;
+	@FindBy (css = "ng-click=\"reset(context.main);removeFilterValue();\"")
+	WebElement ShowAllButton;
+	@FindBy (css = "[ng-click='visible.project = !visible.project']")
+	WebElement MeetingsFromProjectsButton;
+	@FindBy (css = "ng-if=\"projectsList.length > displayLimit.projects\"")
+	WebElement ShowMoreButton;
+	@FindBy (className = "entityTitle ")
+	WebElement EntityTitle;
+	@FindBy (css = "[user='member']")
+	WebElement MemberList;
+	@FindBy (className = "avatar.editor")
+	List <WebElement> EditorsMembers;
+	@FindBy (className = "commenter")
+	WebElement CommenterMember;
+	@FindBy (className = "viewer")
+	WebElement ViewerMember;
+
 	private void waitForVisibility (WebElement element)  {
 		wait.until(ExpectedConditions.visibilityOf(element));
-
 	}
+
+
 
 	public void setDateInMeetings() throws InterruptedException {
 
@@ -142,7 +172,7 @@ public class MeetingsFunctions extends testBase {
 	}
 
 	public void setDateViaMultipleSelect() throws InterruptedException {
-		
+
 		tabs.meetingsTab.click();
 		actionsmiddlepane.openEntity("multiple Select > set a date", "testing seting a date via multiple select");
 		actionsmiddlepane.openEntity("multiple Select > set a date", "testing seting a date via multiple select");
@@ -171,42 +201,101 @@ public class MeetingsFunctions extends testBase {
 		multipleSelect.updateDate.click();
 		Thread.sleep(2000);
 		SelectAll.click();
-		
+
 		Thread.sleep(3000);
 		int i;
 		int Counter = 0;
-		
-		for (i = 0; i < ListOfEntities.size(); i++) {
-			
+
+		for (i = 1; i < ListOfEntities.size(); i++) {
+
+			Thread.sleep(1500);
 			ListOfEntities.get(i).click();
+			waitForVisibility(FirstDate);
 			String FirstDay = FirstDate.getText();
 			String SecondDay = SecondDate.getText();
-			
+
 			String[] ArrayOne = FirstDay.split("/");
 			int DayOne = Integer.parseInt(ArrayOne[0]);
 
 			String[] ArrayTwo = SecondDay.split("/");
 			int DayTwo = Integer.parseInt(ArrayTwo[0]);
-			
+
 			if(DayTwo - DayOne == 1) {
-				int counter = i;
+				Counter++;
 			}
 			else {
 				break;
 			}
 		}
-		
+
 		if (Counter == (ListOfEntities.size()-1)) {
-			
+
 			logger.log(Status.PASS , "Set a Date via Multiple Select is working perfect");
-			
+
 		}
 		else {
 			logger.log(Status.FAIL , "Set a Date via Multiple Select isn't working");
 		}
-		
+
 	}
 
+	public void MeetingFromProjects () throws InterruptedException {
+
+		int NumbersOfProjects = ProjectsList.size();
+		String ProjectName = "Meeting from Project test";
+
+		tabs.projectsTab.click();
+		actionsmiddlepane.openEntity(ProjectName ,"test the ability to open meetings from projects" + "test the inheritance form project to meeting");
+		actionsrightside.changePermission();
+		tabs.meetingsTab.click();
+
+		while (ShowMoreButton.isDisplayed()){ 
+
+			ShowMoreButton.click();
+		}
+
+		// Test if project was added to projects list
+		if (NumbersOfProjects + 1 == ProjectsList.size()) {
+
+			logger.log(Status.PASS , "The project was added");
+		}
+		else {
+
+			logger.log(Status.FAIL , "The project wasn't add to the projects list");
+		}
+
+		for (int i = 0; i < ProjectsList.size(); i++) {
+
+			if (ProjectsList.get(i).equals(ProjectName)) {
+				ProjectsList.get(i).click();
+			}
+		}
+
+		// Test if the project name is display on screen meetings from projects.
+		if (EntityTitle.getText().equals(ProjectName)) {
+
+			logger.log(Status.PASS , "The project name  is display");
+		}
+		else {
+			logger.log(Status.FAIL , "The project name  isn't display");
+		}
+
+		actionsmiddlepane.openEntity("Meetings from " + ProjectName, "this entity related to " + ProjectName);
+		
+		// Test if The inheritance from project is working. 
+		if (EditorsMembers.size() == 2    &
+				CommenterMember.isDisplayed() &
+				ViewerMember.isDisplayed())	{
+
+			logger.log(Status.PASS , "The inheritance from project is working!");
+		}
+		else {
+
+			logger.log(Status.FAIL , "The inheritance from project isn't working");
+		}
+	}
 }
+
+
 
 
