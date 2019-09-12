@@ -14,6 +14,9 @@ public class Tabs extends testBase {
 	
 	@FindBy(xpath = "/html/body/section/section/div[2]/div[1]/nav/ul/li[2]/div")
 	public WebElement tasksTab;
+	
+	@FindBy(css = ".all [ui-sref='main.tasks.byassign']")
+	public WebElement MyTasksTab;
 
 	@FindBy(xpath = "/html/body/section/section/div[2]/div[1]/nav/ul/li[3]/div")
 	public WebElement projectsTab;
