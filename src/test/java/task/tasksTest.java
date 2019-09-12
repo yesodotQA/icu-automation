@@ -57,7 +57,7 @@ public class tasksTest  extends testBase {
 		//open doc  enter title and description
 		actionsmiddlepane.openEntity("doc1" , "important");
 	}	
-	/*
+	
 	@Test(priority = 2)
 	public void allTasksMulitipleChoice() throws InterruptedException {
 		
@@ -93,12 +93,12 @@ public class tasksTest  extends testBase {
 
 		//actionsmiddlepane.pressOnArrow();
 	}
-*/
+
 	@Test(priority = 2)
 	public void alltasksRightSide()throws InterruptedException {
 
 		logger = extent.createTest("right side on screen");
-/*
+
 		actionsrightside.deleteEntity();
 
 		actionsrightside.addAssignee();
@@ -118,7 +118,7 @@ public class tasksTest  extends testBase {
 		actionsrightside.changePermission();		
 
 		tasksrightsideonscreen.duplicateTasks();
-		*/
+		
 		
 	}
 	
@@ -140,7 +140,7 @@ public class tasksTest  extends testBase {
 		logger.log(Status.INFO, "middle pane not work");
 		
 	}
-/*
+
 	@Test(priority = 6)
 	public void allTaksSubTasksRightSide()throws InterruptedException {
 		
@@ -244,7 +244,6 @@ public class tasksTest  extends testBase {
 		
 
 	}
-*/
 
 	@AfterClass
 	public void after() {
