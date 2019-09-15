@@ -3,18 +3,9 @@
 <suite name="Suite">
   <test thread-count="5" name="Test">
     <classes>
-     
-      <class name="base.beforeWeStart"/>
-    <!--   <class name="offices.officesTest"/>
-      <class name="document.documentsTest"/>
-      <class name="folder.folderTest"/>
-      <class name="meetings.TempMeetings"/> 
-      <class name="meetings.meetingsTest"/> -->
-      <class name="task.tasksTest"/>
-      <!--   <class name="project.projectsTest"/>
-    <class name="templateDoc.templateDocTest"/> -->
-      
+    	<class name="base.beforeWeStart"/>
+    <class name="project.projectsTest"/> 
+	
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->
-

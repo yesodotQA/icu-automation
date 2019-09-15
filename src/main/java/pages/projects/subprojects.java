@@ -9,12 +9,13 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
+import com.aventstack.extentreports.Status;
+
 import base.testBase;
 import global.globalActions.actionsMiddlePane;
 import global.globalActions.actionsMultipleSelect;
 import global.globalActions.actionsRightSide;
 import global.globalElements.Tabs;
-import global.globalElements.middlePane;
 import global.globalElements.multipleSelect;
 import global.globalElements.theRightOfTheScreen;
 import pages.documents.documentsMiddlePane;
@@ -47,38 +48,42 @@ public class subprojects extends testBase{
 			+ "> div.entity-details-content.project-details.ng-scope "
 			+ "> div.sub-items-section > icu-sub-project-list"
 			+ " > div.add-sub-entity.sub-entity-title.ng-binding")
-	WebElement addSubTask;
+	WebElement addSubProject;
 
 	public @FindBy(css = "[placeholder='Create new project']")
-	WebElement CreateSubTask;
+	WebElement CreateSubProject;
 
 	public @FindBy(xpath ="/html/body/section/section/div[2]/div[2]/div[2]/div/div[2]/div[3]/icu-sub-project-list/div[3]/table/tbody/tr[1]/td[2]")
-	WebElement nameSubTask;
+	WebElement nameSubProject;
 
 	public @FindBy(xpath = "/html/body/section/section/div[2]/div[2]/div[2]/div/div[2]/div[3]/icu-sub-project-list/div[3]/table/tbody/tr[1]/td[3]/div[2]/div[1]/span")
-	WebElement AssigneeSubTask;
+	WebElement AssigneeProject;
 
 	@FindBy(css ="[ng-if='$select.open']")
-	public List<WebElement> AssignUserSubTask =  new ArrayList<>();
+	public List<WebElement> AssignUserSubProject =  new ArrayList<>();
 
 	public @FindBy(css = "[ng-model='data.project.due']")
-	WebElement ClickDueDateSubTask;
+	WebElement ClickDueDateSubProject;
 
 	public @FindBy(className = "ui-icon-circle-triangle-e")
 	WebElement ClickNextMonth;
 
 	public @FindBy (xpath = "//*[@id=\"ui-datepicker-div\"]/table/tbody/tr[5]/td[2]/a")
-	WebElement ChooseDateSubTask;
+	WebElement ChooseDateSubProject;
 
 
-	public @FindBy (xpath ="/html/body/section/section/div[2]/div[2]/div[2]/div/div[2]/div[3]/icu-sub-project-list/div[3]/table/tbody/tr[1]/td[7]/img")
-	WebElement DeleteSubTask;
+	public @FindBy (xpath ="/html/body/section/section/div[2]/div[2]/div[2]"
+			+ "/div/div[2]/div[3]/icu-sub-project-list/div[3]/table/tbody/tr[1]/td[7]")
+	WebElement DeleteSubProject;
+	
+	@FindBy(css = "[ng-mouseleave='deleteShowDlt(task)']")
+	public List<WebElement>listOfSubProjects=  new ArrayList<>();
 
 	public@FindBy(css = ".last")
 	WebElement ChooseTaskTemplate;
 	
 	public@FindBy(xpath =  "/html/body/section/section/div[2]/div[2]/div[2]/div/div[2]/div[3]/icu-sub-project-list/div[3]/table/tbody/tr[1]/td[6]")
-	WebElement arrowSubTask;
+	WebElement arrowSubProjects;
 
 	//duplicatetask
 	public@FindBy(xpath = "/html/body/section/section/div[2]/div[2]/div[2]/div/div[1]/detail-menu/div/ul/li[1]/a")
@@ -106,32 +111,41 @@ public class subprojects extends testBase{
 		this.documentsmiddlepane = new documentsMiddlePane();
 		this.actionsrightside = new actionsRightSide();
 	}
+	
+	public void addSubProjects() throws InterruptedException {
+		
+		waitForVisibility(addSubProject);
+		addSubProject.click();
+	
+		Thread.sleep(1000);
+	}
 
 
-	public void  SubProjectEdit() throws InterruptedException {
+	public void deleteSubProject() throws InterruptedException {
 		
 		logger = extent.createTest("create sub projects and edit it");
+		
+		waitForVisibility(CreateSubProject);
+		CreateSubProject.click();
+		
 		Thread.sleep(2000);
-		addSubTask.click();
-
-		Thread.sleep(2000);
-		waitForVisibility(CreateSubTask);
-
-		CreateSubTask.click();
-		Thread.sleep(2000);
-		waitForVisibility(nameSubTask);
-		nameSubTask.sendKeys("autosubtask");
+		
+		int numberOfSubProjectsBefore = listOfSubProjects.size();
+		
+		
+		waitForVisibility(nameSubProject);
+		nameSubProject.sendKeys("autosubtask");
 
 		Thread.sleep(1500);
 
-		AssigneeSubTask.click();
+		AssigneeProject.click();
 
 		Thread.sleep(2000);
 
-		AssignUserSubTask.get(1).click();
+		AssignUserSubProject.get(1).click();
 	
 		Thread.sleep(2000);
-		ClickDueDateSubTask.click();
+		ClickDueDateSubProject.click();
 		
 		Thread.sleep(2000);
 		
@@ -139,107 +153,45 @@ public class subprojects extends testBase{
 		
 		Thread.sleep(2000);
 		
-		ChooseDateSubTask.click();
+		ChooseDateSubProject.click();
 		
-		//logger = extent.createTest("delete subtask");
 		Thread.sleep(500);
-	//	DeleteSubTask.click();
-		
-	//	Thread.sleep(3000);
-		//waitForVisibility(CreateSubTask);
-	//	CreateSubTask.click();
-		
+		DeleteSubProject.click();
+	
 		Thread.sleep(2000);
-		//nameSubTask.sendKeys("autosubtask2");
 		
-		//Thread.sleep(3000);
-		arrowSubTask.click();
+		int numberOfSubProjectsAfter =listOfSubProjects.size();		
+		
+		if (numberOfSubProjectsBefore -1 == numberOfSubProjectsAfter) {
+
+			logger.log(Status.PASS, "delete sub projects");
+		}
+		else {
+
+			logger.log(Status.FAIL, "delete sub  projects");
+		}
 
 	}	
 
-	public void ProjectTemplate() throws InterruptedException {
-/*		for(int i = 0;i<6;i++) {
-			waitForVisibility(projectsmiddlepane.pressCreateNewItem);
-			projectsmiddlepane.pressCreateNewItem.click();
+	public void createSubProjects() throws InterruptedException {
 
-			Thread.sleep(3000);
-			waitForVisibility(projectsmiddlepane.enterTitle);
-			projectsmiddlepane.enterTitle.sendKeys("autotitle"+i);
+		waitForVisibility(CreateSubProject);
+		CreateSubProject.click();
 
-			Thread.sleep(2000);
-			waitForVisibility(projectsmiddlepane.description);
-			projectsmiddlepane.description.sendKeys("auto description"+i);
-		}
-		*/ actionsmiddlepane.openEntity("proj1" , "important");
-		
 		Thread.sleep(2000);
-		// delete entity using multiple select
-		actionsmultipleselect.deleteEntityMultipleChoice();
-		
-		Thread.sleep(2000);
-		actionsmultipleselect.addTagsMultipleChoice("mission");
-		
-		
-		Thread.sleep(2000);
-		actionsmultipleselect.addDateMultipleChoice();
-		
-		Thread.sleep(2000);
-		actionsmultipleselect.addAssigneeMultipleChoice();
-		
-		Thread.sleep(2000);
-		actionsmultipleselect.addWatchersMultipleChoice();
-		
-		Thread.sleep(2000);
-		actionsmultipleselect.addStatusMultipleChoice();
-		
-		Thread.sleep(2000);
-		actionsmiddlepane.openEntity("sub3" , "sub task right side");
 
-		// BUG SO SKIPPED
-		/*Thread.sleep(2000);
-		actionsrightside.addAssignee();
-		
-		Thread.sleep(2000);
-		actionsrightside.setDate();
-	*/
-		Thread.sleep(2000);
-		actionsrightside.addStatus();
+		waitForVisibility(nameSubProject);
+		nameSubProject.sendKeys("autosubtask");
 
-		
 		Thread.sleep(2000);
-		actionsrightside.addTags("yaronnn");
-		
+
+		waitForVisibility(arrowSubProjects);
+		arrowSubProjects.click();
+
 		Thread.sleep(2000);
-		actionsrightside.addActivities("sad", "memurmar");
-		
-		Thread.sleep(2000);
-		actionsrightside.changePermission();
-		
-		Thread.sleep(2000);
-		actionsrightside.deleteEntity();
+
 	}
-
-	public void sortMiddlePane() throws InterruptedException {
-	/*	
-		BUGGED DO NOT TOUCH
-		
-		Thread.sleep(2000);
-		projectsmiddlepane.changeStatusOfList();
-		
-		Thread.sleep(2000);
-		actionsmiddlepane.sordByStatusAndUnread();
-		
-		Thread.sleep(2000);
-		actionsmiddlepane.sortByTitle();
-		
-		Thread.sleep(2000);
-		documentsmiddlepane.changeStatusOfList();
-*/
-	}
-	
 }
-
-
 
 
 

@@ -109,12 +109,19 @@ public class subTasks extends testBase{
 	}
 
 
-	public void  deleteSubTasks() throws InterruptedException {
-			
+	public void addSubTasks() throws InterruptedException {
+		
 		waitForVisibility(addSubTask);
 		addSubTask.click();
+	
+		Thread.sleep(1000);
 
+	}
+
+
+	public void  deleteSubTasks() throws InterruptedException {
 		
+
 		waitForVisibility(CreateSubTask);
 		CreateSubTask.click();
 		

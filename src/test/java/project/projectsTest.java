@@ -1,15 +1,21 @@
 package project;
 
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.Test;
-import org.testng.annotations.BeforeClass;
 import java.io.IOException;
+
+import org.omg.CORBA.PUBLIC_MEMBER;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
+
+import com.aventstack.extentreports.Status;
+
 import base.testBase;
 import global.globalActions.actionsMiddlePane;
 import global.globalActions.actionsMultipleSelect;
 import global.globalActions.actionsRightSide;
+import global.globalActions.randomActions;
 import global.globalElements.Tabs;
 import global.globalElements.middlePane;
 import pages.documents.documentsMiddlePane;
@@ -18,14 +24,7 @@ import pages.projects.projectsMultipleSelect;
 import pages.projects.projectsRightSideOfScreen;
 import pages.projects.subprojects;
 	public class projectsTest  extends testBase {
-		@FindBy(css = "body > section > section > div.icu-data.ng-scope > div.panes-wrapper.ng-scope > div.detailspane.animate-hide.ng-isolate-scope > div > div.entity-details-header-bar.ng-scope > detail-menu > div > ul > li:nth-child(4) > a")
-		WebElement deleteproject;
-		
-		@FindBy(css = "body > section > section > div.icu-data.ng-scope > div.panes-wrapper.ng-scope > div.detailspane.animate-hide.ng-isolate-scope > div > div.entity-details-content.project-details.ng-scope > detail-tabs > div.detail-tabs > div > button:nth-child(3)")
-		WebElement tasksfromprojects;
-		
-		@FindBy(css = "[ng-click='manageTasks()']")
-		WebElement managetasks;
+	
 		
 		subprojects subprojects;
 		Tabs projectstab;
@@ -38,6 +37,7 @@ import pages.projects.subprojects;
 		actionsMultipleSelect actionsmultipleselect;
 		projectsRightSideOfScreen projectrightside;
 		documentsMiddlePane documentsmiddlepane;
+		randomActions randomaction;
 		
 		@BeforeClass
 		public void SetUp() throws InterruptedException, IOException{	
@@ -53,150 +53,121 @@ import pages.projects.subprojects;
 		this.actionsmultipleselect = new actionsMultipleSelect();
 		this.actionsmiddlepane = new actionsMiddlePane();
 		this.actionsrightside = new actionsRightSide();
+		this.randomaction = new randomActions();
 		}
+		
 		@Test(priority = 1)
-		public void Myprojects() throws InterruptedException {
+		public void openProject() throws InterruptedException {
+			logger = extent.createTest("project");
 			
-			Thread.sleep(2000);
-			projectstab.projectsTab.click();
+			projectsmultipleselect.pressproject();
 			
-			Thread.sleep(2000);
 			actionsmiddlepane.openEntity("doc1","important");
-			
-			logger = extent.createTest("My project using multiple choice");
-			
-			Thread.sleep(2000);
+		}
+		
+		@Test(priority = 2)
+		public void projectsMultipleSelect() throws InterruptedException {
+
+			logger = extent.createTest("multiple choice");
+
 			// delete entity using multiple select
 			actionsmultipleselect.deleteEntityMultipleChoice();
-			
-			Thread.sleep(2000);
+
 			//open doc  enter title and description
 			actionsmiddlepane.openEntity("doc2" , "imporant2");
-			
-			Thread.sleep(2000);
+
 			actionsmultipleselect.addTagsMultipleChoice("mission");
-			
-			
-			Thread.sleep(2000);
+
 			actionsmultipleselect.addDateMultipleChoice();
-			
-			Thread.sleep(2000);
+
 			actionsmultipleselect.addAssigneeMultipleChoice();
-			
-			Thread.sleep(2000);
+
 			actionsmultipleselect.addWatchersMultipleChoice();
-			
-			Thread.sleep(2000);
+
 			actionsmultipleselect.addStatusMultipleChoice();
+
+		}
+
 			
-			Thread.sleep(2000);
-			logger = extent.createTest("My project template");
+		@Test(priority = 3)
+		public void projectsMiddlePane() throws InterruptedException {
+			logger = extent.createTest("middle pane");
 			
-			Thread.sleep(2000);
-			actionsrightside.deleteEntity();
+			randomaction.enterNameToEntity("hyyyyyyyyy");
 			
-			Thread.sleep(2000);
-			actionsrightside.addAssignee();
-			
-			Thread.sleep(2000);
-			actionsrightside.setDate();
-			
-			Thread.sleep(2000);
-			actionsrightside.addStatus();
-			
-			Thread.sleep(2000);
 			documentsmiddlepane.changeStatusOfList();
 			
-			Thread.sleep(2000);
-			actionsrightside.addTags("yaronnn");
+			//tasksmiddlepane.sortByFavorite();
 			
-			Thread.sleep(2000);
-			actionsrightside.addActivities("sad", "memurmar");
-			
-			Thread.sleep(2000);
-			actionsrightside.addWatcher();
+			actionsmiddlepane.sortByTitle();
 
-			Thread.sleep(2000);
-			subprojects.SubProjectEdit();
+			actionsmiddlepane.sordByStatusAndUnread();
 			
-			Thread.sleep(2000);
-			subprojects.ProjectTemplate();
-			
-			subprojects.sortMiddlePane();
-	}
+			//actionsmiddlepane.pressOnArrow();
+		}
 		
-		public void taskFromProject () throws InterruptedException {
+		@Test(priority = 4)
+		public void projectRightSide() throws InterruptedException {
+		
+			logger = extent.createTest("right side");
+
+			actionsrightside.deleteEntity();
+
+			actionsrightside.addAssignee();
+
+			actionsrightside.setDate();
+
+			actionsrightside.addStatus();
+
+			randomaction.chooseColor();
+
+			actionsrightside.addTags("yaronnn");
+
+			actionsrightside.addActivities("sad", "memurmar");
+
+			actionsrightside.changePermission();
+
+		}
 			
-			Thread.sleep(2000);
-			tasksfromprojects.click();
+		@Test(priority = 5)
+		public void subProjectMultipleSelect() throws InterruptedException {
+		
+			logger = extent.createTest("sub projects");
 			
-			Thread.sleep(2000);
-			managetasks.click();
+			actionsmiddlepane.openEntity("sub pro", "sfdjh");
 			
-			Thread.sleep(2000);
-			actionsmiddlepane.openEntity("doc1","important");
+			subprojects.addSubProjects();
 			
-			logger = extent.createTest("My project using multiple choice");
+			//subprojects.deleteSubProject();
 			
-			Thread.sleep(2000);
-			// delete entity using multiple select
-			actionsmultipleselect.deleteEntityMultipleChoice();
+			subprojects.createSubProjects();
 			
-			Thread.sleep(2000);
-			//open doc  enter title and description
-			actionsmiddlepane.openEntity("doc2" , "imporant2");
+			logger.log(Status.INFO, "delete sub projects not work");
 			
-			Thread.sleep(2000);
-			actionsmultipleselect.addTagsMultipleChoice("mission");
+			actionsmiddlepane.openEntity("subpro22", "rhfjfrjk");
 			
+			projectsMultipleSelect();
 			
-			Thread.sleep(2000);
-			actionsmultipleselect.addDateMultipleChoice();
+			logger.log(Status.INFO, "middle pane not work");
 			
-			Thread.sleep(2000);
-			actionsmultipleselect.addAssigneeMultipleChoice();
+		}
+		@Test(priority = 6)
+		public void subProjectsRightSide () throws InterruptedException {
+			logger = extent.createTest("right Side");
 			
-			Thread.sleep(2000);
-			actionsmultipleselect.addWatchersMultipleChoice();
+			logger.log(Status.INFO, "add assignee and date not work not work");
 			
-			Thread.sleep(2000);
-			actionsmultipleselect.addStatusMultipleChoice();
-			
-			
-			Thread.sleep(2000);
-			logger = extent.createTest("My project template");
-			
-			Thread.sleep(2000);
 			actionsrightside.deleteEntity();
 			
-			Thread.sleep(2000);
-			actionsrightside.addAssignee();
-			
-			Thread.sleep(2000);
-			actionsrightside.setDate();
-			
-			Thread.sleep(2000);
 			actionsrightside.addStatus();
-			
-			
-			Thread.sleep(2000);
-			actionsrightside.addTags("yaronnn");
-			
-			Thread.sleep(2000);
-			actionsrightside.addActivities("sad", "memurmar");
-			
-			Thread.sleep(2000);
-			actionsrightside.addWatcher();
+				
+			randomaction.chooseColor();
 
-			Thread.sleep(2000);
-			subprojects.SubProjectEdit();
-			
-			Thread.sleep(2000);
-			subprojects.ProjectTemplate();
-			
-			
-			//subprojects.sortMiddlePane();
-		
+			actionsrightside.addTags("yaronnn");
+
+			actionsrightside.addActivities("sad", "memurmar");
+
+			actionsrightside.changePermission();
 		}
 	
 		
