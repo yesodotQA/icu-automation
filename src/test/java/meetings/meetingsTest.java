@@ -3,23 +3,11 @@ package meetings;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.Test;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.Test;
-import org.testng.annotations.BeforeClass;
+
+
 import java.io.IOException;
 
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.Test;
-import org.testng.annotations.BeforeClass;
-import java.io.IOException;
 
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Test;
-import com.aventstack.extentreports.Status;
 import base.testBase;
 import global.globalActions.actionsMiddlePane;
 import global.globalActions.actionsMultipleSelect;
@@ -67,7 +55,7 @@ public class meetingsTest extends testBase {
 		logger = extent.createTest("Test Multiple Choice in Meetings");
 		
 		actionsmultipleselect.addAssigneeMultipleChoice();
-		actionsmultipleselect.addDateMultipleChoice();
+		meetingsfunctions.setDateViaMultipleSelect();
 		actionsmultipleselect.addStatusMultipleChoice();
 		actionsmultipleselect.addTagsMultipleChoice("Meetings ASAP");
 		actionsmultipleselect.addWatchersMultipleChoice();
@@ -89,10 +77,16 @@ public class meetingsTest extends testBase {
 	
 	@Test (priority = 3)
 	public void RightSideFunction () throws InterruptedException {
+	
 		logger = extent.createTest("Test the Right Side functionality");
-				
 		
-		
+		actionsrightside.deleteEntity();
+		actionsrightside.addAssignee();
+		meetingsfunctions.setDateInMeetings();
+		actionsrightside.addStatus();
+		actionsrightside.addTags("ASAP");
+		actionsrightside.addActivities("HELLO" , "this is superman");
+		actionsrightside.changePermission();
 	}
 	
 	@AfterClass
@@ -105,3 +99,4 @@ public class meetingsTest extends testBase {
 	
 	
 }
+

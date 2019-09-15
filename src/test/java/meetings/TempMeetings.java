@@ -3,23 +3,9 @@ package meetings;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.Test;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.Test;
-import org.testng.annotations.BeforeClass;
 import java.io.IOException;
 
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.Test;
-import org.testng.annotations.BeforeClass;
-import java.io.IOException;
 
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Test;
-import com.aventstack.extentreports.Status;
 import base.testBase;
 import global.globalActions.actionsMiddlePane;
 import global.globalActions.actionsMultipleSelect;
@@ -67,7 +53,7 @@ public class TempMeetings extends testBase {
 	public void MultipleChoiceFunction () throws InterruptedException {
 	
 		logger = extent.createTest("set a date in meetings");
-		meetingsfunctions.setDateViaMultipleSelect();
+		meetingsfunctions.MeetingFromProjects();
 	}
 	@AfterClass
 	public void after() {
