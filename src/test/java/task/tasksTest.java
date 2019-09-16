@@ -9,12 +9,15 @@ import org.testng.annotations.Test;
 import com.aventstack.extentreports.Status;
 
 import base.testBase;
+import document.documentsTest;
 import global.globalActions.actionsMiddlePane;
 import global.globalActions.actionsMultipleSelect;
 import global.globalActions.actionsRightSide;
+import global.globalActions.randomActions;
 import global.globalElements.Tabs;
 import global.globalElements.middlePane;
 import pages.documents.documentsMiddlePane;
+import pages.tasks.documentsFromTasks;
 import pages.tasks.subTasks;
 import pages.tasks.tasksMiddlePane;
 import pages.tasks.tasksMultipleSelect;
@@ -32,7 +35,10 @@ public class tasksTest  extends testBase {
 	actionsMiddlePane actionsmiddlepane;
 	actionsMultipleSelect actionsmultipleselect;
 	documentsMiddlePane documentsmiddlepane;
-
+	randomActions randomaction;
+	documentsFromTasks documentsfromtasks;
+	documentsTest documentstest;
+	
 	@BeforeClass
 	public void SetUp() throws InterruptedException, IOException{	
 
@@ -46,10 +52,13 @@ public class tasksTest  extends testBase {
 		this.actionsmiddlepane = new actionsMiddlePane();
 		this.actionsrightside = new actionsRightSide();
 		this.tabs = new Tabs();
+		this.randomaction = new randomActions();
+		this.documentsfromtasks = new documentsFromTasks();
+		this.documentstest = new documentsTest();
 	}
 
 	@Test(priority = 1)
-	public void openDoc() throws InterruptedException {
+	public void openTask() throws InterruptedException {
 		logger = extent.createTest("all Task ");
 		// press Task tab
 		tasksmultipleselect.pressTask();
@@ -82,7 +91,9 @@ public class tasksTest  extends testBase {
 	@Test(priority = 3)
 	public void alltasksMiddlePane()throws InterruptedException {
 		logger = extent.createTest(" middle pane");
-
+		
+		randomaction.enterNameToEntity("hyyyyyyyyy");
+		
 		tasksmiddlepane.changeStatusOfList();
 
 		//tasksmiddlepane.sortByFavorite();
@@ -94,7 +105,7 @@ public class tasksTest  extends testBase {
 		//actionsmiddlepane.pressOnArrow();
 	}
 
-	@Test(priority = 2)
+	@Test(priority = 4)
 	public void alltasksRightSide()throws InterruptedException {
 
 		logger = extent.createTest("right side on screen");
@@ -122,12 +133,14 @@ public class tasksTest  extends testBase {
 		
 	}
 	
-	@Test(priority = 3)
+	@Test(priority = 5)
 	public void allTaksSubTasksMultipleChoice()throws InterruptedException {
 		
 		logger = extent.createTest("sub tasks from all tasks");
 		
 		actionsmiddlepane.openEntity("sub tasks", "sfdjh");
+		
+		subTasks.addSubTasks();
 		
 		subTasks.deleteSubTasks();
 		
@@ -135,7 +148,7 @@ public class tasksTest  extends testBase {
 		
 		actionsmiddlepane.openEntity("subtasks22", "rhfjfrjk");
 		
-		//allTasksMulitipleChoice();
+		allTasksMulitipleChoice();
 		
 		logger.log(Status.INFO, "middle pane not work");
 		
@@ -225,6 +238,8 @@ public class tasksTest  extends testBase {
 		
 		actionsmiddlepane.openEntity("haaushh", "sfdjh");
 
+		subTasks.addSubTasks();
+		
 		subTasks.deleteSubTasks();
 
 		subTasks.createSubTasks();
@@ -243,6 +258,24 @@ public class tasksTest  extends testBase {
 		allTaksSubTasksRightSide();
 		
 
+	}
+	
+	@Test(priority = 11)
+	public void documentsFromTasks() throws InterruptedException, IOException {
+		
+		logger = extent.createTest("documents from tasks");
+		
+		documentsfromtasks.getIntoDocumentsFromTasks();
+	
+		actionsmiddlepane.openEntity("document 123456","ahalan");
+		
+		documentstest.SetUp();
+		
+		documentstest.documentsMultipleSelect();
+		
+		documentstest.documentsMiddlePane();
+		
+		documentstest.documentsRightSide();
 	}
 
 	@AfterClass

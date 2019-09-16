@@ -46,34 +46,39 @@ import global.globalElements.theRightOfTheScreen;
 				waitForVisibility(SelectFolder);
 				
 				SelectFolder.click();
-				
-				Thread.sleep(3000);
-				
-				String nameOfFolder	= listOfFolder.get(0).getText();
-				
-				listOfFolder.get(0).click();
-				
-				Thread.sleep(2000);
-				
-				String nameOfFolderForChecking = SelectFolder.getAttribute("innerText");
-				
-				if (nameOfFolder.equals(nameOfFolderForChecking)) {
-					
-					logger.log(Status.PASS , "select folder on screen");
-					
+
+				if (listOfFolder.isEmpty()== false) {
+
+					Thread.sleep(3000);
+
+					String nameOfFolder	= listOfFolder.get(0).getText();
+
+					listOfFolder.get(0).click();
+
+					Thread.sleep(2000);
+
+					String nameOfFolderForChecking = SelectFolder.getAttribute("innerText");
+
+					if (nameOfFolder.equals(nameOfFolderForChecking)) {
+
+						logger.log(Status.PASS , "select folder on screen");
+
+					}
+					else {
+
+						logger.log(Status.FAIL , "select folder on screen");
+					}
+
+
 				}
-				else {
-					
-					logger.log(Status.FAIL , "select folder on screen");
-				}
-				
+
 			}
-			
-				
-			}
-			
-		
-	
-		
+
+
+		}
+
+
+
+
 	}
-	
+

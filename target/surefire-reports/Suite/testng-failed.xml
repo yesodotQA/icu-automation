@@ -1,95 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite guice-stage="DEVELOPMENT" verbose="0" name="Failed suite [Suite]">
-  <test name="offices(failed)">
+  <test name="Test(failed)">
     <classes>
-      <class name="document.documentsTest">
-        <methods>
-          <include name="SetUp"/>
-          <include name="after"/>
-        </methods>
-      </class> <!-- document.documentsTest -->
-      <class name="folder.folderTest">
-        <methods>
-          <include name="after"/>
-          <include name="SetUp"/>
-        </methods>
-      </class> <!-- folder.folderTest -->
       <class name="base.beforeWeStart">
         <methods>
           <include name="SetUp"/>
         </methods>
       </class> <!-- base.beforeWeStart -->
-      <class name="offices.officesTest">
+      <class name="project.projectsTest">
         <methods>
-          <include name="SetUp"/>
-          <include name="foldersFromOffices"/>
           <include name="after"/>
+          <include name="SetUp"/>
+          <include name="TasksFromProjects"/>
         </methods>
-      </class> <!-- offices.officesTest -->
+      </class> <!-- project.projectsTest -->
     </classes>
-  </test> <!-- offices(failed) -->
-  <test name="folder(failed)">
-    <classes>
-      <class name="document.documentsTest">
-        <methods>
-          <include name="SetUp"/>
-          <include name="after"/>
-        </methods>
-      </class> <!-- document.documentsTest -->
-      <class name="folder.folderTest">
-        <methods>
-          <include name="foldersMiddlePane"/>
-          <include name="foldersMultipleSelect"/>
-          <include name="after"/>
-          <include name="foldersRightSide"/>
-          <include name="documentsFromFolder"/>
-          <include name="SetUp"/>
-          <include name="openfolder"/>
-        </methods>
-      </class> <!-- folder.folderTest -->
-      <class name="base.beforeWeStart">
-        <methods>
-          <include name="SetUp"/>
-        </methods>
-      </class> <!-- base.beforeWeStart -->
-      <class name="offices.officesTest">
-        <methods>
-          <include name="SetUp"/>
-          <include name="after"/>
-        </methods>
-      </class> <!-- offices.officesTest -->
-    </classes>
-  </test> <!-- folder(failed) -->
-  <test name="doc(failed)">
-    <classes>
-      <class name="document.documentsTest">
-        <methods>
-          <include name="documentsMiddlePane"/>
-          <include name="documentsRightSide"/>
-          <include name="openDoc"/>
-          <include name="SetUp"/>
-          <include name="after"/>
-          <include name="documentsMultipleSelect"/>
-        </methods>
-      </class> <!-- document.documentsTest -->
-      <class name="folder.folderTest">
-        <methods>
-          <include name="after"/>
-          <include name="SetUp"/>
-        </methods>
-      </class> <!-- folder.folderTest -->
-      <class name="base.beforeWeStart">
-        <methods>
-          <include name="SetUp"/>
-        </methods>
-      </class> <!-- base.beforeWeStart -->
-      <class name="offices.officesTest">
-        <methods>
-          <include name="SetUp"/>
-          <include name="after"/>
-        </methods>
-      </class> <!-- offices.officesTest -->
-    </classes>
-  </test> <!-- doc(failed) -->
+  </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="TestSuite" time="1,079.06" tests="14" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="TestSuite" time="861.116" tests="8" errors="0" skipped="0" failures="1">
   <properties>
     <property name="sun.desktop" value="gnome"/>
     <property name="awt.toolkit" value="sun.awt.X11.XToolkit"/>
@@ -17,7 +17,7 @@
     <property name="user.country" value="US"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="sun.boot.library.path" value="/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64"/>
-    <property name="sun.java.command" value="/home/israel/workspace/selenium-root/target/surefire/surefirebooter4947871518474166963.jar /home/israel/workspace/selenium-root/target/surefire 2019-09-11T10-25-09_104-jvmRun1 surefire4388584053152121081tmp surefire_01124997621345433837tmp"/>
+    <property name="sun.java.command" value="/home/israel/workspace/selenium-root/target/surefire/surefirebooter7480891672287663814.jar /home/israel/workspace/selenium-root/target/surefire 2019-09-16T12-23-05_565-jvmRun1 surefire569892233245770386tmp surefire_06663749162116486375tmp"/>
     <property name="surefire.test.class.path" value="/home/israel/workspace/selenium-root/target/test-classes:/home/israel/workspace/selenium-root/target/classes:/home/israel/.m2/repository/org/testng/testng/6.10/testng-6.10.jar:/home/israel/.m2/repository/com/beust/jcommander/1.48/jcommander-1.48.jar:/home/israel/.m2/repository/com/aventstack/extentreports/3.1.5/extentreports-3.1.5.jar:/home/israel/.m2/repository/org/freemarker/freemarker/2.3.23/freemarker-2.3.23.jar:/home/israel/.m2/repository/org/mongodb/mongodb-driver/3.3.0/mongodb-driver-3.3.0.jar:/home/israel/.m2/repository/org/mongodb/bson/3.3.0/bson-3.3.0.jar:/home/israel/.m2/repository/org/mongodb/mongodb-driver-core/3.3.0/mongodb-driver-core-3.3.0.jar:/home/israel/.m2/repository/org/apache/httpcomponents/httpclient/4.5.2/httpclient-4.5.2.jar:/home/israel/.m2/repository/org/apache/httpcomponents/httpmime/4.5.2/httpmime-4.5.2.jar:/home/israel/.m2/repository/org/jsoup/jsoup/1.9.2/jsoup-1.9.2.jar:/home/israel/.m2/repository/com/google/code/gson/gson/2.8.0/gson-2.8.0.jar:/home/israel/.m2/repository/org/seleniumhq/selenium/selenium-java/3.12.0/selenium-java-3.12.0.jar:/home/israel/.m2/repository/org/seleniumhq/selenium/selenium-api/3.12.0/selenium-api-3.12.0.jar:/home/israel/.m2/repository/org/seleniumhq/selenium/selenium-chrome-driver/3.12.0/selenium-chrome-driver-3.12.0.jar:/home/israel/.m2/repository/org/seleniumhq/selenium/selenium-edge-driver/3.12.0/selenium-edge-driver-3.12.0.jar:/home/israel/.m2/repository/org/seleniumhq/selenium/selenium-firefox-driver/3.12.0/selenium-firefox-driver-3.12.0.jar:/home/israel/.m2/repository/org/seleniumhq/selenium/selenium-ie-driver/3.12.0/selenium-ie-driver-3.12.0.jar:/home/israel/.m2/repository/org/seleniumhq/selenium/selenium-opera-driver/3.12.0/selenium-opera-driver-3.12.0.jar:/home/israel/.m2/repository/org/seleniumhq/selenium/selenium-remote-driver/3.12.0/selenium-remote-driver-3.12.0.jar:/home/israel/.m2/repository/org/seleniumhq/selenium/selenium-safari-driver/3.12.0/selenium-safari-driver-3.12.0.jar:/home/israel/.m2/repository/org/seleniumhq/selenium/selenium-support/3.12.0/selenium-support-3.12.0.jar:/home/israel/.m2/repository/net/bytebuddy/byte-buddy/1.8.3/byte-buddy-1.8.3.jar:/home/israel/.m2/repository/org/apache/commons/commons-exec/1.3/commons-exec-1.3.jar:/home/israel/.m2/repository/commons-codec/commons-codec/1.10/commons-codec-1.10.jar:/home/israel/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar:/home/israel/.m2/repository/com/google/guava/guava/23.6-jre/guava-23.6-jre.jar:/home/israel/.m2/repository/com/google/code/findbugs/jsr305/1.3.9/jsr305-1.3.9.jar:/home/israel/.m2/repository/org/checkerframework/checker-compat-qual/2.0.0/checker-compat-qual-2.0.0.jar:/home/israel/.m2/repository/com/google/errorprone/error_prone_annotations/2.1.3/error_prone_annotations-2.1.3.jar:/home/israel/.m2/repository/com/google/j2objc/j2objc-annotations/1.1/j2objc-annotations-1.1.jar:/home/israel/.m2/repository/org/codehaus/mojo/animal-sniffer-annotations/1.14/animal-sniffer-annotations-1.14.jar:/home/israel/.m2/repository/org/apache/httpcomponents/httpcore/4.4.6/httpcore-4.4.6.jar:/home/israel/.m2/repository/com/squareup/okhttp3/okhttp/3.9.1/okhttp-3.9.1.jar:/home/israel/.m2/repository/com/squareup/okio/okio/1.13.0/okio-1.13.0.jar:/home/israel/.m2/repository/org/apache/maven/surefire/surefire-testng-utils/2.22.0/surefire-testng-utils-2.22.0.jar:/home/israel/.m2/repository/org/apache/maven/surefire/surefire-grouper/2.22.0/surefire-grouper-2.22.0.jar:"/>
     <property name="sun.cpu.endian" value="little"/>
     <property name="user.home" value="/home/israel"/>
@@ -30,7 +30,7 @@
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="java.awt.graphicsenv" value="sun.awt.X11GraphicsEnvironment"/>
-    <property name="surefire.real.class.path" value="/home/israel/workspace/selenium-root/target/surefire/surefirebooter4947871518474166963.jar"/>
+    <property name="surefire.real.class.path" value="/home/israel/workspace/selenium-root/target/surefire/surefirebooter7480891672287663814.jar"/>
     <property name="sun.boot.class.path" value="/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/resources.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/rt.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/sunrsasign.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/jsse.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/jce.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/charsets.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/jfr.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/classes"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="1.8.0_222-8u222-b10-1ubuntu1~18.04.1-b10"/>
@@ -58,18 +58,16 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="52.0"/>
   </properties>
-  <testcase name="openOffice" classname="offices.officesTest" time="14.636"/>
-  <testcase name="officesMultipleSelect" classname="offices.officesTest" time="28.642"/>
-  <testcase name="officesMiddlePane" classname="offices.officesTest" time="48.747"/>
-  <testcase name="officesRightSide" classname="offices.officesTest" time="113.969"/>
-  <testcase name="foldersFromOffices" classname="offices.officesTest" time="208.343"/>
-  <testcase name="openfolder" classname="folder.folderTest" time="14.844"/>
-  <testcase name="foldersMultipleSelect" classname="folder.folderTest" time="48.088"/>
-  <testcase name="foldersMiddlePane" classname="folder.folderTest" time="71.362"/>
-  <testcase name="foldersRightSide" classname="folder.folderTest" time="66.274"/>
-  <testcase name="documentsFromFolder" classname="folder.folderTest" time="224.008"/>
-  <testcase name="openDoc" classname="document.documentsTest" time="14.786"/>
-  <testcase name="documentsMultipleSelect" classname="document.documentsTest" time="68.268"/>
-  <testcase name="documentsMiddlePane" classname="document.documentsTest" time="71.566"/>
-  <testcase name="documentsRightSide" classname="document.documentsTest" time="76.044"/>
+  <testcase name="openProject" classname="project.projectsTest" time="15.08"/>
+  <testcase name="projectsMultipleSelect" classname="project.projectsTest" time="70.274"/>
+  <testcase name="projectsMiddlePane" classname="project.projectsTest" time="72.333"/>
+  <testcase name="projectRightSide" classname="project.projectsTest" time="77.518"/>
+  <testcase name="subProjectMultipleSelect" classname="project.projectsTest" time="103.882"/>
+  <testcase name="subProjectsRightSide" classname="project.projectsTest" time="64.115"/>
+  <testcase name="projectFromDiscussion" classname="project.projectsTest" time="418.51"/>
+  <testcase name="TasksFromProjects" classname="project.projectsTest" time="30.455">
+    <failure type="java.lang.NullPointerException">java.lang.NullPointerException
+	at project.projectsTest.TasksFromProjects(projectsTest.java:208)
+</failure>
+  </testcase>
 </testsuite>

@@ -35,7 +35,7 @@ public class tasksRightSideOfScreen extends testBase {
 	WebElement SelectProjects;
 	
 	@FindBy (css = "[ng-if='$select.open']")
-	List<WebElement> listOftasks =  new ArrayList<>();
+	List<WebElement> listOfProjects =  new ArrayList<>();
 	
 	@FindBy(xpath = "/html/body/section/section/div[2]/div[2]/div[2]/div/"
 			+ "div[2]/detail-category[2]/div/div[1]/span/span[1]")
@@ -65,69 +65,78 @@ public class tasksRightSideOfScreen extends testBase {
 	
 	public void SelectProjectsOnScreen() throws InterruptedException {
 		
+		if(SelectProjects.getText().equals("Select a project ")){
+		
 		waitForVisibility(SelectProjects);
 		
 		SelectProjects.click();
 		
-		
-		Thread.sleep(3000);
-		
-		
-		String nameOfProject = listOftasks.get(0).getText();
-		
-		
-		listOftasks.get(0).click();
-		
-		Thread.sleep(2000);
-		
-		
-		
-		
-		String nameOfProjectForChecking = SelectProjects.getAttribute("innerText");
-		
-		if (nameOfProject.equals(nameOfProjectForChecking)) {
+		if (listOfProjects.isEmpty()==false) {
 			
-			logger.log(Status.PASS , "select project on screen");
-			
+			Thread.sleep(3000);
+
+
+			String nameOfProject = listOfProjects.get(0).getText();
+
+
+			listOfProjects.get(0).click();
+
+			Thread.sleep(2000);
+
+
+			String nameOfProjectForChecking = SelectProjects.getAttribute("innerText");
+
+			if (nameOfProject.equals(nameOfProjectForChecking)) {
+
+				logger.log(Status.PASS , "select project on screen");
+
+			}
+			else {
+
+				logger.log(Status.FAIL , "select project on screen");
+			}
+
 		}
-		else {
-			
-			logger.log(Status.FAIL , "select project on screen");
-		}
-		
+
 	}
-	
+ }
+
 	public void SelectDiscussionsOnScreen() throws InterruptedException {
 	
+		if(SelectDiscussions.getText().equals("Select discussion")){
+		
 		waitForVisibility(SelectDiscussions);
 		
 		SelectDiscussions.click();
 		
-		
-		Thread.sleep(3000);
-		
-		
-		String nameOfDiscussions = listOfDiscussions.get(0).getText();
-		
-		
-		listOfDiscussions.get(0).click();
-		
-		Thread.sleep(2000);
-		
-		String nameOfDiscussionsForChecking = SelectDiscussions.getAttribute("innerText");
-		
-		if (nameOfDiscussions.equals(nameOfDiscussionsForChecking)) {
-			
-			logger.log(Status.PASS , "select discussions on screen");
-			
+		if (listOfDiscussions.isEmpty()==false) {
+
+			Thread.sleep(3000);
+
+
+			String nameOfDiscussions = listOfDiscussions.get(0).getText();
+
+
+			listOfDiscussions.get(0).click();
+
+			Thread.sleep(2000);
+
+			String nameOfDiscussionsForChecking = SelectDiscussions.getAttribute("innerText");
+
+			if (nameOfDiscussions.equals(nameOfDiscussionsForChecking)) {
+
+				logger.log(Status.PASS , "select discussions on screen");
+
+			}
+			else {
+
+				logger.log(Status.FAIL , "select doscussions on screen");
+			}
 		}
-		else {
-			
-			logger.log(Status.FAIL , "select doscussions on screen");
-		}
-		
-				
-		}
+
+	}	
+
+ }
 		
 	public void duplicateTasks () throws InterruptedException {
 		
