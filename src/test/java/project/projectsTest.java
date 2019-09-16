@@ -2,9 +2,6 @@ package project;
 
 import java.io.IOException;
 
-import org.omg.CORBA.PUBLIC_MEMBER;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -19,10 +16,14 @@ import global.globalActions.randomActions;
 import global.globalElements.Tabs;
 import global.globalElements.middlePane;
 import pages.documents.documentsMiddlePane;
+import pages.projects.projectsFromDiscussions;
 import pages.projects.projectsMiddlePane;
 import pages.projects.projectsMultipleSelect;
 import pages.projects.projectsRightSideOfScreen;
 import pages.projects.subprojects;
+import pages.projects.tasksFromProjects;
+import pages.tasks.subTasks;
+import task.tasksTest;
 	public class projectsTest  extends testBase {
 	
 		
@@ -38,6 +39,10 @@ import pages.projects.subprojects;
 		projectsRightSideOfScreen projectrightside;
 		documentsMiddlePane documentsmiddlepane;
 		randomActions randomaction;
+		projectsFromDiscussions projectfromdiscussions;
+		tasksTest taskstest;
+		tasksFromProjects tasksfromprojects;
+		subTasks subtasks;
 		
 		@BeforeClass
 		public void SetUp() throws InterruptedException, IOException{	
@@ -54,6 +59,11 @@ import pages.projects.subprojects;
 		this.actionsmiddlepane = new actionsMiddlePane();
 		this.actionsrightside = new actionsRightSide();
 		this.randomaction = new randomActions();
+		this.projectfromdiscussions = new projectsFromDiscussions();
+		this.taskstest = new tasksTest();
+		this.tasksfromprojects = new tasksFromProjects();
+		this.subtasks = new subTasks();
+		
 		}
 		
 		@Test(priority = 1)
@@ -72,9 +82,6 @@ import pages.projects.subprojects;
 
 			// delete entity using multiple select
 			actionsmultipleselect.deleteEntityMultipleChoice();
-
-			//open doc  enter title and description
-			actionsmiddlepane.openEntity("doc2" , "imporant2");
 
 			actionsmultipleselect.addTagsMultipleChoice("mission");
 
@@ -152,12 +159,14 @@ import pages.projects.subprojects;
 			
 		}
 		@Test(priority = 6)
-		public void subProjectsRightSide () throws InterruptedException {
+		public void subProjectsRightSide() throws InterruptedException {
 			logger = extent.createTest("right Side");
 			
-			logger.log(Status.INFO, "add assignee and date not work not work");
+			logger.log(Status.INFO, "add assignee and date  not work");
 			
 			actionsrightside.deleteEntity();
+			
+			actionsmiddlepane.openEntity("subbpro","important");
 			
 			actionsrightside.addStatus();
 				
@@ -169,8 +178,55 @@ import pages.projects.subprojects;
 
 			actionsrightside.changePermission();
 		}
-	
 		
+		@Test(priority = 7)
+		public void projectFromDiscussion() throws InterruptedException{
+			logger = extent.createTest("project from discussions");
+			
+			projectfromdiscussions.getIntoProjectFromDiscussions();
+			
+			projectsMultipleSelect();
+			
+			projectsMiddlePane();
+			
+			projectRightSide();
+			
+			subProjectMultipleSelect();
+		
+			subProjectsRightSide();
+			
+		}
+		
+		@Test(priority = 8)
+		public void TasksFromProjects()throws InterruptedException, IOException {
+			logger = extent.createTest("Tasks From Project");
+			
+			projectsmultipleselect.pressproject();
+			
+			tasksfromprojects.getIntoTasksFromProjects();
+			
+			actionsmiddlepane.openEntity("task", "asdjfhf");
+			
+			logger.log(Status.INFO, "multiple choice in taks from project not work good");
+			
+			taskstest.SetUp();
+			
+			taskstest.allTasksMulitipleChoice();
+
+			taskstest.alltasksMiddlePane();
+			
+			taskstest.alltasksRightSide();
+			
+			actionsmiddlepane.openEntity("subtasks" , "dasa");
+			
+			subtasks.addSubTasks();
+			
+			subtasks.deleteSubTasks();
+			
+			logger.log(Status.INFO, "get into sub tasks not work");
+		
+		}
+
 		@AfterClass
 		public void after() {
 			
@@ -179,10 +235,3 @@ import pages.projects.subprojects;
 		}
 			
 	}
-		
-			
-		
-
-
-
-

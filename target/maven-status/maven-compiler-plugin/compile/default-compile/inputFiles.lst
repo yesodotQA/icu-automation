@@ -4,6 +4,7 @@
 /home/israel/workspace/selenium-root/src/main/java/pages/offices/officesRightSide.java
 /home/israel/workspace/selenium-root/src/main/java/pages/documents/documentsMultipleSelect.java
 /home/israel/workspace/selenium-root/src/main/java/pages/documents/documentsMiddlePane.java
+/home/israel/workspace/selenium-root/src/main/java/pages/documents/tasksFromDocuments.java
 /home/israel/workspace/selenium-root/src/main/java/pages/meetings/meetingsMultipleSelect.java
 /home/israel/workspace/selenium-root/src/main/java/base/testBase.java
 /home/israel/workspace/selenium-root/src/main/java/global/globalElements/multipleSelect.java
@@ -13,6 +14,7 @@
 /home/israel/workspace/selenium-root/src/main/java/global/globalElements/Tabs.java
 /home/israel/workspace/selenium-root/src/main/java/global/globalActions/actionsMultipleSelect.java
 /home/israel/workspace/selenium-root/src/main/java/global/globalElements/middlePane.java
+/home/israel/workspace/selenium-root/src/main/java/pages/projects/tasksFromProjects.java
 /home/israel/workspace/selenium-root/src/main/java/pages/folders/documentsFromFolder.java
 /home/israel/workspace/selenium-root/src/main/java/pages/tasks/subTasks.java
 /home/israel/workspace/selenium-root/src/main/java/pages/documents/documentsRightSideOnScreen.java
@@ -23,6 +25,7 @@
 /home/israel/workspace/selenium-root/src/main/java/global/globalElements/theRightOfTheScreen.java
 /home/israel/workspace/selenium-root/src/main/java/pages/projects/projectsMiddlePane.java
 /home/israel/workspace/selenium-root/src/main/java/global/globalActions/randomActions.java
+/home/israel/workspace/selenium-root/src/main/java/pages/projects/projectsFromDiscussions.java
 /home/israel/workspace/selenium-root/src/main/java/pages/offices/foldersFromOffices.java
 /home/israel/workspace/selenium-root/src/main/java/global/globalActions/actionsRightSide.java
 /home/israel/workspace/selenium-root/src/main/java/pages/tasks/tasksMultipleSelect.java

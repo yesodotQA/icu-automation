@@ -8,13 +8,13 @@
           <include name="SetUp"/>
         </methods>
       </class> <!-- base.beforeWeStart -->
-      <class name="task.tasksTest">
+      <class name="project.projectsTest">
         <methods>
-          <include name="SetUp"/>
           <include name="after"/>
-          <include name="MyTasksSubTasksRightSide"/>
+          <include name="SetUp"/>
+          <include name="TasksFromProjects"/>
         </methods>
-      </class> <!-- task.tasksTest -->
+      </class> <!-- project.projectsTest -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->

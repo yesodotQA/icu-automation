@@ -3,21 +3,10 @@ package document;
 
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.Test;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.Test;
+
+import com.aventstack.extentreports.Status;
 import org.testng.annotations.BeforeClass;
 import java.io.IOException;
-
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Test;
-
 import base.testBase;
 import global.globalActions.actionsMiddlePane;
 import global.globalActions.actionsMultipleSelect;
@@ -25,7 +14,10 @@ import global.globalActions.actionsRightSide;
 import global.globalActions.randomActions;
 import pages.documents.documentsMiddlePane;
 import pages.documents.documentsMultipleSelect;
-import pages.documents.documentsRightSideOnScreen;;
+import pages.documents.documentsRightSideOnScreen;
+import pages.documents.tasksFromDocuments;
+import pages.tasks.subTasks;
+import task.tasksTest;;
 
 public class documentsTest extends testBase {
 	
@@ -36,6 +28,9 @@ public class documentsTest extends testBase {
 	actionsRightSide actionsrightside ;
 	actionsMultipleSelect actionsmultipleselect;
 	randomActions randomaction;
+	tasksFromDocuments tasksfromdoc;
+	tasksTest taskstest;
+	subTasks subtasks;
 
 
 	@BeforeClass
@@ -47,12 +42,15 @@ public class documentsTest extends testBase {
 		this.actionsmiddlepane = new actionsMiddlePane();
 		this.actionsrightside = new actionsRightSide();
 		this.randomaction = new randomActions();
+		this.tasksfromdoc = new tasksFromDocuments();
+		this.taskstest = new tasksTest();
+		this.subtasks = new subTasks();
 	}
 		
 		
 	@Test( priority = 1)
 	public void openDoc() throws InterruptedException {
-	
+		logger = extent.createTest("documentt");
 		// press document tab
 		documentsmultipleselect.pressDocument();
 	  
@@ -63,7 +61,7 @@ public class documentsTest extends testBase {
 	@Test (priority = 2 )
 		public void documentsMultipleSelect() throws InterruptedException {
 		
-		logger = extent.createTest("document multiple select");
+		logger = extent.createTest("multiple select");
 		
 		actionsmultipleselect.deleteEntityMultipleChoice();
 	
@@ -81,7 +79,7 @@ public class documentsTest extends testBase {
 	@Test(priority = 3)
 	public void documentsMiddlePane() throws InterruptedException {
 		
-		logger = extent.createTest("document middle pane");
+		logger = extent.createTest(" middle pane");
 		
 		randomaction.enterNameToEntity("hyyyyyyyyy");
 		
@@ -104,7 +102,7 @@ public class documentsTest extends testBase {
 	@Test(priority =4)
 	public void documentsRightSide() throws InterruptedException {
 		
-		logger = extent.createTest("document the right side on the screen");
+		logger = extent.createTest("the right side on the screen");
 		
 		actionsrightside.deleteEntity();
 		
@@ -123,6 +121,34 @@ public class documentsTest extends testBase {
 		actionsrightside.changePermission();
 	}
 	
+	@Test(priority = 5)
+	public void TasksFromDocuments() throws InterruptedException, IOException {
+		logger = extent.createTest("tasksFromDocuments");
+		
+		tasksfromdoc.getIntoTasksFromDocuments();
+		
+		actionsmiddlepane.openEntity("task1" , "importenet");
+		
+		taskstest.SetUp();
+		
+		logger.log(Status.INFO, "multiple choice in taks from doc not work good");
+		
+		taskstest.allTasksMulitipleChoice();
+		
+		taskstest.alltasksMiddlePane();
+		
+		taskstest.alltasksRightSide();
+		
+		actionsmiddlepane.openEntity("subtasks" , "dasa");
+		
+		subtasks.addSubTasks();
+		
+		subtasks.deleteSubTasks();
+		
+		logger.log(Status.INFO, "get into sub tasks not work");
+		
+		
+	}
 	
 	@AfterClass
 	public void after() {

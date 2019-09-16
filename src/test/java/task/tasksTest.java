@@ -9,6 +9,7 @@ import org.testng.annotations.Test;
 import com.aventstack.extentreports.Status;
 
 import base.testBase;
+import document.documentsTest;
 import global.globalActions.actionsMiddlePane;
 import global.globalActions.actionsMultipleSelect;
 import global.globalActions.actionsRightSide;
@@ -16,6 +17,7 @@ import global.globalActions.randomActions;
 import global.globalElements.Tabs;
 import global.globalElements.middlePane;
 import pages.documents.documentsMiddlePane;
+import pages.tasks.documentsFromTasks;
 import pages.tasks.subTasks;
 import pages.tasks.tasksMiddlePane;
 import pages.tasks.tasksMultipleSelect;
@@ -34,6 +36,8 @@ public class tasksTest  extends testBase {
 	actionsMultipleSelect actionsmultipleselect;
 	documentsMiddlePane documentsmiddlepane;
 	randomActions randomaction;
+	documentsFromTasks documentsfromtasks;
+	documentsTest documentstest;
 	
 	@BeforeClass
 	public void SetUp() throws InterruptedException, IOException{	
@@ -49,6 +53,8 @@ public class tasksTest  extends testBase {
 		this.actionsrightside = new actionsRightSide();
 		this.tabs = new Tabs();
 		this.randomaction = new randomActions();
+		this.documentsfromtasks = new documentsFromTasks();
+		this.documentstest = new documentsTest();
 	}
 
 	@Test(priority = 1)
@@ -85,7 +91,7 @@ public class tasksTest  extends testBase {
 	@Test(priority = 3)
 	public void alltasksMiddlePane()throws InterruptedException {
 		logger = extent.createTest(" middle pane");
-
+		
 		randomaction.enterNameToEntity("hyyyyyyyyy");
 		
 		tasksmiddlepane.changeStatusOfList();
@@ -252,6 +258,24 @@ public class tasksTest  extends testBase {
 		allTaksSubTasksRightSide();
 		
 
+	}
+	
+	@Test(priority = 11)
+	public void documentsFromTasks() throws InterruptedException, IOException {
+		
+		logger = extent.createTest("documents from tasks");
+		
+		documentsfromtasks.getIntoDocumentsFromTasks();
+	
+		actionsmiddlepane.openEntity("document 123456","ahalan");
+		
+		documentstest.SetUp();
+		
+		documentstest.documentsMultipleSelect();
+		
+		documentstest.documentsMiddlePane();
+		
+		documentstest.documentsRightSide();
 	}
 
 	@AfterClass

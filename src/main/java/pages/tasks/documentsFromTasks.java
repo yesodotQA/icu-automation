@@ -1,4 +1,4 @@
-package pages.folders;
+package pages.tasks;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,44 +8,44 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
-import com.aventstack.extentreports.Status;
-
 import base.testBase;
+import global.globalActions.actionsMiddlePane;
 
-public class documentsFromFolder extends testBase {
+public class documentsFromTasks extends testBase {
 
-
+	actionsMiddlePane actionmiddlepane;
+	
 	@FindBy (css = ".tab.three ")
 	List<WebElement>  tabsListOnRightSide = new ArrayList<>();
-
-	@FindBy(css = "[ng-click='manageOfficeDocuments()']")
+	
+	@FindBy (css = "[ng-click='manageOfficeDocuments()']")
 	WebElement manageDocuments;
+	
+	public  documentsFromTasks() {
 
-	public  documentsFromFolder() {
-		
 		PageFactory.initElements(driver, this);
-	}
-
-	private void waitForVisibility (WebElement element)  {
-		
-		wait.until(ExpectedConditions.visibilityOf(element));
-		
+		this.actionmiddlepane = new actionsMiddlePane();
 	}
 	
-	public void getIntoDocumentsFromFolder () throws InterruptedException {
+	private void waitForVisibility (WebElement element)  {
+
+		wait.until(ExpectedConditions.visibilityOf(element));
+
+	}
+	
+	public void getIntoDocumentsFromTasks() throws InterruptedException {
 		
-		logger.log(Status.INFO, "get into document from folder");
+		actionmiddlepane.openEntity("doc from tasks", "dsasadas");
 		
 		tabsListOnRightSide.get(2).click();
 		
+		
 		waitForVisibility(manageDocuments);
+		
 		manageDocuments.click();
-			
+		
 		Thread.sleep(2000);
+		
 	}
-
-
 }
-
-
 
