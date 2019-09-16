@@ -13,6 +13,7 @@ import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.FindBys;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.pagefactory.ByChained;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.w3c.dom.css.Counter;
 
@@ -85,13 +86,14 @@ public class MeetingsFunctions extends testBase {
 	List<WebElement> ListOfEntities = new ArrayList<>();
 
 	// Variables that related to meetings from projects
-	@FindBy (css = "'[data-ng-repeat=\"project in projectsList | filterRecycled | limitTo: displayLimit.projects\"]'")
-	List <WebElement> ProjectsList;
+
+	@FindBy (css = "[data-ng-repeat='project in projectsList | filterRecycled | limitTo: displayLimit.projects']")
+	List <WebElement> ProjectsList = new ArrayList<>();
 	@FindBy (css = "ng-click=\"reset(context.main);removeFilterValue();\"")
 	WebElement ShowAllButton;
 	@FindBy (css = "[ng-click='visible.project = !visible.project']")
 	WebElement MeetingsFromProjectsButton;
-	@FindBy (css = "ng-if=\"projectsList.length > displayLimit.projects\"")
+	//	@FindBy (xpath = "//[(@class = 'ng-binding') and (tagName = 'SHOW MORE')]");
 	WebElement ShowMoreButton;
 	@FindBy (className = "entityTitle ")
 	WebElement EntityTitle;
@@ -244,55 +246,61 @@ public class MeetingsFunctions extends testBase {
 		int NumbersOfProjects = ProjectsList.size();
 		String ProjectName = "Meeting from Project test";
 
+
+		waitForVisibility(tabs.projectsTab);
 		tabs.projectsTab.click();
+		Thread.sleep(2000); 
 		actionsmiddlepane.openEntity(ProjectName ,"test the ability to open meetings from projects" + "test the inheritance form project to meeting");
 		actionsrightside.changePermission();
+
 		tabs.meetingsTab.click();
+		Thread.sleep(2000);
+		WebElement ShowMore = (WebElement) driver.findElement(By.cssSelector(cssSelector)
 
-		while (ShowMoreButton.isDisplayed()){ 
+				while (ShowMore.isEnabled()){ 
 
-			ShowMoreButton.click();
-		}
+				}
 
-		// Test if project was added to projects list
-		if (NumbersOfProjects + 1 == ProjectsList.size()) {
+				// Test if project was added to projects list
+				if (NumbersOfProjects + 1 == ProjectsList.size()) {
 
-			logger.log(Status.PASS , "The project was added");
-		}
-		else {
+					logger.log(Status.PASS , "The project was added");
+				}
+				else {
 
-			logger.log(Status.FAIL , "The project wasn't add to the projects list");
-		}
+					logger.log(Status.FAIL , "The project wasn't add to the projects list");
+				}
 
-		for (int i = 0; i < ProjectsList.size(); i++) {
+				for (int i = 0; i < ProjectsList.size(); i++) {
 
-			if (ProjectsList.get(i).equals(ProjectName)) {
-				ProjectsList.get(i).click();
-			}
-		}
+					if (ProjectsList.get(i).equals(ProjectName)) {
+						ProjectsList.get(i).click();
+						waitForVisibility(EntityTitle);
+					}
+				}
 
-		// Test if the project name is display on screen meetings from projects.
-		if (EntityTitle.getText().equals(ProjectName)) {
+				// Test if the project name is display on screen meetings from projects.
+				if (EntityTitle.getText().equals(ProjectName)) {
 
-			logger.log(Status.PASS , "The project name  is display");
-		}
-		else {
-			logger.log(Status.FAIL , "The project name  isn't display");
-		}
+					logger.log(Status.PASS , "The project name  is display");
+				}
+				else {
+					logger.log(Status.FAIL , "The project name  isn't display");
+				}
 
-		actionsmiddlepane.openEntity("Meetings from " + ProjectName, "this entity related to " + ProjectName);
-		
-		// Test if The inheritance from project is working. 
-		if (EditorsMembers.size() == 2    &
-				CommenterMember.isDisplayed() &
-				ViewerMember.isDisplayed())	{
+				actionsmiddlepane.openEntity("Meetings from " + ProjectName, "this entity related to " + ProjectName);
 
-			logger.log(Status.PASS , "The inheritance from project is working!");
-		}
-		else {
+				// Test if The inheritance from project is working. 
+				if (EditorsMembers.size() == 2    &
+						CommenterMember.isDisplayed() &
+						ViewerMember.isDisplayed())	{
 
-			logger.log(Status.FAIL , "The inheritance from project isn't working");
-		}
+					logger.log(Status.PASS , "The inheritance from project is working!");
+				}
+				else {
+
+					logger.log(Status.FAIL , "The inheritance from project isn't working");
+				}
 	}
 }
 

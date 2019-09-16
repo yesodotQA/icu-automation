@@ -1,5 +1,6 @@
 package meetings;
 
+import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
@@ -39,7 +40,7 @@ public class TempMeetings extends testBase {
 	
 	@BeforeClass
 	
-	public void SetUp() throws InterruptedException, IOException{	
+	public void SetUp() throws InterruptedException, IOException {	
 	
 	this.tabs                       = new Tabs();
 	this.actionsmultipleselect      = new actionsMultipleSelect();
@@ -51,6 +52,8 @@ public class TempMeetings extends testBase {
 	this.actionsrightside           = new actionsRightSide();
 	this.meetingsfunctions			= new MeetingsFunctions();
 	
+	PageFactory.initElements(driver, this);
+
 	
 	
 	tabs.meetingsTab.click();
