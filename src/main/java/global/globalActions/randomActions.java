@@ -1,7 +1,9 @@
 package global.globalActions;
 
 import java.util.Random;
+
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
@@ -20,7 +22,6 @@ public class randomActions extends testBase{
 	multipleSelect multipleselect;
 	theRightOfTheScreen therightonthescreen;
 	actionsMiddlePane actionmiddlepane;
-
 
 
 
@@ -101,6 +102,8 @@ public class randomActions extends testBase{
 			}
 	
 		}
+		
+		
 
 
 	}

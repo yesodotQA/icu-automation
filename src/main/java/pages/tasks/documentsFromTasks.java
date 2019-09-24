@@ -14,6 +14,7 @@ import global.globalActions.actionsMiddlePane;
 public class documentsFromTasks extends testBase {
 
 	actionsMiddlePane actionmiddlepane;
+	tasksMultipleSelect tasksmultipleselect;
 	
 	@FindBy (css = ".tab.three ")
 	List<WebElement>  tabsListOnRightSide = new ArrayList<>();
@@ -25,7 +26,8 @@ public class documentsFromTasks extends testBase {
 
 		PageFactory.initElements(driver, this);
 		this.actionmiddlepane = new actionsMiddlePane();
-	}
+		this.tasksmultipleselect = new tasksMultipleSelect();
+		}
 	
 	private void waitForVisibility (WebElement element)  {
 
@@ -35,6 +37,8 @@ public class documentsFromTasks extends testBase {
 	
 	public void getIntoDocumentsFromTasks() throws InterruptedException {
 		
+		tasksmultipleselect.pressTask();
+
 		actionmiddlepane.openEntity("doc from tasks", "dsasadas");
 		
 		tabsListOnRightSide.get(2).click();

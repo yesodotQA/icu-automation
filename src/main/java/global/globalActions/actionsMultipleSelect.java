@@ -4,14 +4,14 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-
 import com.aventstack.extentreports.Status;
-
 import base.testBase;
 import global.globalElements.Tabs;
 import global.globalElements.middlePane;
 import global.globalElements.multipleSelect;
 import global.globalElements.theRightOfTheScreen;
+
+
 
 public class actionsMultipleSelect extends testBase {
 
@@ -21,6 +21,11 @@ public class actionsMultipleSelect extends testBase {
 	theRightOfTheScreen therightonthescreen;
 	actionsMiddlePane actionsMiddlePane;
 	
+	
+	  
+	@FindBy (className =  "header-button")
+	WebElement FullScreenFirst;
+		
 	@FindBy(css = "[ui-date='dueOptions']")
 	 WebElement getTextOfDate;
 	
@@ -31,6 +36,7 @@ public class actionsMultipleSelect extends testBase {
 		this.actionsMiddlePane = new actionsMiddlePane();
 		this.tabs = new Tabs();
 		this.therightonthescreen = new theRightOfTheScreen();
+		
 		PageFactory.initElements(driver, this);
 	 }
 	

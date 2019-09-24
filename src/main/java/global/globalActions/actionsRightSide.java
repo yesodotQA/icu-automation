@@ -79,7 +79,7 @@ public class actionsRightSide extends testBase {
 		Thread.sleep(3000);
 
 		therightonthescreen.listOfAssigneeOnScreen.get(1).click();
-		Thread.sleep(2000);
+		Thread.sleep(3000);
 
 		int  checkSizeOfWatchersAfterAddAssignee = therightonthescreen.listOfWatchersIcons.size();
 
@@ -267,14 +267,14 @@ public class actionsRightSide extends testBase {
 		for (int i = 1; i < 4; i++) {
 			waitForVisibility(therightonthescreen.pressOnAddWatcherOnTHeScreen);
 			therightonthescreen.pressOnAddWatcherOnTHeScreen.click();
-			Thread.sleep(1000);
+			Thread.sleep(2000);
 
 			waitForVisibility(therightonthescreen.selectMembers);
 			therightonthescreen.selectMembers.click();
-			Thread.sleep(1000);
+			Thread.sleep(2000);
 
 			therightonthescreen.listOfWatchersOnScreen.get(i).click();
-			Thread.sleep(1000);
+			Thread.sleep(2000);
 		}
 
 		List<WebElement> memberList = driver.findElements(By.cssSelector("[user='member']"));

@@ -1,10 +1,11 @@
 package meetings;
 
+import java.io.IOException;
+
 import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.AfterClass;
-import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
-import java.io.IOException;
+import org.testng.annotations.Test;
 
 import base.testBase;
 import global.globalActions.actionsMiddlePane;
@@ -28,7 +29,7 @@ public class TempMeetings extends testBase {
 	actionsMultipleSelect      actionsmultipleselect;
 	Tabs 					   tabs;
 	MeetingsFunctions		   meetingsfunctions;
-	
+	meetingsTest			   meetingstest;
 	@BeforeClass
 	
 	public void SetUp() throws InterruptedException, IOException {	
@@ -42,7 +43,7 @@ public class TempMeetings extends testBase {
 	this.actionsmiddlepane          = new actionsMiddlePane();
 	this.actionsrightside           = new actionsRightSide();
 	this.meetingsfunctions			= new MeetingsFunctions();
-	
+	this.meetingstest				= new meetingsTest();
 	PageFactory.initElements(driver, this);
 
 	
@@ -52,10 +53,20 @@ public class TempMeetings extends testBase {
 	}
 	
 	@Test (priority = 1)
-	public void MultipleChoiceFunction () throws InterruptedException {
+	public void MultipleChoiceFunction () throws InterruptedException, IOException {
 	
 		logger = extent.createTest("set a date in meetings");
+		
 		meetingsfunctions.MeetingFromProjects();
+		
+		meetingstest.SetUp();
+		
+		meetingstest.MultipleChoiceFunction();
+		
+		meetingstest.MiddlePaneFunction();
+		
+		meetingstest.RightSideFunction();
+		
 	}
 	@AfterClass
 	public void after() {

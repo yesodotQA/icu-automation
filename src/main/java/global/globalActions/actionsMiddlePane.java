@@ -1,9 +1,11 @@
 package global.globalActions;
+import java.awt.Desktop.Action;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
@@ -23,7 +25,6 @@ public class actionsMiddlePane extends testBase {
 	multipleSelect multipleselect;
 	theRightOfTheScreen therightonthescreen;
 
-
 	public actionsMiddlePane(){
 
 		this.multipleselect = new multipleSelect();
@@ -42,7 +43,7 @@ public class actionsMiddlePane extends testBase {
 
 	//a function that open new entity and give title and description
 	public void openEntity(String tit , String des) throws InterruptedException {
-
+		
 		waitForVisibility(middlepane.pressCreateNewItem);
 		middlepane.pressCreateNewItem.click();
 		Thread.sleep(2000);
@@ -54,10 +55,15 @@ public class actionsMiddlePane extends testBase {
 		waitForVisibility(middlepane.description);
 		middlepane.description.sendKeys(des);
 		Thread.sleep(3000);
-
+	
+	
 		waitForVisibility(middlepane.pressOnEntity);
-		middlepane.pressOnEntity.click();
+			
+		action.moveToElement(middlepane.pressOnEntity).build().perform();
+			
 		Thread.sleep(3000);
+	
+		
 	}
 
 	// a function that selects a favorite entity

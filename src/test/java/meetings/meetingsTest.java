@@ -4,7 +4,6 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
 
-
 import java.io.IOException;
 
 
@@ -18,6 +17,7 @@ import pages.documents.documentsMiddlePane;
 import pages.documents.documentsMultipleSelect;
 import pages.documents.documentsRightSideOnScreen;
 import pages.meetings.MeetingsFunctions;
+import pages.meetings.meetingsMultipleSelect;
 
 public class meetingsTest extends testBase {
 
@@ -30,9 +30,10 @@ public class meetingsTest extends testBase {
 	actionsMultipleSelect      actionsmultipleselect;
 	Tabs 					   tabs;
 	MeetingsFunctions		   meetingsfunctions;
+	meetingsMultipleSelect	   meetingsmultipleselect;
 
 	@BeforeClass
-	
+
 	public void SetUp() throws InterruptedException, IOException{	
 	
 	this.tabs                       = new Tabs();
@@ -44,25 +45,35 @@ public class meetingsTest extends testBase {
 	this.actionsmiddlepane          = new actionsMiddlePane();
 	this.actionsrightside           = new actionsRightSide();
 	this.meetingsfunctions			= new MeetingsFunctions();
-	
-	tabs.meetingsTab.click();
+	this.meetingsmultipleselect		= new meetingsMultipleSelect();
 	
 	}
 	
 	@Test (priority = 1)
+	public void pressMeetings() throws InterruptedException {
+		
+		meetingsfunctions.pressMeetings();
+		
+		actionsmiddlepane.openEntity("delete", "dasda");
+		
+	}
+
+	@Test (priority = 2)
 	public void MultipleChoiceFunction () throws InterruptedException {
 	
 		logger = extent.createTest("Test Multiple Choice in Meetings");
 		
-		actionsmultipleselect.addAssigneeMultipleChoice();
-		meetingsfunctions.setDateViaMultipleSelect();
-		actionsmultipleselect.addStatusMultipleChoice();
-		actionsmultipleselect.addTagsMultipleChoice("Meetings ASAP");
-		actionsmultipleselect.addWatchersMultipleChoice();
 		actionsmultipleselect.deleteEntityMultipleChoice();
+		actionsmultipleselect.addTagsMultipleChoice("Meetings ASAP");
+		meetingsfunctions.setDateViaMultipleSelect();
+		actionsmultipleselect.addAssigneeMultipleChoice();
+		actionsmultipleselect.addWatchersMultipleChoice();
+		
+		meetingsmultipleselect.addStatusMultipleChoiceMeetings();
+				
 	}
 	
-	@Test (priority = 2)
+	@Test (priority = 3)
 	public void MiddlePaneFunction () throws InterruptedException {
 		
 		logger = extent.createTest("Test the Middle Pane Functionality");
@@ -75,7 +86,7 @@ public class meetingsTest extends testBase {
 		
 	}
 	
-	@Test (priority = 3)
+	@Test (priority = 4)
 	public void RightSideFunction () throws InterruptedException {
 	
 		logger = extent.createTest("Test the Right Side functionality");
@@ -87,6 +98,19 @@ public class meetingsTest extends testBase {
 		actionsrightside.addTags("ASAP");
 		actionsrightside.addActivities("HELLO" , "this is superman");
 		actionsrightside.changePermission();
+	}
+
+	@Test (priority = 2)
+	public void  discussionFromProject() throws InterruptedException {
+		
+		meetingsfunctions.MeetingFromProjects();
+		
+		MultipleChoiceFunction();
+		
+		MiddlePaneFunction();
+		
+		RightSideFunction();
+		
 	}
 	
 	@AfterClass

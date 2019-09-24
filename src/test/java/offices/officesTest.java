@@ -9,6 +9,21 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeClass;
 import java.io.IOException;
 import base.testBase;
 import folder.folderTest;
@@ -51,7 +66,7 @@ import pages.offices.foldersFromOffices;
 		officesmultipleselect.pressOffices();
 		
 		//open doc  enter title and description
-		actionsmiddlepane.openEntity("office1" , "importenet");
+		actionsmiddlepane.openEntity("office1" , "importent");
 		
 	}
 
@@ -94,7 +109,7 @@ import pages.offices.foldersFromOffices;
 
 		actionsrightside.deleteEntity();
 
-		actionsmiddlepane.openEntity("folderTest", "isr");
+		actionsmiddlepane.openEntity("officeTest", "isr");
 
 		randomactions.chooseColor();
 
