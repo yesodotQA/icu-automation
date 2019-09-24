@@ -69,7 +69,7 @@ import pages.offices.foldersFromOffices;
 		actionsmiddlepane.openEntity("office1" , "importent");
 		
 	}
-
+/*
 	@Test(priority = 2)
 	public void officesMultipleSelect() throws InterruptedException {
 		
@@ -101,7 +101,7 @@ import pages.offices.foldersFromOffices;
 		// press on arrow to reverse the order of the list
 		//actionsmiddlepane.pressOnArrow();
 	}
-	
+	*/
 	@Test(priority = 4)
 	public void officesRightSide() throws InterruptedException {
 		

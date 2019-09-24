@@ -35,6 +35,7 @@ public class MeetingsFunctions extends testBase {
 	multipleSelect   	multipleSelect;
 	actionsRightSide    actionsrightside;
 	middlePane			middlepane;
+	actionsMiddlePane	actionmiddlepane;
 	public MeetingsFunctions() {
 
 		this.tabs 				 = new Tabs();
@@ -42,7 +43,8 @@ public class MeetingsFunctions extends testBase {
 		this.therightonthescreen = new theRightOfTheScreen();
 		this.multipleSelect		 = new multipleSelect();
 		this.actionsrightside    = new actionsRightSide();
-		this.middlepane			 = new middlePane();	
+		this.middlepane			 = new middlePane();
+		this.actionmiddlepane    = new actionsMiddlePane();
 		PageFactory.initElements(driver, this);
 	}
 	// Variables that related to SetDate
@@ -64,8 +66,11 @@ public class MeetingsFunctions extends testBase {
 	WebElement SecondDate;
 
 	// Variables related to location
-	@FindBy (css = "[ng-model='item.location']")
+	@FindBy (className = "location")
 	WebElement LocationButton;
+	
+	@FindBy (css ="[ng-model='item.location']")
+	WebElement fillLocation;
 
 	// Variables related to set a date via multipleSelect
 	@FindBy (css = "/html/body/section/section/div[2]/div[2]/div[1]/div/div/div/div[3]/div[2]/table/tbody/tr[1]/td[2]/input")
@@ -99,12 +104,18 @@ public class MeetingsFunctions extends testBase {
 	WebElement EntityTitle;
 	@FindBy (css = "[user='member']")
 	WebElement MemberList;
-	@FindBy (className = "avatar.editor")
+	@FindBy (css = ".avatar.editor")
 	List <WebElement> EditorsMembers;
 	@FindBy (className = "commenter")
 	WebElement CommenterMember;
 	@FindBy (className = "viewer")
 	WebElement ViewerMember;
+	
+	@FindBy (css = ".tab.three ")
+	List<WebElement>  tabsListOnRightSide = new ArrayList<>();
+	
+	@FindBy(css = "[ng-click='manageTasks()']")
+	WebElement manageTasks;
 
 	private void waitForVisibility (WebElement element)  {
 		wait.until(ExpectedConditions.visibilityOf(element));
@@ -122,8 +133,6 @@ public class MeetingsFunctions extends testBase {
 
 	public void setDateInMeetings() throws InterruptedException {
 
-		tabs.meetingsTab.click();
-		Thread.sleep(2000);
 		actionsmiddlepane.openEntity("Set a Date", "set a date on meetings tab");
 		Thread.sleep(2000);
 		waitForVisibility(DateButton);
@@ -165,13 +174,13 @@ public class MeetingsFunctions extends testBase {
 
 		String LocationInput = "this input contain the location"; 
 
-		tabs.meetingsTab.click();
 		actionsmiddlepane.openEntity("Add location", "test adding location in meeting");
 		LocationButton.click();
-		Thread.sleep(1000);
-		LocationButton.sendKeys(LocationInput);
-		String locationContent = LocationButton.getAttribute("value");
-
+		Thread.sleep(2000);
+		fillLocation.sendKeys(LocationInput);
+		String locationContent = fillLocation.getAttribute("value");
+		
+		Thread.sleep(2000);
 
 		if (locationContent.equals(LocationInput)) {
 			logger.log(Status.PASS , "add location work perfectly!");
@@ -240,7 +249,7 @@ public class MeetingsFunctions extends testBase {
 
 		int numberOfProject  = middlepane.listOfEntities.size();
 
-		//actionsrightside.changePermission();
+		actionsrightside.addWatcher();
 
 		Thread.sleep(2000);
 		
@@ -303,11 +312,9 @@ public class MeetingsFunctions extends testBase {
 
 		logger.log(Status.INFO, "inharitance not work need to fix");
 
-		/*
+		
 		// Test if The inheritance from project is working. 
-		if (EditorsMembers.size() == 2    &
-				CommenterMember.isDisplayed() &
-				ViewerMember.isDisplayed())	{
+		if (EditorsMembers.size() == 2 )	{
 
 			logger.log(Status.PASS , "The inheritance from project is working!");
 		}
@@ -315,8 +322,24 @@ public class MeetingsFunctions extends testBase {
 
 			logger.log(Status.FAIL , "The inheritance from project isn't working");
 		}
-		*/
+		
+		actionmiddlepane.openEntity("discussions from projects  124354", "dasd");
+		
 	}
+	
+	public void getIntoTasksFromMeetings() throws InterruptedException {
+
+		actionsmiddlepane.openEntity("tasksFromMeetings","adsdgt");
+
+		tabsListOnRightSide.get(2).click();
+
+		waitForVisibility(manageTasks);
+		manageTasks.click();
+
+		Thread.sleep(2000);
+
+	}
+
 }
 
 

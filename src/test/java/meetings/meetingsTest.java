@@ -2,6 +2,9 @@ package meetings;
 
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
+
+import com.aventstack.extentreports.Status;
+
 import org.testng.annotations.BeforeClass;
 
 import java.io.IOException;
@@ -18,6 +21,8 @@ import pages.documents.documentsMultipleSelect;
 import pages.documents.documentsRightSideOnScreen;
 import pages.meetings.MeetingsFunctions;
 import pages.meetings.meetingsMultipleSelect;
+import pages.tasks.subTasks;
+import task.tasksTest;
 
 public class meetingsTest extends testBase {
 
@@ -31,7 +36,8 @@ public class meetingsTest extends testBase {
 	Tabs 					   tabs;
 	MeetingsFunctions		   meetingsfunctions;
 	meetingsMultipleSelect	   meetingsmultipleselect;
-
+	tasksTest				   tasktest;
+	subTasks 				   subtasks;
 	@BeforeClass
 
 	public void SetUp() throws InterruptedException, IOException{	
@@ -46,7 +52,8 @@ public class meetingsTest extends testBase {
 	this.actionsrightside           = new actionsRightSide();
 	this.meetingsfunctions			= new MeetingsFunctions();
 	this.meetingsmultipleselect		= new meetingsMultipleSelect();
-	
+	this.tasktest					= new tasksTest();
+	this.subtasks 					= new subTasks();
 	}
 	
 	@Test (priority = 1)
@@ -61,7 +68,7 @@ public class meetingsTest extends testBase {
 	@Test (priority = 2)
 	public void MultipleChoiceFunction () throws InterruptedException {
 	
-		logger = extent.createTest("Test Multiple Choice in Meetings");
+		logger = extent.createTest("Test Multiple Choice ");
 		
 		actionsmultipleselect.deleteEntityMultipleChoice();
 		actionsmultipleselect.addTagsMultipleChoice("Meetings ASAP");
@@ -78,7 +85,6 @@ public class meetingsTest extends testBase {
 		
 		logger = extent.createTest("Test the Middle Pane Functionality");
 		
-		actionsmiddlepane.openEntity("Title Test", "Open Entity Perfectly!!!");
 		//actionsmiddlepane.sortByFavorite();
 		actionsmiddlepane.sortByTitle();
 		actionsmiddlepane.sordByStatusAndUnread();
@@ -94,14 +100,18 @@ public class meetingsTest extends testBase {
 		actionsrightside.deleteEntity();
 		actionsrightside.addAssignee();
 		meetingsfunctions.setDateInMeetings();
+		meetingsfunctions.AddLocation();
 		actionsrightside.addStatus();
 		actionsrightside.addTags("ASAP");
 		actionsrightside.addActivities("HELLO" , "this is superman");
+		
 		actionsrightside.changePermission();
 	}
 
-	@Test (priority = 2)
+	@Test (priority = 5)
 	public void  discussionFromProject() throws InterruptedException {
+		
+		logger = extent.createTest("discussion from projects");
 		
 		meetingsfunctions.MeetingFromProjects();
 		
@@ -110,6 +120,24 @@ public class meetingsTest extends testBase {
 		MiddlePaneFunction();
 		
 		RightSideFunction();
+		
+	}
+	
+	@Test (priority = 6)
+	public void tasksFromMeetings() throws InterruptedException, IOException {
+		logger = extent.createTest("Tasks From meetings");
+		meetingsfunctions.pressMeetings();
+		meetingsfunctions.getIntoTasksFromMeetings();
+		actionsmiddlepane.openEntity("task", "asdjfhf");
+		tasktest.SetUp();
+		tasktest.allTasksMulitipleChoice();
+		tasktest.alltasksMiddlePane();
+		tasktest.alltasksRightSide();
+		actionsmiddlepane.openEntity("subtasks" , "dasa");
+		subtasks.addSubTasks();
+		subtasks.deleteSubTasks();
+		
+		logger.log(Status.INFO, "get into sub tasks not work");
 		
 	}
 	
