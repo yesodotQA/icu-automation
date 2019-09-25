@@ -4,7 +4,6 @@
   <test thread-count="5" name="Test">
     <classes>
      <class name="base.beforeWeStart"/>
-<<<<<<< HEAD
      <!--   <class name="offices.officesTest"/> -->
       <!-- <class name="document.documentsTest"/> -->
       <!-- <class name="folder.folderTest"/> -->
@@ -14,16 +13,6 @@
         <class name="project.projectsTest"/>
     <!-- <class name="templateDoc.templateDocTest"/> --> 
 
-=======
-<!--  <class name="offices.officesTest"/> -->
-      <!-- <class name="folder.folderTest"/>
-      <class name="document.documentsTest"/> -->
-     <!--  <class name="meetings.meetingsTest"/> -->
-      <class name="project.projectsTest"/>
-     <!--  <class name="fullScreen.fullScreenTest"/>
-      <class name="templateDoc.templateDocTest"/>
-      <class name="task.tasksTest"/> -->
->>>>>>> cd575c713da3029c4b44dce6607857837b289668
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->
