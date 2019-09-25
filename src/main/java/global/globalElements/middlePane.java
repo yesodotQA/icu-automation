@@ -3,6 +3,7 @@ package global.globalElements;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.omg.CORBA.PUBLIC_MEMBER;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -52,6 +53,8 @@ public class middlePane extends testBase {
 	@FindBy(className = "ui-select-choices-row")
 	public List<WebElement>  listOfSorts = new ArrayList<>();
 	
+	@FindBy (className = "header-title")
+	public WebElement titleICU;
 	
 	 public middlePane () {
 			

@@ -7,6 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.BeforeSuite;
@@ -23,7 +24,8 @@ public class testBase {
 	public static ExtentTest logger;
 	public static WebDriverWait wait;
 	public static Properties prop;
-
+	public static Actions action;
+	
 	public static void initialization() throws IOException  {
 
 		prop = new Properties();
@@ -37,6 +39,7 @@ public class testBase {
 		extent 		 = new ExtentReports();
 		htmlReporter = new ExtentHtmlReporter("./reports/extent.html");
 		extent.attachReporter(htmlReporter);
+		action = new Actions(driver);
 
 		driver.manage().window().maximize();
 		driver.manage().deleteAllCookies();

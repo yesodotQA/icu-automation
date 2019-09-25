@@ -1,5 +1,22 @@
 package task;
 
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeClass;
+
+import java.awt.AWTException;
 import java.io.IOException;
 
 import org.testng.annotations.AfterClass;
@@ -215,9 +232,9 @@ public class tasksTest  extends testBase {
 
 		actionsrightside.addStatus();
 
-		tasksrightsideonscreen.SelectDiscussionsOnScreen();
-
 		tasksrightsideonscreen.SelectProjectsOnScreen();
+		
+		tasksrightsideonscreen.SelectDiscussionsOnScreen();
 
 		actionsrightside.addTags("yaronnn");
 

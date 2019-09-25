@@ -11,7 +11,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import com.aventstack.extentreports.Status;
 
 import base.testBase;
-import global.globalActions.actionsRightSide;
 
 public class templateDocRightSide extends testBase {
 	
@@ -37,31 +36,38 @@ public class templateDocRightSide extends testBase {
 	
 	public void SelectOfficeOnScreen() throws InterruptedException {
 		
-		waitForVisibility(SelectOffice);
-		
-		SelectOffice.click();
-		
-		Thread.sleep(3000);
-		
-		String nameOfFolder	= listOfOffices.get(0).getText();
-		
-		listOfOffices.get(0).click();
-		
-		Thread.sleep(2000);
-		
-		String nameOfFolderForChecking = SelectOffice.getAttribute("innerText");
-		
-		if (nameOfFolder.equals(nameOfFolderForChecking)) {
+		if (SelectOffice.getText().equals("Select office")) {
+
+			waitForVisibility(SelectOffice);
+
+			SelectOffice.click();
 			
-			logger.log(Status.PASS , "select office on screen");
-			
+			if (listOfOffices.isEmpty()==false) {
+				
+				Thread.sleep(3000);
+
+				String nameOfFolder	= listOfOffices.get(0).getText();
+
+				listOfOffices.get(0).click();
+
+				Thread.sleep(2000);
+
+				String nameOfFolderForChecking = SelectOffice.getAttribute("innerText");
+
+				if (nameOfFolder.equals(nameOfFolderForChecking)) {
+
+					logger.log(Status.PASS , "select office on screen");
+
+				}
+				
+				else {
+
+					logger.log(Status.FAIL , "select office on screen");
+				}
+			}
+
 		}
-		else {
-			
-			logger.log(Status.FAIL , "select office on screen");
-		}
-		
+
 	}
-	
 
 }

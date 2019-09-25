@@ -1,5 +1,20 @@
 package project;
 
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeClass;
 import java.io.IOException;
 
 import org.testng.annotations.AfterClass;
@@ -74,7 +89,6 @@ import task.tasksTest;
 			
 			actionsmiddlepane.openEntity("doc1","important");
 		}
-		
 		@Test(priority = 2)
 		public void projectsMultipleSelect() throws InterruptedException {
 
@@ -168,6 +182,8 @@ import task.tasksTest;
 			
 			actionsmiddlepane.openEntity("subbpro","important");
 			
+			actionsrightside.addAssignee();
+			
 			actionsrightside.addStatus();
 				
 			randomaction.chooseColor();
@@ -178,7 +194,7 @@ import task.tasksTest;
 
 			actionsrightside.changePermission();
 		}
-		
+	
 		@Test(priority = 7)
 		public void projectFromDiscussion() throws InterruptedException{
 			logger = extent.createTest("project from discussions");

@@ -79,7 +79,7 @@ public class actionsRightSide extends testBase {
 		Thread.sleep(3000);
 
 		therightonthescreen.listOfAssigneeOnScreen.get(1).click();
-		Thread.sleep(2000);
+		Thread.sleep(3000);
 
 		int  checkSizeOfWatchersAfterAddAssignee = therightonthescreen.listOfWatchersIcons.size();
 
@@ -246,6 +246,25 @@ public class actionsRightSide extends testBase {
 		therightonthescreen.listOfWatchersOnScreen.get(1).click();
 
 		Thread.sleep(2000);
+		
+		List<WebElement> memberList = driver.findElements(By.cssSelector("[user='member']"));
+		memberList.get(1).click();
+
+		Thread.sleep(2000);
+		List<WebElement> permissionsList = driver.findElements(By.className("dropdown-item"));
+		
+		
+		String Editor    = "Set as Editor";
+		
+		// Set as editor 
+		for(int i = 0; i <= permissionsList.size(); i++) {
+
+			if (permissionsList.get(i).getText().equals(Editor)){
+
+				permissionsList.get(i).click();
+				break;
+			}
+		}
 
 		int  checkSizeOfWatchersAfterAddWatchers = therightonthescreen.listOfWatchersIcons.size();
 
@@ -263,19 +282,23 @@ public class actionsRightSide extends testBase {
 
 	public void changePermission() throws InterruptedException {
 
-
-		for (int i = 1; i < 4; i++) {
+		int i = 0;
+		int count = 0;
+		while(count < 3) {
 			waitForVisibility(therightonthescreen.pressOnAddWatcherOnTHeScreen);
 			therightonthescreen.pressOnAddWatcherOnTHeScreen.click();
-			Thread.sleep(1000);
+			Thread.sleep(2000);
 
 			waitForVisibility(therightonthescreen.selectMembers);
 			therightonthescreen.selectMembers.click();
-			Thread.sleep(1000);
+			Thread.sleep(2000);
 
 			therightonthescreen.listOfWatchersOnScreen.get(i).click();
-			Thread.sleep(1000);
+			Thread.sleep(2000);
+			
+			count++;
 		}
+		
 
 		List<WebElement> memberList = driver.findElements(By.cssSelector("[user='member']"));
 		memberList.get(1).click();
@@ -289,11 +312,11 @@ public class actionsRightSide extends testBase {
 
 
 		// Set as editor 
-		for(int i = 0; i <= permissionsList.size(); i++) {
+		for(int j = 0; j <= permissionsList.size(); j++) {
 
-			if (permissionsList.get(i).getText().equals(Editor)){
+			if (permissionsList.get(j).getText().equals(Editor)){
 
-				permissionsList.get(i).click();
+				permissionsList.get(j).click();
 				break;
 			}
 		}
@@ -312,11 +335,11 @@ public class actionsRightSide extends testBase {
 		// set as commenter
 		memberList.get(2).click();
 
-		for(int i = 0; i <= permissionsList.size(); i++) {
+		for(int j = 0; j <= permissionsList.size(); j++) {
 
-			if (permissionsList.get(i).getText().equals(Commenter)) {
+			if (permissionsList.get(j).getText().equals(Commenter)) {
 
-				permissionsList.get(i).click();
+				permissionsList.get(j).click();
 				break;
 			}
 		}

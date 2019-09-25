@@ -65,15 +65,17 @@ public class tasksRightSideOfScreen extends testBase {
 	
 	public void SelectProjectsOnScreen() throws InterruptedException {
 		
-		if(SelectProjects.getText().equals("Select a project ")){
+		if(SelectProjects.getText().equals("Select a project")){
 		
 		waitForVisibility(SelectProjects);
 		
 		SelectProjects.click();
 		
+		Thread.sleep(2000);
+		
 		if (listOfProjects.isEmpty()==false) {
 			
-			Thread.sleep(3000);
+			Thread.sleep(1000);
 
 
 			String nameOfProject = listOfProjects.get(0).getText();
@@ -95,9 +97,7 @@ public class tasksRightSideOfScreen extends testBase {
 
 				logger.log(Status.FAIL , "select project on screen");
 			}
-
 		}
-
 	}
  }
 
@@ -140,6 +140,8 @@ public class tasksRightSideOfScreen extends testBase {
 		
 	public void duplicateTasks () throws InterruptedException {
 		
+		int sizeOfEntitiesBeforeDuplicate =  tasksmiddlepane.listOfEntities.size();
+		
 		waitForVisibility(template.pressOnThreeDotsOnScreen);
 		template.pressOnThreeDotsOnScreen.click();
 		
@@ -149,11 +151,21 @@ public class tasksRightSideOfScreen extends testBase {
 		duplicateTask.click();
 		
 		Thread.sleep(2000);
-	}
-	
-	
-}	
-	
-	
-	
-	
+		
+		 int sizeOfEntitiesAfterDuplicate = tasksmiddlepane.listOfEntities.size();
+		 
+		if (sizeOfEntitiesBeforeDuplicate + 1 == sizeOfEntitiesAfterDuplicate) {
+			
+			logger.log(Status.PASS , "duplicate task");
+		}
+
+		else {
+
+			logger.log(Status.FAIL , "duplicate task");
+		}	
+	}	
+ }	
+
+
+
+
