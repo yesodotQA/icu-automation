@@ -61,11 +61,6 @@ public class middlePane extends testBase {
 		    	
 		   }
 	 
-	 private void waitForVisibility (WebElement element)  {
-			
-			wait.until(ExpectedConditions.visibilityOf(element));
-			
-	}
 	
 	
 }

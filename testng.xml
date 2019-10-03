@@ -10,8 +10,9 @@
    <!--    <class name="meetings.TempMeetings"/>  -->
       <!-- <class name="meetings.meetingsTest"/>  -->
       <!-- <class name="task.tasksTest"/> -->
-        <class name="project.projectsTest"/>
+     <!--    <class name="project.projectsTest"/> -->
     <!-- <class name="templateDoc.templateDocTest"/> --> 
+    	<class name = "Search.searchTest"/>
 
     </classes>
   </test> <!-- Test -->
