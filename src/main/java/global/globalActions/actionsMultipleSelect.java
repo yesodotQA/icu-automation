@@ -112,13 +112,14 @@ public class actionsMultipleSelect extends testBase {
 		
 		multipleselect.selectTags.sendKeys(tags);
 		
-		Thread.sleep(2000);
-		
-		String nameOfTagsYouAdded = nameOfTagsMultipleChoice.getAttribute("innerText");
-		
 		waitForVisibility(multipleselect.clickOnNewTAg);
 		
 		multipleselect.clickOnNewTAg.click();
+		
+		
+		Thread.sleep(2000);
+
+		String nameOfTagsYouAdded = nameOfTagsMultipleChoice.getAttribute("innerText");
 		
 		
 		waitForVisibility(multipleselect.updateTags);
