@@ -267,7 +267,14 @@ public class deletedItems extends testBase {
 			Thread.sleep(3000);
 
 		}
+		
+		logger.log(Status.INFO, "filter by entities not work");
 
+	}
+	
+	public void filterByArchived()throws InterruptedException {
+		
+		
 	}
 }
 

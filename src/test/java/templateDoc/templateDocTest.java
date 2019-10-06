@@ -56,8 +56,7 @@ public class templateDocTest extends testBase{
 	
 	@BeforeClass
 	public void SetUp() throws InterruptedException, IOException{	
-		initialization(); 
-		Login();
+		
 		this.actionsmultipleselect = new actionsMultipleSelect();
 		this.actionsmiddlepane = new actionsMiddlePane();
 		this.actionsrightside = new actionsRightSide();

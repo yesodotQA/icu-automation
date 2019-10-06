@@ -216,6 +216,8 @@ public class officesRightSide extends testBase {
 			}
 		}
 
+		Thread.sleep(3000);
+		
 		int	sizeOfMemberAfterInDoc = memberList.size();
 		
 		if (sizeOfMemberInDoc + 1 == sizeOfMemberAfterInDoc) {

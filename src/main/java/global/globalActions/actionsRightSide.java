@@ -78,7 +78,7 @@ public class actionsRightSide extends testBase {
 		therightonthescreen.assigneeOnTheScreen.click();
 		Thread.sleep(3000);
 
-		therightonthescreen.listOfAssigneeOnScreen.get(1).click();
+		therightonthescreen.listOfAssigneeOnScreen.get(2).click();
 		Thread.sleep(3000);
 
 		int  checkSizeOfWatchersAfterAddAssignee = therightonthescreen.listOfWatchersIcons.size();
