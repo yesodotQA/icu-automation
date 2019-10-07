@@ -8,6 +8,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
+import com.aventstack.extentreports.Status;
+
 import base.testBase;
 import global.globalActions.actionsMiddlePane;
 import global.globalActions.actionsRightSide;
@@ -27,6 +29,9 @@ public class projectsFromDiscussions extends testBase{
 	
 	@FindBy(css = ".list.discussions .more")
 	WebElement showMore;
+	
+	@FindBy (css = ".avatar.editor")
+	List <WebElement> EditorsMembers;
 	
 	public  projectsFromDiscussions() {
 
@@ -53,7 +58,7 @@ public class projectsFromDiscussions extends testBase{
 		
 		actionmiddlepane.openEntity("projects from discussions", "dasd");
 		
-		actionsrightside.changePermission();
+		actionsrightside.addWatcher();
 		
 		int numberOfMeetings  = middlepane.listOfEntities.size();
 		
@@ -88,6 +93,15 @@ public class projectsFromDiscussions extends testBase{
 		
 		actionmiddlepane.openEntity("projects from discussions 124354", "dasd");
 		
-		
+		// Test if The inheritance from project is working. 
+		if (EditorsMembers.size() == 2 )	{
+
+			logger.log(Status.PASS , "The inheritance from project is working!");
+		}
+		else {
+
+			logger.log(Status.FAIL , "The inheritance from project isn't working");
+		}
+
 	}
 }

@@ -169,10 +169,16 @@ import task.tasksTest;
 			
 			projectsMultipleSelect();
 			
-			logger.log(Status.INFO, "middle pane not work");
+			
 			
 		}
 		@Test(priority = 6)
+		public void subProjectMiddlePane() throws InterruptedException {
+			
+			projectsMiddlePane();
+		}
+		
+		@Test(priority = 7)
 		public void subProjectsRightSide() throws InterruptedException {
 			logger = extent.createTest("right Side");
 			
@@ -195,7 +201,7 @@ import task.tasksTest;
 			actionsrightside.changePermission();
 		}
 	
-		@Test(priority = 7)
+		@Test(priority = 8)
 		public void projectFromDiscussion() throws InterruptedException{
 			logger = extent.createTest("project from discussions");
 			
@@ -213,7 +219,7 @@ import task.tasksTest;
 			
 		}
 		
-		@Test(priority = 8)
+		@Test(priority = 9)
 		public void TasksFromProjects()throws InterruptedException, IOException {
 			logger = extent.createTest("Tasks From Project");
 			

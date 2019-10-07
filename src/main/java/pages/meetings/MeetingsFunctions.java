@@ -310,8 +310,6 @@ public class MeetingsFunctions extends testBase {
 			logger.log(Status.FAIL , "The project name  isn't display");
 		}
 
-		logger.log(Status.INFO, "inharitance not work need to fix");
-
 		
 		// Test if The inheritance from project is working. 
 		if (EditorsMembers.size() == 2 )	{
