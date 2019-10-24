@@ -47,18 +47,25 @@
 		</classes>
 	</test>
 
-
-	<!-- <test name="task">
+<!-- 
+	<test name="task">
 		<classes>
 			<class name="task.tasksTest" />
 		</classes>
 	
-</test> Test -->
+</test>  -->
 
 <!-- <test name="search">
 	<classes>
 		<class name="Search.searchTest" />
 	</classes>
 </test> -->
+
+<!-- <test name="profilePage">
+	<classes>
+		<class name="profilepage.ProfileTest" />
+	</classes>
+</test> -->
+
 
 </suite> <!-- Suite -->
