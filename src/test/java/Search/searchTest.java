@@ -25,10 +25,10 @@ public class searchTest extends testBase {
 	@Test (priority = 1)
 	public void testDeletedItems() throws InterruptedException {
 		logger = extent.createTest("search");
-		//searchfunction.searchEntities();
+//		searchfunction.searchEntities();
 		searchfunction.searchUsingFilter();
-//		deleteditems.searchDeleteItems();
-//		deleteditems.unDelete();
+		deleteditems.searchDeleteItems();
+		deleteditems.unDelete();
 		
 	}
 	

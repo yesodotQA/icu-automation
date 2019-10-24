@@ -130,7 +130,7 @@ public class deletedItems extends testBase {
 			searchFields.clear();
 			searchFields.sendKeys(namesOfEntities[i]);
 
-			Thread.sleep(2000);
+			Thread.sleep(3000);
 
 			String nameOfDeletedEntities = nameOfEntitiesFound.get(0).getText();
 
@@ -152,7 +152,7 @@ public class deletedItems extends testBase {
 			searchFields.clear();
 			searchFields.sendKeys(namesOfSettings[i]);
 
-			Thread.sleep(2000);
+			Thread.sleep(3000);
 
 			String nameOfDeletedEntities =nameOfEntitiesFound.get(0).getText();
 
@@ -268,14 +268,8 @@ public class deletedItems extends testBase {
 
 		}
 		
-		logger.log(Status.INFO, "filter by entities not work");
-
 	}
 	
-	public void filterByArchived()throws InterruptedException {
-		
-		
-	}
 }
 
 

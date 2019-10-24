@@ -5,9 +5,11 @@
 /home/israel/workspace/selenium-root/src/main/java/pages/documents/documentsMultipleSelect.java
 /home/israel/workspace/selenium-root/src/main/java/pages/documents/documentsMiddlePane.java
 /home/israel/workspace/selenium-root/src/main/java/pages/documents/tasksFromDocuments.java
+/home/israel/workspace/selenium-root/src/main/java/pages/Search/deletedItems.java
 /home/israel/workspace/selenium-root/src/main/java/pages/tasks/documentsFromTasks.java
 /home/israel/workspace/selenium-root/src/main/java/pages/meetings/meetingsMultipleSelect.java
 /home/israel/workspace/selenium-root/src/main/java/base/testBase.java
+/home/israel/workspace/selenium-root/src/main/java/pages/Search/SearchFunction.java
 /home/israel/workspace/selenium-root/src/main/java/global/globalElements/multipleSelect.java
 /home/israel/workspace/selenium-root/src/main/java/pages/meetings/MeetingsFunctions.java
 /home/israel/workspace/selenium-root/src/main/java/pages/folders/foldersMultipleSelect.java
@@ -15,11 +17,11 @@
 /home/israel/workspace/selenium-root/src/main/java/global/globalElements/Tabs.java
 /home/israel/workspace/selenium-root/src/main/java/global/globalActions/actionsMultipleSelect.java
 /home/israel/workspace/selenium-root/src/main/java/global/globalElements/middlePane.java
+/home/israel/workspace/selenium-root/src/main/java/pages/fullScreen/fullScreenFunctions.java
 /home/israel/workspace/selenium-root/src/main/java/pages/projects/tasksFromProjects.java
 /home/israel/workspace/selenium-root/src/main/java/pages/folders/documentsFromFolder.java
 /home/israel/workspace/selenium-root/src/main/java/pages/tasks/subTasks.java
 /home/israel/workspace/selenium-root/src/main/java/pages/documents/documentsRightSideOnScreen.java
-/home/israel/workspace/selenium-root/src/main/java/fullScreen/fullScreenFunctions.java
 /home/israel/workspace/selenium-root/src/main/java/pages/projects/projectsMultipleSelect.java
 /home/israel/workspace/selenium-root/src/main/java/pages/projects/subprojects.java
 /home/israel/workspace/selenium-root/src/main/java/pages/tasks/tasksMiddlePane.java
