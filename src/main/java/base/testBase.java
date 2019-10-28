@@ -3,7 +3,7 @@ package base;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
-import org.openqa.selenium.WebElement;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -11,7 +11,6 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.BeforeSuite;
-
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
@@ -26,7 +25,7 @@ public class testBase {
 	public static Properties prop;
 	public static Actions action;
 	
-	public static void initialization() throws IOException  {
+	public static void initialization() throws IOException {
 
 		prop = new Properties();
 		FileInputStream ip = new FileInputStream("./configs/properties");
@@ -40,7 +39,7 @@ public class testBase {
 		htmlReporter = new ExtentHtmlReporter("./reports/extent.html");
 		extent.attachReporter(htmlReporter);
 		action = new Actions(driver);
-
+		
 		driver.manage().window().maximize();
 		driver.manage().deleteAllCookies();
 		driver.navigate().to(prop.getProperty("url"));
@@ -66,6 +65,8 @@ public class testBase {
 		driver.findElement(By.xpath("/html/body/div[1]/div/div/div[3]/button")).click();
 
 		Thread.sleep(2000);
+		
+		
 
 	}
 	

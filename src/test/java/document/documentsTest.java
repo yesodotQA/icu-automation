@@ -123,6 +123,8 @@ public class documentsTest extends testBase {
 		
 		actionsrightside.addAssignee();
 		
+		logger.log(Status.INFO, "bug in documents When you open entity add asognee field should be empty");
+		
 		actionsrightside.setDate();
 		
 		actionsrightside.addStatus();
@@ -145,8 +147,6 @@ public class documentsTest extends testBase {
 		actionsmiddlepane.openEntity("task1" , "importenet");
 		
 		taskstest.SetUp();
-		
-		logger.log(Status.INFO, "multiple choice in taks from doc not work good");
 		
 		taskstest.allTasksMulitipleChoice();
 		

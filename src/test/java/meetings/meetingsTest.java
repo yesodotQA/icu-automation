@@ -102,7 +102,7 @@ public class meetingsTest extends testBase {
 		meetingsfunctions.setDateInMeetings();
 		meetingsfunctions.AddLocation();
 		actionsrightside.addStatus();
-		actionsrightside.addTags("ASAP");
+		actionsrightside.addTags("mission (New)");
 		actionsrightside.addActivities("HELLO" , "this is superman");
 		
 		actionsrightside.changePermission();

@@ -78,7 +78,7 @@ public class actionsRightSide extends testBase {
 		therightonthescreen.assigneeOnTheScreen.click();
 		Thread.sleep(3000);
 
-		therightonthescreen.listOfAssigneeOnScreen.get(1).click();
+		therightonthescreen.listOfAssigneeOnScreen.get(2).click();
 		Thread.sleep(3000);
 
 		int  checkSizeOfWatchersAfterAddAssignee = therightonthescreen.listOfWatchersIcons.size();
@@ -346,6 +346,8 @@ public class actionsRightSide extends testBase {
 
 		WebElement commenterMember = driver.findElement(By.className("commenter"));
 
+		Thread.sleep(2000);
+		
 		if (commenterMember.isDisplayed()) {
 			logger.log(Status.PASS , "change permission to commenter");
 		}
@@ -356,6 +358,8 @@ public class actionsRightSide extends testBase {
 		// Check when watcher was added is a viewer in defaults
 		
 		WebElement viewerMember = driver.findElement(By.className("viewer"));
+		
+		Thread.sleep(2000);
 		
 		if (viewerMember.isDisplayed()) {
 			logger.log(Status.PASS , "The defaults permmision is viewer");

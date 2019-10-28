@@ -29,6 +29,9 @@ public class actionsMultipleSelect extends testBase {
 	@FindBy(css = "[ui-date='dueOptions']")
 	 WebElement getTextOfDate;
 	
+	@FindBy (css =".ui-select-match-item .ng-binding.ng-scope")
+	WebElement nameOfTagsMultipleChoice;
+	
 	public actionsMultipleSelect(){
 		
 		this.multipleselect = new multipleSelect();
@@ -78,13 +81,13 @@ public class actionsMultipleSelect extends testBase {
 		if (size - 1 == newSize) {
 			
 		
-			logger.log(Status.PASS , "delete document using mulitiple choice");
+			logger.log(Status.PASS , "delete  using mulitiple choice");
 			
 		}
 		
 		else {
 			
-			logger.log(Status.FAIL , "delete document using mulitiple choice");
+			logger.log(Status.FAIL , "delete  using mulitiple choice");
 		}
 	
 	}
@@ -109,10 +112,14 @@ public class actionsMultipleSelect extends testBase {
 		
 		multipleselect.selectTags.sendKeys(tags);
 		
-		
 		waitForVisibility(multipleselect.clickOnNewTAg);
 		
 		multipleselect.clickOnNewTAg.click();
+		
+		
+		Thread.sleep(2000);
+
+		String nameOfTagsYouAdded = nameOfTagsMultipleChoice.getAttribute("innerText");
 		
 		
 		waitForVisibility(multipleselect.updateTags);
@@ -135,7 +142,7 @@ public class actionsMultipleSelect extends testBase {
 		String check =therightonthescreen.tagsOnScreenForChecking.getText();
 		
 		// checks if the tags have been updated on the side of the screen
-		if (check.equals("mission (New)")) {
+		if (check.equals(nameOfTagsYouAdded)) {
 		
 			logger.log(Status.PASS , "add Tags using multiple select");
 		}
