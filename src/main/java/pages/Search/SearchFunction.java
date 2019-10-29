@@ -21,7 +21,7 @@ import global.globalElements.theRightOfTheScreen;
 import pages.templateDocument.templateDocMultipleSelect;
 
 public class SearchFunction extends testBase {
-
+	deletedItems        deleteditems;
 	Tabs 			  	tabs;
 	middlePane 			middlepane;
 	actionsMiddlePane 	actionsmiddlepane;
@@ -31,6 +31,7 @@ public class SearchFunction extends testBase {
 
 	public SearchFunction() {
 
+		this.deleteditems        = new deletedItems();
 		this.tabs 				 = new Tabs();
 		this.actionsmiddlepane   = new actionsMiddlePane();
 		this.therightonthescreen = new theRightOfTheScreen();
@@ -50,6 +51,7 @@ public class SearchFunction extends testBase {
 
 	int counter			   = 0;
 	int statusIndex        = 1;
+	int ResultsNumber = 0;
 
 	@FindBy (className = "menu-item")
 	List <WebElement> TabsList = new ArrayList<WebElement>();
@@ -175,12 +177,11 @@ public class SearchFunction extends testBase {
 		int	counterActive = 0;
 		int	counterArchive = 0;
 		String FilterTitle = "check status filtered";
-		
+
 		String[] Active = {"New","Assigned","In progress","Review" };
 		String[] Archive = {"Rejected","Done"};
-		int ResultsNumber = 0;
 		int i = 9;
-		
+
 
 		waitForVisibility(tabs.tasksTab);
 		tabs.tasksTab.click();
@@ -216,7 +217,7 @@ public class SearchFunction extends testBase {
 		}
 		tabs.searchTab.click();
 		Thread.sleep(1500);
-		
+
 		WebElement activeButton = StatusFilter.get(0);
 		WebElement archiveButton = StatusFilter.get(1);
 
@@ -233,7 +234,7 @@ public class SearchFunction extends testBase {
 		}
 		else {
 
-			logger.log(Status.FAIL , "Faild on open all entities.");
+			logger.log(Status.FAIL , "Faile d on open all entities.");
 		}	
 
 		Thread.sleep(1500);
@@ -250,7 +251,7 @@ public class SearchFunction extends testBase {
 
 			logger.log(Status.FAIL , "active filter not working :( ");
 		}
-		
+
 		Thread.sleep(1500);
 		archiveButton.click();
 		amount = AmountOfResults.getText();
@@ -266,9 +267,125 @@ public class SearchFunction extends testBase {
 
 			logger.log(Status.FAIL , "Archive filter not working :( ");
 		}
+
 	}
-	
-	
+
+	public void searchEntities() throws InterruptedException {
+
+		String TagSearch = "searchtag";
+
+		String[] SearchTest = { "Entity", "Entity1", "Entity 2"};
+		
+		int[]resultsfound  = {3,1,2};
+
+		logger = extent.createTest("search 3 letters");
+
+		waitForVisibility(tabs.tasksTab);
+		tabs.tasksTab.click();
+		Thread.sleep(1500);
+
+		for(int j = 0;j<3; j++) {
+			actionsmiddlepane.openEntity(SearchTest[j], "kalamari");
+			if (j == 0) {
+				actionsrightside.addTags(TagSearch);
+			}
+		}
+
+		SearchInput.sendKeys("Ent");
+
+		Thread.sleep(1500);
+		String amount = AmountOfResults.getText();
+
+		String[] ArraySplit = amount.split(" ");
+
+		ResultsNumber = Integer.parseInt(ArraySplit[0]);
+
+
+		Thread.sleep(1500);
+		if(	ResultsNumber == resultsfound[0]) 
+			logger.log(Status.PASS,"succssed to search with 3 letters");
+
+		else
+			logger.log(Status.FAIL,"failed to search 3 letters");
+
+		Thread.sleep(1500);
+		SearchInput.clear();
+		SearchInput.sendKeys(SearchTest[1]);
+		Thread.sleep(1500);
+
+		amount = AmountOfResults.getText();
+
+		ArraySplit = amount.split(" ");
+
+		ResultsNumber = Integer.parseInt(ArraySplit[0]);
+
+
+		if(ResultsNumber == resultsfound[1]) 
+
+			logger.log(Status.PASS,"connected numbers & letters passed");
+
+		else
+			logger.log(Status.FAIL,"failed to search connected letters");
+
+
+		Thread.sleep(1500);
+		SearchInput.clear();
+		SearchInput.sendKeys(SearchTest[2]);
+
+		Thread.sleep(1500);
+		amount = AmountOfResults.getText();
+
+		ArraySplit = amount.split(" ");
+
+		ResultsNumber = Integer.parseInt(ArraySplit[0]);
+
+
+		if(ResultsNumber == resultsfound[2]) 
+			logger.log(Status.PASS,"regular numbers & letters passed");
+
+		else
+			logger.log(Status.FAIL,"failed to search regular letters and numbers ");
+
+
+		Thread.sleep(1500);
+		SearchInput.clear();
+		SearchInput.sendKeys(TagSearch);
+
+		Thread.sleep(1500);
+
+		amount = AmountOfResults.getText();
+
+		ArraySplit = amount.split(" ");
+
+		ResultsNumber = Integer.parseInt(ArraySplit[0]);
+
+		if(ResultsNumber == resultsfound[1]) 
+			logger.log(Status.PASS,"search by tag passed");
+
+		else
+			logger.log(Status.FAIL,"failed to search by tag ");
+
+
+		Thread.sleep(1500);
+		SearchInput.clear();
+		SearchInput.sendKeys("Kalamari");
+		Thread.sleep(1500);
+
+		amount = AmountOfResults.getText();
+
+		ArraySplit = amount.split(" ");
+
+		ResultsNumber = Integer.parseInt(ArraySplit[0]);
+
+
+		if(ResultsNumber == resultsfound[0]) 
+			logger.log(Status.PASS,"search by description passed");
+
+		else
+			logger.log(Status.FAIL,"failed to search by description ");
+
+	}
+
 }
 
 
