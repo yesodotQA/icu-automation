@@ -73,16 +73,12 @@ public class actionsRightSide extends testBase {
 	// TEST FUNCTION THAT ADD ASSIGNEE
 	public void addAssignee(boolean openEntity) throws InterruptedException {
 			Thread.sleep(1500);
-		//try{
-			if(openEntity == true)
+		
+			if(openEntity == true) {
 				
 				actionmiddlepane.openEntity("right of screen", "classified");
-		//	else
-			//	System.out.println("ads");
-		//}catch (NoSuchElementException e) {
-		//	System.out.println("Element is not  displayed as well");
-
-		//}
+			}
+			
 			int checkSizeOfWatchersBeforeAddAssignee = therightonthescreen.listOfWatchersIcons.size();
 
 			waitForVisibility(therightonthescreen.assigneeOnTheScreen);
