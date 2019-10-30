@@ -121,7 +121,7 @@ public class deletedItems extends testBase {
 		waitForVisibility(showDeletedItems);
 		showDeletedItems.click();
 
-		Thread.sleep(2000);
+		Thread.sleep(3000);
 
 
 		logger = extent.createTest("find delete items");
@@ -173,6 +173,23 @@ public class deletedItems extends testBase {
 
 		for (int i = 1; i < 5; i++) {
 
+			Thread.sleep(2000);
+
+			tabsList.get(i).click();
+
+			Thread.sleep(1500);
+			
+			int numOfEntities = middlepane.listOfnamesOfEntities.size();
+
+			System.out.println(numOfEntities);
+			
+
+			tabs.searchTab.click();
+
+			waitForVisibility(showDeletedItems);
+			showDeletedItems.click();
+
+			Thread.sleep(3000);
 
 			searchFields.clear();
 			searchFields.sendKeys(namesOfEntities[i-1]);
@@ -196,29 +213,43 @@ public class deletedItems extends testBase {
 
 			Thread.sleep(2000);
 
-			String nameOfUnDeleteEntities = middlepane.listOfnamesOfEntities.get(0).getText();
-	
+			int numAfterUnDelete = middlepane.listOfEntities.size();
 
-				if (nameOfUnDeleteEntities.equals(namesOfEntities[i-1])) {
-					
-					logger.log(Status.PASS , "un delete entity" + " " + namesOfEntities[i-1] );
-				}
-			
+			System.out.println(numAfterUnDelete);
+			if (numAfterUnDelete-1 == numOfEntities) {
+
+				logger.log(Status.PASS , "un delete entity" + " " + namesOfEntities[i-1] );
+			}
+
 			else {
 				logger.log(Status.FAIL, "un delete entity" + " " + namesOfEntities[i-1]);
 			}
 
-			waitForVisibility(tabs.searchTab);
+		}
+
+		for (int j = 0; j < 3; j++) {
+
+			Thread.sleep(2000);
+
+			tabs.settingsTab.click();
+
+			Thread.sleep(2000);
+
+			settingsList.get(j).click();
+			
+			Thread.sleep(1500);
+			
+			int numOfEntities = middlepane.listOfnamesOfEntities.size();
+
+			System.out.println(numOfEntities);
+			
+
 			tabs.searchTab.click();
 
 			waitForVisibility(showDeletedItems);
 			showDeletedItems.click();
 
 			Thread.sleep(3000);
-
-		}
-
-		for (int j = 0; j < 3; j++) {
 
 
 			searchFields.clear();
@@ -245,12 +276,11 @@ public class deletedItems extends testBase {
 			settingsList.get(j).click();
 
 			Thread.sleep(2000);
-			
-			String nameOfUnDeleteEntities = middlepane.listOfnamesOfEntities.get(0).getText();
 
+			int numAfterUnDelete = middlepane.listOfEntities.size();
 
-			if (nameOfUnDeleteEntities.equals(namesOfSettings[j])) {
-
+			System.out.println(numAfterUnDelete);
+			if (numAfterUnDelete-1 == numOfEntities) {
 
 				logger.log(Status.PASS , "un delete entity" + " " + namesOfSettings[j] );
 			}
@@ -258,18 +288,10 @@ public class deletedItems extends testBase {
 				logger.log(Status.FAIL, "un delete entity" + " " + namesOfSettings[j]);
 			}
 
-			waitForVisibility(tabs.searchTab);
-			tabs.searchTab.click();
-
-			waitForVisibility(showDeletedItems);
-			showDeletedItems.click();
-
-			Thread.sleep(3000);
-
 		}
-		
+
 	}
-	
+
 }
 
 

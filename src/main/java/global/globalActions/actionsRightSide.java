@@ -1,5 +1,6 @@
 package global.globalActions;
 import java.util.List;
+import java.util.NoSuchElementException;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -23,10 +24,11 @@ public class actionsRightSide extends testBase {
 	theRightOfTheScreen  therightonthescreen;
 	documentsMiddlePane  documentsmiddlepane;
 	actionsMiddlePane    actionmiddlepane;
-	
+
 	@FindBy(className = "activities-list")
 	WebElement checkIfTheActivitiesUpdate;
-	
+
+
 	public actionsRightSide() {
 
 		this.multipleselect      = new multipleSelect();
@@ -69,28 +71,37 @@ public class actionsRightSide extends testBase {
 	}
 
 	// TEST FUNCTION THAT ADD ASSIGNEE
-	public void addAssignee() throws InterruptedException {
+	public void addAssignee(boolean openEntity) throws InterruptedException {
+			Thread.sleep(1500);
+		//try{
+			if(openEntity == true)
+				
+				actionmiddlepane.openEntity("right of screen", "classified");
+		//	else
+			//	System.out.println("ads");
+		//}catch (NoSuchElementException e) {
+		//	System.out.println("Element is not  displayed as well");
 
-		actionmiddlepane.openEntity("right of screen", "classified");
-		int checkSizeOfWatchersBeforeAddAssignee = therightonthescreen.listOfWatchersIcons.size();
+		//}
+			int checkSizeOfWatchersBeforeAddAssignee = therightonthescreen.listOfWatchersIcons.size();
 
-		waitForVisibility(therightonthescreen.assigneeOnTheScreen);
-		therightonthescreen.assigneeOnTheScreen.click();
-		Thread.sleep(3000);
+			waitForVisibility(therightonthescreen.assigneeOnTheScreen);
+			therightonthescreen.assigneeOnTheScreen.click();
+			Thread.sleep(3000);
 
-		therightonthescreen.listOfAssigneeOnScreen.get(2).click();
-		Thread.sleep(3000);
+			therightonthescreen.listOfAssigneeOnScreen.get(2).click();
+			Thread.sleep(3000);
 
-		int  checkSizeOfWatchersAfterAddAssignee = therightonthescreen.listOfWatchersIcons.size();
+			int  checkSizeOfWatchersAfterAddAssignee = therightonthescreen.listOfWatchersIcons.size();
 
-		// CHECK IF ASINGEE WAS ADDED
-		if(checkSizeOfWatchersBeforeAddAssignee +  1 == checkSizeOfWatchersAfterAddAssignee) {
-			logger.log(Status.PASS , "add asignee on screen");
+			// CHECK IF ASINGEE WAS ADDED
+			if(checkSizeOfWatchersBeforeAddAssignee +  1 == checkSizeOfWatchersAfterAddAssignee) {
+				logger.log(Status.PASS , "add asignee on screen");
+			}
+			else {
+				logger.log(Status.FAIL , "add asignee on screen");
+			}
 		}
-		else {
-			logger.log(Status.FAIL , "add asignee on screen");
-		}
-	}
 
 	// TEST FUNCTION THAT SET A DATE
 	public void setDate() throws InterruptedException {
@@ -160,7 +171,7 @@ public class actionsRightSide extends testBase {
 			logger.log(Status.FAIL , "add status on screen");
 		}
 	}
-	
+
 
 	// 	TEST FUNCTION THAT CHECK ADDED TAGS
 	public void addTags(String tags) throws InterruptedException {
@@ -246,16 +257,16 @@ public class actionsRightSide extends testBase {
 		therightonthescreen.listOfWatchersOnScreen.get(1).click();
 
 		Thread.sleep(2000);
-		
+
 		List<WebElement> memberList = driver.findElements(By.cssSelector("[user='member']"));
 		memberList.get(1).click();
 
 		Thread.sleep(2000);
 		List<WebElement> permissionsList = driver.findElements(By.className("dropdown-item"));
-		
-		
+
+
 		String Editor    = "Set as Editor";
-		
+
 		// Set as editor 
 		for(int i = 0; i <= permissionsList.size(); i++) {
 
@@ -295,10 +306,10 @@ public class actionsRightSide extends testBase {
 
 			therightonthescreen.listOfWatchersOnScreen.get(i).click();
 			Thread.sleep(2000);
-			
+
 			count++;
 		}
-		
+
 
 		List<WebElement> memberList = driver.findElements(By.cssSelector("[user='member']"));
 		memberList.get(1).click();
@@ -347,20 +358,20 @@ public class actionsRightSide extends testBase {
 		WebElement commenterMember = driver.findElement(By.className("commenter"));
 
 		Thread.sleep(2000);
-		
+
 		if (commenterMember.isDisplayed()) {
 			logger.log(Status.PASS , "change permission to commenter");
 		}
 		else {
 			logger.log(Status.FAIL, "change permission to commenter");
 		}
-		
+
 		// Check when watcher was added is a viewer in defaults
-		
+
 		WebElement viewerMember = driver.findElement(By.className("viewer"));
-		
+
 		Thread.sleep(2000);
-		
+
 		if (viewerMember.isDisplayed()) {
 			logger.log(Status.PASS , "The defaults permmision is viewer");
 		}

@@ -42,7 +42,7 @@ public class theRightOfTheScreen extends testBase {
 	@FindBy(className = "activities-list")
 	public WebElement checkIfTheActivitiesUpdate;
 	
-	@FindBy(xpath = "//*[@id=\"addTag\"]/span/span/span[2]/span")
+	@FindBy(css = ".ui-select-match-item .ng-binding")
 	public	WebElement tagsOnScreenForChecking;
 	
 	@FindBy(css = "[role='combobox']")

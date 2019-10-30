@@ -18,7 +18,7 @@ import global.globalElements.Tabs;
 import global.globalElements.middlePane;
 import global.globalElements.multipleSelect;
 import global.globalElements.theRightOfTheScreen;
-import pages.templateDocument.templateDocMultipleSelect;
+
 
 public class SearchFunction extends testBase {
 	deletedItems        deleteditems;
@@ -42,9 +42,7 @@ public class SearchFunction extends testBase {
 		PageFactory.initElements(driver, this);
 	}
 
-	String[] EntitiesTitle = {"task", "task1", "task 2", "project", "project1", "project 2",
-			"meetings", "meetings1", "meetings 2", "doc", "doc1", "doc 2", "folder", "folder1", "folder 2",
-			"office", "office1", "office 2", "file", "file1", "file 2"};
+	String[] EntitiesTitle = {"task", "project", "meetings",  "doc","folder","office","file"};
 	String[] EntitiesTags  = {"0", "AAA", "BBB", "CCC", "DDD"};
 	String[] EntitiesSettingsTag = {"EEE", "FFF", "GGG"};
 	String Description     = "related to Search";
@@ -52,11 +50,13 @@ public class SearchFunction extends testBase {
 	int counter			   = 0;
 	int statusIndex        = 1;
 	int ResultsNumber = 0;
+	int toInt = 0;
+	String stringResult;
 
 	@FindBy (className = "menu-item")
 	List <WebElement> TabsList = new ArrayList<WebElement>();
 
-	@FindBy (className = "issue in issues")
+	@FindBy (css = ".issue .ng-scope")
 	List <WebElement> EntitiesFilters = new ArrayList<>();
 
 	@FindBy (className = "all")
@@ -101,14 +101,40 @@ public class SearchFunction extends testBase {
 	@FindBy (className = "discussion-details")
 	WebElement AmountOfResults; 
 
+	@FindBy(css ="[ng-mouseleave='hideTick(result)']")
+	public List<WebElement>  listOfsearch = new ArrayList<>();
+
 	private void waitForVisibility (WebElement element)  {
 		wait.until(ExpectedConditions.visibilityOf(element));
+	}
+
+	public void splitFilter(String task, int change) { 
+
+		String[] array = task.split(" ");
+
+		char letter = array[1].charAt(1);
+
+		change = Character.getNumericValue(letter);
+
+		this.toInt = change;
+
+	}
+
+	public void splitNumberOfResults(String text, int intNumber) {
+
+		text= AmountOfResults.getText();
+
+		String[] ArraySplit = text.split(" ");
+
+		intNumber = Integer.parseInt(ArraySplit[0]);
+
+		this.ResultsNumber = intNumber;		
 	}
 
 	public void changeStatus () throws InterruptedException  {
 
 		Random rand = new Random();
-		String TempStatus;
+
 
 		waitForVisibility(statusBox);
 		statusBox.click();
@@ -119,68 +145,136 @@ public class SearchFunction extends testBase {
 	}
 
 
-	public void openEntityInAllTabs () throws InterruptedException {
+	public void tabsFilter () throws InterruptedException {
 
-		for (int i = 1; i <= TabsList.size()-1 ; i++) {
+		for (int i = 1; i < TabsList.size()-1 ; i++) {
+
 
 			TabsList.get(i).click();
+
+			Thread.sleep(1500);
+
 			waitForVisibility(middlepane.pressCreateNewItem);
 
-			for (int g = 0; g < 3; g++) {
+			actionsmiddlepane.openEntity(EntitiesTitle[counter], Description);
 
-				actionsmiddlepane.openEntity(EntitiesTitle[counter], Description);
-				actionsrightside.addTags(EntitiesTags[i]);
-				counter++;
-			}
+			counter++;
+
 		}
 
+
+
+		tabs.searchTab.click();
+
+		for (int i = 0; i <= 3; i++) {
+
+			waitForVisibility(SearchInput);
+			SearchInput.sendKeys(EntitiesTitle[i]);
+
+
+			Thread.sleep(2000);
+
+			String tasksFilter =  EntitiesFilters.get(i).getText();
+
+			splitFilter(tasksFilter,toInt);
+
+
+			Thread.sleep(1500);
+
+
+			EntitiesFilters.get(i).click();
+
+			Thread.sleep(1500);
+
+			splitNumberOfResults(stringResult,ResultsNumber);
+
+			int listSearch = listOfsearch.size();
+
+
+			if (toInt == ResultsNumber && listSearch == toInt && listSearch == ResultsNumber) {
+
+				logger.log(Status.PASS, "filter by" + " " + EntitiesTitle[i]);
+			}
+			else {
+				logger.log(Status.FAIL, "filter by" + " " + EntitiesTitle[i] + "not working");
+			}
+
+
+			SearchInput.clear();
+
+			Thread.sleep(1500);
+
+		}
+	}
+
+	public void settingFilter() throws InterruptedException {
+		
+		
 		tabs.settingsTab.click();
+		
+		Thread.sleep(1500);
+		for (int index = 0; index < settingsList.size()-1; index++) {
 
-		for (int index = 0; index <= settingsList.size(); index++) {
+			settingsList.get(index).click();
+			
+			Thread.sleep(3000);
+			actionsmiddlepane.openEntity(EntitiesTitle[counter], Description);
 
-			if(index != 0) {
-				settingsList.get(index).click();
-				waitForVisibility(middlepane.pressCreateNewItem);
-			}
+			counter++;
 
-			for (int g = 0; g < 3; g++) {
-
-				Thread.sleep(2000);
-				actionsmiddlepane.openEntity(EntitiesTitle[counter], Description);
-				Thread.sleep(1500);
-
-
-
-				if (index < 1) { 
-
-					actionsrightside.addTags(EntitiesSettingsTag[index]);
-				}
-
-				counter++;
-			}
+			Thread.sleep(1500);
 		}
 
-		if (counter == (TabsList.size() * 3) + (settingsList.size() * 3)) {
+		tabs.searchTab.click();
 
-			logger.log(Status.PASS , "open all Entities successfully!");
-		}
-		else {
+		for (int i = 3; i < 6 ; i++) {
 
-			logger.log(Status.FAIL , "Faild on open all entities.");
+			SearchInput.sendKeys(EntitiesTitle[i+1]);
 
+
+			Thread.sleep(2000);
+
+			String tasksFilter =  EntitiesFilters.get(i+1).getText();
+
+			splitFilter(tasksFilter,toInt);
+
+
+			Thread.sleep(1500);
+
+
+			EntitiesFilters.get(i+1).click();
+
+			Thread.sleep(1500);
+
+			splitNumberOfResults(stringResult,ResultsNumber);
+
+			int listSearch = listOfsearch.size();
+
+
+			if (toInt == ResultsNumber && listSearch == toInt && listSearch == ResultsNumber) {
+
+				logger.log(Status.PASS, "filter by" + " " + EntitiesTitle[i]);
+			}
+			else {
+				logger.log(Status.FAIL, "filter by" + " " + EntitiesTitle[i] + "not working");
+			}
+
+			SearchInput.clear();
+
+			Thread.sleep(1500);
 		}
 	}
 
 	public void ActiveAndArchivedFilter () throws InterruptedException {
 
-		final int RUNNIG_NUMBER = 10;
+		final int RUNNIG_NUMBER = 6;
 		int	counterActive = 0;
 		int	counterArchive = 0;
 		String FilterTitle = "check status filtered";
 
 		String[] Active = {"New","Assigned","In progress","Review" };
 		String[] Archive = {"Rejected","Done"};
-		int i = 9;
+		int i = 0;
 
 
 		waitForVisibility(tabs.tasksTab);
@@ -275,7 +369,7 @@ public class SearchFunction extends testBase {
 		String TagSearch = "searchtag";
 
 		String[] SearchTest = { "Entity", "Entity1", "Entity 2"};
-		
+
 		int[]resultsfound  = {3,1,2};
 
 		logger = extent.createTest("search 3 letters");

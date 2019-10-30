@@ -27,6 +27,8 @@ public class  SearchMultipleSelect extends testBase {
 	actionsMultipleSelect actionmultipleselect;
 	middlePane			middlepane;
 
+	String nameOfEntity = "task200";
+
 	@FindBy (css ="[ng-change='search()")
 	WebElement searchFields;
 
@@ -72,18 +74,25 @@ public class  SearchMultipleSelect extends testBase {
 
 		Thread.sleep(1500);
 
-		actionsmiddlepane.openEntity("task480", "dsadasd");
+		actionsmiddlepane.openEntity(nameOfEntity, "dsadasd");
+		actionsmiddlepane.openEntity(nameOfEntity, "dsadasd");
 
-		waitForVisibility(tabs.searchTab);
-
+		Thread.sleep(500);
+		
 		tabs.searchTab.click();
 
+		Thread.sleep(500);
+		
+		searchFields.sendKeys(nameOfEntity);
+
 		Thread.sleep(1500);
 
-		searchFields.sendKeys("task480");
+		if (listOfsearch.size() == 0) {
 
-		Thread.sleep(1500);
-
+			logger.log(Status.FAIL, "The task was not found then the test of "
+					+ "multiple choice and the right side did not run");
+		}
+	
 	}
 
 	public void deleteMultipleSelectSearch() throws InterruptedException {
@@ -134,6 +143,9 @@ public class  SearchMultipleSelect extends testBase {
 
 			logger.log(Status.FAIL , "delete  using mulitiple choice in search");
 		}
+
+		Thread.sleep(1500);
+		listOfsearch.get(0).click();
 
 	}
 
@@ -398,7 +410,7 @@ public class  SearchMultipleSelect extends testBase {
 		Thread.sleep(1500);
 		listOfsearch.get(0).click();
 
-		
+
 		Thread.sleep(2000);
 
 		String nameOfStatusOnScreen =therightonthescreen.pressToChangeStatusOnTheScreen.getText();
@@ -418,8 +430,7 @@ public class  SearchMultipleSelect extends testBase {
 
 	}
 
-
-
-
 }
+
+
 

@@ -51,7 +51,7 @@ public class actionsMultipleSelect extends testBase {
 
 	//a function that delete entity using multiple select 
 	public void deleteEntityMultipleChoice() throws InterruptedException {
-		
+	
 		int size =middlepane.listOfEntities.size() ;
 		
 		System.out.println(middlepane.listOfEntities.size());
@@ -95,7 +95,7 @@ public class actionsMultipleSelect extends testBase {
 	//a function that adds tags using multiple select 
 	public void addTagsMultipleChoice(String tags) throws InterruptedException {
 			 
-		actionsMiddlePane.openEntity("doc2", "importent");
+		actionsMiddlePane.openEntity("military", "importent");
 		
 		waitForVisibility(multipleselect.pressMultipleChoice);
 		
@@ -140,6 +140,8 @@ public class actionsMultipleSelect extends testBase {
 		Thread.sleep(2000);
 		
 		String check =therightonthescreen.tagsOnScreenForChecking.getText();
+		
+		System.out.println(check);
 		
 		// checks if the tags have been updated on the side of the screen
 		if (check.equals(nameOfTagsYouAdded)) {

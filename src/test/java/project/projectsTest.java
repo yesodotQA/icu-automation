@@ -89,6 +89,7 @@ import task.tasksTest;
 			
 			actionsmiddlepane.openEntity("doc1","important");
 		}
+		
 		@Test(priority = 2)
 		public void projectsMultipleSelect() throws InterruptedException {
 
@@ -134,7 +135,7 @@ import task.tasksTest;
 
 			actionsrightside.deleteEntity();
 
-			actionsrightside.addAssignee();
+			actionsrightside.addAssignee(true);
 
 			actionsrightside.setDate();
 
@@ -188,7 +189,7 @@ import task.tasksTest;
 			
 			actionsmiddlepane.openEntity("subbpro","important");
 			
-			actionsrightside.addAssignee();
+			actionsrightside.addAssignee(true);
 			
 			actionsrightside.addStatus();
 				

@@ -121,7 +121,7 @@ public class documentsTest extends testBase {
 		
 		actionsrightside.deleteEntity();
 		
-		actionsrightside.addAssignee();
+		actionsrightside.addAssignee(true);
 		
 		logger.log(Status.INFO, "bug in documents When you open entity add asognee field should be empty");
 		

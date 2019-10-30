@@ -129,7 +129,7 @@ public class tasksTest  extends testBase {
 
 		actionsrightside.deleteEntity();
 
-		actionsrightside.addAssignee();
+		actionsrightside.addAssignee(true);
 
 		actionsrightside.setDate();
 
@@ -178,7 +178,7 @@ public class tasksTest  extends testBase {
 		
 		actionsrightside.deleteEntity();
 
-		actionsrightside.addAssignee();
+		actionsrightside.addAssignee(true);
 
 		actionsrightside.setDate();
 
@@ -226,7 +226,7 @@ public class tasksTest  extends testBase {
 
 		actionsrightside.deleteEntity();
 
-		actionsrightside.addAssignee();
+		actionsrightside.addAssignee(true);
 
 		actionsrightside.setDate();
 

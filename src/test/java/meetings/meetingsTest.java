@@ -98,7 +98,7 @@ public class meetingsTest extends testBase {
 		logger = extent.createTest("Test the Right Side functionality");
 		
 		actionsrightside.deleteEntity();
-		actionsrightside.addAssignee();
+		actionsrightside.addAssignee(true);
 		meetingsfunctions.setDateInMeetings();
 		meetingsfunctions.AddLocation();
 		actionsrightside.addStatus();
