@@ -67,7 +67,7 @@ public class randomActions extends testBase{
 		}
 	}
 
-		public void chooseColor()  throws InterruptedException{
+		public void chooseColor()  throws InterruptedException {
 
 			waitForVisibility(therightonthescreen.openColors);
 

@@ -6,6 +6,8 @@ import global.globalElements.middlePane;
 import pages.Search.deletedItems;
 import pages.profilepage.Profilepage;
 
+import java.io.IOException;
+
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.sikuli.script.FindFailed;
@@ -17,12 +19,11 @@ import org.testng.annotations.Test;
 public class ProfileTest extends testBase {
 	Profilepage profilepage;
 	
-	
-	
 
 	
-	@Test	
-	public void Profiletest () throws InterruptedException, FindFailed {
+	@Test																		
+	public void Profiletest () throws InterruptedException, FindFailed, IOException {
+		
 		logger = extent.createTest("profile test");
 		this.profilepage = new Profilepage();
 		
@@ -47,12 +48,19 @@ public class ProfileTest extends testBase {
 		Thread.sleep(2000);
 		logger = extent.createTest("changing profile pic");
 		Screen screen = new Screen();
-		Pattern profilepic= new Pattern ("C:\\Users\\Yaron\\Desktop\\sikuli\\Capture.png");
-		Pattern openbutton= new Pattern ("C:\\Users\\Yaron\\Desktop\\sikuli\\Capture2.png");
-		screen.find(profilepic);
+		Pattern desktop= new Pattern ("/home/israel/Desktop/sikulixapi/desktop.png");
+		Pattern txt= new Pattern ("/home/israel/Desktop/sikulixapi/txt.png");
+		Pattern openbutton= new Pattern ("/home/israel/Desktop/sikulixapi/open.png");
+		
+		screen.find(desktop);
 		Thread.sleep(1500);
-		screen.type(profilepic,"profilechange");
+		screen.click(desktop);
 		Thread.sleep(1500);
+		
+		screen.find(txt);
+		Thread.sleep(1500);
+		screen.click(txt);
+		
 		screen.find(openbutton);
 		Thread.sleep(1500);
 		screen.click(openbutton);
@@ -62,9 +70,4 @@ public class ProfileTest extends testBase {
 }
 	
 
-    
-
-	
-	
-	
 

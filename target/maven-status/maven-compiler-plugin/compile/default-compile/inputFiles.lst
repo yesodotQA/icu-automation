@@ -14,6 +14,7 @@
 /home/israel/workspace/selenium-root/src/main/java/pages/meetings/MeetingsFunctions.java
 /home/israel/workspace/selenium-root/src/main/java/pages/folders/foldersMultipleSelect.java
 /home/israel/workspace/selenium-root/src/main/java/pages/offices/officesMultipleSelect.java
+/home/israel/workspace/selenium-root/src/main/java/pages/profilepage/Profilepage.java
 /home/israel/workspace/selenium-root/src/main/java/global/globalElements/Tabs.java
 /home/israel/workspace/selenium-root/src/main/java/global/globalActions/actionsMultipleSelect.java
 /home/israel/workspace/selenium-root/src/main/java/global/globalElements/middlePane.java
@@ -35,3 +36,4 @@
 /home/israel/workspace/selenium-root/src/main/java/pages/tasks/tasksMultipleSelect.java
 /home/israel/workspace/selenium-root/src/main/java/pages/projects/projectsRightSideOfScreen.java
 /home/israel/workspace/selenium-root/src/main/java/pages/templateDocument/templateDocRightSide.java
+/home/israel/workspace/selenium-root/src/main/java/pages/Search/SearchMultipleSelect.java

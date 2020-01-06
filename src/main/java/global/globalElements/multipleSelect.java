@@ -14,6 +14,9 @@ public class multipleSelect extends testBase {
 	@FindBy (xpath = "/html/body/section/section/div[2]/div[2]/div[1]/div/div/div/div[3]/div[2]/table/tbody/tr[1]/td[2]")
 	public  WebElement pressMultipleChoice;
 	
+	@FindBy (className = "corner-button")
+	public WebElement multipleChoiceAllEntities;
+	
 	@FindBy(css = ".multipleSelected .tick .ng-valid")
 	public	WebElement pressSecondMultipleChoice;
 	

@@ -53,79 +53,93 @@ public class templateDocTest extends testBase{
 	templateDocMultipleSelect templatedocsmultipleselect;
 	templateDocRightSide templatedocrightside;
 
-	
+
 	@BeforeClass
 	public void SetUp() throws InterruptedException, IOException{	
-		
+
 		this.actionsmultipleselect = new actionsMultipleSelect();
 		this.actionsmiddlepane = new actionsMiddlePane();
 		this.actionsrightside = new actionsRightSide();
 		this.randomactions = new randomActions();
 		this.templatedocsmultipleselect = new templateDocMultipleSelect();
 		this.templatedocrightside = new templateDocRightSide();
+		templatedocsmultipleselect.pressTemplateDoc();
+		actionsmiddlepane.openEntity("template1" , "importenet");
+
 	}
-	
+
 
 	@Test(priority = 1)
 	public void openTemplateDOC() throws InterruptedException {
-		
-		templatedocsmultipleselect.pressTemplateDoc();
-		
-		actionsmiddlepane.openEntity("template1" , "importenet");
-	
-	}
 
-	@Test(priority = 2)
-	public void templateDocMultipleSelect() throws InterruptedException {
-		
-		logger = extent.createTest("template doc multiple select");
+		logger = extent.createTest("template doc delete multiple select");
 
 		actionsmultipleselect.deleteEntityMultipleChoice();
-		
 	}
 	
+
+	@Test(priority = 2) 
+	public void templateDocMiddlePaneSortTitle() throws InterruptedException {
+
+		logger = extent.createTest("template documents middle pane sort title");
+
+		// sort the list by title 
+
+		actionsmiddlepane.sortByTitle(); 
+
+	}
+	
+	// press on arrow to reverse the order of the list
+	//actionsmiddlepane.pressOnArrow();
+
+	// choose entity and press on favorite //
+	//actionsmiddlepane.sortByFavorite();
+	
+	
 	@Test(priority = 3)
-	public void templateDocMiddlePane() throws InterruptedException {
-		
-		logger = extent.createTest("template doc middle pane");
-		
-		actionsmiddlepane.openEntity("ramt", "dasdsa");
-		
-		randomactions.enterNameToEntity("hyyyyyyyyy");
-		
-		// sort the list by title
-		actionsmiddlepane.sortByTitle();
+	public void templateDocMiddlePaneSortStatusAndUnread() throws InterruptedException {
+
+		logger = extent.createTest("template doc middle pane ort status and unread");
 
 		// press on sort by status and unread
 		actionsmiddlepane.sordByStatusAndUnread();
 
-		// press on arrow to reverse the order of the list
-		//actionsmiddlepane.pressOnArrow();
 		
 	}
-	
+
 	@Test(priority = 4)
-	public void templateDocRightSide() throws InterruptedException {
-		
-		logger = extent.createTest("template document the right side on the screen");
-		
+	public void templateDocRightSideDelete() throws InterruptedException {
+
+		logger = extent.createTest("template document the right side Delete");
+
 		actionsrightside.deleteEntity();
+	}
+	
+	@Test(priority = 5)
+	public void templateDocSelectOffice() throws InterruptedException {
+	
+		logger = extent.createTest("template document the right side select office");
 
 		actionsmiddlepane.openEntity("templateDocsTest", "isr");
-		
+
 		templatedocrightside.SelectOfficeOnScreen();
 		
-		actionsrightside.addActivities("hyyyyyy" , "this is superman");
-		
-		
-		
 	}
 	
+	@Test(priority = 6)
+	public void templateDocAddActivities() throws InterruptedException {
+		
+		logger = extent.createTest("template document the right side add activities");
+		
+		actionsrightside.addActivities("hyyyyyy" , "this is superman");
+
+	}
+
 	@AfterClass
 	public void after() {
-		
+
 		extent.flush();
-		
+
 	}
-	
-  }
+
+}

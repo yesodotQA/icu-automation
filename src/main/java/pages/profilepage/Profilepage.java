@@ -10,7 +10,7 @@ import base.testBase;
 public class Profilepage extends testBase {
 	Profilepage profilepage;
 	
-	@FindBy(xpath = "/html/body/section/section/div[1]/header/div[4]/div/div/span")
+	@FindBy(css = ".dropdown-toggle .avatar .ng-binding.ng-scope")
 	public WebElement avatar;
 	
 	@FindBy(css = "[modal-name=\'currentUser\']")

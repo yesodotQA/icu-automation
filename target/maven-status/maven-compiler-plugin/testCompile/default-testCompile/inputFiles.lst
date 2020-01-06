@@ -2,7 +2,9 @@
 /home/israel/workspace/selenium-root/src/test/java/task/tasksTest.java
 /home/israel/workspace/selenium-root/src/test/java/offices/officesTest.java
 /home/israel/workspace/selenium-root/src/test/java/document/documentsTest.java
-/home/israel/workspace/selenium-root/src/test/java/meetings/TempMeetings.java
+/home/israel/workspace/selenium-root/src/test/java/fullScreen/fullScreenTest.java
+/home/israel/workspace/selenium-root/src/test/java/profilepage/ProfileTest.java
+/home/israel/workspace/selenium-root/src/test/java/Search/searchTest.java
 /home/israel/workspace/selenium-root/src/test/java/meetings/meetingsTest.java
 /home/israel/workspace/selenium-root/src/test/java/project/projectsTest.java
 /home/israel/workspace/selenium-root/src/test/java/templateDoc/templateDocTest.java

@@ -1,16 +1,12 @@
 package global.globalActions;
-import java.awt.Desktop.Action;
+
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
-
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-
 import com.aventstack.extentreports.Status;
-
 import base.testBase;
 import global.globalElements.Tabs;
 import global.globalElements.middlePane;
@@ -18,7 +14,6 @@ import global.globalElements.multipleSelect;
 import global.globalElements.theRightOfTheScreen; 
 
 public class actionsMiddlePane extends testBase {
-
 
 	Tabs tabs;
 	middlePane middlepane;
@@ -33,7 +28,6 @@ public class actionsMiddlePane extends testBase {
 		this.therightonthescreen = new theRightOfTheScreen();
 		PageFactory.initElements(driver, this);
 	}
-
 
 	private void waitForVisibility (WebElement element)  {
 
@@ -114,10 +108,15 @@ public class actionsMiddlePane extends testBase {
 	// a function that press on sort by title 
 	public void sortByTitle() throws InterruptedException {
 
-		openEntity("this is test", "dassad");
-		openEntity("hello world", "dasdassad");
-		openEntity("abcd", "dasdassad");
-
+		String [] nameOfEntities = {"this is test" , "hello world" , "abcd" } ;
+		
+		String [] description = {"dassad" , "dasdassad" , "dasdassad" };
+		
+		for (int i = 2; i < 3; i++) {
+			
+			openEntity(nameOfEntities[i], description[i]);
+		}
+		
 		int count = 0;
 
 		List<String> getStringList = 
@@ -136,6 +135,7 @@ public class actionsMiddlePane extends testBase {
 
 		middlepane.listOfSorts.get(0).click();
 
+		
 		Thread.sleep(4000);
 
 		// check if the list sorted
@@ -156,6 +156,8 @@ public class actionsMiddlePane extends testBase {
 		else {
 			logger.log(Status.INFO , "sort by title unable to check the arrow needs to be fixed");
 		}
+		
+		
 
 	}
 
@@ -196,7 +198,7 @@ public class actionsMiddlePane extends testBase {
 
 		middlepane.listOfSorts.get(2).click();
 
-
+		middlepane.pressOnEntity.click();
 	}
 
 	//a function that press on arrow to reverse the order of the list
@@ -232,8 +234,6 @@ public class actionsMiddlePane extends testBase {
 		}
 
 	}
-
-
 
 
 }

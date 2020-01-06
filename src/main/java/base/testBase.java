@@ -34,7 +34,7 @@ public class testBase {
 		System.setProperty("webdriver.chrome.driver", prop.getProperty("chromedriver"));
 
 		driver 		 = new ChromeDriver();
-		wait 		 = new WebDriverWait(driver, 30);
+		wait 		 = new WebDriverWait(driver, 20);
 		extent 		 = new ExtentReports();
 		htmlReporter = new ExtentHtmlReporter("./reports/extent.html");
 		extent.attachReporter(htmlReporter);
