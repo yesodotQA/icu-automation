@@ -367,14 +367,6 @@ public class documentsTest extends testBase {
 	}
 	
 	@Test(priority = 34)
-	public void tasksFromDocumentsRightSideChangePermission() throws InterruptedException {
-		
-		logger = extent.createTest("tasks from documents right side change permissions");
-		
-		actionsrightside.changePermission();		
-	}
-	
-	@Test(priority = 35)
 	public void tasksFromDocumentsRightSideDuplicateTasks() throws InterruptedException {
 		
 		logger = extent.createTest("tasks from documents right side duplicate tasks");

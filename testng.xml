@@ -3,73 +3,70 @@
 
 <suite name="Suite">
 
-<test name="base">
-	<classes>
-		<class name="base.beforeWeStart" />
-	</classes>
-</test>
-
-	<test name="offices">	
+	<test name="base">
+		<classes>
+			<class name="base.beforeWeStart" />
+		</classes>
+	</test>
+<!-- 
+	<test name="offices">
 		<classes>
 			<class name="offices.officesTest" />
 		</classes>
 	</test>
 
-	<!-- <test name="folder">
+	<test name="folder">
 		<classes>
 			<class name="folder.folderTest" />
 		</classes>
-	</test> -->
+	</test>
 
 
-	<!-- <test name="templateDoc">
+	<test name="templateDoc">
 		<classes>
 			<class name="templateDoc.templateDocTest" />
 		</classes>
 	</test> -->
 
 
-<!-- 	<test name="document">
+	<test name="document">
 		<classes>
 			<class name="document.documentsTest" />
 		</classes>
-	</test> -->
+	</test>
 
 	<!-- <test name="meetings">
 		<classes>
 			<class name="meetings.meetingsTest" />
 		</classes>
-	 </test> -->
-	 
+	</test>
 
-	<!-- <test name="project">
-	
+
+	 <test name="project">
+
 		<classes>
 			<class name="project.projectsTest" />
 		</classes>
-		
+
 	</test>
-	 -->
-	
-	
-	<!-- <test name="task">
+
+	<test name="task">
 		<classes>
 			<class name="task.tasksTest" />
 		</classes>
-	
-</test> 
+	</test>
 
-<test name="search">
-	<classes>
-		<class name="Search.searchTest" />
-	</classes>
-</test>
+	 <test name="search">
+		<classes>
+			<class name="Search.searchTest" />
+		</classes>
+	</test> -->
 
-<test name="profilePage">
-	<classes>
-		<class name="profilepage.ProfileTest" />
-	</classes>
-</test>
+	<!-- <test name="profilePage">
+		<classes>
+			<class name="profilepage.ProfileTest" />
+		</classes>
+	</test>  -->
 
- -->
+ 
 </suite> 

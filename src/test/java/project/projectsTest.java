@@ -390,14 +390,6 @@ public class projectsTest  extends testBase {
 		actionsrightside.addActivities("sad", "memurmar");
 	}	
 
-	@Test(priority = 36)
-	public void subProjectRightChangePermission() throws InterruptedException {
-
-		logger = extent.createTest("sub project right side change permission");
-
-		actionsrightside.changePermission(); 
-
-	}
 
 	@Test(priority = 37)
 	public void getIntoProjectFromDiscussion() throws InterruptedException {
@@ -539,15 +531,6 @@ public class projectsTest  extends testBase {
 	}
 
 
-	@Test(priority = 53)
-	public void projectFromDiscussionRightSideChangePermission() throws InterruptedException {
-
-		logger = extent.createTest("meetings right side change permission");
-
-		actionsrightside.changePermission();
-
-	}
-
 	@Test(priority = 54)
 	public void getIntoTasksFromProjects() throws InterruptedException {
 
@@ -684,15 +667,8 @@ public class projectsTest  extends testBase {
 		actionsrightside.addActivities("sad", "memurmar");
 	}
 
+
 	@Test(priority = 70)
-	public void tasksFromProjectsRightSideChangePermission() throws InterruptedException {
-
-		logger = extent.createTest("tasks from projects right side change permissions");
-
-		actionsrightside.changePermission();		
-	}
-
-	@Test(priority = 71)
 	public void tasksFromProjectsRightSideDuplicateTasks() throws InterruptedException {
 
 		logger = extent.createTest("tasks from projetcs right side duplicate tasks");

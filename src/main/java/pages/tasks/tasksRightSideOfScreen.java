@@ -156,12 +156,12 @@ public class tasksRightSideOfScreen extends testBase {
 		 
 		if (sizeOfEntitiesBeforeDuplicate + 1 == sizeOfEntitiesAfterDuplicate) {
 			
-			logger.log(Status.PASS , "duplicate task");
+			logger.log(Status.PASS , "the entity task duplicate ");
 		}
 
 		else {
 
-			logger.log(Status.FAIL , "duplicate task");
+			logger.log(Status.FAIL , "the entity task not duplicate ");
 		}	
 	}	
  }	

@@ -367,15 +367,7 @@ public class tasksTest  extends testBase {
 
 		actionsrightside.addActivities("sad", "memurmar");
 	}
-
-	@Test(priority = 36)
-	public void subTasksAllTasksRightSideChangePermission() throws InterruptedException {
-
-		logger = extent.createTest("sub tasks from all tasks right side change permissions");
-
-		actionsrightside.changePermission();	
-	}
-
+	
 	@Test(priority = 37)
 	public void getIntoMyTasks() throws InterruptedException {
 
@@ -473,7 +465,7 @@ public class tasksTest  extends testBase {
 
 		logger = extent.createTest("my tasks right side add assignee");
 
-		actionsrightside.addAssignee(true);
+		actionsrightside.addAssignee(false);
 	}
 
 	@Test(priority = 49)
@@ -541,24 +533,36 @@ public class tasksTest  extends testBase {
 	}
 
 	@Test(priority = 57)
+	public void deleteSubTasksMyTasks()throws InterruptedException {
+		
+		logger = extent.createTest("delete sub tasks from my tasks");
+		
+		actionsmiddlepane.openEntity("sub tasks", "sfdjh");
+
+		subTasks.addSubTasks();
+
+		subTasks.deleteSubTasks();
+	}
+	
+	@Test(priority = 58)
 	public void creatsSubTasksMyTasksAndEnterIt()throws InterruptedException {
 
 		logger = extent.createTest("create sub tasks from my tasks and enter it");
 
 		subTasks.createSubTasks();
-
+		
 		actionsmiddlepane.openEntity("subtasks1995", "rhfjfrjk");
 	}
 
-	@Test(priority = 58)
+	@Test(priority = 59)
 	public void subTasksmyTasksMultipleChoiceDelete()throws InterruptedException {
 
 		logger = extent.createTest("sub tasks my tasks multiple choice delete");
-
+		
 		actionsmultipleselect.deleteEntityMultipleChoice();
 	}
 
-	@Test(priority = 59)
+	@Test(priority = 60)
 	public void subTasksmyTasksMultipleChoiceAddTags()throws InterruptedException {
 
 		logger = extent.createTest("sub tasks my tasks multiple choice add tags");
@@ -566,7 +570,7 @@ public class tasksTest  extends testBase {
 		actionsmultipleselect.addTagsMultipleChoice("subtasksalltasks");
 	}
 
-	@Test(priority = 60)
+	@Test(priority = 61)
 	public void subTasksmyTasksMultipleChoiceSetDate()throws InterruptedException {
 
 		logger = extent.createTest("sub tasks my tasks multiple choice set date");
@@ -574,7 +578,7 @@ public class tasksTest  extends testBase {
 		actionsmultipleselect.addDateMultipleChoice();
 	}
 
-	@Test(priority = 61)
+	@Test(priority = 62)
 	public void subTasksmyTasksMultipleChoiceAddAssignee()throws InterruptedException {
 
 		logger = extent.createTest("sub tasks my tasks multiple choice add assignee");
@@ -582,7 +586,7 @@ public class tasksTest  extends testBase {
 		actionsmultipleselect.addAssigneeMultipleChoice();
 	}
 
-	@Test(priority = 62)
+	@Test(priority = 63)
 	public void subTasksmyTasksMultipleChoiceAddWatchers()throws InterruptedException {
 
 		logger = extent.createTest("sub tasks my tasks multiple choice add watchers");
@@ -590,7 +594,7 @@ public class tasksTest  extends testBase {
 		actionsmultipleselect.addWatchersMultipleChoice();
 	}
 
-	@Test(priority = 63)
+	@Test(priority = 64)
 	public void subTasksmyTasksMultipleChoiceAddStatus()throws InterruptedException {
 
 		logger = extent.createTest("sub tasks my tasks multiple choice add status");
@@ -598,7 +602,7 @@ public class tasksTest  extends testBase {
 		actionsmultipleselect.addStatusMultipleChoice();
 	}
 
-	@Test(priority = 64)
+	@Test(priority = 65)
 	public void subTasksmyTasksMiddlePaneStatusList()throws InterruptedException {
 
 		logger = extent.createTest("sub tasks my tasks middle pane status list");
@@ -606,7 +610,7 @@ public class tasksTest  extends testBase {
 		tasksmiddlepane.changeStatusOfList();		
 	}
 
-	@Test(priority = 65)
+	@Test(priority = 66)
 	public void subTasksmyTasksMiddlePaneSortTitle()throws InterruptedException {
 
 		logger = extent.createTest("sub tasks my tasks middle pane sort by title");
@@ -614,7 +618,7 @@ public class tasksTest  extends testBase {
 		actionsmiddlepane.sortByTitle();
 	}
 
-	@Test(priority = 66)
+	@Test(priority = 67)
 	public void subTasksmyTasksMiddlePaneSortStatusAndUnread()throws InterruptedException {
 
 		logger = extent.createTest("sub tasks my tasks middle pane sort status and unread");
@@ -622,7 +626,7 @@ public class tasksTest  extends testBase {
 		actionsmiddlepane.sordByStatusAndUnread();
 	}
 	
-	@Test(priority = 67)
+	@Test(priority = 68)
 	public void subTasksmyTasksRightSideDelete()throws InterruptedException {
 		
 		logger = extent.createTest("sub tasks my tasks right side delete");
@@ -630,7 +634,7 @@ public class tasksTest  extends testBase {
 		actionsrightside.deleteEntity();
 	}
 	
-	@Test(priority = 68)
+	@Test(priority = 69)
 	public void subTasksmyTasksRightSideAddAssignee()throws InterruptedException {
 		
 		logger = extent.createTest("sub tasks my tasks right side add assignee");
@@ -638,7 +642,7 @@ public class tasksTest  extends testBase {
 		actionsrightside.addAssignee(true);
 	}
 	
-	@Test(priority = 69)
+	@Test(priority = 70)
 	public void subTasksmyTasksRightSideSetDate()throws InterruptedException {
 		
 		logger = extent.createTest("sub tasks my tasks right side set date");
@@ -646,7 +650,7 @@ public class tasksTest  extends testBase {
 		actionsrightside.setDate();
 	}
 	
-	@Test(priority = 70)
+	@Test(priority = 71)
 	public void subTasksmyTasksRightSideAddStatus()throws InterruptedException {
 		
 		logger = extent.createTest("sub tasks my tasks right side add status");
@@ -654,7 +658,7 @@ public class tasksTest  extends testBase {
 		actionsrightside.addStatus();	
 	}
 	
-	@Test(priority = 71)
+	@Test(priority = 72)
 	public void subTasksmyTasksRightSideAddTags()throws InterruptedException {
 	
 		logger = extent.createTest("sub tasks my tasks right side add tags");
@@ -662,7 +666,7 @@ public class tasksTest  extends testBase {
 		actionsrightside.addTags("mytasksrightside");
 	}
 
-	@Test(priority = 72)
+	@Test(priority = 73)
 	public void subTasksmyTasksRightSideAddActivities()throws InterruptedException {
 		
 		logger = extent.createTest("sub tasks my tasks right side add activities");
@@ -670,15 +674,7 @@ public class tasksTest  extends testBase {
 		actionsrightside.addActivities("sad", "memurmar");
 	}
 	
-	@Test(priority = 73)
-	public void subTasksmyTasksRightSideChangePermission()throws InterruptedException {
-	
-		logger = extent.createTest("sub tasks my tasks right side change permissions");
-		
-		actionsrightside.changePermission();		
-	}
-	
-	@Test(priority = 74)
+	@Test(priority = 75)
 	public void subTasksmyTasksRightSideDuplicateTasks()throws InterruptedException {
 		
 		logger = extent.createTest("sub tasks my tasks right side duplicate tasks");
@@ -686,7 +682,7 @@ public class tasksTest  extends testBase {
 		tasksrightsideonscreen.duplicateTasks();
 	}
 	
-	@Test(priority = 75)
+	@Test(priority = 76)
 	public void getIntoDocumentsFromTasks()throws InterruptedException {
 		
 		logger = extent.createTest("get into documents from tasks");
@@ -695,7 +691,7 @@ public class tasksTest  extends testBase {
 	}
 	
 
-	@Test(priority = 76)
+	@Test(priority = 77)
 	public void documentsFromTasksMultipleChoiceDelete()throws InterruptedException {
 
 		logger = extent.createTest("documents from tasks multiple choice delete");
@@ -705,7 +701,7 @@ public class tasksTest  extends testBase {
 		 actionsmultipleselect.deleteEntityMultipleChoice();
 	}
 	
-	@Test(priority = 77)
+	@Test(priority = 78)
 	public void documentsFromTasksMultipleChoiceAddTags()throws InterruptedException {
 
 		logger = extent.createTest("documents from tasks multiple choice add tags");
@@ -713,7 +709,7 @@ public class tasksTest  extends testBase {
 		actionsmultipleselect.addTagsMultipleChoice("docFromTasks");
 	}
 	
-	@Test(priority = 78)
+	@Test(priority = 79)
 	public void documentsFromTasksMultipleChoiceSetDate()throws InterruptedException {
 		
 		logger = extent.createTest("documents from tasks multiple choice set date");
@@ -721,7 +717,7 @@ public class tasksTest  extends testBase {
 		actionsmultipleselect.addDateMultipleChoice();
 	}
 	
-	@Test(priority = 79)
+	@Test(priority = 80)
 	public void documentsFromTasksMultipleChoiceAddAsignee()throws InterruptedException {
 		
 		logger = extent.createTest("documents from tasks multiple choice add assignee");
@@ -729,7 +725,7 @@ public class tasksTest  extends testBase {
 		actionsmultipleselect.addAssigneeMultipleChoice();
 	}
 	
-	@Test(priority = 80)
+	@Test(priority = 81)
 	public void documentsFromTasksMultipleChoiceAddWatchers()throws InterruptedException {
 		
 		logger = extent.createTest("documents from tasks multiple choice add watchers");
@@ -737,7 +733,7 @@ public class tasksTest  extends testBase {
 		actionsmultipleselect.addWatchersMultipleChoice();
 	}
 	
-	@Test(priority = 81)
+	@Test(priority = 82)
 	public void documentsFromTasksMultipleChoiceAddStatus()throws InterruptedException {
 	
 		logger = extent.createTest("documents from tasks multiple choice add status");
@@ -745,7 +741,7 @@ public class tasksTest  extends testBase {
 		actionsmultipleselect.addStatusMultipleChoice();
 	}
 	
-	@Test(priority = 82)
+	@Test(priority = 83)
 	public void documentsFromTasksMiddlePaneStatusList()throws InterruptedException {
 		
 		logger = extent.createTest("documents from tasks middle pane change status list");
@@ -753,7 +749,7 @@ public class tasksTest  extends testBase {
 		documentsmiddlepane.changeStatusOfList();
 	}
 	
-	@Test(priority = 83)
+	@Test(priority = 84)
 	public void documentsFromTasksMiddlePaneSortTitle()throws InterruptedException {
 	
 		logger = extent.createTest("documents from tasks middle pane sort by title");
@@ -762,7 +758,7 @@ public class tasksTest  extends testBase {
 	}
 	
 	
-	@Test(priority = 84)
+	@Test(priority = 85)
 	public void documentsFromTasksMiddlePaneStatusAndUnread()throws InterruptedException {
 	
 		logger = extent.createTest("documents from tasks middle pane sort by status and unread");
@@ -771,7 +767,7 @@ public class tasksTest  extends testBase {
 	}
 	
 	
-	@Test(priority = 85)
+	@Test(priority = 86)
 	public void documentsFromTasksRightSideDelete() throws InterruptedException {
 	
 		logger = extent.createTest("documents from tasks right side delete");
@@ -779,7 +775,7 @@ public class tasksTest  extends testBase {
 		actionsrightside.deleteEntity();
 	}
 	
-	@Test(priority = 86)
+	@Test(priority = 87)
 	public void documentsFromTasksRightSideAddAsignee() throws InterruptedException {
 		
 		logger = extent.createTest("documents from tasks right side add assignee");
@@ -787,7 +783,7 @@ public class tasksTest  extends testBase {
 		actionsrightside.addAssignee(true);
 	}
 	
-	@Test(priority = 87)
+	@Test(priority = 88)
 	public void documentsFromTasksRightSideSetDate() throws InterruptedException {
 		
 		logger = extent.createTest("documents from tasks right side set date");
@@ -795,7 +791,7 @@ public class tasksTest  extends testBase {
 		actionsrightside.setDate();
 	}
 	
-	@Test(priority = 88)
+	@Test(priority = 89)
 	public void documentsFromTasksRightSideAddStatus() throws InterruptedException {
 		
 		logger = extent.createTest("documents from tasks right side set date");
@@ -803,7 +799,7 @@ public class tasksTest  extends testBase {
 		actionsrightside.addStatus();
 	}
 	
-	@Test(priority = 89)
+	@Test(priority = 90)
 	public void documentsFromTasksSelectFolder() throws InterruptedException {
 		
 		logger = extent.createTest("documents from tasks right side select folder");
@@ -811,7 +807,7 @@ public class tasksTest  extends testBase {
 		documentsrightside.SelectFolderOnScreen();
 	}
 	
-	@Test(priority = 90)
+	@Test(priority = 91)
 	public void documentsFromTasksRightSideAddTags() throws InterruptedException {
 		
 		logger = extent.createTest("documents from tasks right add tags");
@@ -819,7 +815,7 @@ public class tasksTest  extends testBase {
 		actionsrightside.addTags("www");	
 	}
 	
-	@Test(priority = 91)
+	@Test(priority = 92)
 	public void documentsFromTasksRightSideAddActivities() throws InterruptedException {
 	
 		logger = extent.createTest("documents from tasks right add activities");
@@ -827,15 +823,7 @@ public class tasksTest  extends testBase {
 		actionsrightside.addActivities("hyyyyyy" , "this is superman");
 	}
 	
-	@Test(priority = 92)
-	public void documentsFromTasksRightSideChangePremission() throws InterruptedException {
-		
-		logger = extent.createTest("documents from tasks right change permissions");
-		
-		actionsrightside.changePermission();
-	}
 	
-
 	@AfterClass
 	public void after() {
 

@@ -1,6 +1,6 @@
 package global.globalActions;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.NoSuchElementException;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -28,6 +28,8 @@ public class actionsRightSide extends testBase {
 	@FindBy(className = "activities-list")
 	WebElement checkIfTheActivitiesUpdate;
 
+	@FindBy(css = ".description.ng-binding")
+	List<WebElement> listOfDescriptionInActivities=  new ArrayList<>();
 
 	public actionsRightSide() {
 
@@ -72,13 +74,12 @@ public class actionsRightSide extends testBase {
 
 	// TEST FUNCTION THAT ADD ASSIGNEE
 	public void addAssignee(boolean openEntity) throws InterruptedException {
-			Thread.sleep(1500);
-		
-			if(openEntity == true) {
-				
-				actionmiddlepane.openEntity("right of screen", "classified");
-			}
-			
+		Thread.sleep(1500);
+
+		actionmiddlepane.openEntity("right of screen", "classified");
+
+		if (openEntity ==true ) {
+
 			int checkSizeOfWatchersBeforeAddAssignee = therightonthescreen.listOfWatchersIcons.size();
 
 			waitForVisibility(therightonthescreen.assigneeOnTheScreen);
@@ -97,7 +98,9 @@ public class actionsRightSide extends testBase {
 			else {
 				logger.log(Status.FAIL , "add asignee on screen");
 			}
+
 		}
+	}
 
 	// TEST FUNCTION THAT SET A DATE
 	public void setDate() throws InterruptedException {
@@ -124,13 +127,33 @@ public class actionsRightSide extends testBase {
 		int afterSetDate = Integer.parseInt(sizeOfActivtiesListAfterSet);
 
 		if (beforeSetDate + 1 == afterSetDate) {
-			logger.log(Status.PASS , "add date on screen");
+			logger.log(Status.PASS , "add activity in activities");
 		}
 		else {
-			logger.log(Status.FAIL , "add date on screen");
+			logger.log(Status.FAIL , "add activity in activities");
+		}
+
+		String Description = listOfDescriptionInActivities.get(0).getText();
+
+		String collect = "";
+
+		for (int i = 10; i > 0 ; i--) {
+
+			collect +=	Description.charAt(Description.length()-i);
+		}
+
+		String Date =therightonthescreen.dateOnTheScreen.getAttribute("value");
+
+		if (Date.equals(collect)) {
+
+			logger.log(Status.PASS , "Add a correct description");			
+		}
+		else {
+			logger.log(Status.FAIL , "the description is not correct");
 		}
 
 	}
+
 	public void addStatus() throws InterruptedException {
 
 		String sizeListOfActivitiesBeforeChoosing = checkIfTheActivitiesUpdate.getAttribute("childElementCount");
@@ -146,7 +169,7 @@ public class actionsRightSide extends testBase {
 		Thread.sleep(2000);
 
 
-		therightonthescreen.listOfStatusOnScreen.get(0).click();
+		therightonthescreen.listOfStatusOnScreen.get(1).click();
 
 
 		Thread.sleep(2000);
@@ -166,6 +189,31 @@ public class actionsRightSide extends testBase {
 
 			logger.log(Status.FAIL , "add status on screen");
 		}
+
+		String Description = listOfDescriptionInActivities.get(0).getText();
+
+		int status = therightonthescreen.pressToChangeStatusOnTheScreen.getText().length();
+
+		String collect = "";
+
+		for (int i = status; i > 0 ; i--) {
+
+			collect +=Description.charAt(Description.length()-i);  
+		}
+		System.out.println(collect);
+
+		String statusName = therightonthescreen.pressToChangeStatusOnTheScreen.getText();
+
+		System.out.println(statusName);
+
+		if (collect.equals(statusName)) {
+
+			logger.log(Status.PASS , "Add a correct description");			
+		}
+		else {
+			logger.log(Status.FAIL , "the description is not correct");
+		}
+
 	}
 
 
@@ -191,10 +239,37 @@ public class actionsRightSide extends testBase {
 		int SwitcheStringToInt2 = Integer.parseInt(sizeOfActivtiesListAfterSet);
 
 		if (switcheStringToInt1 + 1 == SwitcheStringToInt2) {
+
 			logger.log(Status.PASS , "add tags on screen");
 		}
 		else {
+
 			logger.log(Status.FAIL , "add tags on screen");
+		}
+
+		String Description = listOfDescriptionInActivities.get(0).getText();
+
+		int tagSize = therightonthescreen.tagsOnScreenForChecking.getText().length();
+
+		System.out.println(tagSize);
+
+		String collect = "";
+
+		for (int i = tagSize; i > 0 ; i--) {
+
+			collect +=Description.charAt(Description.length()-i);  
+		}
+
+		String tagName = therightonthescreen.tagsOnScreenForChecking.getText();
+
+		System.out.println(tagName + " " + collect);
+
+		if (tagName.equals(collect)) {
+
+			logger.log(Status.PASS , "Add a correct description");			
+		}
+		else {
+			logger.log(Status.FAIL , "the description is not correct");
 		}
 	}
 
@@ -315,7 +390,6 @@ public class actionsRightSide extends testBase {
 
 		String Editor    = "Set as Editor";
 		String Commenter = "Set as commenter";
-		String Viewer    = "Set as viewer";
 
 
 		// Set as editor 
@@ -350,30 +424,37 @@ public class actionsRightSide extends testBase {
 				break;
 			}
 		}
+		try {
+			
+			WebElement commenterMember = driver.findElement(By.className("commenter"));
 
-		WebElement commenterMember = driver.findElement(By.className("commenter"));
+			Thread.sleep(2000);
 
-		Thread.sleep(2000);
-
-		if (commenterMember.isDisplayed()) {
-			logger.log(Status.PASS , "change permission to commenter");
-		}
-		else {
+			if (commenterMember.isDisplayed()) {
+				logger.log(Status.PASS , "change permission to commenter");
+			}
+		
+		} catch (Exception e) {
+			
 			logger.log(Status.FAIL, "change permission to commenter");
 		}
 
-		// Check when watcher was added is a viewer in defaults
+		try {
+			
+			WebElement viewerMember = driver.findElement(By.className("viewer"));
 
-		WebElement viewerMember = driver.findElement(By.className("viewer"));
+			Thread.sleep(2000);
 
-		Thread.sleep(2000);
+			if (viewerMember.isDisplayed()) {
 
-		if (viewerMember.isDisplayed()) {
-			logger.log(Status.PASS , "The defaults permmision is viewer");
-		}
-		else {
+				logger.log(Status.PASS , "The defaults permmision is viewer");
+			}
+	
+		} catch (Exception e) {
+			
 			logger.log(Status.FAIL, "The defaults permmision is viewer");
 		}
+
 	}
 
 

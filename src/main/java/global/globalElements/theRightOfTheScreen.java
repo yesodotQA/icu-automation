@@ -45,7 +45,7 @@ public class theRightOfTheScreen extends testBase {
 	@FindBy(css = ".ui-select-match-item .ng-binding")
 	public	WebElement tagsOnScreenForChecking;
 	
-	@FindBy(css = "[role='combobox']")
+	@FindBy(css = "#addTag~.ui-select-search")
 	public	WebElement enterTagsOnScreen;
 	
 	@FindBy(css ="[ng-if='$select.open']")

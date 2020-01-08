@@ -75,8 +75,7 @@ public class  SearchMultipleSelect extends testBase {
 		Thread.sleep(1500);
 
 		actionsmiddlepane.openEntity(nameOfEntity, "dsadasd");
-		actionsmiddlepane.openEntity(nameOfEntity, "dsadasd");
-
+	
 		Thread.sleep(500);
 		
 		tabs.searchTab.click();

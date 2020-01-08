@@ -137,7 +137,7 @@ public class folderTest extends testBase{
 
 
 	}
-
+	
 	@Test(priority = 8)
 	public void foldersRightSideDelete() throws InterruptedException {
 
@@ -163,8 +163,8 @@ public class folderTest extends testBase{
 		logger = extent.createTest("folder choose color");
 
 		randomactions.chooseColor();
-
 	}
+	
 	@Test(priority = 11)
 	public void foldersSelectOffice() throws InterruptedException {
 
@@ -341,23 +341,7 @@ public class folderTest extends testBase{
 		  actionsrightside.addActivities("hyyyyyy" , "this is superman");
 	  }
 	  
-	  @Test(priority = 31)
-	  public void documentsFromFolderRightSideChangePremission() throws InterruptedException {
-		  
-		  logger = extent.createTest("documents from folder right side change permissions");
-		  
-		  actionsrightside.changePermission();
-	  }
-		  
-		  
-	  
-	  
-	  
 	
-	  
-	  
-	  
-	 
 	@AfterClass
 	public void after() {
 

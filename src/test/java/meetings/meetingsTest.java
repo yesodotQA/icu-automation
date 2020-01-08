@@ -56,6 +56,7 @@ public class meetingsTest extends testBase {
 		this.tasktest					= new tasksTest();
 		this.subtasks 					= new subTasks();
 		this.tasksmiddlepane			= new tasksMiddlePane();  
+		this.tasksrightside				= new tasksRightSideOfScreen();
 		meetingsfunctions.pressMeetings();
 		actionsmiddlepane.openEntity("delete", "dasda");
 
@@ -341,14 +342,6 @@ public class meetingsTest extends testBase {
 	}
 
 	@Test(priority = 33)
-	public void tasksFromMeetingsRightSideChangePermission() throws InterruptedException {
-
-		logger = extent.createTest("tasks from meetings right side change permissions");
-
-		actionsrightside.changePermission();		
-	}
-
-	@Test(priority = 34)
 	public void tasksFromMeetingsRightSideDuplicateTasks() throws InterruptedException {
 
 		logger = extent.createTest("tasks from meetings right side duplicate tasks");
@@ -356,7 +349,7 @@ public class meetingsTest extends testBase {
 		tasksrightside.duplicateTasks();
 	}
 
-	@Test (priority = 35) 
+	@Test (priority = 34) 
 	public void getIntoDiscussionFromProject() throws InterruptedException {
 
 		logger = extent.createTest("get into discussion from projects");
@@ -365,7 +358,7 @@ public class meetingsTest extends testBase {
 
 	}
 
-	@Test (priority = 36) 
+	@Test (priority = 35) 
 	public void discussionsFromProjectMultipleChoiceDelete() throws InterruptedException {
 
 		logger = extent.createTest(" discussion from projects multiple choice delete");
@@ -373,7 +366,7 @@ public class meetingsTest extends testBase {
 		actionsmultipleselect.deleteEntityMultipleChoice();
 	}
 
-	@Test (priority = 37)
+	@Test (priority = 36)
 	public void discussionsFromProjectsMultipleChoiceAddTags () throws InterruptedException {
 
 		logger = extent.createTest(" discussion from projects multiple choice add tags");
@@ -381,7 +374,7 @@ public class meetingsTest extends testBase {
 		actionsmultipleselect.addTagsMultipleChoice("Meetings ASAP");
 	}
 
-	@Test(priority = 38)
+	@Test(priority = 37)
 	public void discussionsFromProjectsMultipleChoiceSetDate () throws InterruptedException {
 
 		logger = extent.createTest("discussion from projects multiple choice set date");
@@ -389,7 +382,7 @@ public class meetingsTest extends testBase {
 		meetingsfunctions.setDateViaMultipleSelect();
 	}
 
-	@Test(priority = 39)
+	@Test(priority = 38)
 	public void discussionsFromProjectsMultipleChoiceAddAsignee() throws InterruptedException {
 
 		logger = extent.createTest("discussion from projects multiple choice add assignee");
@@ -397,7 +390,7 @@ public class meetingsTest extends testBase {
 		actionsmultipleselect.addAssigneeMultipleChoice();
 	}
 
-	@Test(priority = 40)
+	@Test(priority = 39)
 	public void  discussionsFromProjectsMultipleChoiceAddwatcher()throws InterruptedException {
 
 		logger = extent.createTest("discussion from projects multiple choice add watchers");
@@ -406,7 +399,7 @@ public class meetingsTest extends testBase {
 
 	}
 
-	@Test(priority = 41)
+	@Test(priority = 40)
 	public void discussionsFromProjectsMultipleChoiceAddStatsus()throws InterruptedException{
 
 		logger = extent.createTest("discussion from projects multiple choice add status");
@@ -415,7 +408,7 @@ public class meetingsTest extends testBase {
 
 	}
 
-	@Test (priority = 42)
+	@Test (priority = 41)
 	public void discussionsFromProjectsMiddlePaneSortTitle () throws InterruptedException {
 
 		logger = extent.createTest("discussion from projects middle pane sort by title");
@@ -428,7 +421,7 @@ public class meetingsTest extends testBase {
 
 	//actionsmiddlepane.pressOnArrow();
 
-	@Test(priority = 43)
+	@Test(priority = 42)
 	public void discussionsFromProjectsMiddlePaneSortStatusAndUnread ()throws InterruptedException {
 
 		logger = extent.createTest("discussion from projects middle pane sort by status and unread");
@@ -437,7 +430,7 @@ public class meetingsTest extends testBase {
 
 	}
 
-	@Test(priority = 44)
+	@Test(priority = 43)
 	public void discussionsFromProjectsRightSideDelete() throws InterruptedException{
 
 		logger = extent.createTest("discussion from projects right side delele");
@@ -446,7 +439,7 @@ public class meetingsTest extends testBase {
 
 	}
 
-	@Test (priority = 45)
+	@Test (priority = 44)
 	public void discussionsFromProjectsRightSideAddAssignee () throws InterruptedException {
 
 		logger = extent.createTest("discussion from projects right side add assignee");
@@ -455,7 +448,7 @@ public class meetingsTest extends testBase {
 
 	}
 
-	@Test (priority = 46)
+	@Test (priority = 45)
 	public void discussionsFromProjectsRightSideSetDate () throws InterruptedException {
 
 		logger = extent.createTest("discussion from projects right side set date");
@@ -464,7 +457,7 @@ public class meetingsTest extends testBase {
 
 	}
 
-	@Test (priority = 47)
+	@Test (priority = 46)
 	public void discussionsFromProjectsRightSideAddLocation () throws InterruptedException {
 
 		logger = extent.createTest("discussion from projects right side add location");
@@ -473,7 +466,7 @@ public class meetingsTest extends testBase {
 
 	}
 
-	@Test (priority = 48)
+	@Test (priority = 47)
 	public void discussionsFromProjectsRightSideAddStatus() throws InterruptedException {
 
 		logger = extent.createTest("discussion from projects right side add status");
@@ -482,7 +475,7 @@ public class meetingsTest extends testBase {
 
 	}
 
-	@Test (priority = 49)
+	@Test (priority = 48)
 	public void discussionsFromProjectsRightSideAddTags() throws InterruptedException {
 
 		logger = extent.createTest("discussion from projects right side add tags");
@@ -491,21 +484,13 @@ public class meetingsTest extends testBase {
 
 	}
 
-	@Test (priority = 50)
+	@Test (priority = 49)
 	public void discussionsFromProjectsRightSideAddActivities() throws InterruptedException {
 
 		logger = extent.createTest("discussion from projects right side add activities");
 
 		actionsrightside.addActivities("HELLO" , "this is superman");
 
-	}
-
-	@Test(priority = 51)
-	public void discussionsFromProjectsRightSideChangePermission() throws InterruptedException {
-
-		logger = extent.createTest("discussion from projects right side change permission");
-
-		actionsrightside.changePermission();
 	}
 
 	@AfterClass

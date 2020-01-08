@@ -3,14 +3,11 @@ package pages.Search;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-
 import com.aventstack.extentreports.Status;
-
 import base.testBase;
 import global.globalActions.actionsMiddlePane;
 import global.globalActions.actionsRightSide;
@@ -98,7 +95,7 @@ public class SearchFunction extends testBase {
 	@FindBy (css ="[value='item.status']")
 	WebElement statusName;
 
-	@FindBy (className = "discussion-details")
+	@FindBy (css = ".entity-details .ng-binding.ng-scope")
 	WebElement AmountOfResults; 
 
 	@FindBy(css ="[ng-mouseleave='hideTick(result)']")
@@ -267,7 +264,7 @@ public class SearchFunction extends testBase {
 
 	public void ActiveAndArchivedFilter () throws InterruptedException {
 
-		final int RUNNIG_NUMBER = 6;
+		final int RUNNIG_NUMBER = 3;
 		int	counterActive = 0;
 		int	counterArchive = 0;
 		String FilterTitle = "check status filtered";
@@ -326,6 +323,7 @@ public class SearchFunction extends testBase {
 
 			logger.log(Status.PASS , "open all Entities successfully!");
 		}
+		
 		else {
 
 			logger.log(Status.FAIL , "Faile d on open all entities.");
@@ -372,8 +370,6 @@ public class SearchFunction extends testBase {
 
 		int[]resultsfound  = {3,1,2};
 
-		logger = extent.createTest("search 3 letters");
-
 		waitForVisibility(tabs.tasksTab);
 		tabs.tasksTab.click();
 		Thread.sleep(1500);
@@ -413,8 +409,9 @@ public class SearchFunction extends testBase {
 
 		ResultsNumber = Integer.parseInt(ArraySplit[0]);
 
+		Thread.sleep(1500);
 
-		if(ResultsNumber == resultsfound[1]) 
+		if(ResultsNumber == listOfsearch.size()) 
 
 			logger.log(Status.PASS,"connected numbers & letters passed");
 
@@ -434,7 +431,7 @@ public class SearchFunction extends testBase {
 		ResultsNumber = Integer.parseInt(ArraySplit[0]);
 
 
-		if(ResultsNumber == resultsfound[2]) 
+		if(ResultsNumber == listOfsearch.size()) 
 			logger.log(Status.PASS,"regular numbers & letters passed");
 
 		else
@@ -453,7 +450,7 @@ public class SearchFunction extends testBase {
 
 		ResultsNumber = Integer.parseInt(ArraySplit[0]);
 
-		if(ResultsNumber == resultsfound[1]) 
+		if(ResultsNumber == listOfsearch.size()) 
 			logger.log(Status.PASS,"search by tag passed");
 
 		else
@@ -472,7 +469,7 @@ public class SearchFunction extends testBase {
 		ResultsNumber = Integer.parseInt(ArraySplit[0]);
 
 
-		if(ResultsNumber == resultsfound[0]) 
+		if(ResultsNumber == listOfsearch.size()) 
 			logger.log(Status.PASS,"search by description passed");
 
 		else

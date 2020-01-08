@@ -22,8 +22,8 @@ public class searchTest extends testBase {
 	SearchMultipleSelect searchMulti;
 	SearchFunction searchfunction;
 	actionsRightSide actionrightside;
-	
-	
+
+
 	@BeforeClass
 	public void SetUp() throws InterruptedException, IOException{	
 
@@ -34,50 +34,138 @@ public class searchTest extends testBase {
 		this.actionrightside = new actionsRightSide();
 	}
 
-		@Test(priority = 1)
-		public void searchEntityAndFilter() throws InterruptedException {
-			logger = extent.createTest("search and filter");
-	
-			searchfunction.searchEntities();
-			searchfunction.tabsFilter();
-			searchfunction.settingFilter();
-			searchfunction.ActiveAndArchivedFilter();	
-		}
-	
-	
-			
-	@Test (priority = 2)
-	public void multipleSelectOnTheEntityFound() throws InterruptedException {
-		logger = extent.createTest("search multiple choice");
+	@Test(priority = 1)
+	public void searchEntities() throws InterruptedException {
+		logger = extent.createTest("search ecnities");
 
-		searchMulti.getToSearchMultipleSelect();
-		searchMulti.addTagsMultipleSelectSearch("www");
-		searchMulti.addDateMultipleSelectSearch();
-		searchMulti.addAssigneeMultipleChoiceSearch();
-		searchMulti.addWatchersMultipleChoiceSearch();
-		searchMulti.addStatusMultipleChoiceSearch();	
-		searchMulti.deleteMultipleSelectSearch();
+		searchfunction.searchEntities();
+	}
 
+	@Test(priority = 2)
+	public void tabsFilter() throws InterruptedException {
+
+		logger = extent.createTest("search ecnities By tab filtering");
+
+		searchfunction.tabsFilter();
+
+		searchfunction.settingFilter();
 
 	}
-	@Test (priority = 3)
-	public void	rightSideOnTheEntityFound() throws InterruptedException {
-		logger = extent.createTest("search right side");
+
+	@Test(priority = 3)
+	public void activeAndArchivedFilter() throws InterruptedException {
+
+		logger = extent.createTest("search ecnities By active and archive filtering");
+
+		searchfunction.ActiveAndArchivedFilter();	
+	}
+
+	@Test (priority = 4)
+	public void multipleSelectOnTheEntityFoundAddTags() throws InterruptedException {
+		logger = extent.createTest("search multiple choice add tags");
+
+		searchMulti.getToSearchMultipleSelect();
+
+		searchMulti.addTagsMultipleSelectSearch("www");
+	}
+
+	@Test (priority = 5)
+	public void multipleSelectOnTheEntityFoundAddDate() throws InterruptedException {
+
+		logger = extent.createTest("search multiple choice add date");
+
+		searchMulti.addDateMultipleSelectSearch();
+	}
+
+	
+	@Test (priority = 6)
+	public void multipleSelectOnTheEntityFoundAddAssignee() throws InterruptedException {
+
+		logger = extent.createTest("search multiple choice add assignee");
+
+		searchMulti.addAssigneeMultipleChoiceSearch();	
+	}
+
+	@Test (priority = 7)
+	public void multipleSelectOnTheEntityFoundAddWatchers() throws InterruptedException {
+
+		logger = extent.createTest("search multiple choice add watchers");
+
+		searchMulti.addWatchersMultipleChoiceSearch();
+	}
+
+	@Test (priority = 8)
+	public void multipleSelectOnTheEntityFoundAddStatus() throws InterruptedException {
+
+		logger = extent.createTest("search multiple choice add status");
+
+		searchMulti.addStatusMultipleChoiceSearch();
+	}
+
+	@Test (priority = 9)
+	public void multipleSelectOnTheEntityFoundDelete() throws InterruptedException {
+
+		logger = extent.createTest("search multiple choice delete");
+
+		searchMulti.deleteMultipleSelectSearch();
+
+	}
+	
+	@Test (priority = 10)
+	public void	rightSideOnTheEntityFoundAddAssignee() throws InterruptedException {
+		
+		logger = extent.createTest("search right side add assignee");
+	
 		actionrightside.addAssignee(false);
+	}
+	
+	@Test (priority = 11)
+	public void	rightSideOnTheEntityFoundSetDate() throws InterruptedException {
+	
+		logger = extent.createTest("search right side set date");
+		
 		actionrightside.setDate();
+	}
+	
+	@Test (priority = 12)
+	public void	rightSideOnTheEntityFoundAddTags() throws InterruptedException {
+	
+		logger = extent.createTest("search right side add tags");
+		
 		actionrightside.addTags("finish");
+	}
+
+	@Test (priority = 13)
+	public void	rightSideOnTheEntityFoundAddActivities() throws InterruptedException {
+	
+		logger = extent.createTest("search right side add activities");
+		
 		actionrightside.addActivities("finishhh", "aoutomation");
+	}
+	
+	@Test (priority = 14)
+	public void	rightSideOnTheEntityFoundAddWatchers() throws InterruptedException {
+		
+		logger = extent.createTest("search right side add watchers");
+	
 		actionrightside.addWatcher();
 	}
 	
-		@Test (priority =4)
-		public void deleteItems() throws InterruptedException {
-			logger = extent.createTest("delete items");
+	@Test (priority = 15)
+	public void searchDeleteItems() throws InterruptedException {
+		
+		logger = extent.createTest("search delete items");
 
-			deleteditems.searchDeleteItems();
-			deleteditems.unDelete();
-		}
-	 
+		deleteditems.searchDeleteItems();
+	}	
+		
+	@Test (priority = 16)
+	public void deleteItems() throws InterruptedException {
+		logger = extent.createTest("undelete items");
+
+		deleteditems.unDelete();
+	}
+
 
 	@AfterClass
 	public void after() {

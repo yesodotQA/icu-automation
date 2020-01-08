@@ -276,15 +276,6 @@ public class officesTest extends testBase {
 		actionsrightside.addActivities("hyyyyyy" , "this is superman");	
 	}
 	
-	@Test(priority = 24)
-	public void foldersFromOfficeChangPermissions() throws InterruptedException {
-	
-		logger = extent.createTest("folder from office chanhge permissions");
-
-		actionsrightside.changePermission();
-
-	}
-
 	
 	@AfterClass
 	public void after() {
