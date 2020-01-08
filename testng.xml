@@ -8,7 +8,7 @@
 			<class name="base.beforeWeStart" />
 		</classes>
 	</test>
-<!-- 
+
 	<test name="offices">
 		<classes>
 			<class name="offices.officesTest" />
@@ -26,7 +26,7 @@
 		<classes>
 			<class name="templateDoc.templateDocTest" />
 		</classes>
-	</test> -->
+	</test>
 
 
 	<test name="document">
@@ -35,7 +35,7 @@
 		</classes>
 	</test>
 
-	<!-- <test name="meetings">
+	<test name="meetings">
 		<classes>
 			<class name="meetings.meetingsTest" />
 		</classes>
@@ -60,7 +60,7 @@
 		<classes>
 			<class name="Search.searchTest" />
 		</classes>
-	</test> -->
+	</test>
 
 	<!-- <test name="profilePage">
 		<classes>
