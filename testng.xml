@@ -15,7 +15,7 @@
 		</classes>
 	</test>
 
-	<test name="folder">
+	<!-- <test name="folder">
 		<classes>
 			<class name="folder.folderTest" />
 		</classes>
@@ -33,16 +33,16 @@
 		<classes>
 			<class name="document.documentsTest" />
 		</classes>
-	</test>
+	</test> -->
 
-	<test name="meetings">
+	<!-- <test name="meetings">
 		<classes>
 			<class name="meetings.meetingsTest" />
 		</classes>
-	</test>
+	</test> -->
 
 
-	 <test name="project">
+	<!--  <test name="project">
 
 		<classes>
 			<class name="project.projectsTest" />
@@ -58,15 +58,15 @@
 
 	 <test name="search">
 		<classes>
-			<class name="Search.searchTest" />
+			<class name="search.searchTest" />
 		</classes>
 	</test>
 
-	<!-- <test name="profilePage">
+	<test name="profilePage">
 		<classes>
 			<class name="profilepage.ProfileTest" />
 		</classes>
-	</test>  -->
-
+	</test> 
+ -->
  
 </suite> 
