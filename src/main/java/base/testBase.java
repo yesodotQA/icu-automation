@@ -7,6 +7,7 @@ import java.util.Properties;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -33,7 +34,9 @@ public class testBase {
 
 		System.setProperty("webdriver.chrome.driver", prop.getProperty("chromedriver"));
 
-		driver 		 = new ChromeDriver();
+		ChromeOptions options = new ChromeOptions(); 
+		options.addArguments("--headless", "--disable-gpu", "--window-size=1920,1200","--ignore-certificate-errors");
+		driver 		 = new ChromeDriver(options);
 		wait 		 = new WebDriverWait(driver, 20);
 		extent 		 = new ExtentReports();
 		htmlReporter = new ExtentHtmlReporter("./reports/extent.html");
@@ -72,16 +75,16 @@ public class testBase {
 	
 }
 
-	class beforeWeStart extends testBase {
-		@BeforeSuite
-		public void SetUp() throws InterruptedException, IOException {
-			initialization();
-			Login();
-
-		}
-
-
+class beforeWeStart extends testBase {
+	
+	@BeforeSuite
+	public void beforeSetUp() throws InterruptedException, IOException {
+		initialization();
+		Login();
 	}
+	
+}
+
 
 
 
