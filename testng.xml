@@ -15,7 +15,7 @@
 		</classes>
 	</test>
 
-	<!-- <test name="folder">
+	<test name="folder">
 		<classes>
 			<class name="folder.folderTest" />
 		</classes>
@@ -62,11 +62,11 @@
 		</classes>
 	</test>
 
-	<test name="profilePage">
+<!-- 	<test name="profilePage">
 		<classes>
 			<class name="profilepage.ProfileTest" />
 		</classes>
-	</test> 
- -->
+	</test>  -->
+
  
 </suite> 
