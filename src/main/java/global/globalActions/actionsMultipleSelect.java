@@ -10,6 +10,8 @@ import global.globalElements.Tabs;
 import global.globalElements.middlePane;
 import global.globalElements.multipleSelect;
 import global.globalElements.theRightOfTheScreen;
+import javassist.bytecode.stackmap.BasicBlock.Catch;
+import pages.offices.officesMultipleSelect;
 
 public class actionsMultipleSelect extends testBase {
 
@@ -506,63 +508,74 @@ public class actionsMultipleSelect extends testBase {
 
 				try {
 
-					waitForVisibility(multipleselect.addWatchers);
+					if (multipleselect.addWatchers.isDisplayed()) {
 
-					multipleselect.addWatchers.click();
+						waitForVisibility(multipleselect.addWatchers);
 
-					Thread.sleep(2000);
-
-					waitForVisibility(multipleselect.selectMembers);
-
-					multipleselect.selectMembers.click();
-
-					Thread.sleep(2000);
-
-					multipleselect.listToChooseWatchers.get(0).click();
-
-					numberOfWatcherOnMultipleSelect = multipleselect.listOfWatchersMultipleSelect.size();
-
-
-					waitForVisibility(multipleselect.updateWatchers);
-
-					multipleselect.updateWatchers.click();
-
-					Thread.sleep(2000);
-
-					if (windowOfMultipleChoice.isDisplayed()) {
-
-						logger.log(Status.FAIL, "update button not work");
+						multipleselect.addWatchers.click();
 
 						Thread.sleep(2000);
 
-						cancelButton.click();
+						waitForVisibility(multipleselect.selectMembers);
+
+						multipleselect.selectMembers.click();
 
 						Thread.sleep(2000);
-						waitForVisibility(multipleselect.pressSecondMultipleChoice);
 
-						multipleselect.pressSecondMultipleChoice.click();
+						multipleselect.listToChooseWatchers.get(0).click();
 
-						waitForVisibility(middlepane.pressOnEntity);
+						numberOfWatcherOnMultipleSelect = multipleselect.listOfWatchersMultipleSelect.size();
 
-						middlepane.pressOnEntity.click();
+						try {
+
+							waitForVisibility(multipleselect.updateWatchers);
+
+							multipleselect.updateWatchers.click();
+
+							Thread.sleep(2000);
+
+							if (windowOfMultipleChoice.isDisplayed()) {
+
+								logger.log(Status.FAIL, "update button not work");
+
+								Thread.sleep(2000);
+
+								cancelButton.click();
+
+								Thread.sleep(2000);
+								waitForVisibility(multipleselect.pressSecondMultipleChoice);
+
+								multipleselect.pressSecondMultipleChoice.click();
+
+								waitForVisibility(middlepane.pressOnEntity);
+
+								middlepane.pressOnEntity.click();
+							}
+
+						} catch (Exception e) {
+
+							logger.log(Status.PASS, "update button work");
+
+						}
 
 					}
 
 				} catch (Exception e) {
 
-					logger.log(Status.PASS, "update button work");
+					Thread.sleep(2000);
 
-
+					cancelButton.click();
+					
 					Thread.sleep(2000);
 
 					waitForVisibility(multipleselect.pressSecondMultipleChoice);
 
 					multipleselect.pressSecondMultipleChoice.click();
 
-
 					waitForVisibility(middlepane.pressOnEntity);
 
 					middlepane.pressOnEntity.click();
+
 
 				} finally {
 
