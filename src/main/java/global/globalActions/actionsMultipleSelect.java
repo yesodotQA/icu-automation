@@ -47,14 +47,14 @@ public class actionsMultipleSelect extends testBase {
 
 	private void waitForVisibility (WebElement element)  {
 
-		wait.until(ExpectedConditions.visibilityOf(element));
+		wait.until(ExpectedConditions.visibilityOf(element));	
 
 	}
 
 	//a function that delete entity using multiple select 
 	public void deleteEntityMultipleChoice() throws InterruptedException {
 
-		int size =middlepane.listOfEntities.size() ;
+		int size =middlepane.listOfEntities.size();
 
 		System.out.println(middlepane.listOfEntities.size());
 
@@ -703,9 +703,9 @@ public class actionsMultipleSelect extends testBase {
 	public void deleteAllEntities()  throws InterruptedException {
 
 		waitForVisibility(middlepane.pressOnEntity);
-		
+
 		middlepane.pressOnEntity.click();
-		
+
 		waitForVisibility(multipleselect.pressMultipleChoice);
 
 		multipleselect.pressMultipleChoice.click();
@@ -750,7 +750,7 @@ public class actionsMultipleSelect extends testBase {
 
 				} catch (Exception e) {
 
-					
+
 				}
 
 			}

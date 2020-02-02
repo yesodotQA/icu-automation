@@ -1,6 +1,6 @@
-	package pages.documents;
+package pages.documents;
 	
-	import java.util.ArrayList;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.openqa.selenium.WebElement;

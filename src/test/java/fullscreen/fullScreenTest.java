@@ -1,15 +1,5 @@
-package fullScreen;
+package fullscreen;
 
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.Test;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.Test;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.Test;
-import org.testng.annotations.BeforeClass;
-import java.awt.AWTException;
 import java.io.IOException;
 
 import org.openqa.selenium.WebElement;
@@ -25,6 +15,7 @@ import global.globalActions.randomActions;
 import global.globalElements.middlePane;
 import pages.fullScreen.fullScreenFunctions;
 import task.tasksTest;
+
 
 public class fullScreenTest extends testBase {
 

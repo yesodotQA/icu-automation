@@ -33,16 +33,16 @@
 		<classes>
 			<class name="document.documentsTest" />
 		</classes>
-	</test> -->
+	</test>
 
-	<!-- <test name="meetings">
+	<test name="meetings">
 		<classes>
 			<class name="meetings.meetingsTest" />
 		</classes>
-	</test> -->
+	</test>
 
 
-	<!--  <test name="project">
+	 <test name="project">
 
 		<classes>
 			<class name="project.projectsTest" />

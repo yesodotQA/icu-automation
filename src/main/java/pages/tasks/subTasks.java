@@ -16,7 +16,6 @@ import global.globalActions.actionsMiddlePane;
 import global.globalActions.actionsMultipleSelect;
 import global.globalActions.actionsRightSide;
 import global.globalElements.Tabs;
-import global.globalElements.middlePane;
 import global.globalElements.multipleSelect;
 import global.globalElements.theRightOfTheScreen;
 import pages.documents.documentsMiddlePane;

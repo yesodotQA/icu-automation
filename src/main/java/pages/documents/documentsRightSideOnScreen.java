@@ -12,11 +12,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import com.aventstack.extentreports.Status;
 
 import base.testBase;
-import global.globalActions.actionsMiddlePane;
-import global.globalElements.Tabs;
-import global.globalElements.middlePane;
-import global.globalElements.multipleSelect;
-import global.globalElements.theRightOfTheScreen;
 
 	public class documentsRightSideOnScreen extends testBase {
 		

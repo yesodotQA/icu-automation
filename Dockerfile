@@ -8,7 +8,7 @@ WORKDIR /usr/share/tag
 
 #ADD  target/ICU-2.0.7-icu.jar /usr/share/tag/container-test.jar
 #ADD testng.xml /usr/share/tag/testng.xml
-ADD  target/ICU-2.0.7-icu.jar selenium-docker.jar
+#ADD  target/ICU-2.0.7-icu.jar selenium-docker.jar
 ADD  target/selenium-docker-tests.jar selenium-docker-tests.jar
 ADD  target/libs libs
 

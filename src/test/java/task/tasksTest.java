@@ -5,7 +5,7 @@ import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
 import java.io.IOException;
 import base.testBase;
-import document.documentsTest;
+//import documentsTest.documentsTest;
 import global.globalActions.actionsMiddlePane;
 import global.globalActions.actionsMultipleSelect;
 import global.globalActions.actionsRightSide;
@@ -35,7 +35,7 @@ public class tasksTest  extends testBase {
 	documentsMiddlePane documentsmiddlepane;
 	randomActions randomaction;
 	documentsFromTasks documentsfromtasks;
-	documentsTest documentstest;
+//	documentsTest documentstest;
 	documentsRightSideOnScreen documentsrightside;
 
 	@BeforeClass
@@ -53,7 +53,7 @@ public class tasksTest  extends testBase {
 		this.tabs = new Tabs();
 		this.randomaction = new randomActions();
 		this.documentsfromtasks = new documentsFromTasks();
-		this.documentstest = new documentsTest();
+	//	this.documentstest = new documentsTest();
 		this.documentsrightside = new documentsRightSideOnScreen();
 		tasksmultipleselect.pressTask();
 		actionsmultipleselect.deleteAllEntities();

@@ -23,6 +23,7 @@ import pages.tasks.tasksMiddlePane;
 import pages.tasks.tasksRightSideOfScreen;
 import task.tasksTest;
 
+
 public class meetingsTest extends testBase {
 
 	documentsMultipleSelect    documentsmultipleselect;

@@ -1,10 +1,10 @@
-fullScreen/fullScreenTest.class
+fullscreen/fullScreenTest.class
 offices/officesTest.class
 templateDoc/templateDocTest.class
 folder/folderTest.class
 document/documentsTest.class
-Search/searchTest.class
 task/tasksTest.class
 profilepage/ProfileTest.class
+search/searchTest.class
 meetings/meetingsTest.class
 project/projectsTest.class
