@@ -2,7 +2,7 @@ image: "ubuntu:bionic"
 
 before_script:
   - apt update
-  - apt install default-jdk maven -y
+  - apt install default-jdk maven git -y
   - git clone https://$GITUSER:$GITPASS@https://gitlab.com/yesodot/iron/qa/root---automation.git 
 
 compile:
