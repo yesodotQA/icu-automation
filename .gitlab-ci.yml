@@ -1,8 +1,5 @@
-image: "ubuntu:bionic"
+image: "qayesodot/qayesodot:jdk_mvn"
 
-before_script:
-  - apt update
-  - apt install default-jdk maven git -y 
 
 compile:
   script:
