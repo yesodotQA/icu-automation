@@ -49,6 +49,7 @@ public class actionsRightSide extends testBase {
 
 	// TEST FUNCTION THAT CHECK DELETE ENTITY
 	public void deleteEntity() throws InterruptedException {
+		
 		actionmiddlepane.openEntity("delete entity", "1234");
 		int size =middlepane.listOfEntities.size() ;
 

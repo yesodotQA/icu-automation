@@ -26,7 +26,7 @@ public class folderTest extends testBase{
 	randomActions randomactions;
 	documentsFromFolder docfromfolder;
 	documentsTest documentstest;
-
+	
 	@BeforeClass
 	public void SetUp() throws InterruptedException, IOException{	
 
@@ -56,7 +56,7 @@ public class folderTest extends testBase{
 		actionsmiddlepane.openEntity("folder1" , "importenet");
 
 		actionsmultipleselect.deleteEntityMultipleChoice();
-
+		
 	}
 
 	@Test(priority = 2)

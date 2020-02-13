@@ -19,7 +19,8 @@ public class actionsMiddlePane extends testBase {
 	middlePane middlepane;
 	multipleSelect multipleselect;
 	theRightOfTheScreen therightonthescreen;
-
+	public static int x;
+	
 	public actionsMiddlePane(){
 
 		this.multipleselect = new multipleSelect();
@@ -27,14 +28,18 @@ public class actionsMiddlePane extends testBase {
 		this.tabs = new Tabs();
 		this.therightonthescreen = new theRightOfTheScreen();
 		PageFactory.initElements(driver, this);
+		
 	}
 
 	private void waitForVisibility (WebElement element)  {
 
 		wait.until(ExpectedConditions.visibilityOf(element));
-
+	
+	
 	}
 
+	
+	
 	//a function that open new entity and give title and description
 	public void openEntity(String tit , String des) throws InterruptedException {
 		

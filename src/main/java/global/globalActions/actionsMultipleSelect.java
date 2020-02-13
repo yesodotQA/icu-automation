@@ -55,7 +55,7 @@ public class actionsMultipleSelect extends testBase {
 
 	//a function that delete entity using multiple select 
 	public void deleteEntityMultipleChoice() throws InterruptedException {
-
+		
 		int size =middlepane.listOfEntities.size();
 
 		System.out.println(middlepane.listOfEntities.size());
