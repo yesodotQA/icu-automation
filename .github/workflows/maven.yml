@@ -1,0 +1,15 @@
+name: Java CI
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: qayesodot/qayesodot:jdk_mvn
+
+    steps:
+    - uses: actions/checkout@v2
+
+
+    - name: Build with Maven
+      run: mvn clean compile test-compile
