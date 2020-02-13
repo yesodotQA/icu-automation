@@ -19,4 +19,4 @@ jobs:
     - uses: actions/upload-artifact@v1
       with:
         name: icu-automation
-        path: path/to/home/runner/work/icu-automation/icu-automation
+        path: /home/runner/work/icu-automation/icu-automation
