@@ -1,0 +1,8 @@
+image: "qayesodot/qayesodot:jdk_mvn"
+
+
+compile:
+  script:
+    - mvn clean compile test-compile
+
+
