@@ -5,13 +5,13 @@ on: [push]
 jobs:
   build:
 
-    runs-on: ubuntu-16.04
+    runs-on: ubuntu-18.04
 
     steps:
     - uses: actions/checkout@v2
     - name: update JDK and MVN
       run: |
-        apt update
-        apt install default-jdk maven git -y 
+        sudo apt update
+        sudo apt install default-jdk maven git -y 
     - name: Build with Maven
       run: mvn clean compile test-compile
